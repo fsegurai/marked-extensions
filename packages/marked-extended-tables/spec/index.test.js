@@ -1,19 +1,19 @@
-import { marked } from "marked";
-import markedExtendedTables from "../src/index.js";
+import { marked } from 'marked';
+import markedExtendedTables from '../src/index.js';
 
 function trimLines(s) {
   return s
-    .split("\n")
+    .split('\n')
     .map(l => l.trim())
-    .join("\n");
+    .join('\n');
 }
 
-describe("extended-table", () => {
+describe('extended-table', () => {
   beforeEach(() => {
     marked.setOptions(marked.getDefaults());
   });
 
-  test("Column Spanning", () => {
+  test('Column Spanning', () => {
     marked.use(markedExtendedTables());
     expect(
       marked(
@@ -26,7 +26,7 @@ describe("extended-table", () => {
     ).toMatchSnapshot();
   });
 
-  test("Row Spanning", () => {
+  test('Row Spanning', () => {
     marked.use(markedExtendedTables());
     expect(
       marked(
@@ -41,7 +41,7 @@ describe("extended-table", () => {
     ).toMatchSnapshot();
   });
 
-  test("Multi-row headers", () => {
+  test('Multi-row headers', () => {
     marked.use(markedExtendedTables());
     expect(
       marked(
