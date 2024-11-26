@@ -1,8 +1,8 @@
-<p align="center">
-  <img alt="Makred Extensions Logo" src="https://raw.githubusercontent.com/fsegurai/marked-extensions/main/demo/public/marked-extensions.svg">
+<p align="center" class="intro">
+  <img alt="Marked Extensions Logo" src="https://raw.githubusercontent.com/fsegurai/marked-extensions/main/demo/public/marked-extensions.svg">
 </p>
 
-<p align="center">
+<p align="center" class="intro">
   <a href="https://github.com/fsegurai/marked-extensions/actions/workflows/release-library.yml">
       <img src="https://github.com/fsegurai/marked-extensions/actions/workflows/release-library.yml/badge.svg"
           alt="Build Status">
@@ -55,9 +55,9 @@ import { markedExtendedTables } from "@fsegurai/marked-extended-tables";
 marked.use(markedExtendedTables());
 
 marked(`
-      | H1      | H2      | H3      |
-      |---------|---------|---------|
-      | This cell spans 3 columns |||
+      | H1                        | H2  | H3  |
+      | ------------------------- | --- | --- |
+      | This cell spans 3 columns |     |     |
     `);
 
 /**

@@ -37,14 +37,9 @@
       margin: 0.5em 0;
     }
 
-    & p > img {
+    & p > img:not(.intro) {
       width: calc((100% / 3) * 2);
       aspect-ratio: 16 / 9;
-    }
-
-    & p > img[alt='Marked Extensions Logo'] {
-      width: calc(100% / 3);
-      border-radius: 50%;
     }
 
     & a {
@@ -115,11 +110,11 @@
     & th,
     & td {
       padding: 0.6em 1em;
-      border: 1px solid #dfe2e5;
+      border: 1px solid #0064c6;
     }
 
     & th {
-      background-color: #f6f8fa;
+      background-color: #d8ecff;
       font-weight: 600;
       color: #24292e;
     }

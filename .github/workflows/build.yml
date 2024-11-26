@@ -13,9 +13,7 @@ jobs:
     environment: FSI_DEP_NodeJs
     strategy:
       matrix:
-        package: [
-            marked-extended-tables
-          ]
+        package: [marked-extended-tables]
 
     steps:
       - name: Checkout code
