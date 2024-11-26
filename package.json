@@ -1,0 +1,92 @@
+{
+  "name": "@fsegurai/marked-extensions",
+  "version": "1.0.0",
+  "description": "Extensions for Markedjs",
+  "type": "module",
+  "license": "MIT",
+  "author": {
+    "name": "Fabián Segura",
+    "url": "https://www.fsegurai.com/"
+  },
+  "homepage": "https://github.com/fsegurai/marked-extensions#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fsegurai/marked-extensions.git"
+  },
+  "bugs": {
+    "url": "https://github.com/fsegurai/marked-extensions/issues"
+  },
+  "keywords": [
+    "parser",
+    "markedjs",
+    "extension"
+  ],
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "clean:demo": "rimraf --glob ./demo/dist && rimraf --glob ./demo/README.md && rimraf --glob ./demo/LICENSE",
+    "clean:packages": "rimraf --glob ./packages/*/dist",
+    "start": "rollup -w -c rollup.config.js",
+    "build:demo": "rollup -c rollup.config.js",
+    "postBuild:demo": "cpy ./README.md ./demo && cpy ./LICENSE ./demo",
+    "build:packages": "npm run prepare --workspaces",
+    "test": "jest --verbose",
+    "test:clean": "jest --updateSnapshot",
+    "test:cover": "jest --coverage",
+    "test:types": "npm run test:types --workspaces",
+    "lint": "npm run lint:demo && npm run lint:packages",
+    "lint:demo": "eslint ./demo",
+    "lint:packages": "eslint ./packages/*/src/**"
+  },
+  "prettier": {
+    "arrowParens": "avoid",
+    "singleQuote": true,
+    "bracketSpacing": true,
+    "endOfLine": "lf",
+    "semi": false,
+    "tabWidth": 2,
+    "trailingComma": "none"
+  },
+  "dependencies": {
+    "github-slugger": "^2.0.0",
+    "@material/web": "^2.2.0",
+    "clipboard": "^2.0.11",
+    "codemirror": "^6.0.1",
+    "marked": "^12.0.2",
+    "marked-highlight": "^2.2.1",
+    "prismjs": "^1.29.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.25.9",
+    "@babel/preset-env": "^7.25.9",
+    "@eslint/js": "^9.15.0",
+    "@rollup/plugin-commonjs": "^28.0.1",
+    "@rollup/plugin-node-resolve": "^15.3.0",
+    "@rollup/plugin-replace": "^6.0.1",
+    "@rollup/plugin-typescript": "^12.1.1",
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/commit-analyzer": "^13.0.0",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/github": "^11.0.0",
+    "@semantic-release/npm": "^12.0.1",
+    "@semantic-release/release-notes-generator": "^14.0.1",
+    "@types/jest": "^29.5.14",
+    "@types/prismjs": "^1.26.5",
+    "babel-jest": "^29.7.0",
+    "cpy-cli": "^5.0.0",
+    "dotenv": "^16.4.5",
+    "eslint": "^9.15.0",
+    "globals": "^15.11.0",
+    "jest-cli": "^29.7.0",
+    "prettier": "^3.3.3",
+    "rimraf": "^6.0.1",
+    "rollup": "^4.24.0",
+    "rollup-plugin-dev": "^2.0.5",
+    "semantic-release": "^24.1.3",
+    "tsd": "^0.31.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.3",
+    "typescript-eslint": "^8.15.0"
+  }
+}
