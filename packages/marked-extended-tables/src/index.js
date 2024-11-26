@@ -2,8 +2,8 @@ export default function() {
   return {
     extensions: [
       {
-        name: "spanTable",
-        level: "block", // Is this a block-level or inline-level tokenizer?
+        name: 'spanTable',
+        level: 'block', // Is this a block-level or inline-level tokenizer?
         start(src) {
           return src.match(/^\n *([^\n ].*\|.*)\n/)?.index;
         }, // Hint to Marked.js to stop and check for a match
@@ -11,22 +11,22 @@ export default function() {
         tokenizer(src, tokens) {
           // const regex = this.tokenizer.rules.block.table;
           const regex = new RegExp(
-            "^ *([^\\n ].*\\|.*\\n(?: *[^\\s].*\\n)*?)" // Header
-              + " {0,3}(?:\\| *)?(:?-+:? *(?:\\| *:?-+:? *)*)(?:\\| *)?" // Align
-              + "(?:\\n((?:(?! *\\n| {0,3}((?:- *){3,}|(?:_ *){3,}|(?:\\* *){3,})" // Cells
-              + "(?:\\n+|$)| {0,3}#{1,6} | {0,3}>| {4}[^\\n]| {0,3}(?:`{3,}"
-              + "(?=[^`\\n]*\\n)|~{3,})[^\\n]*\\n| {0,3}(?:[*+-]|1[.)]) |"
-              + "<\\/?(?:address|article|aside|base|basefont|blockquote|body|"
-              + "caption|center|col|colgroup|dd|details|dialog|dir|div|dl|dt|fieldset|figcaption|figure|footer|form|frame|frameset|h[1-6]|head|header|hr|html|iframe|legend|li|link|main|menu|menuitem|meta|nav|noframes|ol|optgroup|option|p|param|section|source|summary|table|tbody|td|tfoot|th|thead|title|tr|track|ul)(?: +|\\n|\\/?>)|<(?:script|pre|style|textarea|!--)).*(?:\\n|$))*)\\n*|$)",
+            '^ *([^\\n ].*\\|.*\\n(?: *[^\\s].*\\n)*?)' // Header
+              + ' {0,3}(?:\\| *)?(:?-+:? *(?:\\| *:?-+:? *)*)(?:\\| *)?' // Align
+              + '(?:\\n((?:(?! *\\n| {0,3}((?:- *){3,}|(?:_ *){3,}|(?:\\* *){3,})' // Cells
+              + '(?:\\n+|$)| {0,3}#{1,6} | {0,3}>| {4}[^\\n]| {0,3}(?:`{3,}'
+              + '(?=[^`\\n]*\\n)|~{3,})[^\\n]*\\n| {0,3}(?:[*+-]|1[.)]) |'
+              + '<\\/?(?:address|article|aside|base|basefont|blockquote|body|'
+              + 'caption|center|col|colgroup|dd|details|dialog|dir|div|dl|dt|fieldset|figcaption|figure|footer|form|frame|frameset|h[1-6]|head|header|hr|html|iframe|legend|li|link|main|menu|menuitem|meta|nav|noframes|ol|optgroup|option|p|param|section|source|summary|table|tbody|td|tfoot|th|thead|title|tr|track|ul)(?: +|\\n|\\/?>)|<(?:script|pre|style|textarea|!--)).*(?:\\n|$))*)\\n*|$)',
           ); // Cells
           const cap = regex.exec(src);
 
           if (cap) {
             const item = {
-              type: "spanTable",
-              header: cap[1].replace(/\n$/, "").split("\n"),
-              align: cap[2].replace(/^ *|\| *$/g, "").split(/ *\| */),
-              rows: cap[3] ? cap[3].replace(/\n$/, "").split("\n") : [],
+              type: 'spanTable',
+              header: cap[1].replace(/\n$/, '').split('\n'),
+              align: cap[2].replace(/^ *|\| *$/g, '').split(/ *\| */),
+              rows: cap[3] ? cap[3].replace(/\n$/, '').split('\n') : [],
             };
 
             // Get first header row to determine how many columns
@@ -46,11 +46,11 @@ export default function() {
 
               for (i = 0; i < l; i++) {
                 if (/^ *-+: *$/.test(item.align[i])) {
-                  item.align[i] = "right";
+                  item.align[i] = 'right';
                 } else if (/^ *:-+: *$/.test(item.align[i])) {
-                  item.align[i] = "center";
+                  item.align[i] = 'center';
                 } else if (/^ *:-+ *$/.test(item.align[i])) {
-                  item.align[i] = "left";
+                  item.align[i] = 'left';
                 } else {
                   item.align[i] = null;
                 }
@@ -101,38 +101,38 @@ export default function() {
         },
         renderer(token) {
           let i, j, row, cell, col, text;
-          let output = "<table>";
-          output += "<thead>";
+          let output = '<table>';
+          output += '<thead>';
           for (i = 0; i < token.header.length; i++) {
             row = token.header[i];
             let col = 0;
-            output += "<tr>";
+            output += '<tr>';
             for (j = 0; j < row.length; j++) {
               cell = row[j];
               text = this.parser.parseInline(cell.tokens);
-              output += getTableCell(text, cell, "th", token.align[col]);
+              output += getTableCell(text, cell, 'th', token.align[col]);
               col += cell.colspan;
             }
-            output += "</tr>";
+            output += '</tr>';
           }
-          output += "</thead>";
+          output += '</thead>';
           if (token.rows.length) {
-            output += "<tbody>";
+            output += '<tbody>';
             for (i = 0; i < token.rows.length; i++) {
               row = token.rows[i];
               col = 0;
-              output += "<tr>";
+              output += '<tr>';
               for (j = 0; j < row.length; j++) {
                 cell = row[j];
                 text = this.parser.parseInline(cell.tokens);
-                output += getTableCell(text, cell, "td", token.align[col]);
+                output += getTableCell(text, cell, 'td', token.align[col]);
                 col += cell.colspan;
               }
-              output += "</tr>";
+              output += '</tr>';
             }
-            output += "</tbody>";
+            output += '</tbody>';
           }
-          output += "</table>";
+          output += '</table>';
           return output;
         },
       },
@@ -142,13 +142,13 @@ export default function() {
 
 const getTableCell = (text, cell, type, align) => {
   if (!cell.rowspan) {
-    return "";
+    return '';
   }
   const tag =
     `<${type}`
-    + `${cell.colspan > 1 ? ` colspan=${cell.colspan}` : ""}`
-    + `${cell.rowspan > 1 ? ` rowspan=${cell.rowspan}` : ""}`
-    + `${align ? ` align=${align}` : ""}>`;
+    + `${cell.colspan > 1 ? ` colspan=${cell.colspan}` : ''}`
+    + `${cell.rowspan > 1 ? ` rowspan=${cell.rowspan}` : ''}`
+    + `${align ? ` align=${align}` : ''}>`;
   return `${tag + text}</${type}>\n`;
 };
 
@@ -173,12 +173,12 @@ const splitCells = (tableRow, count, prevRow = []) => {
     cells[i] = {
       rowspan: 1,
       colspan: Math.max(cells[i].length - trimmedCell.length, 1),
-      text: trimmedCell.trim().replace(/\\\|/g, "|"),
+      text: trimmedCell.trim().replace(/\\\|/g, '|'),
       // display escaped pipes as normal character
     };
 
     // Handle Rowspan
-    if (trimmedCell.slice(-1) === "^" && prevRow.length) {
+    if (trimmedCell.slice(-1) === '^' && prevRow.length) {
       // Find matching cell in previous row
       prevCols = 0;
       for (j = 0; j < prevRow.length; j++) {
@@ -208,7 +208,7 @@ const splitCells = (tableRow, count, prevRow = []) => {
     while (numCols < count) {
       cells.push({
         colspan: 1,
-        text: "",
+        text: '',
       });
       numCols += 1;
     }

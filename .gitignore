@@ -100,7 +100,6 @@ chrome-profiler-events*.json
 # System/package locks
 .lock-wscript
 connect.lock
-package-lock.json
 
 # Environment variables
 .env
