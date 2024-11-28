@@ -37,6 +37,10 @@
       margin: 0.5em 0;
     }
 
+    & p.intro > img[alt*='Marked Extensions Logo'] {
+      border-radius: 10%;
+    }
+
     & p:not(.intro) > img {
       width: calc((100% / 3) * 2);
       aspect-ratio: 16 / 9;
