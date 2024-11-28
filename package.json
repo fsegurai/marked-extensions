@@ -1,6 +1,6 @@
 {
   "name": "@fsegurai/marked-extensions",
-  "version": "1.0.2",
+  "version": "15.0.0",
   "description": "Extensions for Markedjs",
   "type": "module",
   "license": "MIT",
@@ -31,10 +31,10 @@
     "build:demo": "rollup -c rollup.config.js",
     "postBuild:demo": "cpy ./README.md ./demo && cpy ./LICENSE ./demo",
     "build:packages": "npm run prepare --workspaces",
-    "test": "jest --verbose",
-    "test:clean": "jest --updateSnapshot",
-    "test:cover": "jest --coverage",
-    "test:types": "npm run test:types --workspaces",
+    "test:packages": "jest --verbose",
+    "test-clean:packages": "jest --updateSnapshot",
+    "test-cover:packages": "jest --coverage",
+    "test-types:packages": "npm run test:types --workspaces",
     "lint": "npm run lint:demo && npm run lint:packages",
     "lint:demo": "eslint ./demo",
     "lint:packages": "eslint ./packages/*/src/**"
@@ -53,7 +53,7 @@
     "@material/web": "^2.2.0",
     "clipboard": "^2.0.11",
     "codemirror": "^6.0.1",
-    "marked": "^12.0.2",
+    "marked": "^15.0.2",
     "marked-highlight": "^2.2.1",
     "prismjs": "^1.29.0"
   },

@@ -42,11 +42,11 @@ jobs:
       - name: Test Lint (Library)
         run: npm run lint:packages
 
-      - name: Unit Test (Library)
-        run: npm run test
-
       - name: Test Type (Library)
-        run: npm run test:types
+        run: npm run test-types:packages
+
+      - name: Unit Tests (Library)
+        run: npm run test:packages
 
   test_demo:
     runs-on: ubuntu-latest

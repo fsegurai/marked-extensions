@@ -1,6 +1,6 @@
 {
   "name": "@fsegurai/marked-extended-tables",
-  "version": "12.0.5",
+  "version": "15.0.0",
   "description": "Extended tables for Markedjs",
   "main": "./dist/index.cjs",
   "module": "./src/index.js",
@@ -39,6 +39,6 @@
   },
   "homepage": "https://github.com/fsegurai/marked-extensions#readme",
   "peerDependencies": {
-    "marked": ">=12 <13"
+    "marked": ">=13 <16"
   }
 }
