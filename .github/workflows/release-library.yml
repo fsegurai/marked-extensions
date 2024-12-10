@@ -39,20 +39,29 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up Bun - Version ${{ vars.BUN_VERSION }}
-        uses: oven-sh/setup-bun@v2
+      - name: Set up Node.js - Version ${{ vars.NODE_VERSION }}
+        uses: actions/setup-node@v4
         with:
-          bun-version: ${{ vars.BUN_VERSION }}
+          node-version: ${{ vars.NODE_VERSION }}
           registry-url: 'https://registry.npmjs.org/'
           scope: ${{ vars.NPM_ORG }}
+          always-auth: true
+
+      - name: Cache node modules
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
 
       - name: Install dependencies
-        run: bun install
+        run: npm ci
 
       - name: Build ${{ matrix.package }} package
         run: |
           cd packages/${{ matrix.package }}
-          bun run prepare
+          npm run prepare
 
       - name: Get package version
         id: get_version
@@ -79,12 +88,12 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           cd packages/${{ matrix.package }}
-          bun publish --tag ${{ steps.determine_tag.outputs.TAG }} --access public || echo "Package already published in NPM, skipping..."
+          npm publish --tag ${{ steps.determine_tag.outputs.TAG }} --access public || echo "Package already published in NPM, skipping..."
 
-      - name: Set up Bun - Version ${{ vars.BUN_VERSION }}
-        uses: oven-sh/setup-bun@v2
+      - name: Set up Node.js for GitHub registry
+        uses: actions/setup-node@v4
         with:
-          bun-version: ${{ vars.BUN_VERSION }}
+          node-version: ${{ vars.NODE_VERSION }}
           registry-url: 'https://npm.pkg.github.com/'
           scope: ${{ vars.NPM_ORG }}
           always-auth: true
@@ -95,4 +104,4 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_GH_TOKEN }}
         run: |
           cd packages/${{ matrix.package }}
-          bun publish --tag ${{ steps.determine_tag.outputs.TAG }} && bun semantic-release || echo "Package already published in GitHub NPM, skipping..."
+          npm publish --tag ${{ steps.determine_tag.outputs.TAG }} && npx semantic-release || echo "Package already published in GitHub NPM, skipping..."
