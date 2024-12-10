@@ -19,6 +19,7 @@ dependencies:
       - any-glob-to-any-file: [
         'package-lock.json',
         'yarn.lock',
+        'bun.lockb',
       ]
 
 ci-cd:
