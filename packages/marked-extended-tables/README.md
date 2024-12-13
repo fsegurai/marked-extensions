@@ -24,15 +24,16 @@
 
 **A library of extended tables for Marked.js.**
 
-`@fsegurai/marked-extended-tables` is a theme for CodeMirror 6 editor, making it visually engaging and adaptable to different coding styles and user preferences.
+`@fsegurai/marked-extended-tables` is an extension for Marked.js, allowing for more complex table structures and
+styling. It adds support for tables with merged cells, row and column spans, and other advanced features.
 
 ### Table of contents
 
 - [Installation](#installation)
-  - [@fsegurai/marked-extended-tables](#fseguraimarked-extended-tables)
-  - [Using Extended Tables](#using-extended-tables)
-  - [Available Extensions](#available-extensions)
-  - [Demo Application](#demo-application)
+    - [@fsegurai/marked-extended-tables](#fseguraimarked-extended-tables)
+    - [Using Extended Tables](#using-extended-tables)
+    - [Available Extensions](#available-extensions)
+    - [Demo Application](#demo-application)
 - [License](#license)
 
 ## Installation
@@ -91,7 +92,8 @@ Read the [Marked.js documentation](https://marked.js.org/) for more details abou
 
 ### Demo Application
 
-To see all themes in action, check out the demo: [https://fsegurai.github.io/marked-extensions](https://fsegurai.github.io/marked-extensions).
+To see all themes in action, check out the
+demo: [https://fsegurai.github.io/marked-extensions](https://fsegurai.github.io/marked-extensions).
 
 To set up the demo locally:
 

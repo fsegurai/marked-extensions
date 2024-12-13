@@ -1,7 +1,8 @@
 import { marked } from 'marked';
 import { markedHighlight } from 'marked-highlight';
 
-import markedExtendedTables from '../../../packages/marked-extended-tables/src/index';
+import markedExtendedLists from '@fsegurai/marked-extended-lists';
+import markedExtendedTables from '@fsegurai/marked-extended-tables';
 
 import prismjs from 'prismjs';
 import ClipboardJS from 'clipboard';
@@ -17,6 +18,7 @@ import 'prismjs/components/prism-markup';
 import 'prismjs/components/prism-typescript';
 
 marked.use(
+  markedExtendedLists(),
   markedExtendedTables(),
   markedHighlight({
     emptyLangClass: 'language-plaintext',

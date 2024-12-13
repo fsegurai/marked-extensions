@@ -1,7 +1,7 @@
 {
-  "name": "@fsegurai/marked-extended-tables",
+  "name": "@fsegurai/marked-extended-lists",
   "version": "15.0.0",
-  "description": "Extended tables for Marked.js",
+  "description": "Extended lists for Marked.js",
   "main": "./dist/index.cjs",
   "module": "./src/index.js",
   "browser": "./dist/index.umd.js",
