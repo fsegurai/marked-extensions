@@ -18,10 +18,10 @@
     "target": "ES2022",
     "module": "ES2022",
     "useDefineForClassFields": false,
-    "lib": ["ES2022", "dom"],
-    "paths": {
-      "@md-extension": ["packages/*"]
-    }
+    "lib": [
+      "ES2022",
+      "dom"
+    ],
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
