@@ -49,10 +49,9 @@
     "trailingComma": "none"
   },
   "dependencies": {
-    "github-slugger": "^2.0.0",
     "@material/web": "^2.2.0",
     "clipboard": "^2.0.11",
-    "codemirror": "^6.0.1",
+    "github-slugger": "^2.0.0",
     "marked": "^15.0.2",
     "marked-highlight": "^2.2.1",
     "prismjs": "^1.29.0"
