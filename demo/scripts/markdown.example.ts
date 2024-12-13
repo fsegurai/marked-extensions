@@ -76,6 +76,6 @@ const mdSample = ` # Markdown Extended Tables
 ---
 
 
-`
+`;
 
-export default mdSample
+export default mdSample;

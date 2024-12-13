@@ -1,4 +1,4 @@
-import type { MarkedExtension } from 'marked'
+import type { MarkedExtension } from 'marked';
 
 /**
  * Adds support for extended lists in marked.
@@ -6,7 +6,7 @@ import type { MarkedExtension } from 'marked'
  * - Ordered lists with different types (numeric, alphabetic, roman)
  * - Task lists with checkboxes
  */
-export default function markedExtendedLists(): MarkedExtension
+export default function markedExtendedLists(): MarkedExtension;
 
 /**
  * Token representing an extended list.
