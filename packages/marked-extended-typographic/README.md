@@ -7,8 +7,8 @@
       <img src="https://github.com/fsegurai/marked-extensions/actions/workflows/release-library.yml/badge.svg"
           alt="Build Status">
   </a>
-  <a href="https://www.npmjs.org/package/@fsegurai/marked-extended-lists">
-      <img src="https://img.shields.io/npm/v/@fsegurai/marked-extended-lists.svg"
+  <a href="https://www.npmjs.org/package/@fsegurai/marked-extended-typographic">
+      <img src="https://img.shields.io/npm/v/@fsegurai/marked-extended-typographic.svg"
           alt="Latest Release">
   </a>
   <br>
@@ -24,19 +24,12 @@
 
 **A library of extended lists for Marked.js.**
 
-`@fsegurai/marked-extended-lists` is an extensions for Marked.js that adds support for extended lists. It allows you to
-create lists with different types of markers and nested lists with different types of markers, like `a.`, `A.`, `i.`,
-`I.`, and other patterns to be rendered as `<ol>` elements with corresponding `type` values (e.g., `<ol type="a">`).
-
-It also adds support for lists that start with a custom value or that skips values, by using the `value` attribute on
-the list item.
-
-This enables more flexible list formatting in Markdown, enhancing the output to match the intended ordering style.
+`@fsegurai/marked-extended-typographic` is an extensions for Marked.js that adds support for extended typographic characters to easily translate plain ASCII punctuation characters into "smart" typographic punctuation HTML entities.
 
 ### Table of contents
 
 - [Installation](#installation)
-    - [@fsegurai/marked-extended-lists](#fseguraimarked-extended-lists)
+    - [@fsegurai/marked-extended-typographic](#fseguraimarked-extended-typographic)
     - [Using Extended Lists](#using-extended-lists)
     - [Available Extensions](#available-extensions)
     - [Demo Application](#demo-application)
@@ -44,53 +37,44 @@ This enables more flexible list formatting in Markdown, enhancing the output to 
 
 ## Installation
 
-### @fsegurai/marked-extended-lists
+### @fsegurai/marked-extended-typographic
 
-To add `@fsegurai/marked-extended-lists` along with Marked.js to your `package.json` use the following commands.
+To add `@fsegurai/marked-extended-typographic` along with Marked.js to your `package.json` use the following commands.
 
 ```bash
-npm install @fsegurai/marked-extended-lists marked@^12.0.2 --save
+npm install @fsegurai/marked-extended-typographic marked@^12.0.2 --save
 ```
 
 ### Using Extended Lists
 
-Import `@fsegurai/marked-extended-lists` and apply it to your Marked instance as shown below.
+Import `@fsegurai/marked-extended-typographic` and apply it to your Marked instance as shown below.
 
 ```javascript
-import { marked } from "marked";
-import markedExtendedLists from "@fsegurai/marked-extended-lists";
+import { marked } from 'marked'
+import markedExtendedTypographic from '@fsegurai/marked-extended-typographic'
 
 // or UMD script
 // <script src="https://cdn.jsdelivr.net/npm/marked/lib/marked.umd.js"></script>
-// <script src="https://cdn.jsdelivr.net/npm/@fsegurai/marked-extended-lists/lib/index.umd.js"></script>
+// <script src="https://cdn.jsdelivr.net/npm/@fsegurai/marked-extended-typographic/lib/index.umd.js"></script>
 
-marked.use(markedExtendedLists());
+marked.use(markedExtendedTypographic())
 
 const exampleMarkdown = `
-1. item 1
-2. item 2
-    a. item 2a
-        I.  sub item I
-        II. sub item II
-    e. item 2e
-7. item 7
-`;
+He said, -- \"A 'simple' sentence. . .\" --- unknown
 
-marked.parse(exampleMarkdown);
-// <ol>
-//   <li>item 1</li>
-//   <li>item 2
-//     <ol type="a">
-//       <li>item 2a</li>
-//       <ol type="I">
-//         <li>sub item I</li>
-//         <li>sub item II</li>
-//       </ol>
-//       <li value="5">item 2e</li>
-//     </ol>
-//   </li>
-//   <li value="7">item 7</li>
-// </ol>
+(omega) - (alpha) - (beta)
+
+Copyright (C) 2024. All rights reserved.
+`
+
+marked.parse(exampleMarkdown)
+
+// Output:
+// <p>He said, — "A 'simple' sentence. . ." — unknown</p>
+
+// <p>(ω) - (α) - (β)</p>
+
+// <p>Copyright © 2024. All rights reserved.</p>
 ```
 
 Read the [Marked.js documentation](https://marked.js.org/) for more details about its usage.

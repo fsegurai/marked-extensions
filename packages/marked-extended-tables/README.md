@@ -88,7 +88,9 @@ Read the [Marked.js documentation](https://marked.js.org/) for more details abou
 
 ### Available Extensions
 
+- [Marked Extended Lists](https://github.com/fsegurai/marked-extensions/tree/main/packages/marked-extended-lists)
 - [Marked Extended Tables](https://github.com/fsegurai/marked-extensions/tree/main/packages/marked-extended-tables)
+- [Marked Extended Typographic](https://github.com/fsegurai/marked-extensions/tree/main/packages/marked-extended-typographic)
 
 ### Demo Application
 

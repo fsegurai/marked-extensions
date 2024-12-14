@@ -16,6 +16,7 @@ jobs:
         package: [
           marked-extended-tables,
           marked-extended-lists,
+          marked-extended-typographic,
         ]
 
     steps:
