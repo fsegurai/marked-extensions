@@ -75,7 +75,15 @@ const mdSample = ` # Markdown Extended Tables
 
 ---
 
+# Markdown Extended Typography
 
+He said, -- \\"A 'simple' sentence. . .\\" --- unknown
+
+(omega) - (alpha) - (beta)
+
+Copyright (C^) 2024. All rights reserved.
+
+---
 `;
 
 export default mdSample;
