@@ -64,7 +64,7 @@ He said, -- \"A 'simple' sentence. . .\" --- unknown
 
 (omega) - (alpha) - (beta)
 
-Copyright (C) 2024. All rights reserved.
+Copyright (C^) 2024. All rights reserved.
 `
 
 marked.parse(exampleMarkdown)
