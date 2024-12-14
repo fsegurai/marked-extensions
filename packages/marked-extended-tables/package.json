@@ -18,8 +18,13 @@
     }
   },
   "keywords": [
+    "parser",
+    "markedjs",
+    "extension",
     "marked",
-    "extension"
+    "marked-extended-lists",
+    "marked-extended-tables",
+    "marked-extended-typographic"
   ],
   "scripts": {
     "prepare": "rollup -c rollup.config.js",

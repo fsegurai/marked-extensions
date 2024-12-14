@@ -19,7 +19,11 @@
   "keywords": [
     "parser",
     "markedjs",
-    "extension"
+    "extension",
+    "marked",
+    "marked-extended-lists",
+    "marked-extended-tables",
+    "marked-extended-typographic"
   ],
   "workspaces": [
     "packages/*"
