@@ -22,7 +22,7 @@
   <img alt="Forks" src="https://img.shields.io/github/forks/fsegurai/marked-extensions?style=square&labelColor=343b41"/>
 </p>
 
-**A library of extended lists for Marked.js.**
+**A library of extended footnotes for Marked.js.**
 
 `@fsegurai/marked-extended-footnote` is an extensions for Marked.js that adds support for extended footnotes. 
 
@@ -30,7 +30,7 @@
 
 - [Installation](#installation)
     - [@fsegurai/marked-extended-footnote](#fseguraimarked-extended-footnote)
-    - [Using Extended Lists](#using-extended-lists)
+    - [Using Extended Footnotes](#using-extended-footnotes)
     - [Available Extensions](#available-extensions)
     - [Demo Application](#demo-application)
 - [License](#license)
@@ -45,7 +45,7 @@ To add `@fsegurai/marked-extended-footnote` along with Marked.js to your `packag
 npm install @fsegurai/marked-extended-footnote marked@^15.0.0 --save
 ```
 
-### Using Extended Lists
+### Using Extended Footnotes
 
 Import `@fsegurai/marked-extended-footnote` and apply it to your Marked instance as shown below.
 
@@ -91,7 +91,29 @@ marked.parse(exampleMarkdown)
 // </div>
 ```
 
+    By default, this plugin does not place footnote markers in square brackets ([1]), instead like this: 1. 
+    So you will need to add the style as shown below to your CSS:
+
+``` css
+/* Marked Extended Footnotes to style links references */
+[data-fnref-ref]::before {
+  content: '[';
+}
+
+[data-fnref-ref]::after {
+  content: ']';
+}
+```
+
 Read the [Marked.js documentation](https://marked.js.org/) for more details about its usage.
+
+### Options
+
+The marked-footnote extension accepts the following configuration options:
+
+* `prefixId`: The prefix ID for footnotes. Defaults to 'fnref-'.
+* `description`: The description of footnotes, used by aria-labeledby attribute. Defaults to 'Footnotes'.
+* `refMarkers`: If set to true, it will place footnote reference in square brackets, like this: [1]. Defaults to false.
 
 ### Available Extensions
 

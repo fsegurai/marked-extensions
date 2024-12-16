@@ -12,6 +12,16 @@
     max-width: 960px;
     margin: 0 auto;
 
+      /* Custom Extensions */
+      /* Marked Extended Footnotes to style links references */
+      [data-fnref-ref]::before {
+          content: '[';
+      }
+
+      [data-fnref-ref]::after {
+          content: ']';
+      }
+
     & h1,
     & h2,
     & h3,
