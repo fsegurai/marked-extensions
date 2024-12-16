@@ -79,6 +79,66 @@ marked.parse(exampleMarkdown)
 
 Read the [Marked.js documentation](https://marked.js.org/) for more details about its usage.
 
+### Options
+
+#### Special Characters
+
+```javascript
+(<<) - (guillemet-left)
+(>>) - (guillemet-right)
+(<-) - (arrow-left)
+(->) - (arrow-right)
+(<->) - (arrow-left-right)
+(<=>) - (double-arrow-left-right)
+(=>) - (arrow-right)
+(<==) - (double-arrow-left)
+(==>) - (double-arrow-right)
+(==) - (equivalent)
+(<=) - (less-than-or-equal)
+(>=) - (greater-than-or-equal)
+(+-) - (plus-minus)
+(-+) - (minus-plus)
+(x) - (multiplication)
+(/) - (division)
+(c^) - (copyright)
+(r^) - (registered)
+(tm^) - (trademark)
+(p^) - (sound-recording-copyright)
+(s^) - (section)
+(d^) - (dagger)
+(dd^) - (double-dagger)
+(p*) - (paragraph)
+```
+
+#### Greek Letters
+
+```javascript
+(alpha)
+(beta)
+(gamma)
+(delta)
+(epsilon)
+(zeta)
+(eta)
+(theta)
+(iota)
+(kappa)
+(lambda)
+(mu)
+(nu)
+(xi)
+(omicron)
+(pi)
+(rho)
+(sigma)
+(tau)
+(upsilon)
+(phi)
+(chi)
+(psi)
+(omega)
+```
+
 ### Available Extensions
 
 - [Marked Extended Footnote](https://github.com/fsegurai/marked-extensions/tree/main/packages/marked-extended-footnote)

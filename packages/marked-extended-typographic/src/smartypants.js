@@ -1,58 +1,6 @@
-const tags_to_skip = /<(\/?)(?:pre|code|kbd|script|math)[^>]*>/i;
+import { customReplacements } from './custom-replacements.js';
 
-const customReplacements = {
-  /* Special characters */
-  '\\(<<\\)': '«',
-  '\\(>>\\)': '»',
-  '\\(<-\\)': '←',
-  '\\(->\\)': '→',
-  '\\(<->\\)': '↔',
-  '\\(<=>\\)': '⇔',
-  '\\(=>\\)': '⇒',
-  '\\(<==\\)': '⇐',
-  '\\(==>\\)': '⇒',
-  '\\(==\\)': '≡',
-  '\\(<=\\)': '≤',
-  '\\(>=\\)': '≥',
-  '\\(+\\-\\)': '±',
-  '\\(-\\+\\)': '∓',
-  '\\(x\\)': '×',
-  '\\(/\\)': '÷',
-  /* Type of format is to avoid any confusion with the content the user is trying to replace */
-  '\\(C\\^\\)': '©',
-  '\\(R\\^\\)': '®',
-  '\\(TM\\^\\)': '™',
-  '\\(P\\^\\)': '℗',
-  '\\(S\\^\\)': '§',
-  '\\(D\\^\\)': '†',
-  '\\(DD\\^\\)': '‡',
-  '\\(P\\*\\)': '¶',
-  /* Greek letters */
-  '\\(alpha\\)': 'α',
-  '\\(beta\\)': 'β',
-  '\\(gamma\\)': 'γ',
-  '\\(delta\\)': 'δ',
-  '\\(epsilon\\)': 'ε',
-  '\\(zeta\\)': 'ζ',
-  '\\(eta\\)': 'η',
-  '\\(theta\\)': 'θ',
-  '\\(iota\\)': 'ι',
-  '\\(kappa\\)': 'κ',
-  '\\(lambda\\)': 'λ',
-  '\\(mu\\)': 'μ',
-  '\\(nu\\)': 'ν',
-  '\\(xi\\)': 'ξ',
-  '\\(omicron\\)': 'ο',
-  '\\(pi\\)': 'π',
-  '\\(rho\\)': 'ρ',
-  '\\(sigma\\)': 'σ',
-  '\\(tau\\)': 'τ',
-  '\\(upsilon\\)': 'υ',
-  '\\(phi\\)': 'φ',
-  '\\(chi\\)': 'χ',
-  '\\(psi\\)': 'ψ',
-  '\\(omega\\)': 'ω',
-};
+const tags_to_skip = /<(\/?)(?:pre|code|kbd|script|math)[^>]*>/i;
 
 /**
  * Validate the type of the attribute and normalize it to a string
