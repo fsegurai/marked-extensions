@@ -1,3 +1,5 @@
+'use strict';
+
 import SmartyPants from './smartypants.js';
 
 export default function({ config = 2 } = {}) {

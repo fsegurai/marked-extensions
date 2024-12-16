@@ -22,6 +22,7 @@
     "markedjs",
     "extension",
     "marked",
+    "marked-extended-footer",
     "marked-extended-lists",
     "marked-extended-tables",
     "marked-extended-typographic"

@@ -1,3 +1,5 @@
+'use strict';
+
 function letterToInt(letter) {
   return letter.toLowerCase().charCodeAt(0) - 96;
 }

@@ -34,6 +34,7 @@ jobs:
     strategy:
       matrix:
         package: [
+          marked-extended-footnote,
           marked-extended-tables,
           marked-extended-lists,
           marked-extended-typographic,

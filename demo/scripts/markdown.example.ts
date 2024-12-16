@@ -1,4 +1,18 @@
-const mdSample = ` # Markdown Extended Tables
+const mdSample = ` # Markdown Extended Footnotes 
+
+This is an inline footnote reference[^1].
+
+[^1]: This is the footnote.
+
+This is a block footnote reference[^2].
+
+[^2]:
+    This is the block footnote.
+    It can contain multiple lines.
+    
+---
+
+# Markdown Extended Tables
 
 ## Column Spanning
 
@@ -40,10 +54,8 @@ const mdSample = ` # Markdown Extended Tables
 
 1. Numeric
     1. Item 1
-    2. Item 2
 2. Alphabetic
     a. Item 1
-    b. Item 2
 3. Roman
     i. Item 1
     ii. Item 2
@@ -52,8 +64,7 @@ const mdSample = ` # Markdown Extended Tables
 
 - [x] Task 1
 - [ ] Task 2
-- [ ] Task 3
-- [x] Task 4
+- [x] Task 3
 
 ## Mixed lists
 
