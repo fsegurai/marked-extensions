@@ -1,6 +1,7 @@
 import { marked } from 'marked';
 import { markedHighlight } from 'marked-highlight';
 
+import markedExtendedFootnote from '@fsegurai/marked-extended-footnote';
 import markedExtendedLists from '@fsegurai/marked-extended-lists';
 import markedExtendedTables from '@fsegurai/marked-extended-tables';
 import markedExtendedTypographic from '@fsegurai/marked-extended-typographic';
@@ -19,6 +20,7 @@ import 'prismjs/components/prism-markup';
 import 'prismjs/components/prism-typescript';
 
 marked.use(
+  markedExtendedFootnote(),
   markedExtendedLists(),
   markedExtendedTables(),
   markedExtendedTypographic(),

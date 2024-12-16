@@ -49,7 +49,7 @@ This enables more flexible list formatting in Markdown, enhancing the output to 
 To add `@fsegurai/marked-extended-lists` along with Marked.js to your `package.json` use the following commands.
 
 ```bash
-npm install @fsegurai/marked-extended-lists marked@^12.0.2 --save
+npm install @fsegurai/marked-extended-lists marked@^15.0.0 --save
 ```
 
 ### Using Extended Lists
@@ -97,9 +97,10 @@ Read the [Marked.js documentation](https://marked.js.org/) for more details abou
 
 ### Available Extensions
 
+- [Marked Extended Footnote](https://github.com/fsegurai/marked-extensions/tree/main/packages/marked-extended-footnote)
 - [Marked Extended Lists](https://github.com/fsegurai/marked-extensions/tree/main/packages/marked-extended-lists)
 - [Marked Extended Tables](https://github.com/fsegurai/marked-extensions/tree/main/packages/marked-extended-tables)
-- [Marked Extended Typographic](https://github.com/fsegurai/marked-extensions/tree/main/packages/marked-extended-typographic)
+- [Marked Extended Typographic](https://github.com/fsegurai/marked-extensions/tree/main/packages/marked-extended-footnote)
 
 ### Demo Application
 
