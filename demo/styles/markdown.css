@@ -1,3 +1,4 @@
+/* General Card Styling */
 .main-index,
 .main-playground {
   width: 100%;
@@ -13,6 +14,156 @@
     margin: 0 auto;
 
       /* Custom Extensions */
+      /* Marked Extended Code Preview to style code blocks */
+      .code-preview-card {
+          padding: 20px;
+          margin: 15px 0;
+          border-radius: 12px;
+          position: relative;
+          box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+          transition: box-shadow 0.3s ease, transform 0.2s ease;
+
+          .code-preview-card:hover {
+              box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+              transform: scale(1.02);
+          }
+
+          /* Panel Header */
+          .panel-header {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              margin-bottom: 15px;
+              padding: 0 5px;
+          }
+
+          .preview-header-content {
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              flex-grow: 1;
+              max-width: calc(100% - 40px); /* Prevents overflow */
+          }
+
+          .preview-text {
+              font-size: 16px;
+              font-weight: 600;
+              max-width: 75%;
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+          }
+
+          .preview-icon {
+              font-size: 24px;
+              margin-left: 12px;
+          }
+
+          /* Expand Button */
+          .expand-btn {
+              border: none;
+              padding: 8px 16px;
+              cursor: pointer;
+              border-radius: 8px;
+              font-size: 16px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              transition: background-color 0.3s ease;
+          }
+
+          .expand-icon {
+              font-size: 18px;
+          }
+
+          .expand-btn[aria-expanded="true"] .expand-icon {
+              content: "▲"; /* Change icon when expanded */
+          }
+
+          /* Preview Content Styling */
+          .preview-content {
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              margin-bottom: 10px;
+              transition: all 0.3s ease;
+          }
+
+          .preview-img {
+              object-fit: cover;
+              border-radius: 8px;
+              margin: 0 auto;
+              aspect-ratio: 16 / 9;
+              width: 100%;
+              transition: transform 0.3s ease;
+          }
+
+          .preview-img:hover {
+              transform: scale(1.05);
+          }
+
+          /* Full Content Styling */
+          .code-full-content {
+              padding: 18px;
+              border-radius: 10px;
+              margin-top: 12px;
+              font-size: 16px;
+              overflow: auto;
+          }
+
+          /* Extra Data Area */
+          .extra-data {
+              margin-top: 15px;
+              font-size: 14px;
+              padding-top: 10px;
+              font-style: italic;
+          }
+
+          /* Text-based Preview */
+          .expanded-text {
+              font-size: 16px;
+              line-height: 1.6;
+          }
+
+          /* Initially hide the full content */
+          .code-preview-content .full-content.collapsed {
+              display: none;
+          }
+
+          /* Expanded content */
+          .code-preview-content .full-content {
+              display: block;
+              margin-top: 15px;
+          }
+
+          /* Responsive Adjustments */
+          @media (max-width: 768px) {
+              .expand-btn {
+                  font-size: 14px;
+                  padding: 10px 20px;
+              }
+
+              .code-preview-card {
+                  padding: 16px;
+              }
+
+              .preview-text {
+                  font-size: 14px;
+                  max-width: 60%;
+              }
+
+              .preview-img {
+                  max-width: 85px;
+                  max-height: 85px;
+              }
+
+              .expanded-img {
+                  max-width: 90%;
+                  max-height: 280px;
+              }
+          }
+      }
+
       /* Marked Extended Footnotes to style links references */
       [data-fnref-ref]::before {
           content: '[';
@@ -22,7 +173,7 @@
           content: ']';
       }
 
-    & h1,
+      & h1,
     & h2,
     & h3,
     & h4,

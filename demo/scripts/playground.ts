@@ -1,6 +1,6 @@
 import { mdRender } from './utils/markdown';
 
-import mdSample from './markdown.example';
+import mdSample from './utils/markdown.example';
 
 const mdEditor = document.querySelector('.md-editor');
 const mdBody = document.querySelector('.md-body') as HTMLElement;

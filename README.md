@@ -45,7 +45,6 @@
 Import the desired extension from the package and apply it to your Marked instance as shown below.
 
 ```typescript
-
 import { marked } from "marked";
 import { markedExtendedTables } from "@fsegurai/marked-extended-tables";
 
@@ -96,7 +95,6 @@ To see all themes in action, check out the [DEMO](https://fsegurai.github.io/mar
 To set up the demo locally:
 
 ```bash
-
 git clone https://github.com/fsegurai/marked-extensions.git
 npm install
 npm start

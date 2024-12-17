@@ -1,6 +1,7 @@
 import { marked } from 'marked';
 import { markedHighlight } from 'marked-highlight';
 
+import { expandPanel, markedExtendedCodePreview } from '@fsegurai/marked-extended-code-preview';
 import markedExtendedFootnote from '@fsegurai/marked-extended-footnote';
 import markedExtendedLists from '@fsegurai/marked-extended-lists';
 import markedExtendedTables from '@fsegurai/marked-extended-tables';
@@ -20,6 +21,7 @@ import 'prismjs/components/prism-markup';
 import 'prismjs/components/prism-typescript';
 
 marked.use(
+  markedExtendedCodePreview(),
   markedExtendedFootnote(),
   markedExtendedLists(),
   markedExtendedTables(),
@@ -38,28 +40,29 @@ marked.use(
     pedantic: false,
     renderer: {
       link({ href, title, text }) {
-        return `<a href="${href}" title="${title}" target="_blank">${text}</a>`;
+        return `<a href="${ href }" title="${ title }" target="_blank">${ text }</a>`;
       },
       heading({ tokens, depth }) {
         const text = this.parser.parseInline(tokens);
-        const escapedText = text.toLowerCase().replace(/[^\w]+/g, '-');
+        const escapedText = text.toLowerCase().replace(/\W+/g, '-');
         return `
-          <h${depth}>
-            <a name="${escapedText}" class="anchor" href="#${escapedText}">
+          <h${ depth }>
+            <a class="anchor" href="#${ escapedText }">
               <span class="header-link"></span>
             </a>
-            ${text}
-          </h${depth}>`;
+            ${ text }
+          </h${ depth }>`;
       },
     },
   },
 );
 
 export const mdRender = (md: string, mdBody: HTMLElement | null) => {
-  if (mdBody) {
-    mdBody.innerHTML = marked.parse(md) as string;
-    insertCopyElement();
-  }
+  if (!mdBody) return;
+
+  mdBody.innerHTML = marked.parse(md) as string;
+  insertCopyElement();
+  expandPanel();
 };
 
 const insertCopyElement = () => {

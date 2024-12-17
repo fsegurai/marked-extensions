@@ -30,7 +30,7 @@
 
 - [Installation](#installation)
     - [@fsegurai/marked-extended-typographic](#fseguraimarked-extended-typographic)
-    - [Using Extended Lists](#using-extended-lists)
+    - [Using Extended Typographic](#using-extended-typographic)
     - [Available Extensions](#available-extensions)
     - [Demo Application](#demo-application)
 - [License](#license)
@@ -45,7 +45,7 @@ To add `@fsegurai/marked-extended-typographic` along with Marked.js to your `pac
 npm install @fsegurai/marked-extended-typographic marked@^15.0.0 --save
 ```
 
-### Using Extended Lists
+### Using Extended Typographic
 
 Import `@fsegurai/marked-extended-typographic` and apply it to your Marked instance as shown below.
 
@@ -141,10 +141,11 @@ Read the [Marked.js documentation](https://marked.js.org/) for more details abou
 
 ### Available Extensions
 
+- [Marked Extended Code Preview](https://github.com/fsegurai/marked-extensions/tree/main/packages/marked-extended-code-preview)
 - [Marked Extended Footnote](https://github.com/fsegurai/marked-extensions/tree/main/packages/marked-extended-footnote)
 - [Marked Extended Lists](https://github.com/fsegurai/marked-extensions/tree/main/packages/marked-extended-lists)
 - [Marked Extended Tables](https://github.com/fsegurai/marked-extensions/tree/main/packages/marked-extended-tables)
-- [Marked Extended Typographic](https://github.com/fsegurai/marked-extensions/tree/main/packages/marked-extended-footnote)
+- [Marked Extended Typographic](https://github.com/fsegurai/marked-extensions/tree/main/packages/marked-extended-typographic)
 
 ### Demo Application
 
