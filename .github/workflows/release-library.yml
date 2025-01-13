@@ -23,7 +23,7 @@ env:
   ARTIFACT_NAME: 'build-lib-artifact'
 
 jobs:
-  build:
+  release:
     if: |
       github.ref == 'refs/heads/main' &&
       github.event.repository.fork == false &&
