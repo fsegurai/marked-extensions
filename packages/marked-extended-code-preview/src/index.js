@@ -1,5 +1,4 @@
 import { createCodePreview } from './tokenizer.js';
-import { expandPanel } from './eventListener.js';
 
 export function markedExtendedCodePreview(options = {}) {
   // Pass the options to the extension for more flexibility
@@ -19,5 +18,3 @@ export function markedExtendedCodePreview(options = {}) {
     },
   };
 }
-
-export { expandPanel };

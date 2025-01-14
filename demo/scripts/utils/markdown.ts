@@ -1,7 +1,7 @@
 import { marked } from 'marked';
 import { markedHighlight } from 'marked-highlight';
 
-import { expandPanel, markedExtendedCodePreview } from '@fsegurai/marked-extended-code-preview';
+import { markedExtendedCodePreview } from '@fsegurai/marked-extended-code-preview';
 import markedExtendedFootnote from '@fsegurai/marked-extended-footnote';
 import markedExtendedLists from '@fsegurai/marked-extended-lists';
 import markedExtendedTables from '@fsegurai/marked-extended-tables';
@@ -62,7 +62,6 @@ export const mdRender = (md: string, mdBody: HTMLElement | null) => {
 
   mdBody.innerHTML = marked.parse(md) as string;
   insertCopyElement();
-  expandPanel();
 };
 
 const insertCopyElement = () => {

@@ -69,11 +69,11 @@ const foo = 'bar';
 console.log(foo);
 \`\`\`
 
-\`\`\` ecp preview title="Image Sample" extraData="Sample extra data"  elementType="image"
+\`\`\` ecp preview title="Image Sample" extraData="Sample extra data" elementType="image"
 https://imgs.search.brave.com/FEvHxi-_YFY__gKQNDl1QSKSpFvPu2-yvEn8evGo_F0/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90My5m/dGNkbi5uZXQvanBn/LzAwLzUwLzEzLzQw/LzM2MF9GXzUwMTM0/MDY5X29FU1pkQXJB/WHUzdmtvaXhUZHRk/QWZ2Uk5qMGZ1Vm1a/LmpwZw
 \`\`\`
 
-\`\`\` ecp preview title="Text Sample" extraData="Sample extra data" elementType="text"
+\`\`\` ecp preview title="Text Sample" elementType="text"
 Hello, World!
 \`\`\`
 `
@@ -81,198 +81,87 @@ Hello, World!
 marked.parse(exampleMarkdown)
 
 // Output:
-// <div id="{previewId}" class="code-preview-card">
-//         <!-- Panel Header -->
-// <div class="panel-header">
-//         <div class="preview-header-content">
+// <details id="{previewId}" name="{title}" class="code-preview-card">
+//     <summary>
 //         <span class="preview-text">{title}</span>
-// <span class="preview-icon">{icon}</span>
-// </div>
-// <button class="expand-btn" aria-expanded="false" aria-controls="{previewId}-content">
-//     <span class="expand-icon">▼</span>
-// </button>
-// </div>
-//
-// <!-- Panel Body -->
-// <div id="{previewId}-content" class="code-preview-content">
-//     <div class="full-content collapsed-content collapsed">
-//         <div class="code-full-content">
-//             {previewContent}
-//         </div>
-//         <div class="extra-data">{extraData}</div>
-//     </div>
-// </div>
-// </div>
+//     </summary>
+//     <p class="preview-content">
+//         {previewContent}
+//     </p>
+//     {extraData}
+// </details>
 ```
 
 By default, this plugin does not include any styles for the code preview blocks.
-So you will need to add the style as shown below to your CSS in case you use the default template:
+So you will need to add the style as shown below to your CSS in case you would like to use the default template:
 
 ``` css
-/* General Card Styling */
+/* Marked Extended Code Preview to style code blocks */
+
 .code-preview-card {
-    border: 1px solid #ccc;
-    padding: 20px;
+    padding: 5px 20px;
     margin: 15px 0;
-    border-radius: 12px;
-    background-color: #ffffff;
+    border-radius: 4px;
     position: relative;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.3s ease, transform 0.2s ease;
-}
 
-.code-preview-card:hover {
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-    transform: scale(1.02);
-}
-
-/* Initially hide the full content */
-.code-preview-content .full-content.collapsed {
-    display: none;
-}
-
-/* Expanded content */
-.code-preview-content .full-content {
-    display: block;
-    margin-top: 15px;
-}
-
-/* Panel Header */
-.panel-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 15px;
-    padding: 0 5px;
-}
-
-.preview-header-content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-grow: 1;
-    margin-right: 10px;
-}
-
-.preview-text {
-    font-size: 16px;
-    color: #333;
-    font-weight: 600;
-    max-width: 75%;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.preview-icon {
-    font-size: 24px;
-    margin-left: 12px;
-}
-
-/* Expand Button */
-.expand-btn {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 8px 16px;
-    cursor: pointer;
-    border-radius: 8px;
-    font-size: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background-color 0.3s ease;
-}
-
-.expand-btn[aria-expanded="true"] {
-    background-color: #28a745; /* Green when expanded */
-}
-
-.expand-btn:hover {
-    background-color: #0056b3;
-}
-
-.expand-icon {
-    font-size: 18px;
-}
-
-.expand-btn[aria-expanded="true"] .expand-icon {
-    content: "▲"; /* Change icon when expanded */
-}
-
-/* Preview content styling */
-.preview-content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 10px;
-    transition: all 0.3s ease;
-}
-
-.preview-img {
-    object-fit: cover;
-    border-radius: 8px;
-    margin: 0 auto;
-    aspect-ratio: 16 / 9;
-    width: 100%;
-    transition: transform 0.3s ease;
-}
-
-.preview-img:hover {
-    transform: scale(1.05);
-}
-
-/* Full content styling */
-.code-full-content {
-    padding: 18px;
-    background-color: #f9f9f9;
-    border-radius: 10px;
-    margin-top: 12px;
-    border: 1px solid #ddd;
-    font-size: 16px;
-    overflow: auto;
-}
-
-/* Extra data area */
-.extra-data {
-    margin-top: 15px;
-    font-size: 14px;
-    color: #555;
-    padding-top: 10px;
-    border-top: 1px dashed #ddd;
-    font-style: italic;
-}
-
-/* Text-based preview */
-.expanded-text {
-    font-size: 16px;
-    color: #444;
-    line-height: 1.6;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .expand-btn {
-        font-size: 14px;
-        padding: 10px 20px;
+    &[open] {
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        transform: scale(1.02);
     }
 
-    .code-preview-card {
-        padding: 16px;
+    .code-preview-card:hover {
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        transform: scale(1.02);
     }
+
+    /* Panel Header */
 
     .preview-text {
-        font-size: 14px;
-        max-width: 60%;
+        font-size: 16px;
+        font-weight: 600;
+        max-width: 75%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    /* Preview Content Styling */
+
+    .preview-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 10px;
+        transition: all 0.3s ease;
     }
 
     .preview-img {
-        max-width: 85px;
-        max-height: 85px;
+        object-fit: cover;
+        border-radius: 8px;
+        margin: 0 auto;
+        aspect-ratio: 16 / 9;
+        width: 100%;
+        transition: transform 0.3s ease;
     }
 
-    .expanded-img {
-        max-width: 90%;
-        max-height: 280px;
+    .preview-img:hover {
+        transform: scale(1.05);
+    }
+
+    /* Extra Data Area */
+
+    .extra-data {
+        margin: 15px 0 5px;
+        font-size: 14px;
+        padding-top: 10px;
+        font-style: italic;
+    }
+
+    /* Text-based Preview */
+
+    .expanded-text {
+        font-size: 16px;
+        line-height: 1.6;
     }
 }
 ```

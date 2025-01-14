@@ -26,6 +26,7 @@ html {
 
     body {
         margin: 0;
+        transition: all 0.3s ease;
 
         &.dark {
             /* Material Design System color palette */
@@ -106,29 +107,11 @@ html {
                 /* Marked Extended Code Preview to style code blocks */
 
                 & .code-preview-card {
-                    border: 1px solid #444;
+                    border: 1px solid #ccc;
                     background-color: #2d2d2d;
 
                     .preview-text {
                         color: #ddd;
-                    }
-
-                    .expand-btn {
-                        background-color: #0056b3;
-                        color: white;
-                    }
-
-                    .expand-btn[aria-expanded="true"] {
-                        background-color: #28a745; /* Green when expanded */
-                    }
-
-                    .expand-btn:hover {
-                        background-color: #003f7f;
-                    }
-
-                    .code-full-content {
-                        background-color: #1e1e1e;
-                        border: 1px solid #555;
                     }
 
                     .extra-data {
@@ -140,6 +123,8 @@ html {
                         color: #ccc;
                     }
                 }
+
+                /* END */
 
                 & a {
                     color: #58a6ff;
@@ -155,6 +140,7 @@ html {
                 }
 
                 & th {
+                    color: #d1d5da;
                     background-color: #2d333b;
                 }
             }
@@ -235,25 +221,15 @@ html {
                 color: #24292e;
                 background-color: transparent;
 
+                /* Custom Extensions */
+                /* Marked Extended Code Preview to style code blocks */
+
                 & .code-preview-card {
                     border: 1px solid #ccc;
                     background-color: #fff;
 
                     .preview-text {
                         color: #333;
-                    }
-
-                    .expand-btn {
-                        background-color: #007bff;
-                        color: white;
-                    }
-
-                    .expand-btn[aria-expanded="true"] {
-                        background-color: #28a745; /* Green when expanded */
-                    }
-
-                    .expand-btn:hover {
-                        background-color: #0056b3;
                     }
 
                     .code-full-content {
@@ -270,6 +246,8 @@ html {
                         color: #444;
                     }
                 }
+
+                /* END */
 
                 & a {
                     color: #0366d6;

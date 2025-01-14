@@ -1,35 +1,22 @@
 {
   "name": "@fsegurai/marked-extended-code-preview",
   "version": "15.0.0",
-  "author": {
-    "name": "Fabián Segura",
-    "url": "https://www.fsegurai.com/"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/fsegurai/marked-extensions.git"
-  },
+  "description": "Extended Code Preview for Marked.js",
   "main": "./dist/index.cjs",
   "module": "./src/index.js",
-  "peerDependencies": {
-    "marked": ">=13 <16"
-  },
+  "browser": "./dist/index.umd.js",
+  "type": "module",
+  "types": "./src/index.d.ts",
+  "files": [
+    "lib/",
+    "src/"
+  ],
   "exports": {
     ".": {
       "import": "./src/index.js",
       "require": "./lib/index.cjs"
     }
   },
-  "browser": "./dist/index.umd.js",
-  "bugs": {
-    "url": "https://github.com/fsegurai/marked-extensions/issues"
-  },
-  "description": "Extended Code Preview for Marked.js",
-  "files": [
-    "lib/",
-    "src/"
-  ],
-  "homepage": "https://github.com/fsegurai/marked-extensions#readme",
   "keywords": [
     "parser",
     "markedjs",
@@ -41,11 +28,24 @@
     "marked-extended-tables",
     "marked-extended-typographic"
   ],
+  "author": {
+    "name": "Fabián Segura",
+    "url": "https://www.fsegurai.com/"
+  },
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fsegurai/marked-extensions.git"
+  },
+  "bugs": {
+    "url": "https://github.com/fsegurai/marked-extensions/issues"
+  },
+  "homepage": "https://github.com/fsegurai/marked-extensions#readme",
   "scripts": {
     "prepare": "rollup -c rollup.config.js",
     "test:types": "tsd -f spec/index.test-d.ts -t src/index.d.ts"
   },
-  "type": "module",
-  "types": "./src/index.d.ts"
+  "peerDependencies": {
+    "marked": ">=13 <16"
+  }
 }

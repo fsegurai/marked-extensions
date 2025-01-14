@@ -21,6 +21,7 @@
     "markedjs",
     "extension",
     "marked",
+    "marked-extended-code-preview",
     "marked-extended-footer",
     "marked-extended-lists",
     "marked-extended-tables",
