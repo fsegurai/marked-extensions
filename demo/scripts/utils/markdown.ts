@@ -1,7 +1,7 @@
 import { marked } from 'marked';
 import { markedHighlight } from 'marked-highlight';
 
-import { markedExtendedCodePreview } from '@fsegurai/marked-extended-code-preview';
+import markedExtendedCodePreview from '@fsegurai/marked-extended-code-preview';
 import markedExtendedFootnote from '@fsegurai/marked-extended-footnote';
 import markedExtendedLists from '@fsegurai/marked-extended-lists';
 import markedExtendedTables from '@fsegurai/marked-extended-tables';

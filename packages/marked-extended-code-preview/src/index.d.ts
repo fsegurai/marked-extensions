@@ -17,13 +17,4 @@ export interface CodePreviewExtension {
 }
 
 // Function to create code preview extensions
-export function createCodePreview(options?: CodePreviewOptions): CodePreviewExtension;
-
-// Declaration for the `expandPanel` function (assumed to be exported from another file)
-export function expandPanel(): void;
-
-// Optional: If there are additional types for the `markedExtendedCodePreview` you can add them here
-declare module '@fsegurai/marked-extended-code-preview' {
-  // Example for declaring a method like markedExtendedCodePreview
-  export function markedExtendedCodePreview(options?: CodePreviewOptions): MarkedExtension;
-}
+export default function markedExtendedCodePreview(options?: CodePreviewOptions): MarkedExtension;

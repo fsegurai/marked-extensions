@@ -1,97 +1,78 @@
 import { marked } from 'marked';
-import markedExtendedFootnotes from '../src/index.js';
+import markedExtendedCodePreview from '../src/index.js';
 
-describe('markedExtendedFootnotes', () => {
+describe('markedExtendedCodePreview', () => {
   beforeEach(() => {
     marked.setOptions(marked.getDefaults());
   });
 
-  test('Single Footnote', () => {
-    marked.use(markedExtendedFootnotes());
-    expect(marked('Here is a footnote reference[^1].\n\n[^1]: Here is the footnote.')).toMatchInlineSnapshot(`
-    "<p>Here is a footnote reference<sup><a id="fnref-ref-1" href="#fnref-1" data-fnref-ref aria-describedby="fnref-label">1</a></sup>.</p>
-    <section class="footnotes" data-footnotes>
-    <h2 id="fnref-label" class="sr-only">Footnotes</h2>
-    <ol>
-    <li id="fnref-1">
-    <p>Here is the footnote. <a href="#fnref-ref-1" data-fnref-backref aria-label="Back to reference 1">↩</a></p>
-    </li>
-    </ol>
-    </section>
-    "
-    `);
+  test('renders code preview with default options', () => {
+    marked.use(
+      markedExtendedCodePreview(),
+      {
+        gfm: true,
+        breaks: false,
+        pedantic: false,
+      },
+    );
+
+    const markdown = `
+\`\`\` ecp preview title="Example Code" codeLanguage="javascript"
+console.log('Hello, world!');
+\`\`\`
+`;
+
+    const result = marked(markdown);
+
+    expect(result).toContain('<details id="code-preview-');
+    expect(result).toContain('<span class="preview-text">Example Code</span>');
+    expect(result).toContain('<pre><code class="language-javascript">console.log(\'Hello, world!\');</code></pre>');
   });
 
-  test('Multiple Footnotes', () => {
-    marked.use(markedExtendedFootnotes());
-    expect(marked('Footnote 1[^1] and footnote 2[^2].\n\n[^1]: First footnote.\n[^2]: Second footnote.')).toMatchInlineSnapshot(`
-    "<p>Footnote 1<sup><a id="fnref-ref-1" href="#fnref-1" data-fnref-ref aria-describedby="fnref-label">1</a></sup> and footnote 2<sup><a id="fnref-ref-2" href="#fnref-2" data-fnref-ref aria-describedby="fnref-label">2</a></sup>.</p>
-    <section class="footnotes" data-footnotes>
-    <h2 id="fnref-label" class="sr-only">Footnotes</h2>
-    <ol>
-    <li id="fnref-1">
-    <p>First footnote. <a href="#fnref-ref-1" data-fnref-backref aria-label="Back to reference 1">↩</a></p>
-    </li>
-    <li id="fnref-2">
-    <p>Second footnote. <a href="#fnref-ref-2" data-fnref-backref aria-label="Back to reference 2">↩</a></p>
-    </li>
-    </ol>
-    </section>
-    "
-    `);
+  test('renders code preview with custom template', () => {
+    const customTemplate = `
+    <div id="{previewId}" class="custom-preview">
+      <h3>{title}</h3>
+      <div>{previewContent}</div>
+      {extraData}
+    </div>
+    `;
+    marked.use(markedExtendedCodePreview({ template: customTemplate }));
+    const markdown = `
+\`\`\` ecp preview title="Custom Template" codeLanguage="javascript"
+console.log('Hello, custom!');
+\`\`\`
+`;
+    const result = marked(markdown);
+
+    expect(result).toContain('<div id="code-preview-');
+    expect(result).toContain('<h3>Custom Template</h3>');
+    expect(result).toContain('<div><pre><code class="language-javascript">console.log(\'Hello, custom!\');</code></pre></div>');
   });
 
-  test('Footnote with Markdown', () => {
-    marked.use(markedExtendedFootnotes());
-    expect(marked('Footnote with **bold** text[^1].\n\n[^1]: This is a footnote with **bold** text.')).toMatchInlineSnapshot(`
-    "<p>Footnote with <strong>bold</strong> text<sup><a id="fnref-ref-1" href="#fnref-1" data-fnref-ref aria-describedby="fnref-label">1</a></sup>.</p>
-    <section class="footnotes" data-footnotes>
-    <h2 id="fnref-label" class="sr-only">Footnotes</h2>
-    <ol>
-    <li id="fnref-1">
-    <p>This is a footnote with <strong>bold</strong> text. <a href="#fnref-ref-1" data-fnref-backref aria-label="Back to reference 1">↩</a></p>
-    </li>
-    </ol>
-    </section>
-    "
-    `);
+  test('renders code preview with extra data', () => {
+    marked.use(markedExtendedCodePreview());
+    const markdown = `
+\`\`\` ecp preview title="With Extra Data" extraData="Additional Info" codeLanguage="javascript"
+console.log('Extra data test');
+\`\`\`
+`;
+
+    const result = marked(markdown);
+
+    expect(result).toContain('<div class="extra-data">Additional Info</div>');
   });
 
-  test('Footnote in List', () => {
-    marked.use(markedExtendedFootnotes());
-    expect(marked('1. Item one[^1]\n2. Item two[^2]\n\n[^1]: Footnote for item one.\n[^2]: Footnote for item two.')).toMatchInlineSnapshot(`
-    "<ol>
-    <li>Item one<sup><a id="fnref-ref-1" href="#fnref-1" data-fnref-ref aria-describedby="fnref-label">1</a></sup></li>
-    <li>Item two<sup><a id="fnref-ref-2" href="#fnref-2" data-fnref-ref aria-describedby="fnref-label">2</a></sup></li>
-    </ol>
-    <section class="footnotes" data-footnotes>
-    <h2 id="fnref-label" class="sr-only">Footnotes</h2>
-    <ol>
-    <li id="fnref-1">
-    <p>Footnote for item one. <a href="#fnref-ref-1" data-fnref-backref aria-label="Back to reference 1">↩</a></p>
-    </li>
-    <li id="fnref-2">
-    <p>Footnote for item two. <a href="#fnref-ref-2" data-fnref-backref aria-label="Back to reference 2">↩</a></p>
-    </li>
-    </ol>
-    </section>
-    "
-    `);
-  });
+  test('renders code preview with different element type', () => {
+    marked.use(markedExtendedCodePreview());
+    const markdown = `
+\`\`\` ecp preview title="Image Preview" elementType="image"
+https://example.com/image.png
+\`\`\`
+`;
 
-  test('Footnote with Link', () => {
-    marked.use(markedExtendedFootnotes());
-    expect(marked('Footnote with a [link](https://example.com)[^1].\n\n[^1]: This is a footnote with a [link](https://example.com).')).toMatchInlineSnapshot(`
-    "<p>Footnote with a <a href="https://example.com">link</a><sup><a id="fnref-ref-1" href="#fnref-1" data-fnref-ref aria-describedby="fnref-label">1</a></sup>.</p>
-    <section class="footnotes" data-footnotes>
-    <h2 id="fnref-label" class="sr-only">Footnotes</h2>
-    <ol>
-    <li id="fnref-1">
-    <p>This is a footnote with a <a href="https://example.com">link</a>. <a href="#fnref-ref-1" data-fnref-backref aria-label="Back to reference 1">↩</a></p>
-    </li>
-    </ol>
-    </section>
-    "
-    `);
+    const result = marked(markdown);
+    
+    expect(result).toContain('<img src="https://example.com/image.png" alt="Image Preview" class="preview-img expanded-img"/>');
   });
 });

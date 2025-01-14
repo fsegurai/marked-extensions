@@ -1,6 +1,8 @@
+'use strict';
+
 import { createCodePreview } from './tokenizer.js';
 
-export function markedExtendedCodePreview(options = {}) {
+export default function(options = {}) {
   // Pass the options to the extension for more flexibility
   return {
     extensions: [
