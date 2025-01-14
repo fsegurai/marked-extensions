@@ -1,4 +1,22 @@
-const mdSample = ` # Markdown Extended Footnotes 
+const mdSample = `# Markdown Extended Code Preview
+
+\`\`\` ecp preview title="Code Sample 📄" extraData="This is a javascript sample" codeLanguage="javascript"
+const foo = 'bar';
+
+console.log(foo);
+\`\`\`
+
+\`\`\` ecp preview title="Image Sample" extraData="Image sample"  elementType="image"
+https://imgs.search.brave.com/FEvHxi-_YFY__gKQNDl1QSKSpFvPu2-yvEn8evGo_F0/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90My5m/dGNkbi5uZXQvanBn/LzAwLzUwLzEzLzQw/LzM2MF9GXzUwMTM0/MDY5X29FU1pkQXJB/WHUzdmtvaXhUZHRk/QWZ2Uk5qMGZ1Vm1a/LmpwZw
+\`\`\`
+
+\`\`\` ecp preview title="Text Sample" elementType="text"
+Hello, World!
+\`\`\`
+
+---
+
+# Markdown Extended Footnotes
 
 This is an inline footnote reference[^1].
 
@@ -9,7 +27,7 @@ This is a block footnote reference[^2].
 [^2]:
     This is the block footnote.
     It can contain multiple lines.
-    
+
 ---
 
 # Markdown Extended Tables
@@ -59,7 +77,7 @@ This is a block footnote reference[^2].
 3. Roman
     i. Item 1
     ii. Item 2
-    
+
 ## Task lists
 
 - [x] Task 1

@@ -45,7 +45,6 @@
 Import the desired extension from the package and apply it to your Marked instance as shown below.
 
 ```typescript
-
 import { marked } from "marked";
 import { markedExtendedTables } from "@fsegurai/marked-extended-tables";
 
@@ -83,6 +82,8 @@ Read the [Marked.js documentation](https://marked.js.org/) for more details abou
 
 ### Available Extensions
 
+- [Marked Extended Code Preview](https://github.com/fsegurai/marked-extensions/tree/main/packages/marked-extended-code-preview)
+- [Marked Extended Footnote](https://github.com/fsegurai/marked-extensions/tree/main/packages/marked-extended-footnote)
 - [Marked Extended Lists](https://github.com/fsegurai/marked-extensions/tree/main/packages/marked-extended-lists)
 - [Marked Extended Tables](https://github.com/fsegurai/marked-extensions/tree/main/packages/marked-extended-tables)
 - [Marked Extended Typographic](https://github.com/fsegurai/marked-extensions/tree/main/packages/marked-extended-typographic)
@@ -96,7 +97,6 @@ To see all themes in action, check out the [DEMO](https://fsegurai.github.io/mar
 To set up the demo locally:
 
 ```bash
-
 git clone https://github.com/fsegurai/marked-extensions.git
 npm install
 npm start

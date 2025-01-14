@@ -22,15 +22,12 @@
     "markedjs",
     "extension",
     "marked",
+    "marked-extended-code-preview",
     "marked-extended-footer",
     "marked-extended-lists",
     "marked-extended-tables",
     "marked-extended-typographic"
   ],
-  "scripts": {
-    "prepare": "rollup -c rollup.config.js",
-    "test:types": "tsd -f spec/index.test-d.ts -t src/index.d.ts"
-  },
   "author": {
     "name": "Fabián Segura",
     "url": "https://www.fsegurai.com/"
@@ -44,6 +41,10 @@
     "url": "https://github.com/fsegurai/marked-extensions/issues"
   },
   "homepage": "https://github.com/fsegurai/marked-extensions#readme",
+  "scripts": {
+    "prepare": "rollup -c rollup.config.js",
+    "test:types": "tsd -f spec/index.test-d.ts -t src/index.d.ts"
+  },
   "peerDependencies": {
     "marked": ">=13 <16"
   }
