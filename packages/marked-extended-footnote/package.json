@@ -1,6 +1,6 @@
 {
   "name": "@fsegurai/marked-extended-footnote",
-  "version": "15.0.0",
+  "version": "15.1.0",
   "description": "Extended Footnote for Marked.js",
   "main": "./dist/index.cjs",
   "module": "./src/index.js",
