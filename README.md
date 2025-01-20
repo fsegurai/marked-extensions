@@ -105,6 +105,20 @@ npm start
 
 This will serve the application locally at [http://[::1]:8000](http://[::1]:8000).
 
+### Semantic Versioning
+
+The expected commits format follows the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) specification. Example:
+
+* feat: add new user login feature
+* fix: resolve issue with user profile update
+* docs: update API documentation
+* style: format code according to new style guide
+* refactor: simplify user authentication logic
+* perf: improve database query performance
+* test: add tests for user registration
+
+This is required for the `release.yml` workflow to automatically determine the next version number based on the changes introduced.
+
 ## License
 
 Licensed under [MIT](https://opensource.org/licenses/MIT).
