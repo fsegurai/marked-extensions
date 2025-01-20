@@ -36,8 +36,9 @@ jobs:
         package: [
           marked-extended-code-preview,
           marked-extended-footnote,
-          marked-extended-tables,
           marked-extended-lists,
+          marked-extended-spoiler,
+          marked-extended-tables,
           marked-extended-typographic,
         ]
 
