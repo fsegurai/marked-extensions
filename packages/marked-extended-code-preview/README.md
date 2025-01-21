@@ -170,7 +170,7 @@ Read the [Marked.js documentation](https://marked.js.org/) for more details abou
 
 ### Options
 
-The marked-footnote extension accepts the following configuration options:
+The marked-code-preview extension accepts the following configuration options:
 
 * `prefixId`: The prefix ID for code block. Defaults to 'code-preview-'.
 * `title`: The title of the code preview block. Defaults to ''.
