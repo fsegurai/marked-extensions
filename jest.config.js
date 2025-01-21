@@ -13,7 +13,6 @@ export default {
     },
   },
   testEnvironment: 'node',
-  // testRegex: /\.test\.jsx?$/.source,
   testRegex: '(/spec/.*|(\\.|/)(test|spec))\\.[jt]s$',
   testPathIgnorePatterns: ['/node_modules/', '/dist/', '\\.test-d\\.ts$'],
   transformIgnorePatterns: ['node_modules/(?!github-slugger)'],
