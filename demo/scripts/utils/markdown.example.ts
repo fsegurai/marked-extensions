@@ -104,6 +104,32 @@ This is a block footnote reference[^2].
 
 ---
 
+# Markdown Extended Spoiler
+
+## Text Spoiler
+
+\`\`\` spoiler title="Hover on text"
+This is a hidden code block that will only appear on hover. Some text later it will be all over again and again, so be sure that it will work
+\`\`\`
+
+## Image Spoiler
+
+\`\`\` spoiler title="Hover on image"
+![Test image](https://plus.unsplash.com/premium_photo-1669829646756-083a328c0abb?q=80&w=2118&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D "test image")
+\`\`\`
+
+## Code Spoiler
+
+\`\`\` spoiler title="Hover on code"
+  \`\`\` ecp preview title="Code Sample 📄" extraData="This is a javascript sample" codeLanguage="javascript"
+  const foo = 'bar';
+  
+  console.log(foo);
+  \`\`\`
+\`\`\`
+
+---
+
 # Markdown Extended Typography
 
 He said, -- \\"A 'simple' sentence. . .\\" --- unknown

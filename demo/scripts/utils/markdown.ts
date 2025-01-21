@@ -4,6 +4,7 @@ import { markedHighlight } from 'marked-highlight';
 import markedExtendedCodePreview from '@fsegurai/marked-extended-code-preview';
 import markedExtendedFootnote from '@fsegurai/marked-extended-footnote';
 import markedExtendedLists from '@fsegurai/marked-extended-lists';
+import markedExtendedSpoiler from '@fsegurai/marked-extended-spoiler';
 import markedExtendedTables from '@fsegurai/marked-extended-tables';
 import markedExtendedTypographic from '@fsegurai/marked-extended-typographic';
 
@@ -24,6 +25,7 @@ marked.use(
   markedExtendedCodePreview(),
   markedExtendedFootnote(),
   markedExtendedLists(),
+  markedExtendedSpoiler({}, marked),
   markedExtendedTables(),
   markedExtendedTypographic(),
   markedHighlight({
