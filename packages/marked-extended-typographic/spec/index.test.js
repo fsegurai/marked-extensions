@@ -5,7 +5,7 @@ describe('markedExtendedTypographic', () => {
   beforeEach(() => {
     marked.setOptions(marked.getDefaults());
   });
-  
+
   test('Greek Letters', () => {
     marked.use(markedExtendedTypographic());
     expect(marked('(alpha) (beta) (gamma)')).toMatchInlineSnapshot(`
@@ -24,8 +24,7 @@ describe('markedExtendedTypographic', () => {
 
   test('Simple Sentence', () => {
     marked.use(markedExtendedTypographic());
-    expect(marked('# He said, -- "A \'simple\' sentence. . ." --- unknown', { headerIds: false }))
-      .toMatchInlineSnapshot(`
+    expect(marked('# He said, -- "A \'simple\' sentence. . ." --- unknown')).toMatchInlineSnapshot(`
     "<h1>He said, &#8211; &quot;A &#39;simple&#39; sentence&#8230;&quot; &#8212; unknown</h1>
     "
     `);
@@ -49,14 +48,33 @@ describe('markedExtendedTypographic', () => {
   });
 
   test('Supports Config', () => {
-    marked.use(
-      markedExtendedTypographic({
-        config: 1,
-      }),
-    );
-    expect(marked('# He said, -- "A \'simple\' sentence. . ." --- unknown', { headerIds: false }))
-      .toMatchInlineSnapshot(`
-    "<h1>He said, &#8212; &quot;A &#39;simple&#39; sentence&#8230;&quot; &#8212;- unknown</h1>
+    marked.use(markedExtendedTypographic('1'));
+
+    const result = marked('# He said, -- "A \'simple\' sentence. . ." --- unknown');
+
+    expect(result).toMatch('<h1>He said, &#8212; &quot;A &#39;simple&#39; sentence&#8230;&quot; &#8212;- unknown</h1>');
+  });
+
+  test('Empty Input', () => {
+    marked.use(markedExtendedTypographic());
+    expect(marked('')).toBe('');
+  });
+
+  test('Only Spaces', () => {
+    marked.use(markedExtendedTypographic());
+    expect(marked('     ')).toBe('');
+  });
+
+  test('Special Characters', () => {
+    marked.use(markedExtendedTypographic());
+    expect(marked('!@#$%^&*()_+')).toBe('<p>!@#$%^&amp;*()_+</p>\n');
+  });
+
+  test('Mixed Content', () => {
+    marked.use(markedExtendedTypographic());
+    expect(marked('# Title\n\n`Code` and **bold** text with (alpha)')).toMatchInlineSnapshot(`
+    "<h1>Title</h1>
+    <p><code>Code</code> and <strong>bold</strong> text with α</p>
     "
     `);
   });

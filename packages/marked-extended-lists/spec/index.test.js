@@ -1,5 +1,5 @@
-import { marked } from 'marked'
-import markedMoreLists from '../src/index.js'
+import { marked } from 'marked';
+import markedMoreLists from '../src/index.js';
 
 function cleanHtml(html) {
   return html
@@ -7,7 +7,7 @@ function cleanHtml(html) {
     .split('\n')
     .map(line => line.trim())
     .join('\n')
-    .trim()
+    .trim();
 }
 
 describe('marked-more-lists', () => {
@@ -28,7 +28,7 @@ look at the following list:
 8. item 8
     - foo
     - bar
-`
+`;
 
   const expectedResult = `
 <p>look at the following list:</p>
@@ -62,21 +62,21 @@ look at the following list:
         <li>bar</li>
       </ul>
   </li>
-</ol>`
+</ol>`;
 
   beforeEach(() => {
-    marked.setOptions(marked.getDefaults())
-  })
+    marked.setOptions(marked.getDefaults());
+  });
 
   test('with extension', () => {
-    marked.use(markedMoreLists())
+    marked.use(markedMoreLists());
 
-    const result = marked(exampleMarkdown)
-    expect(cleanHtml(result)).toBe(cleanHtml(expectedResult))
-  })
+    const result = marked(exampleMarkdown);
+    expect(cleanHtml(result)).toBe(cleanHtml(expectedResult));
+  });
 
   test('without this extension', () => {
-    const result = marked(exampleMarkdown)
-    expect(cleanHtml(result)).not.toBe(cleanHtml(expectedResult))
-  })
-})
+    const result = marked(exampleMarkdown);
+    expect(cleanHtml(result)).not.toBe(cleanHtml(expectedResult));
+  });
+});

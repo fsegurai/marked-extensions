@@ -9,6 +9,7 @@ export function createParticles(spoilerId, animationDuration) {
   // Validate if document is defined
   if (typeof document === 'undefined') return;
 
+  // eslint-disable-next-line no-undef
   const container = document.getElementById(spoilerId);
   const particlesContainer = container.querySelector('.spoiler-particles');
 
@@ -17,6 +18,7 @@ export function createParticles(spoilerId, animationDuration) {
 
   // Create particles dynamically
   for (let i = 0; i < particleCount; i++) {
+    // eslint-disable-next-line no-undef
     const particle = document.createElement('div');
     particle.classList.add('particle');
 
@@ -32,6 +34,7 @@ export function createParticles(spoilerId, animationDuration) {
   }
 
   // Add particle animation CSS
+  // eslint-disable-next-line no-undef
   const style = document.createElement('style');
   style.innerHTML = `
 #${spoilerId}:hover {
@@ -112,5 +115,6 @@ export function createParticles(spoilerId, animationDuration) {
 }
 `;
 
+  // eslint-disable-next-line no-undef
   document.head.appendChild(style);
 }

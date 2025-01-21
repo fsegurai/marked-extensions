@@ -2,7 +2,7 @@
 
 import SmartyPants from './smartypants.js';
 
-export default function({ config = 2 } = {}) {
+export default function(attr = '2') {
   return {
     tokenizer: {
       inlineText(src) {
@@ -21,7 +21,7 @@ export default function({ config = 2 } = {}) {
     },
     hooks: {
       postprocess(html) {
-        return SmartyPants(html, config); // Further process the text with smartypants
+        return SmartyPants(html, attr); // Further process the text with smartypants
       },
     },
   };
