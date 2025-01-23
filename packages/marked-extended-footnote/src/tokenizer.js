@@ -30,8 +30,10 @@ export function createFootnote(lexer, description) {
           src,
         );
 
+
       if (match) {
         const [raw, label, text = ''] = match;
+
         const content = text.split('\n').map(line => line.replace(/^(?: {4}|\t)/, '')).join('\n');
         const contentLastLine = content.trimEnd().split('\n').pop();
         const adjustedContent = content + (contentLastLine && /^[ \t]*?[>\-*] |`{3,}$|^[ \t]*?[|].+[|]$/.test(contentLastLine) ? '\n\n' : '');

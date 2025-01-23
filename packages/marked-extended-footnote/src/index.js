@@ -1,8 +1,8 @@
 'use strict';
 
-import { createFootnote } from './footnote.js';
-import { createFootnoteRef } from './references.js';
-import { createFootnotes } from './footnotes.js';
+import { createFootnote } from './tokenizer.js';
+import { createFootnoteRef } from './renderer-footnotes-reference.js';
+import { createFootnotes } from './renderer-footnotes.js';
 
 export default function(options = {}){
   const {
