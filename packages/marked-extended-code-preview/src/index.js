@@ -2,11 +2,11 @@
 
 import { createCodePreview } from './tokenizer.js';
 
-export default function(options = {}) {
+export default function(options = {}, marked = null) {
   // Pass the options to the extension for more flexibility
   return {
     extensions: [
-      createCodePreview(options),
+      createCodePreview(options, marked),
     ],
     walkTokens(token) {
       // Example: Add custom handling or logging of the tokens

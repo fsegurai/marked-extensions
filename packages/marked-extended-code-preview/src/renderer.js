@@ -1,34 +1,37 @@
-export function renderCodePreview({
-  prefixId,
-  title,
-  code,
-  extraData,
-  elementType = 'code', // Default to 'code', could be 'image', 'text', etc.
-  template,
-  codeLanguage,
-}) {
+'use strict';
+
+import { DEFAULT_TEMPLATE } from './constants.js';
+
+/**
+ * Render the preview content for a code block.
+ * @param prefixId - The prefix for the preview ID.
+ * @param title - The title of the preview.
+ * @param code - The raw content of the preview.
+ * @param subTitle - The extra data to include in the preview.
+ * @param template - The template for the preview.
+ * @param marked - The marked instance for rendering the content.
+ * @returns {string} - The HTML content of the code preview.
+ */
+export function renderCodePreview({ prefixId, title, code, subTitle, template }, marked) {
+  // Unique ID for the preview element
   const previewId = `${prefixId}${Math.random().toString(36).substring(2, 9)}`;
 
-  const previewLanguageCode = codeLanguage ? `language-${codeLanguage}` : 'language-plaintext';
+  // Custom title for the preview (if provided)
+  const customTitle = title ? `<summary><span class="preview-title">${title}</span></summary>` : '';
 
-  // Handle the different types of preview content
-  let previewContent = '';
+  // Custom subtitle for the preview (if provided)
+  const customSubTitle = subTitle ? `<span class="preview-subtitle">${subTitle}</span>` : '';
 
-  if (elementType === 'code') {
-    previewContent = `<pre><code class="${previewLanguageCode}">${code}</code></pre>`;
-  } else if (elementType === 'image') {
-    previewContent = `<img src="${code}" alt="${title}" class="preview-img expanded-img"/>`;
-  } else if (elementType === 'text') {
-    previewContent = `<p class="expanded-text">${code}</p>`;
-  }
+  // Render the Markdown content inside the preview
+  const markedCode = marked && code ? `<div class="preview-content">${marked(code)}</div>` : code;
 
-  // Ensure the extraData is handled properly (if provided)
-  extraData = extraData ? `<div class="extra-data">${extraData}</div>` : '';
+  // Check if the template is provided
+  if (template === null || template === undefined) template = DEFAULT_TEMPLATE;
 
   // Return the template with all placeholders replaced
   return template
     .replace(/{previewId}/g, previewId)
-    .replace(/{title}/g, title)
-    .replace(/{previewContent}/g, previewContent)
-    .replace(/{extraData}/g, extraData);
+    .replace(/{customTitle}/g, customTitle)
+    .replace(/{markedCode}/g, markedCode)
+    .replace(/{customSubTitle}/g, customSubTitle);
 }
