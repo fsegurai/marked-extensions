@@ -21,8 +21,8 @@ import 'prismjs/components/prism-markdown';
 import 'prismjs/components/prism-markup';
 import 'prismjs/components/prism-typescript';
 
-marked.use(
-  markedExtendedCodePreview(),
+const extensions = [
+  markedExtendedCodePreview({}, marked),
   markedExtendedFootnote(),
   markedExtendedLists(),
   markedExtendedSpoiler({}, marked),
@@ -36,24 +36,28 @@ marked.use(
       return prismjs.highlight(code, prismjs.languages[language], language);
     },
   }),
+];
+
+marked.use(
+  ...extensions,
   {
     gfm: true,
     breaks: false,
     pedantic: false,
     renderer: {
       link({ href, title, text }) {
-        return `<a href="${ href }" title="${ title }" target="_blank">${ text }</a>`;
+        return `<a href="${href}" title="${title}" target="_blank">${text}</a>`;
       },
       heading({ tokens, depth }) {
         const text = this.parser.parseInline(tokens);
         const escapedText = text.toLowerCase().replace(/\W+/g, '-');
         return `
-          <h${ depth }>
-            <a class="anchor" href="#${ escapedText }">
+          <h${depth}>
+            <a class="anchor" href="#${escapedText}">
               <span class="header-link"></span>
             </a>
-            ${ text }
-          </h${ depth }>`;
+            ${text}
+          </h${depth}>`;
       },
     },
   },
@@ -67,7 +71,7 @@ export const mdRender = (md: string, mdBody: HTMLElement | null) => {
 };
 
 const insertCopyElement = () => {
-  document.querySelectorAll('pre').forEach(pre => {
+  document.querySelectorAll('pre').forEach((pre) => {
     const button = document.createElement('button');
     button.className = 'copy-btn';
     button.textContent = 'Copy';
