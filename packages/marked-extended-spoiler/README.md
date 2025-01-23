@@ -24,13 +24,13 @@
 
 **A library of extended spoiler blocks for Marked.js.**
 
-`@fsegurai/marked-extended-spoiler` is an extensions for Marked.js that adds support for extended code preview blocks, allowing the creation of expanded panels with code snippets. It supports markdown elements, even custom extensions by passing the Marked instance to the extension. 
+`@fsegurai/marked-extended-spoiler` is an extension for Marked.js that adds support for extended spoiler blocks, allowing the creation of hidden content that appears on hover. It supports any markdown rendering (only if the `marked` instance is passed as an argument) and can be customized to fit your needs. In contrary case, it will have some limitations while rendering the content.
 
 ### Table of contents
 
 - [Installation](#installation)
     - [@fsegurai/marked-extended-spoiler](#fseguraimarked-extended-spoiler)
-    - [Using Extended Code Preview](#using-extended-code-preview)
+    - [Using Extended Spoiler](#using-extended-spoiler)
     - [Available Extensions](#available-extensions)
     - [Demo Application](#demo-application)
 - [License](#license)
@@ -91,8 +91,12 @@ Read the [Marked.js documentation](https://marked.js.org/) for more details abou
 
 The marked-spoiler extension accepts the following configuration options:
 
+* `prefixId`: The prefix ID for spoiler block. Defaults to 'spoiler-'.
+* `title`: The title of the spoiler block. Defaults to ''.
 * `animationDuration` (default: `2s`): The duration of the spoiler animation in seconds.
-* `marked`: The Marked instance to extend rendering with the spoiler block. Example: You can render the spoiler block with a custom extension like `@fsegurai/marked-extended-tables`.
+* `customizeToken`: A function that allows you to customize the token object. Defaults to null.
+* `template`: The template for the spoiler block. Defaults to the default template.
+* `marked`: The Marked instance to extend rendering for the spoiler block. Example: You can render the spoiler block with a custom extension like `@fsegurai/marked-extended-tables`.
 
 ### Available Extensions
 

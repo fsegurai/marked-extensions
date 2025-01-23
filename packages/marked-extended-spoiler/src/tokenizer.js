@@ -11,7 +11,9 @@ import { renderSpoiler } from './renderer.js';
 export function createSpoilerEffect(options = {}, marked = null) {
   // Destructure options with default values
   const {
+    prefixId = 'spoiler-', // Default prefix for IDs in the rendered HTML
     animationDuration = '2s', // Default animation duration
+    template, // Default template for the code preview
   } = options;
 
   return {
@@ -19,7 +21,7 @@ export function createSpoilerEffect(options = {}, marked = null) {
     level: 'block',
     tokenizer(src) {
       // Match code block or inline code that should be treated as a spoiler
-      const match = /^``` spoiler(\s+title="([^"]+)")?\n([\s\S]+?)\n```/.exec(src);
+      const match = /^``` ?spoiler(\s+title="([^"]+)")?\n([\s\S]+?)\n```/.exec(src);
 
       if (match) {
         const [raw, , title, code] = match;
@@ -31,12 +33,13 @@ export function createSpoilerEffect(options = {}, marked = null) {
           title, // Default title if none is provided
           code, // Raw spoiler content
           animationDuration, // Pass the animation duration
+          template, // Pass the template to the renderer
         };
       }
     },
     renderer({ title, code, animationDuration }) {
       // Render the spoiler content with hover effect
-      return renderSpoiler({ title, code, animationDuration }, marked);
+      return renderSpoiler({ prefixId, title, code, animationDuration, template }, marked);
     },
   };
 }
