@@ -12,7 +12,7 @@ export function createCodePreview(options = {}, marked = null) {
   // Destructure options with default values
   const {
     prefixId = 'code-preview-', // Default prefix for IDs in the rendered HTML
-    template, // Default template for the code preview
+    template, // Custom template for the code preview
   } = options;
 
   return {
