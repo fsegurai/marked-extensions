@@ -1,0 +1,27 @@
+variables:
+  # Agent VM image name
+  vmImageName: 'ubuntu-latest'
+
+trigger:
+  - main
+
+pool:
+  vmImage: $(vmImageName)
+
+stages:
+  - stage: GetSources
+    jobs:
+      - job: GetGitHubSources
+        steps:
+          - checkout: self
+
+          - task: mirror-git-repository-vsts-task@1
+            displayName: 'Mirror Git "ngx-markdown" Repository'
+            inputs:
+              sourceGitRepositoryUri: $(SOURCE-REPO-URL)
+              sourceGitRepositoryPersonalAccessToken: $(SOURCE-REPO-PAT)
+              sourceGitRepositoryCloneDirectoryName: $(SOURCE-REPO-URL)
+              sourceVerifySSLCertificate: false
+              destinationGitRepositoryUri: $(DESTINATION-REPO-URL)
+              destinationGitRepositoryPersonalAccessToken: $(DESTINATION-REPO-PAT)
+              destinationVerifySSLCertificate: false
