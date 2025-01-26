@@ -27,7 +27,7 @@ jobs:
         id: generate_release_notes
         run: npx semantic-release --dry-run
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Get version from package.json
         id: get_version
