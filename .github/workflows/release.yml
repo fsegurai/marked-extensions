@@ -11,6 +11,8 @@ on:
 jobs:
   create_release:
     runs-on: ubuntu-latest
+    timeout-minutes: 3
+    environment: FSI_DEP_NodeJs
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
