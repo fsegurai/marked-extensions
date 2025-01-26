@@ -41,7 +41,8 @@ jobs:
             echo "PRERELEASE=false" >> $GITHUB_ENV
 
       - name: Create GitHub Release
-        uses: comnoco/create-release@v2
+        id: create_release
+        uses: comnoco/create-release-action@v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
