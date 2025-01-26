@@ -39,7 +39,7 @@ jobs:
       - name: Determine if pre-release
         id: determine_prerelease
         run: |
-          VERSION=${{ env.VERSION }}
+          VERSION=${{ steps.get_version.outputs.VERSION }}
           if [[ "$VERSION" == *"-beta"* ]] || [[ "$VERSION" == *"-alpha"* ]] || [[ "$VERSION" == *"-rc"* ]] || [[ "$VERSION" == *"-next"* ]]; then
             echo "PRERELEASE=true" >> $GITHUB_ENV
           else
@@ -55,4 +55,4 @@ jobs:
           release_name: Release v${{ env.VERSION }}
           body: ${{ steps.generate_release_notes.outputs.notes }}
           draft: false
-          prerelease: ${{ env.PRERELEASE }}
+          prerelease: ${{ steps.determine_prerelease.outputs.PRERELEASE }}
