@@ -17,6 +17,6 @@ export default function(options = {}, marked = null) {
         token.title = options.customizeToken(token.title);
         token.extraData = options.customizeToken(token.extraData);
       }
-    }
+    },
   };
 }
