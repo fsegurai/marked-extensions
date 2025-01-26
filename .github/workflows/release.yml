@@ -27,14 +27,19 @@ jobs:
 
       - name: Generate release notes
         id: generate_release_notes
-        run: npx semantic-release --dry-run
+        run: |
+          NOTES=$(npx semantic-release --dry-run | grep -oP '(?<=Notes for version release ).*')
+          echo "NOTES=$NOTES" >> $GITHUB_OUTPUT
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NOTES: ${{ steps.generate_release_notes.outputs.NOTES }}
 
       - name: Get version from package.json
         id: get_version
         run: echo "VERSION=$(jq -r .version < package.json)" >> $GITHUB_ENV
+        env:
+          VERSION: ${{ steps.get_version.outputs.VERSION }}
 
       - name: Determine if pre-release
         id: determine_prerelease
@@ -52,8 +57,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: v${{ steps.get_version.outputs.VERSION }}
-          release_name: Release v${{ steps.get_version.outputs.VERSION }}
+          tag_name: v${{ env.VERSION }}
+          release_name: ${{ env.VERSION }}
           body: ${{ steps.generate_release_notes.outputs.notes }}
           draft: false
           prerelease: ${{ steps.determine_prerelease.outputs.PRERELEASE }}
