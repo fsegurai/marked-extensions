@@ -85,6 +85,7 @@ Read the [Marked.js documentation](https://marked.js.org/) for more details abou
 - [Marked Extended Code Preview](https://github.com/fsegurai/marked-extensions/tree/main/packages/marked-extended-code-preview)
 - [Marked Extended Footnote](https://github.com/fsegurai/marked-extensions/tree/main/packages/marked-extended-footnote)
 - [Marked Extended Lists](https://github.com/fsegurai/marked-extensions/tree/main/packages/marked-extended-lists)
+- [Marked Extended Spoiler](https://github.com/fsegurai/marked-extensions/tree/main/packages/marked-extended-spoiler)
 - [Marked Extended Tables](https://github.com/fsegurai/marked-extensions/tree/main/packages/marked-extended-tables)
 - [Marked Extended Typographic](https://github.com/fsegurai/marked-extensions/tree/main/packages/marked-extended-typographic)
 
@@ -103,6 +104,20 @@ npm start
 ```
 
 This will serve the application locally at [http://[::1]:8000](http://[::1]:8000).
+
+### Semantic Versioning
+
+The expected commits format follows the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) specification. Example:
+
+* feat: add new user login feature
+* fix: resolve issue with user profile update
+* docs: update API documentation
+* style: format code according to new style guide
+* refactor: simplify user authentication logic
+* perf: improve database query performance
+* test: add tests for user registration
+
+This is required for the `release.yml` workflow to automatically determine the next version number based on the changes introduced.
 
 ## License
 

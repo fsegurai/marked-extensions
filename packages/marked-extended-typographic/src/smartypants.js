@@ -8,7 +8,7 @@ const tags_to_skip = /<(\/?)(?:pre|code|kbd|script|math)[^>]*>/i;
  * @return {string|*} Normalized attribute
  */
 const attrType = attr => {
-  return typeof attr === 'number' ? attr.toString() : attr.replace(/\s/g, '');
+  return typeof attr === 'number' ? attr.toString() : String(attr).replace(/\s/g, '');
 };
 
 const SmartyPants = (text = '', attr = '1') => {

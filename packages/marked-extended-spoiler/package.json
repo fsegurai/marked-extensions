@@ -1,7 +1,7 @@
 {
-  "name": "@fsegurai/marked-extended-code-preview",
-  "version": "15.1.0",
-  "description": "Extended Code Preview for Marked.js",
+  "name": "@fsegurai/marked-extended-spoiler",
+  "version": "15.0.0",
+  "description": "Extended Spoiler for Marked.js",
   "main": "./dist/index.cjs",
   "module": "./src/index.js",
   "browser": "./dist/index.umd.js",

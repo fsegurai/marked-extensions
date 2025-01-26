@@ -1,16 +1,16 @@
 'use strict';
 
-import { createCodePreview } from './tokenizer.js';
+import { createSpoilerEffect } from './tokenizer.js';
 
 export default function(options = {}, markedInstance = null) {
   // Pass the options to the extension for more flexibility
   return {
     extensions: [
-      createCodePreview(options, markedInstance),
+      createSpoilerEffect(options, markedInstance),
     ],
     walkTokens(token) {
       // Example: Add custom handling or logging of the tokens
-      if (token.type !== 'codePreview') return;
+      if (token.type !== 'spoilerEffect') return;
 
       // Modify the token based on the passed options if necessary
       if (options.customizeToken) {

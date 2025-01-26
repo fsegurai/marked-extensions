@@ -1,16 +1,18 @@
 const mdSample = `# Markdown Extended Code Preview
 
-\`\`\` ecp preview title="Code Sample 📄" extraData="This is a javascript sample" codeLanguage="javascript"
-const foo = 'bar';
-
-console.log(foo);
+\`\`\` preview title="Code Preview 📄" subTitle="This is a javascript sample"
+  \`\`\` javascript
+  const foo = 'bar';
+  
+  console.log(foo);
+  \`\`\`
 \`\`\`
 
-\`\`\` ecp preview title="Image Sample" extraData="Image sample"  elementType="image"
-https://imgs.search.brave.com/FEvHxi-_YFY__gKQNDl1QSKSpFvPu2-yvEn8evGo_F0/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90My5m/dGNkbi5uZXQvanBn/LzAwLzUwLzEzLzQw/LzM2MF9GXzUwMTM0/MDY5X29FU1pkQXJB/WHUzdmtvaXhUZHRk/QWZ2Uk5qMGZ1Vm1a/LmpwZw
+\`\`\` preview title="Image Preview" subTitle="Image sample"
+![Test image](https://plus.unsplash.com/premium_photo-1669829646756-083a328c0abb?q=80&w=2118&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D "test image")
 \`\`\`
 
-\`\`\` ecp preview title="Text Sample" elementType="text"
+\`\`\` preview title="Text Preview"
 Hello, World!
 \`\`\`
 
@@ -101,6 +103,32 @@ This is a block footnote reference[^2].
         I.  sub item I
         II. sub item II
     e. item 3e
+
+---
+
+# Markdown Extended Spoiler
+
+## Text Spoiler
+
+\`\`\` spoiler title="Hover on text"
+This is a hidden code block that will only appear on hover. Some text later it will be all over again and again, so be sure that it will work
+\`\`\`
+
+## Image Spoiler
+
+\`\`\` spoiler title="Hover on image"
+![Test image](https://plus.unsplash.com/premium_photo-1669829646756-083a328c0abb?q=80&w=2118&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D "test image")
+\`\`\`
+
+## Code Spoiler
+
+\`\`\` spoiler title="Hover on code"
+  \`\`\` javascript
+  const foo = 'bar';
+  
+  console.log(foo);
+  \`\`\`
+\`\`\`
 
 ---
 

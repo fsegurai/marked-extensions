@@ -28,59 +28,55 @@
                 transform: scale(1.02);
             }
 
-            .code-preview-card:hover {
+            &:hover {
                 box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
                 transform: scale(1.02);
             }
 
             /* Panel Header */
 
-            .preview-text {
+            & .preview-title {
                 font-size: 16px;
                 font-weight: 600;
                 max-width: 75%;
                 white-space: nowrap;
                 overflow: hidden;
                 text-overflow: ellipsis;
+                cursor: pointer;
             }
 
             /* Preview Content Styling */
 
-            .preview-content {
+            & .preview-content {
                 display: flex;
                 align-items: center;
-                justify-content: space-between;
-                margin-bottom: 10px;
-                transition: all 0.3s ease;
+                justify-content: center;
+
+                & > * {
+                    width: 100%;
+                }
+
+                & img {
+                    object-fit: cover;
+                    border-radius: 8px;
+                    margin: 0 auto;
+                    aspect-ratio: 16 / 9 !important;
+                    width: 100% !important;
+                    transition: transform 0.3s ease;
+
+                    &:hover {
+                        transform: scale(1.05);
+                    }
+                }
             }
 
-            .preview-img {
-                object-fit: cover;
-                border-radius: 8px;
-                margin: 0 auto;
-                aspect-ratio: 16 / 9;
-                width: 100%;
-                transition: transform 0.3s ease;
-            }
+            /* Subtitle Area */
 
-            .preview-img:hover {
-                transform: scale(1.05);
-            }
-
-            /* Extra Data Area */
-
-            .extra-data {
+            & .preview-subtitle {
                 margin: 15px 0 5px;
                 font-size: 14px;
                 padding-top: 10px;
                 font-style: italic;
-            }
-
-            /* Text-based Preview */
-
-            .expanded-text {
-                font-size: 16px;
-                line-height: 1.6;
             }
         }
 
@@ -161,6 +157,8 @@
         }
 
         & pre {
+            display: flex;
+            align-items: center;
             padding: 1em;
             overflow: auto;
             font-size: 0.9rem;

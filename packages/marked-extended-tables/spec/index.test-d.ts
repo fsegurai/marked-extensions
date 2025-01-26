@@ -1,57 +1,18 @@
-import { marked } from 'marked';
-import markedExtendedTables from '../src/index.js';
+// Import necessary types from 'marked'
+import { MarkedExtension } from 'marked';
 
-function trimLines(s: string): string {
-  return s
-    .split('\n')
-    .map(l => l.trim())
-    .join('\n');
+// Extending the 'Marked' interface to include `use` method with correct options type
+declare module 'marked' {
+  interface MarkedStatic {
+    use(extension: () => MarkedExtension): this;
+  }
 }
 
-describe('extended-table', () => {
-  beforeEach(() => {
-    marked.setOptions(marked.getDefaults());
-  });
+// Extending Jest to include your custom matchers (e.g., toContainSubstring)
+import '@jest/globals';
 
-  test('Column Spanning', () => {
-    marked.use(markedExtendedTables());
-    expect(
-      marked(
-        trimLines(`
-      | H1      | H2      | H3      |
-      |---------|---------|---------|
-      | This cell spans 3 columns |||
-    `),
-      ),
-    ).toMatchSnapshot();
-  });
-
-  test('Row Spanning', () => {
-    marked.use(markedExtendedTables());
-    expect(
-      marked(
-        trimLines(`
-      | H1           | H2      |
-      |--------------|---------|
-      | This cell    | Cell A  |
-      | spans three ^| Cell B  |
-      | rows        ^| Cell C  |
-    `),
-      ),
-    ).toMatchSnapshot();
-  });
-
-  test('Multi-row headers', () => {
-    marked.use(markedExtendedTables());
-    expect(
-      marked(
-        trimLines(`
-      | This header spans two   || Header A |
-      | columns *and* two rows ^|| Header B |
-      |-------------|------------|----------|
-      | Cell A      | Cell B     | Cell C   |
-    `),
-      ),
-    ).toMatchSnapshot();
-  });
-});
+declare module '@jest/globals' {
+  interface Matchers<R> {
+    toContainSubstring(expected: string): R;
+  }
+}

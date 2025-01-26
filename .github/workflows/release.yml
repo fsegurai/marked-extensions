@@ -1,0 +1,52 @@
+name: Publish Release
+
+on:
+  workflow_run:
+    workflows: [ "Release Library" ]
+    types:
+      - completed
+
+jobs:
+  create_release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js - Version ${{ vars.NODE_VERSION }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ vars.NODE_VERSION }}
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Generate release notes
+        id: generate_release_notes
+        run: npx semantic-release --dry-run
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Get version from package.json
+        id: get_version
+        run: echo "VERSION=$(jq -r .version < package.json)" >> $GITHUB_ENV
+
+      - name: Determine if pre-release
+        id: determine_prerelease
+        run: |
+          VERSION=${{ env.VERSION }}
+          if [[ "$VERSION" == *"-beta"* ]] || [[ "$VERSION" == *"-alpha"* ]] || [[ "$VERSION" == *"-rc"* ]] || [[ "$VERSION" == *"-next"* ]]; then
+            echo "PRERELEASE=true" >> $GITHUB_ENV
+          else
+            echo "PRERELEASE=false" >> $GITHUB_ENV
+
+      - name: Create GitHub Release
+        uses: comnoco/create-release@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: v${{ env.VERSION }}
+          release_name: Release v${{ env.VERSION }}
+          body: ${{ steps.generate_release_notes.outputs.notes }}
+          draft: false
+          prerelease: ${{ env.PRERELEASE }}
