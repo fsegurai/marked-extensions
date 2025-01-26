@@ -5,10 +5,10 @@ import { renderSpoiler } from './renderer.js';
 /**
  * Create a spoiler effect for the Markdown parser.
  * @param options - The options for the spoiler effect
- * @param marked - The marked instance for rendering the content
+ * @param markedInstance - The marked instance for rendering the content
  * @returns {{name: string, level: string, tokenizer(*): ({type: string, raw: string, title: string, code: string, animationDuration: string}|undefined), renderer({title: *, code: *, animationDuration: *}): string}|{type: string, raw: string, title: string, code: string, animationDuration: string}|string} The spoiler effect extension
  */
-export function createSpoilerEffect(options = {}, marked = null) {
+export function createSpoilerEffect(options = {}, markedInstance = null) {
   // Destructure options with default values
   const {
     prefixId = 'spoiler-', // Default prefix for IDs in the rendered HTML
@@ -39,7 +39,7 @@ export function createSpoilerEffect(options = {}, marked = null) {
     },
     renderer({ title, code, animationDuration }) {
       // Render the spoiler content with hover effect
-      return renderSpoiler({ prefixId, title, code, animationDuration, template }, marked);
+      return renderSpoiler({ prefixId, title, code, animationDuration, template }, markedInstance);
     },
   };
 }

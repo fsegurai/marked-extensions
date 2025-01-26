@@ -1,5 +1,4 @@
-import { MarkedExtension, Token } from 'marked';
-import type { marked } from 'marked';
+import { marked, MarkedExtension, Token } from 'marked';
 
 // Declaration for the options object that will be passed to the createSpoilerEffect function
 export interface SpoilerOptions {
@@ -10,4 +9,5 @@ export interface SpoilerOptions {
 }
 
 // Function to create spoiler effect extensions
-export default function markedExtendedSpoiler(options?: SpoilerOptions, marked?: marked): MarkedExtension;
+// export default function markedExtendedSpoiler(options?: SpoilerOptions, marked?: marked): MarkedExtension;
+export default function markedExtendedSpoiler(options?: SpoilerOptions, markedInstance?: typeof marked): MarkedExtension;

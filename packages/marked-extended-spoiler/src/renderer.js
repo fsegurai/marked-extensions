@@ -10,10 +10,10 @@ import { DEFAULT_TEMPLATE } from './constants.js';
  * @param code - The raw content of the spoiler.
  * @param animationDuration - The duration of the animation.
  * @param template - The template for the spoiler.
- * @param marked - The marked instance for rendering the content.
+ * @param markedInstance - The marked instance for rendering the content.
  * @returns {string} The HTML content of the spoiler.
  */
-export function renderSpoiler({ prefixId, title, code, animationDuration, template }, marked) {
+export function renderSpoiler({ prefixId, title, code, animationDuration, template }, markedInstance) {
   // Unique ID for the spoiler
   const spoilerId = `${prefixId}${Math.random().toString(36).substring(2, 9)}`;
 
@@ -21,7 +21,7 @@ export function renderSpoiler({ prefixId, title, code, animationDuration, templa
   const customTitle = title ? `<span>${title}</span>` : '';
 
   // Render the Markdown content inside the spoiler
-  const markedCode = marked && code ? marked.parse(code) : code;
+  const markedCode = markedInstance && code ? markedInstance.parse(code) : code;
 
   // Check if the template is provided
   if(template === null || template === undefined) {

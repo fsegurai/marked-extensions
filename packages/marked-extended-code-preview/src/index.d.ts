@@ -1,5 +1,4 @@
-import { MarkedExtension, Token } from 'marked';
-import type { marked } from 'marked';
+import { marked, MarkedExtension, Token } from 'marked';
 
 // Declaration for the options object that will be passed to the createCodePreview function
 export interface CodePreviewOptions {
@@ -9,4 +8,5 @@ export interface CodePreviewOptions {
 }
 
 // Function to create code preview extensions
-export default function markedExtendedCodePreview(options?: CodePreviewOptions, marked?: marked): MarkedExtension;
+// export default function markedExtendedCodePreview(options?: CodePreviewOptions, marked?: marked): MarkedExtension;
+export default function markedExtendedCodePreview(options?: CodePreviewOptions, markedInstance?: typeof marked): MarkedExtension;

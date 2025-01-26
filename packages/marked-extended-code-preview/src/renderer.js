@@ -9,12 +9,12 @@ import { DEFAULT_TEMPLATE } from './constants.js';
  * @param code - The raw content of the preview.
  * @param subTitle - The extra data to include in the preview.
  * @param template - The template for the preview.
- * @param marked - The marked instance for rendering the content.
+ * @param markedInstance - The marked instance for rendering the content.
  * @returns {string} - The HTML content of the code preview.
  */
 export function renderCodePreview(
   { prefixId, title = '', code = '', subTitle = '', template = DEFAULT_TEMPLATE },
-  marked,
+  markedInstance,
 ) {
   // Validate the input values
   if (typeof prefixId !== 'string' || !prefixId) {
@@ -27,7 +27,7 @@ export function renderCodePreview(
 
   let customTitle = title || '',
     customSubTitle = subTitle || '',
-    markedCode = marked && code ? marked(code) : code ?? '';
+    markedCode = markedInstance && code ? markedInstance(code) : code ?? '';
 
   // Unique ID for the preview element
   const previewId = `${prefixId}${Math.random().toString(36).substring(2, 9)}`;
@@ -41,7 +41,7 @@ export function renderCodePreview(
     customSubTitle = subTitle ? `<span class="preview-subtitle">${subTitle}</span>` : '';
 
     // Render the Markdown content inside the preview
-    markedCode = marked && code ? `<div class="preview-content">${marked(code)}</div>` : code;
+    markedCode = markedInstance && code ? `<div class="preview-content">${markedInstance(code)}</div>` : code;
   }
 
   // Return the template with all placeholders replaced

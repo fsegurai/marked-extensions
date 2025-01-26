@@ -5,10 +5,10 @@ import { renderCodePreview } from './renderer.js';
 /**
  * Create a code preview for the Markdown parser.
  * @param options - The options for the code preview
- * @param marked - The marked instance for rendering the content
+ * @param markedInstance - The marked instance for rendering the content
  * @returns {{name: string, level: string, tokenizer(*): ({type: string, raw: string, title: string, code: string, subTitle: string}|undefined), renderer({title: *, code: *, subTitle: *}): string}|{type: string, raw: string, title: string, code: string, subTitle: string}|string} The code preview extension
  */
-export function createCodePreview(options = {}, marked = null) {
+export function createCodePreview(options = {}, markedInstance = null) {
   // Destructure options with default values
   const {
     prefixId = 'code-preview-', // Default prefix for IDs in the rendered HTML
@@ -41,7 +41,7 @@ export function createCodePreview(options = {}, marked = null) {
     },
     renderer({ title, code, subTitle }) {
       // Pass the token data to the renderCodePreview function for HTML rendering
-      return renderCodePreview({ prefixId, title, code, subTitle, template }, marked);
+      return renderCodePreview({ prefixId, title, code, subTitle, template }, markedInstance);
     },
   };
 }
