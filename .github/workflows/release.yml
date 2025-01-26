@@ -29,8 +29,12 @@ jobs:
         id: generate_release_notes
         run: |
           DATE=$(date +'%d/%m/%Y')
-          NOTES=$(npx semantic-release --dry-run | grep -oP '(?<=Release note for version ).*')
-          echo "NOTES=$DATE\n---\n$NOTES" >> $GITHUB_OUTPUT
+          RELEASE_NOTES=$(npx semantic-release --dry-run | grep -oP "(?<=Release note for version).*" | head -n 1)
+          if [[ -z "$RELEASE_NOTES" ]]; then
+            echo "No release notes generated."
+            RELEASE_NOTES="No release notes available."
+          fi
+          echo "RELEASE_NOTES=($DATE)\n---\n$RELEASE_NOTES" >> $GITHUB_OUTPUT
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -59,6 +63,6 @@ jobs:
         with:
           tag_name: v${{ env.VERSION }}
           release_name: ${{ env.VERSION }}
-          body: ${{ steps.generate_release_notes.outputs.NOTES }}
+          body: ${{ steps.generate_release_notes.outputs.RELEASE_NOTES }}
           draft: false
           prerelease: ${{ steps.determine_prerelease.outputs.PRERELEASE }}
