@@ -1,3 +1,5 @@
+name: $(BuildDefinitionName)_$(date:yyyyMMdd)$(rev:.r)
+
 variables:
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
@@ -8,20 +10,21 @@ trigger:
 pool:
   vmImage: $(vmImageName)
 
+resources:
+  repositories:
+    - repository: common
+      type: git
+      name: $(SOURCE-TEMPLATE-REPO)
+      ref: main
+
 stages:
   - stage: GetSources
     jobs:
       - job: GetGitHubSources
         steps:
-          - checkout: self
-
-          - task: mirror-git-repository-vsts-task@1
-            displayName: 'Mirror Git "ngx-markdown" Repository'
-            inputs:
-              sourceGitRepositoryUri: $(SOURCE-REPO-URL)
-              sourceGitRepositoryPersonalAccessToken: $(SOURCE-REPO-PAT)
-              sourceGitRepositoryCloneDirectoryName: $(SOURCE-REPO-URL)
-              sourceVerifySSLCertificate: false
-              destinationGitRepositoryUri: $(DESTINATION-REPO-URL)
-              destinationGitRepositoryPersonalAccessToken: $(DESTINATION-REPO-PAT)
-              destinationVerifySSLCertificate: false
+          - template: /steps/ado/copy-branch.yml@common
+            parameters:
+              source_repo_url: $(SOURCE-REPO-URL)
+              source_repo_pat: $(SOURCE-REPO-PAT)
+              destination_repo_url: $(DESTINATION-REPO-URL)
+              destination_repo_pat: $(DESTINATION-REPO-PAT)
