@@ -3,16 +3,13 @@
 </p>
 
 <p align="center" class="intro">
-  <a href="https://github.com/fsegurai/marked-extensions/actions/workflows/release-library.yml">
-      <img src="https://github.com/fsegurai/marked-extensions/actions/workflows/release-library.yml/badge.svg"
-          alt="Build Status">
+  <a href="https://github.com/fsegurai/marked-extensions">
+      <img src="https://img.shields.io/azure-devops/build/fsegurai/93779823-473d-4fb3-a5b1-27aaa1a88ea2/18/main?label=Build%20Status&"
+          alt="Build Main Status">
   </a>
   <a href="https://github.com/fsegurai/marked-extensions/releases/latest">
       <img src="https://img.shields.io/github/v/release/fsegurai/marked-extensions"
           alt="Latest Release">
-  <a href="https://github.com/fsegurai/marked-extensions/actions/workflows/test.yml">
-      <img src="https://github.com/fsegurai/marked-extensions/actions/workflows/test.yml/badge.svg?branch=main"
-          alt="Test Status">
   </a>
   <br>
   <img alt="GitHub contributors" src="https://img.shields.io/github/contributors/fsegurai/marked-extensions">
