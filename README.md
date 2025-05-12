@@ -1,5 +1,5 @@
 <p align="center" class="intro">
-  <img alt="Marked Extensions Logo" src="https://raw.githubusercontent.com/fsegurai/marked-extensions/main/demo/public/marked-extensions.svg">
+  <img alt="Marked Extensions Logo" src="https://raw.githubusercontent.com/fsegurai/marked-extensions/main/public/marked-extensions.svg">
 </p>
 
 <p align="center" class="intro">
