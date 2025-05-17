@@ -2675,16 +2675,62 @@ function escape(html, encode) {
   return html;
 }
 
-const DEFAULT_OPTIONS$6 = {
+/* eslint-disable no-undef */
+
+/**
+ * Adds CSS styles for any element to the page head if they don't already exist
+ * @param id - Unique ID for the style element
+ * @param styles - CSS styles to be injected
+ * @param cssVariables - Optional CSS variables to be injected
+ */
+const ensureStyles = (id, styles, cssVariables = {}) => {
+  if (typeof window === 'undefined') return;
+
+  if (!window[id]) {
+    const styleEl = document.createElement('style');
+    styleEl.id = id;
+    styleEl.textContent = replaceCSSVariables(styles, cssVariables);
+    document.head.appendChild(styleEl);
+    window[id] = true;
+  }
+};
+
+/**
+ * Replaces CSS variables in the provided styles with their corresponding values
+ * @param styles - CSS styles to be modified
+ * @param cssVariables - Object containing CSS variable names as keys and their values
+ * @returns {[string, unknown]|*} - The modified styles with replaced CSS variables
+ */
+const replaceCSSVariables = (styles, cssVariables) => {
+  if (!cssVariables) return styles;
+
+  return Object.entries(cssVariables).reduce((acc, [key, value]) => {
+    return acc.replace(new RegExp(key, 'g'), value);
+  }, styles);
+};
+
+/**
+ * The default configuration options for the accordion component.
+ *
+ * @typedef {Object} DEFAULT_OPTIONS
+ * @property {string} className Default CSS class name applied to the accordion container.
+ * @property {string} prefixId Prefix used for generating unique IDs for accordion elements.
+ * @property {string} animationDuration The default duration of the accordion animation as a string (e.g., '0.3s').
+ * @property {?string} template Optional template for customizing the structure of the accordion content.
+ * @property {?Function} customizeToken Optional callback function to customize or manipulate tokens.
+ * @property {boolean} injectStyles Flag indicating whether default styles should be automatically injected.
+ */
+const DEFAULT_OPTIONS$7 = {
+  className: 'marked-extended-accordion',
   prefixId: 'accordion-',
   animationDuration: '0.3s',
   template: null,
   customizeToken: null,
-  labelFormat: (id, number) => number,
+  injectStyles: true,
 };
 
 /**
- * The default accordion template with improved accessibility and styling.
+ * The default accordion template with improved accessibility.
  * Uses placeholders that will be replaced during rendering:
  * - {accordionId} - Unique ID for the accordion element
  * - {title} - Title of the accordion
@@ -2695,51 +2741,59 @@ const DEFAULT_OPTIONS$6 = {
  * - {headingTag} - Heading tag based on level (h1-h6)
  * - {className} - Additional CSS classes
  */
-const DEFAULT_TEMPLATE$2 = `
-<details id="{accordionId}" class="accordion-container {className}" {expandedAttr}>
-  <summary class="accordion-header">
-    <{headingTag} class="accordion-title">{title}</{headingTag}>
+const DEFAULT_TEMPLATE$4 = `
+<details id="{accordionId}" class="{className}" {expandedAttr}>
+  <summary class="{className}-header">
+    <{headingTag} class="{className}-title">{title}</{headingTag}>
   </summary>
-  <div class="accordion-content">
+  <div class="{className}-content">
     {content}
   </div>
 </details>
-<style>
-  #{accordionId} {
+`;
+
+/**
+ * The default styles for the accordion component.
+ * These styles are applied to the accordion and its children.
+ * - {animationDuration} - Duration of the animation
+ * - {transitionTiming} - Timing function for the transition
+ */
+const DEFAULT_STYLES$4 = `
+  .marked-extended-accordion {
     border: 1px solid #ddd;
     border-radius: 4px;
     margin: 1rem 0;
     overflow: hidden;
-  }
-  
-  #{accordionId} .accordion-header {
-    padding: 0.75rem 1rem;
-    cursor: pointer;
-    position: relative;
-  }
-  
-  #{accordionId} .accordion-title {
-    margin: 0;
-    display: inline;
-    font-weight: 600;
-  }
-  
-  #{accordionId} .accordion-content {
-    padding: 1rem;
-    transition: opacity {animationDuration} {transitionTiming};
-    width: 100%;
-    box-sizing: border-box;
-    animation: accordion-fade {animationDuration} ease;
-    overflow: auto;
-  }
-
-  #{accordionId} .accordion-content img {
-    max-width: 100%;
-    width: 100%;
-    height: auto;
-    display: block;
-    object-fit: cover;
-    margin: 0;
+    
+    & .marked-extended-accordion-header {
+      padding: 0.75rem 1rem;
+      cursor: pointer;
+      position: relative;
+    }
+    
+    & .marked-extended-accordion-title {
+      margin: 0;
+      display: inline;
+      font-weight: 600;
+    }
+    
+    & .marked-extended-accordion-content {
+      padding: 1rem;
+      transition: opacity {animationDuration} {transitionTiming};
+      width: 100%;
+      box-sizing: border-box;
+      animation: accordion-fade {animationDuration} ease;
+      overflow: auto;
+      
+      & img {
+        max-width: 100%;
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: cover;
+        margin: 0;
+      }
+    }
   }
   
   @keyframes accordion-fade {
@@ -2752,7 +2806,6 @@ const DEFAULT_TEMPLATE$2 = `
       transform: translateY(0);
     }
   }
-</style>
 `;
 
 const propRegex = /\s*(\w+)="([^"]+)"/g;
@@ -2798,7 +2851,7 @@ const elementPatterns = {
 };
 
 /**
- * This section is to define extensions with a complex regex pattern
+ * This section is to define extensions with a complex regex pattern,
  * For example, elements nested inside other elements like tabs or timelines
  */
 const tabPatterns = generateRegexFromPattern('tabBlock');
@@ -2807,7 +2860,7 @@ const tabItemPatterns = generateRegexFromPattern('tabItemBlock');
 const tabBlockRegex = new RegExp(
   `^${tabPatterns.startPattern}\\s*(?:\\n|$)((?:[\\s\\S]*?)(?:${tabItemPatterns.startPattern}\\{.*?\\}[\\s\\S]*?${tabItemPatterns.endPattern}(?:\\n|$))*)${tabPatterns.endPattern}\\s*(?:\\n|$)`,
 );
-const tabContainerRegex = new RegExp(`${tabPatterns.startPattern}(?:\\{(.*?)\\})?`);
+new RegExp(`${tabPatterns.startPattern}(?:\\{(.*?)\\})?`);
 const tabItemRegex = new RegExp(
   `${tabItemPatterns.startPattern}\\{(.*?)\\}([\\s\\S]*?)${tabItemPatterns.endPattern}(?:\\n|$)`,
   'g',
@@ -2831,24 +2884,19 @@ const supportedPropsByElement = {
     { name: 'expanded', defaultValue: 'false' },
     { name: 'duration', defaultValue: '1s' },
     { name: 'level', defaultValue: '3' },
-    { name: 'customClass', defaultValue: '' },
   ],
   spoilerBlock: [
     { name: 'title', defaultValue: '' },
     { name: 'theme', defaultValue: 'default' },
-    { name: 'duration', defaultValue: '1s' },
   ],
-  tabBlock: [{ name: 'customClass', defaultValue: '' }],
   tabItemBlock: [
     { name: 'label', defaultValue: '' }, // Tab label text
-    { name: 'active', defaultValue: 'false' }, // Whether tab is initially active
+    { name: 'active', defaultValue: 'false' }, // Whether a tab is initially active
     { name: 'icon', defaultValue: null }, // Optional icon for the tab
-    { name: 'customClass', defaultValue: '' },
   ],
   timelineEventBlock: [
     { name: 'date', defaultValue: '' },
-    { name: 'active', defaultValue: 'false' }, // Whether tab is initially active
-    { name: 'customClass', defaultValue: '' },
+    { name: 'active', defaultValue: 'false' }, // Whether a tab is initially active
   ],
 };
 
@@ -2863,7 +2911,7 @@ function generateRegexFromPattern(elementType) {
 
   const { start, end, aliases = [], endAliases = [] } = pattern;
 
-  // Create pattern parts for start tag (main + aliases)
+  // Create pattern parts for the start tag (main + aliases)
   const startPatterns = [start, ...aliases].map((p) => escapeRegExp$1(p)).join('|');
   const endPatterns = [end, ...endAliases].map((p) => escapeRegExp$1(p)).join('|');
 
@@ -2885,9 +2933,9 @@ function escapeRegExp$1(string) {
 /**
  * Parse block with balanced tags, handling nested structures properly
  *
- * @param {string} src - The full source markdown text
+ * @param {string} src - The full source Markdown text
  * @param {string} elementType - The type of element to parse
- * @returns {RegExpExecArray|null} - A match array with groups like a RegExp match
+ * @returns {string[]} - A match array with groups like a RegExp match
  */
 function parseBalancedTags(src, elementType) {
   // Get element pattern configuration
@@ -2914,12 +2962,12 @@ function parseBalancedTags(src, elementType) {
     if (startPos === 0) return null;
   }
 
-  // Find end of properties section
+  // Find the end of a properties section
   let depth = 1;
   const propEnd = src.indexOf('}', startPos);
   if (propEnd === -1) return null;
 
-  // Extract property string and determine content start position
+  // Extract property string and determine the content start position
   const propString = src.substring(startPos, propEnd);
   const contentStart = propEnd + 1;
 
@@ -2931,7 +2979,7 @@ function parseBalancedTags(src, elementType) {
     // Look for any possible start tag (main or alias)
     let nextStartPos = -1;
 
-    // Check main pattern first
+    // Check the main pattern first
     const mainStartPos = src.indexOf(start, pos);
     nextStartPos = mainStartPos;
 
@@ -2943,12 +2991,11 @@ function parseBalancedTags(src, elementType) {
       }
     }
 
-    // Find the next end tag (consider both main end tag and aliases)
+    // Find the next end tag (consider both the main end tag and aliases)
     let nextEndPos = -1;
     let foundEndPattern = end;
 
-    const mainEndPos = src.indexOf(end, pos);
-    nextEndPos = mainEndPos;
+    nextEndPos = src.indexOf(end, pos);
 
     // Check all end aliases for the earliest occurrence
     for (const endAlias of endAliases) {
@@ -3000,12 +3047,12 @@ function parseBalancedTags(src, elementType) {
 }
 
 /**
- * Validates whether a source string contains a specific markdown block element.
+ * Validates whether a source string contains a specific Markdown block element.
  * Uses balanced tag parsing for block elements to support nesting.
  *
  * @param {string} element - The type of element to validate
- * @param {string} src - The markdown source text to check for the element
- * @returns {RegExpExecArray|undefined} The match result if found
+ * @param {string} src - The Markdown source text to check for the element
+ * @returns {string[]} The match result if found
  */
 const validateRegex = (element, src) => {
   if (element instanceof RegExp) {
@@ -3030,7 +3077,7 @@ const validateRegex = (element, src) => {
 };
 
 /**
- * Constructs a properties object for a specific element type by parsing attribute strings.
+ * Constructs a property object for a specific element type by parsing attribute strings.
  * First initializes all supported properties with their default values,
  * then overrides them with any values found in the provided prop string.
  *
@@ -3070,14 +3117,14 @@ const constructProps = (element, propString) => {
  * @param {String} options.title - Title of the accordion
  * @param {Boolean} options.expanded - Whether the accordion is expanded by default
  * @param {Number} options.level - Heading level (1-6)
- * @param {String} options.customClass - Additional CSS classes
+ * @param {String} options.className - Additional CSS classes
  * @param {String} options.content - Content to be rendered inside the accordion
  * @param {String} options.animationDuration - Duration of the animation
  * @param {String} options.template - Template for rendering
  * @returns {String} HTML representation of the accordion
  */
 function renderAccordion(options = {}) {
-  const { prefixId, title, expanded, level, customClass, content, animationDuration, template } = options;
+  const { prefixId, title, expanded, level, className, content, animationDuration, template } = options;
 
   // Generate a unique ID
   const uniqueId = `${prefixId}${Math.random().toString(36).substring(2, 11)}`;
@@ -3089,7 +3136,7 @@ function renderAccordion(options = {}) {
   const headingTag = `h${level}`;
 
   // Get the accordion template
-  const accordionTemplate = template || DEFAULT_TEMPLATE$2;
+  const accordionTemplate = template || DEFAULT_TEMPLATE$4;
 
   // Return the template with all placeholders replaced
   return accordionTemplate
@@ -3100,19 +3147,20 @@ function renderAccordion(options = {}) {
     .replace(/{expanded}/g, expanded ? 'true' : 'false')
     .replace(/{expandedAttr}/g, expanded ? 'open' : '')
     .replace(/{animationDuration}/g, animationDuration)
-    .replace(/{className}/g, customClass);
+    .replace(/{className}/g, className);
 }
 
 /**
  * Create an accordion effect for the Markdown parser with enhanced features.
  * @param {Object} options - Configuration options
+ * @param {string} [options.className] - Additional CSS classes
  * @param {string} [options.prefixId='accordion-'] - Prefix for accordion IDs
  * @param {string} [options.animationDuration='0.3s'] - Animation duration
  * @param {string} [options.template] - Custom template
  * @returns {Object} Marked extension object
  */
-function createAccordionEffect(options = {}) {
-  const { prefixId, animationDuration, template } = options;
+function createTokenizer$4(options = {}) {
+  const { className, prefixId, animationDuration, template } = options;
   const element = 'accordionBlock';
 
   return {
@@ -3130,7 +3178,7 @@ function createAccordionEffect(options = {}) {
       const props = constructProps(element, propString);
 
       // Return a token with all properties
-      const token = {
+      return {
         type: 'accordion',
         raw,
         meta: {
@@ -3138,14 +3186,12 @@ function createAccordionEffect(options = {}) {
           title: props.title,
           expanded: props.expanded === 'true',
           level: parseInt(props.level, 10) || 3,
-          customClass: props.customClass,
+          className,
           content,
           animationDuration: props.duration || animationDuration,
           template,
         },
       };
-
-      return token;
     },
     renderer({ meta }) {
       // Pass all token properties to the renderer
@@ -3161,11 +3207,15 @@ function createAccordionEffect(options = {}) {
  * @param {string} [options.animationDuration='0.3s'] - Animation duration
  * @param {string} [options.template] - Custom template
  * @param {Function} [options.customizeToken] - Function to customize token
+ * @param {boolean} [options.injectStyles=true] - Whether to automatically inject CSS styles
  * @returns {Object} Marked extension object
  */
 function markedExtendedAccordion(options = {}) {
   // Set sensible defaults
-  const config = { ...DEFAULT_OPTIONS$6, ...options };
+  const config = { ...DEFAULT_OPTIONS$7, ...options };
+
+  // Inject styles if needed
+  if (config.injectStyles) ensureStyles('marked-extended-accordion-styles', DEFAULT_STYLES$4);
 
   // Return the extension
   return {
@@ -3177,12 +3227,20 @@ function markedExtendedAccordion(options = {}) {
         config.customizeToken(token);
       }
     },
-    extensions: [createAccordionEffect(config)],
+    extensions: [createTokenizer$4(config)],
   };
 }
 
-const DEFAULT_OPTIONS$5 = {
-  className: 'markdown-alert',
+/**
+ * DEFAULT_OPTIONS object defines the default configuration settings.
+ *
+ * Properties:
+ * - className: A string representing the default CSS class name to be applied. Defaults to 'marked-extended-alert'.
+ * - variants: An array to hold variant options. Defaults to an empty array.
+ * - injectStyles: A boolean indicating whether to inject styles automatically. Defaults to true.
+ */
+const DEFAULT_OPTIONS$6 = {
+  className: 'marked-extended-alert',
   variants: [],
   injectStyles: true,
 };
@@ -3214,26 +3272,44 @@ const DEFAULT_VARIANTS = [
 ];
 
 /**
+ * The default template for rendering alerts
+ * Uses placeholders that will be replaced during rendering:
+ * - {className} - Base class name for the alert
+ * - {variant} - Variant class name for the alert
+ * - {titleClassName} - Class name for the title
+ * - {icon} - Icon HTML for the alert
+ * - {title} - Title of the alert
+ * - {content} - Content inside the alert
+ */
+const DEFAULT_TEMPLATE$3 = `
+<div class="{className} {className}-{variant}">
+  <p class="{titleClassName}">{icon}{title}</p>
+  <div class="{className}-content">{content}</div>
+</div>
+`;
+
+
+/**
  * Default CSS styles for alerts
  */
-const DEFAULT_STYLES = `
-  .markdown-alert {
+const DEFAULT_STYLES$3 = `
+  .marked-extended-alert {
     padding: 0 1em;
     margin-bottom: 16px;
     color: inherit;
     border-left: 0.25em solid #444c56;
   }
 
-  .markdown-alert-title {
+  .marked-extended-alert-title {
     display: inline-flex;
     align-items: center;
     font-weight: 500;
   }
 
-  .markdown-alert-note {
+  .marked-extended-alert-note {
     border-left-color: #539bf5;
 
-    & > .markdown-alert-title {
+    & > .marked-extended-alert-title {
       color: #539bf5;
 
       & svg {
@@ -3242,10 +3318,10 @@ const DEFAULT_STYLES = `
     }
   }
 
-  .markdown-alert-tip {
+  .marked-extended-alert-tip {
     border-left-color: #57ab5a;
 
-    & > .markdown-alert-title {
+    & > .marked-extended-alert-title {
       color: #57ab5a;
 
       & svg {
@@ -3254,10 +3330,10 @@ const DEFAULT_STYLES = `
     }
   }
 
-  .markdown-alert-important {
+  .marked-extended-alert-important {
     border-left-color: #986ee2;
 
-    & > .markdown-alert-title {
+    & > .marked-extended-alert-title {
       color: #986ee2;
 
       & svg {
@@ -3266,10 +3342,10 @@ const DEFAULT_STYLES = `
     }
   }
 
-  .markdown-alert-warning {
+  .marked-extended-alert-warning {
     border-left-color: #c69026;
 
-    & > .markdown-alert-title {
+    & > .marked-extended-alert-title {
       color: #c69026;
 
       & svg {
@@ -3278,10 +3354,10 @@ const DEFAULT_STYLES = `
     }
   }
 
-  .markdown-alert-caution {
+  .marked-extended-alert-caution {
     border-left-color: #e5534b;
 
-    & > .markdown-alert-title {
+    & > .marked-extended-alert-title {
       color: #e5534b;
 
       & svg {
@@ -3294,33 +3370,6 @@ const DEFAULT_STYLES = `
     margin-right: 0.5rem;
   }
 `;
-
-/**
- * Default template for rendering alerts
- */
-const DEFAULT_TEMPLATE$1 = `
-<div class="{className} {className}-{variant}">
-  <p class="{titleClassName}">{icon}{title}</p>
-  <div class="{className}-content">{content}</div>
-</div>
-`;
-
-/* eslint-disable no-undef */
-
-/**
- * Adds CSS styles for alerts to the page head if they don't already exist
- */
-function ensureStyles() {
-  if (typeof window === 'undefined') return;
-
-  if (!window.__alertStylesAdded) {
-    const styleEl = document.createElement('style');
-    styleEl.id = 'marked-extended-alert-styles';
-    styleEl.textContent = DEFAULT_STYLES;
-    document.head.appendChild(styleEl);
-    window.__alertStylesAdded = true;
-  }
-}
 
 /**
  * Returns regex pattern to match alert syntax.
@@ -3340,7 +3389,7 @@ function ucfirst(str) {
  * Process a blockquote token to check and convert it into an alert
  * @param {Object} options - Configuration options
  * @param {Object} options.token - The token to process
- * @param {string} [options.className='markdown-alert'] - Base class name for alerts
+ * @param {string} [options.className='marked-extended-alert'] - Base class name for alerts
  * @param {Array} [options.variants=[]] - Custom variants to override or extend defaults
  */
 function processAlertToken(options = {}) {
@@ -3394,7 +3443,7 @@ function processAlertToken(options = {}) {
 }
 
 /**
- * Resolves the variants configuration, combining the provided variants with
+ * Resolves the variant configuration, combining the provided variants with
  * the default variants.
  * @param {Array} variants - Custom variants to merge with defaults
  * @returns {Array} Merged variants
@@ -3425,7 +3474,7 @@ function renderAlert(meta = {}, tokens = [], parser) {
   // Tokenize and then parse the content
   const markedContent = tokens && tokens.length > 0 ? parser.parse(tokens) : '';
 
-  return DEFAULT_TEMPLATE$1.replace(/{className}/g, className)
+  return DEFAULT_TEMPLATE$3.replace(/{className}/g, className)
     .replace(/{variant}/g, variant)
     .replace(/{titleClassName}/g, titleClassName)
     .replace(/{icon}/g, icon)
@@ -3436,18 +3485,16 @@ function renderAlert(meta = {}, tokens = [], parser) {
 /**
  * A [marked](https://marked.js.org/) extension to support [GFM alerts](https://github.com/orgs/community/discussions/16925).
  * @param {Object} options - Configuration options
- * @param {string} [options.className='markdown-alert'] - Base class name for alerts
+ * @param {string} [options.className='marked-extended-alert'] - Base class name for alerts
  * @param {Array} [options.variants=[]] - Custom variants to override or extend defaults
  * @param {boolean} [options.injectStyles=true] - Whether to automatically inject CSS styles
  * @returns {Object} Marked extension object
  */
 function markedExtendedAlert(options = {}) {
-  const config = { ...DEFAULT_OPTIONS$5, ...options };
-
-  // Resolve variants
+  const config = { ...DEFAULT_OPTIONS$6, ...options };
 
   // Inject styles if needed
-  if (config.injectStyles) ensureStyles();
+  if (config.injectStyles) ensureStyles('marked-extended-alert-styles', DEFAULT_STYLES$3);
 
   return {
     walkTokens(token) {
@@ -3468,7 +3515,19 @@ function markedExtendedAlert(options = {}) {
   };
 }
 
-const DEFAULT_OPTIONS$4 = {
+/**
+ * Represents the default configuration options for a footnotes system.
+ *
+ * @typedef {Object} DEFAULT_OPTIONS
+ * @property {string} prefixId - The prefix string used for generating IDs for footnote references and backlinks.
+ * @property {string} description - The label or title used to describe the footnotes section.
+ * @property {boolean} refMarkers - Determines whether markers for footnote references are included.
+ * @property {string} backrefSymbol - The symbol used for backlinks to footnote references.
+ * @property {boolean} backrefLinks - Specifies whether backlinks from footnotes to their references are enabled.
+ * @property {string} placeholderText - The placeholder text used to designate the footnotes section.
+ * @property {function(string, number): string|number} labelFormat - A function that formats the display label for a footnote based on its ID and number.
+ */
+const DEFAULT_OPTIONS$5 = {
   prefixId: 'fnref-',
   description: 'Footnotes',
   refMarkers: false,
@@ -3719,7 +3778,7 @@ function escapeRegExp(string) {
  * @returns {Object} Marked extension object
  */
 function markedExtendedFootnote(options = {}) {
-  const config = { ...DEFAULT_OPTIONS$4, ...options };
+  const config = { ...DEFAULT_OPTIONS$5, ...options };
 
   // Shared state
   const state = {
@@ -4159,11 +4218,34 @@ function markedExtendedLists() {
   };
 }
 
-const DEFAULT_OPTIONS$3 = {
+/**
+ * The DEFAULT_OPTIONS object defines the default configuration options for the functionality
+ * related to the extended spoiler feature. These options can be overridden as per specific needs.
+ *
+ * Properties:
+ * - `className` (string): The default CSS class name applied to the spoiler element.
+ * - `prefixId` (string): The prefix for dynamically generated spoiler IDs.
+ * - `template` (object|null): Specifies the template structure to be used. Defaults to null.
+ * - `customizeToken` (function|null): A callback function to customize tokens. Defaults to null.
+ * - `injectStyles` (boolean): Determines whether the default styles should be automatically injected.
+ * - `cssVariables` (object): Contains CSS variable definitions for animation and styling purposes. Includes:
+ *   - `{animationDuration}`: Defines the duration for animations.
+ *   - `{padding}`: Sets the padding value for the element.
+ *   - `{borderRadius}`: Sets the border radius for the element's styling.
+ *   - `{transitionTiming}`: Defines the timing function for transitions.
+ */
+const DEFAULT_OPTIONS$4 = {
+  className: 'marked-extended-spoiler',
   prefixId: 'spoiler-',
-  animationDuration: '1s', // Faster default animation
   template: null,
   customizeToken: null,
+  injectStyles: true,
+  cssVariables: {
+    '{animationDuration}': '1s',
+    '{padding}': '12px',
+    '{borderRadius}': '6px',
+    '{transitionTiming}': 'ease-out',
+  },
 };
 
 const SPOILER_THEMES = {
@@ -4205,71 +4287,98 @@ const SPOILER_THEMES = {
 };
 
 /**
- * The default spoiler template with improved accessibility and styling.
- * Uses placeholders that will be replaced during rendering:
- * - {spoilerId} - Unique ID for the spoiler element
- * - {customTitle} - Title of the spoiler
- * - {particlesContent} - Content for the particles effect
- * - {content} - Content inside the accordion
- * - {animationDuration} - Duration of the animation
- * - {themeBackground} - Background color from theme
- * - {themeTextColor} - Text color from theme
- * - {themeShadow} - Theme-specific shadow
- * - {themeShadowHover} - Shadow on hover
- * - {borderRadius} - Border radius for the spoiler
- * - {particleStyles} - Styles for the particles effect
+ * The default HTML template used for rendering a spoiler component.
+ * This template includes placeholders that can be dynamically replaced with relevant values
+ * such as the spoiler ID, class names, content, custom title, particle content, styles, and themes.
+ *
+ * Placeholders in the template are:
+ * - `{spoilerId}`: Represents the unique ID of the spoiler element.
+ * - `{className}`: Represents the CSS class name for styling the spoiler component.
+ * - `{content}`: Represents the main content displayed within the spoiler.
+ * - `{customTitle}`: Represents a custom title or label for the spoiler overlay.
+ * - `{particlesContent}`: Represents additional visual content (e.g. particles) for the spoiler.
+ * - `{themeShadow}`: Represents the default box-shadow style for the spoiler.
+ * - `{themeShadowHover}`: Represents the box-shadow style for the spoiler on hover or focus.
+ * - `{themeBackground}`: Represents the background color for the spoiler overlay.
+ * - `{themeTextColor}`: Represents the text color for the spoiler overlay.
+ * - `{particleStyles}`: Represents additional CSS styles for particles within the spoiler component.
+ *
+ * This template ensures customization and consistent styling for spoiler elements across the application.
  */
-const DEFAULT_TEMPLATE = `
-<div id="{spoilerId}" class="spoiler-container" tabindex="0" role="button" aria-expanded="false">
-  <div class="spoiler-content" style="opacity: 0;">
+const DEFAULT_TEMPLATE$2 = `
+<div id="{spoilerId}" class="{className}" tabindex="0" role="button" aria-expanded="false">
+  <div class="{className}-content" style="opacity: 0;">
     {content}
   </div>
-  <div class="spoiler-overlay">
+  <div class="{className}-overlay">
     {customTitle}
   </div>
-  <div class="spoiler-particles">
+  <div class="{className}-particles">
     {particlesContent}
   </div>
 </div>
 <style>
   #{spoilerId} {
+    box-shadow: {themeShadow};
+    
+    &:hover, &:focus{
+      box-shadow: {themeShadowHover};
+    }
+
+    & > .marked-extended-spoiler-overlay {
+      background: {themeBackground};
+      color: {themeTextColor};
+    }
+  }
+
+  {particleStyles}
+</style>
+`;
+
+/**
+ * The DEFAULT_STYLES constant contains the default CSS styles for the spoiler component.
+ *
+ * Placeholders in the styles are:
+ * - `{borderRadius}`: Represents the border radius for the spoiler element.
+ * - `{animationDuration}`: Represents the duration for animations.
+ * - `{transitionTiming}`: Represents the timing function for transitions.
+ * - `{padding}`: Represents the padding value for the element.
+ */
+const DEFAULT_STYLES$2 = `
+  .marked-extended-spoiler {
     position: relative;
     border-radius: {borderRadius};
     margin: 1em 0;
-    box-shadow: {themeShadow};
     overflow: hidden;
-    transition: transform {animationDuration} ease-out,
-               box-shadow {animationDuration} ease-out;
+    transition: transform {animationDuration} {transitionTiming},
+     box-shadow {animationDuration} {transitionTiming};
 
     &:hover, &:focus{
-      box-shadow: {themeShadowHover};
       transform: translateY(-3px);
 
-      & > .spoiler-content {
+      & > .marked-extended-spoiler-content {
         opacity: 1 !important;
       }
 
-      & > .spoiler-overlay, & > .spoiler-particles {
+      & > .marked-extended-spoiler-overlay, & > .marked-extended-spoiler-particles {
         opacity: 0;
-        transition: opacity {animationDuration} ease-out;
+        transition: opacity {animationDuration} {transitionTiming};
       }
     }
 
-    & > .spoiler-overlay {
+    & > .marked-extended-spoiler-overlay {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: {themeBackground};
       display: flex;
       justify-content: center;
       align-items: center;
-      color: {themeTextColor};
       font-weight: bold;
       pointer-events: none;
       opacity: 1;
-      transition: opacity {animationDuration} ease-out;
+      transition: opacity {animationDuration} {transitionTiming};
 
       &::after {
         content: '';
@@ -4277,7 +4386,7 @@ const DEFAULT_TEMPLATE = `
         width: 55rem;
         height: 55rem;
         background: radial-gradient(circle, rgba(255,255,255,0.1) 20%, transparent 70%);
-        animation: shimmer-{spoilerId} 3s infinite;
+        animation: shimmer 3s infinite;
         pointer-events: none;
         opacity: 0.2;
         transform: translate3d(0, 0, 0);           /* Force GPU rendering */
@@ -4287,7 +4396,7 @@ const DEFAULT_TEMPLATE = `
       }
     }
 
-    & > .spoiler-particles {
+    & > .marked-extended-spoiler-particles {
       position: absolute;
       top: 0;
       left: 0;
@@ -4295,66 +4404,75 @@ const DEFAULT_TEMPLATE = `
       height: 100%;
       pointer-events: none;
       opacity: 1;
-      transition: opacity {animationDuration} ease-out;
+      transition: opacity {animationDuration} {transitionTiming};
+      
+      & .particle {
+        position: absolute;
+        border-radius: 50%;
+        transform: translate3d(0, 0, 0);              /* Force GPU rendering */
+        will-change: transform, opacity;              /* Hint for browser optimization */
+        backface-visibility: hidden;                  /* Prevent rendering of backface */
+        perspective: 1000;                            /* Improve 3D transforms */
+        pointer-events: none;
+        animation-iteration-count: infinite;
+        animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);  /* Smoother easing */
+      }
     }
 
-    & > .spoiler-content {
+    & > .marked-extended-spoiler-content {
       padding: {padding};
       opacity: 0;
-      transition: opacity {animationDuration} ease-out;
+      transition: opacity {animationDuration} {transitionTiming};
       width: 100%;
       box-sizing: border-box;
 
       & img {
         max-width: 100%;
-        width: 100%;
+        width: 100% !important;
         height: auto;
         display: block;
         object-fit: cover;
         margin: 0;
       }
     }
-  }
 
-  @keyframes shimmer-{spoilerId} {
-    0% {
-      transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
-      opacity: 0.2;
-      filter: blur(2px);
-      will-change: transform, opacity;
-      backface-visibility: hidden;
+    @keyframes shimmer {
+      0% {
+        transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
+        opacity: 0.2;
+        filter: blur(2px);
+        will-change: transform, opacity;
+        backface-visibility: hidden;
+      }
+      33% {
+        transform: translate3d(10px, -10px, 0) rotate(120deg) scale(1.05);
+        opacity: 0.3;
+        filter: blur(1px);
+      }
+      66% {
+        transform: translate3d(-5px, -5px, 0) rotate(240deg) scale(0.95);
+        opacity: 0.15;
+        filter: blur(3px);
+      }
+      100% {
+        transform: translate3d(0, 0, 0) rotate(360deg) scale(1);
+        opacity: 0.2;
+        filter: blur(2px);
+      }
     }
-    33% {
-      transform: translate3d(10px, -10px, 0) rotate(120deg) scale(1.05);
-      opacity: 0.3;
-      filter: blur(1px);
-    }
-    66% {
-      transform: translate3d(-5px, -5px, 0) rotate(240deg) scale(0.95);
-      opacity: 0.15;
-      filter: blur(3px);
-    }
-    100% {
-      transform: translate3d(0, 0, 0) rotate(360deg) scale(1);
-      opacity: 0.2;
-      filter: blur(2px);
+
+    /* Static fallback for shimmer when GPU acceleration isn't supported */
+    .no-gpu-acceleration > .marked-extended-spoiler-overlay::after {
+      animation: none !important;
+      opacity: 0.15 !important;
+      filter: blur(2px) !important;
+      transform: none !important;
     }
   }
-
-  /* Static fallback for shimmer when GPU acceleration isn't supported */
-  .no-gpu-acceleration #{spoilerId} > .spoiler-overlay::after {
-    animation: none !important;
-    opacity: 0.15 !important;
-    filter: blur(2px) !important;
-    transform: none !important;
-  }
-
-  {particleStyles}
-</style>
 `;
 
 /**
- * Create particles effect for the spoiler container with improved performance.
+ * Create a particle effect for the spoiler container with improved performance.
  * Optimized for GPU acceleration with fallback to static particles.
  *
  * @param {string} spoilerId - The ID of the spoiler container.
@@ -4363,129 +4481,130 @@ const DEFAULT_TEMPLATE = `
  */
 function generateParticles(spoilerId, theme = 'default') {
   const particleCount = 15;
-  let particlesContent = '';
-
-  // Adjust particle colors based on theme
   const isLightTheme = theme === 'light';
   const particleGradient = isLightTheme
-    ? 'radial-gradient(circle, rgba(80, 80, 80, 0.7) 0%, transparent 70%)' // Darker for light theme
+    ? 'radial-gradient(circle, rgba(80, 80, 80, 0.7) 0%, transparent 70%)'
     : 'radial-gradient(circle, rgba(255, 255, 255, 0.7) 0%, transparent 70%)';
+  const colors = isLightTheme
+    ? ['rgba(80, 80, 80, 0.7)', 'rgba(100, 100, 100, 0.6)', 'rgba(120, 120, 120, 0.5)']
+    : ['rgba(255, 255, 255, 0.7)', 'rgba(200, 200, 200, 0.6)', 'rgba(180, 180, 180, 0.5)'];
+  const shapes = ['50%', '0%', 'polygon(50% 0%, 0% 100%, 100% 100%)']; // Circle, square, triangle
+  const randomShape = () => shapes[Math.floor(Math.random() * shapes.length)];
 
-  // Feature detection for GPU acceleration
-  const gpuAccelerationFeatures = `
-    /* GPU acceleration feature detection - this class will be checked with JS */
+  const baseOpacity = isLightTheme ? 0.6 : 0.4;
+  const opacityVariation = isLightTheme ? 0.35 : 0.45;
+  const endOpacity = isLightTheme ? 0.15 : 0.05;
+
+  // Helper function to generate random values
+  const random = (min, max) => Math.random() * (max - min) + min;
+
+  // Helper function to generate a random color
+  const randomColor = () => colors[Math.floor(Math.random() * colors.length)];
+
+  // Generate particles HTML and CSS
+  let particlesContent = '';
+  let particleStyles = `
+    /* GPU acceleration feature detection */
     @supports (transform: translate3d(0,0,0)) and
              (backface-visibility: hidden) and
              (will-change: transform) {
       .gpu-support-${spoilerId} { display: none; }
     }
-  `;
 
-  // Base particle styles with GPU acceleration properties
-  let particleStyles =
-    gpuAccelerationFeatures
-    + `
-    #${spoilerId} > .spoiler-particles .particle {
-      position: absolute;
+    #${spoilerId} > .marked-extended-spoiler-particles .particle {
       background: ${particleGradient};
-      border-radius: 50%;
-      transform: translate3d(0, 0, 0);              /* Force GPU rendering */
-      will-change: transform, opacity;              /* Hint for browser optimization */
-      backface-visibility: hidden;                  /* Prevent rendering of backface */
-      perspective: 1000;                            /* Improve 3D transforms */
-      pointer-events: none;
-      animation-iteration-count: infinite;
-      animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);  /* Smoother easing */
       filter: blur(${isLightTheme ? 1 : 0.5}px);
       mix-blend-mode: ${isLightTheme ? 'multiply' : 'screen'};
     }
-    
-    /* Static fallback styling applied when no GPU support detected */
-    .no-gpu-acceleration #${spoilerId} > .spoiler-particles .particle {
-      animation: none !important;
+
+    .no-gpu-acceleration #${spoilerId} > .marked-extended-spoiler-particles .particle {
       opacity: ${isLightTheme ? 0.5 : 0.3} !important;
       filter: blur(${isLightTheme ? 1.5 : 1}px) !important;
+      animation: none !important;
       transform: none !important;
     }
   `;
 
-  // Generate particles with animation properties
   for (let i = 1; i <= particleCount; i++) {
-    // Randomize particle attributes for variation
-    const size = Math.random() * 6 + 4; // 4-10px
-    const top = Math.random() * 100; // 0-100%
-    const left = Math.random() * 100; // 0-100%
-    // Improved opacity values for better visibility
-    const baseOpacity = isLightTheme ? 0.6 : 0.4;
-    const opacityVariation = isLightTheme ? 0.35 : 0.45;
-    const opacity = Math.random() * opacityVariation + baseOpacity;
-    const duration = Math.random() * 2 + 1.5; // 1.5-3.5s (slightly slower)
-    const delay = Math.random() * 2; // 0-2s
+    const size = random(4, 10); // 4-10px
+    const top = random(0, 100); // 0-100%
+    const left = random(0, 100); // 0-100%
+    const opacity = random(baseOpacity, baseOpacity + opacityVariation);
+    const duration = random(1.5, 3.5); // 1.5-3.5s
+    const delay = random(0, 2); // 0-2s
 
-    // Generate HTML
     particlesContent += `<div class="particle p${i}"></div>`;
-
-    // Generate CSS with GPU-optimized properties
     particleStyles += `
-  #${spoilerId} > .spoiler-particles .p${i} {
-    width: ${size}px;
-    height: ${size}px;
-    top: ${top}%;
-    left: ${left}%;
-    opacity: ${opacity};
-    animation-name: float-${spoilerId};
-    animation-duration: ${duration}s;
-    animation-delay: ${delay}s;
-  }`;
+      #${spoilerId} > .marked-extended-spoiler-particles .p${i} {
+        width: ${size}px;
+        height: ${size}px;
+        top: ${top}%;
+        left: ${left}%;
+        opacity: ${opacity};
+        animation: float-${spoilerId} ${duration}s infinite, rotate-${spoilerId} ${duration}s infinite;
+        animation-delay: ${delay}s;
+        background: ${randomColor()};
+        clip-path: ${randomShape()};
+      }
+      
+      #${ spoilerId }:hover > .marked-extended-spoiler-particles .p${ i } {
+        animation-duration: ${ duration / 2 }s;
+        transform: translate3d(${ random(-20, 20) }px, ${ random(-20, 20) }px, 0);
+      }
+    `;
   }
 
-  // Add keyframes optimized for GPU rendering
-  const endOpacity = isLightTheme ? 0.15 : 0.05;
   particleStyles += `
-  @keyframes float-${spoilerId} {
-    0% {
-      transform: translate3d(0, 0, 0) scale(1);
-      opacity: ${isLightTheme ? 0.75 : 0.65};
+    @keyframes float-${spoilerId} {
+      0% {
+        transform: translate3d(0, 0, 0) scale(1);
+        opacity: ${isLightTheme ? 0.75 : 0.65};
+      }
+      50% {
+        transform: translate3d(12px, -14px, 0) scale(1.2);
+        opacity: ${isLightTheme ? 0.55 : 0.45};
+      }
+      100% {
+        transform: translate3d(-10px, -18px, 0) scale(0.9);
+        opacity: ${endOpacity};
+      }
     }
-    50% {
-      transform: translate3d(12px, -14px, 0) scale(1.2);
-      opacity: ${isLightTheme ? 0.55 : 0.45};
+    
+    @keyframes rotate-${spoilerId} {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
     }
-    100% {
-      transform: translate3d(-10px, -18px, 0) scale(0.9);
-      opacity: ${endOpacity};
-    }
-  }
-  
-  /* Script to detect GPU support and apply fallback if needed */
-  .gpu-support-detector-${spoilerId} {
-    position: absolute;
-    opacity: 0;
-    pointer-events: none;
-  }`;
 
-  // Add script to check for GPU support
-  particlesContent += `<div class="gpu-support-detector-${spoilerId}"></div>
-  <script>
-    (function() {
-      try {
-        const spoiler = document.getElementById('${spoilerId}');
-        if (!spoiler) return;
-        
-        // Use feature detection for GPU support
-        const detector = spoiler.querySelector('.gpu-support-detector-${spoilerId}');
-        const style = window.getComputedStyle(detector);
-        
-        // If display is not 'none', GPU acceleration is not supported
-        if (style && style.display !== 'none') {
+    .gpu-support-detector-${spoilerId} {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+  `;
+
+  particlesContent += `
+    <div class="gpu-support-detector-${ spoilerId }"></div>
+    <script>
+      (function() {
+        try {
+          const spoiler = document.getElementById('${ spoilerId }');
+          if (!spoiler) return;
+
+          const detector = spoiler.querySelector('.gpu-support-detector-${ spoilerId }');
+          const style = window.getComputedStyle(detector);
+
+          const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+          const hasReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+          if ((style && style.display !== 'none') || isMobile || hasReducedMotion) {
+            document.documentElement.classList.add('no-gpu-acceleration');
+          }
+        } catch (e) {
           document.documentElement.classList.add('no-gpu-acceleration');
         }
-      } catch(e) {
-        // Fallback to static particles if error
-        document.documentElement.classList.add('no-gpu-acceleration');
-      }
-    })();
-  </script>`;
+      })();
+    </script>
+  `;
 
   return { particlesContent, particleStyles };
 }
@@ -4496,13 +4615,13 @@ function generateParticles(spoilerId, theme = 'default') {
  * @param {string} options.prefixId - The prefix for the spoiler ID.
  * @param {string} options.title - The title of the spoiler.
  * @param {string} options.theme - The theme for the spoiler.
+ * @param {String} options.className - Additional CSS classes
  * @param {String} options.content - Content to be rendered inside the accordion
- * @param {string} options.animationDuration - The duration of the animation.
  * @param {string|null} options.template - The template for the spoiler.
  * @returns {string} The HTML content of the spoiler.
  */
 function renderSpoiler(options = {}) {
-  const { prefixId, title, theme, content, animationDuration, template } = options;
+  const { prefixId, title, theme, className, content, template } = options;
 
   // Generate a unique ID
   const spoilerId = `${prefixId}${Math.random().toString(36).substring(2, 11)}`;
@@ -4514,7 +4633,7 @@ function renderSpoiler(options = {}) {
   const markedContent = marked.parse(content);
 
   // Use default template if none provided
-  const spoilerTemplate = template || DEFAULT_TEMPLATE;
+  const spoilerTemplate = template || DEFAULT_TEMPLATE$2;
 
   // Apply theme styling based on the theme parameter
   const themeStyles = theme && SPOILER_THEMES[theme] ? SPOILER_THEMES[theme] : SPOILER_THEMES.default;
@@ -4535,14 +4654,11 @@ function renderSpoiler(options = {}) {
     .replace(/{spoilerId}/g, spoilerId)
     .replace(/{content}/g, markedContent)
     .replace(/{customTitle}/g, customTitle)
-    .replace(/{animationDuration}/g, animationDuration)
+    .replace(/{className}/g, className)
     .replace(/{themeBackground}/g, themeStyles.overlayBg)
     .replace(/{themeTextColor}/g, themeStyles.textColor)
     .replace(/{themeShadow}/g, themeShadow)
     .replace(/{themeShadowHover}/g, themeShadowHover)
-    .replace(/{borderRadius}/g, '6px')
-    .replace(/{transitionTiming}/g, 'ease-out')
-    .replace(/{padding}/g, '12px')
     .replace(/{particlesContent}/g, particlesContent)
     .replace(/{particleStyles}/g, particleStyles);
 }
@@ -4550,13 +4666,13 @@ function renderSpoiler(options = {}) {
 /**
  * Create a spoiler effect for the Markdown parser with enhanced features.
  * @param {Object} options - Configuration options
+ * @param {string} [options.className] - Additional CSS classes
  * @param {string} [options.prefixId='spoiler-'] - Prefix for spoiler IDs
- * @param {string} [options.animationDuration='1s'] - Animation duration
  * @param {string} [options.template] - Custom template
  * @returns {Object} Marked extension object
  */
 function createSpoilerEffect(options = {}) {
-  const { prefixId, animationDuration, template } = options;
+  const { className, prefixId, template } = options;
   const element = 'spoilerBlock';
 
   return {
@@ -4574,20 +4690,18 @@ function createSpoilerEffect(options = {}) {
       const props = constructProps(element, propString);
 
       // Return a token with expanded properties
-      const token = {
+      return {
         type: 'spoiler',
         raw,
         meta: {
           prefixId,
           title: props.title,
           theme: props.theme,
+          className,
           content,
-          animationDuration: props.duration || animationDuration,
           template,
         },
       };
-
-      return token;
     },
     renderer({ meta }) {
       // Pass all token properties to the renderer
@@ -4600,14 +4714,17 @@ function createSpoilerEffect(options = {}) {
  * Marked Extended Spoiler extension
  * @param {Object} options - Configuration options
  * @param {string} [options.prefixId='spoiler-'] - Prefix for spoiler IDs
- * @param {string} [options.animationDuration='0.5s'] - Animation duration
  * @param {string} [options.template] - Custom template
  * @param {Function} [options.customizeToken] - Function to customize token
+ * @param {boolean} [options.injectStyles=true] - Whether to automatically inject CSS styles
  * @returns {Object} Marked extension object
  */
 function markedExtendedSpoiler(options = {}) {
   // Set sensible defaults
-  const config = { ...DEFAULT_OPTIONS$3, ...options };
+  const config = { ...DEFAULT_OPTIONS$4, ...options };
+
+  // Inject styles if needed
+  if (config.injectStyles) ensureStyles('marked-extended-spoiler-styles', DEFAULT_STYLES$2, config.cssVariables);
 
   // Pass the options to the extension for more flexibility
   return {
@@ -4835,7 +4952,7 @@ function createTokenizer$2(options = {}) {
 
   return function tokenizer(src) {
     // The existing regex with optional caption support
-    // Use stricter caption regex if strictCaptions is true
+    // Uses stricter caption regex if strictCaptions is true
     const captionPattern = strictCaptions
       ? '(?:\\[([^\\]]+)\\] *\\n)' // Required caption with strict format
       : '(?:\\[([^\\]]+)\\] *\\n)?'; // Optional caption with flexible format
@@ -4938,7 +5055,7 @@ function processRows(item, colCount, lexer, maxColspan) {
     }
   }
 
-  // Add inline tokens to footer row if it exists
+  // Add inline tokens to the footer row if it exists
   if (item.footerRow) {
     for (const cell of item.footerRow) {
       cell.tokens = [];
@@ -4953,17 +5070,17 @@ function processRows(item, colCount, lexer, maxColspan) {
  * @param {Object} options - Configuration options
  * @param {boolean} [options.useTheadTbody=true] - Whether to use thead and tbody elements
  * @param {boolean} [options.useTfoot=false] - Whether to use tfoot for the last row
- * @param {string} [options.tableClass] - Custom class to add to the table element
+ * @param {string} [options.className] - Custom class to add to the table element
  * @param {boolean} [options.captionTop=true] - Whether to place caption at the top of the table
  * @param {boolean} [options.handleComplexSpans=true] - Whether to handle complex row+column spanning
  * @returns {Function} Renderer function
  */
 function createRenderer(options = {}) {
-  const { useTheadTbody = true, useTfoot = false, tableClass, captionTop = true, handleComplexSpans = true } = options;
+  const { useTheadTbody = true, useTfoot = false, className, captionTop = true, handleComplexSpans = true } = options;
 
   return function renderer(token) {
     // Add table class if specified
-    let output = tableClass ? `<table class="${tableClass}">\n` : '<table>\n';
+    let output = className ? `<table class="${className}">\n` : '<table>\n';
 
     // Add caption if token has one
     if (token.caption) {
@@ -4971,14 +5088,14 @@ function createRenderer(options = {}) {
       if (captionTop) output += captionHtml;
     }
 
-    // Render header with or without thead
+    // Render a header with or without thead
     if (useTheadTbody) {
       output += renderHeaderWithThead(token, this.parser, handleComplexSpans);
     } else {
       output += renderHeaderSimple(token, this.parser, handleComplexSpans);
     }
 
-    // Render body if it exists
+    // Render the body if it exists
     if (token.rows.length || token.footerRow) {
       // Handle standard rows
       if (useTheadTbody) {
@@ -5020,7 +5137,7 @@ function createRenderer(options = {}) {
 }
 
 /**
- * Render table header with thead tag
+ * Render a table header with thead tag
  */
 function renderHeaderWithThead(token, parser, handleComplexSpans = true) {
   let output = '<thead>\n';
@@ -5034,7 +5151,7 @@ function renderHeaderWithThead(token, parser, handleComplexSpans = true) {
 }
 
 /**
- * Render table header without thead tag
+ * Render a table header without a thead tag
  */
 function renderHeaderSimple(token, parser, handleComplexSpans = true) {
   let output = '';
@@ -5094,8 +5211,33 @@ function getComplexTableCell(text, cell, type, align) {
 }
 
 /**
+ * Default configuration options for the extended tables extension.
+ * These options control the rendering behavior of tables in Markdown.
+ *
+ * @typedef {Object} DEFAULT_OPTIONS
+ * @property {boolean} useTheadTbody - Whether to render the table with thead and tbody tags.
+ * @property {boolean} useTfoot - Whether to use tfoot for the last row.
+ * @property {string|null} className - Custom class to add to the table element.
+ * @property {boolean} captionTop - Whether to place caption at the top of the table.
+ * @property {boolean} detectFooter - Whether to detect and mark the last row as a footer.
+ * @property {boolean} strictCaptions - Whether to enforce strict caption syntax.
+ * @property {number|null} maxColspan - Maximum number of columns a cell can span (null for no limit).
+ * @property {boolean} handleComplexSpans - Enable enhanced handling of complex row+column spanning.
+ */
+const DEFAULT_OPTIONS$3 = {
+  useTheadTbody: true,
+  useTfoot: false,
+  className: null,
+  captionTop: true,
+  detectFooter: false,
+  strictCaptions: false,
+  maxColspan: null,
+  handleComplexSpans: true,
+};
+
+/**
  * Adds support for extended tables in marked.
- * This extension enhances markdown tables with advanced features:
+ * This extension enhances Markdown tables with advanced features:
  * - Row spanning with the `^` character
  * - Column spanning using multiple pipe characters `|`
  * - Multi-row headers
@@ -5105,7 +5247,7 @@ function getComplexTableCell(text, cell, type, align) {
  * @param {Object} [options] - Configuration options
  * @param {boolean} [options.useTheadTbody=true] - Whether to use thead and tbody elements
  * @param {boolean} [options.useTfoot=false] - Whether to use tfoot for the last row
- * @param {string} [options.tableClass] - Custom class to add to the table element
+ * @param {string} [options.className] - Custom class to add to the table element
  * @param {boolean} [options.captionTop=true] - Whether to place caption at the top of the table
  * @param {boolean} [options.detectFooter=false] - Whether to detect and mark the last row as a footer
  * @param {boolean} [options.strictCaptions=false] - Whether to enforce strict caption syntax
@@ -5114,6 +5256,8 @@ function getComplexTableCell(text, cell, type, align) {
  * @returns {Object} Marked extension object
  */
 function markedExtendedTables(options = {}) {
+  const config = { ...DEFAULT_OPTIONS$3, ...options };
+
   return {
     extensions: [
       {
@@ -5122,8 +5266,8 @@ function markedExtendedTables(options = {}) {
         start(src) {
           return src.match(/^\n *([^\n ].*\|.*)\n/)?.index;
         },
-        tokenizer: createTokenizer$2(options),
-        renderer: createRenderer(options),
+        tokenizer: createTokenizer$2(config),
+        renderer: createRenderer(config),
       },
     ],
   };
@@ -5132,22 +5276,71 @@ function markedExtendedTables(options = {}) {
 // Counter for generating unique IDs for tab containers
 const tabCounter = { value: 0 };
 
+
+/**
+ * Default configuration options for the extended tabs component.
+ *
+ * @constant {Object} DEFAULT_OPTIONS
+ * @property {string} className - The CSS class name applied to the tabs container.
+ * @property {boolean} persistSelection - Determines if the selection state should be persisted across sessions.
+ * @property {string} animation - The animation style for tab transitions, either 'fade', 'slide', or 'none'.
+ * @property {boolean} autoActivate - If true, the first tab is automatically activated when no tab is marked as active.
+ * @property {?string} template - A custom template for rendering the tabs, or null to use the default template.
+ * @property {?Function} customizeToken - A function for customizing tab-related tokens, or null for default handling.
+ * @property {boolean} injectStyles - Indicates whether default styles should be injected into the document.
+ */
 const DEFAULT_OPTIONS$2 = {
-  tabsClass: 'marked-extended-tabs-container',
+  className: 'marked-extended-tabs-container',
   persistSelection: true,
-  storageKey: 'marked-tabs-selection',
   animation: 'fade', // 'fade', 'slide', or 'none'
   autoActivate: true, // Automatically activate first tab if none marked active
-  customClass: '', // Additional CSS class for the tabs content container
+  template: null,
+  customizeToken: null,
+  injectStyles: true,
 };
 
 /**
- * Creates the JavaScript code for tab functionality
+ * DEFAULT_TEMPLATE is a template string used to generate the HTML structure
+ * for a custom tab component. It contains placeholders that are dynamically
+ * replaced with actual values during runtime to customize the generated markup.
+ *
+ * Placeholders:
+ * - {tabsContainerId}: The unique identifier for the container of the tabs.
+ * - {className}: The CSS class names to be applied to the container.
+ * - {animation}: The data-animation attribute value for defining the animation type.
+ * - {inputsNav}: Additional HTML or elements used in the navigation section of the tabs.
+ * - {navList}: The list of navigation items for the tabs, rendered as part of the tablist.
+ * - {content}: The content to be displayed in the tabs' content area.
+ * - {stylesBehavior}: Inline styles or behaviors injected into the template.
  */
-function createTabsStyles(tabsContainerId, tabsData, animation) {
-  return `<style>
-    /* Base tab styling */
-    #${tabsContainerId} {
+const DEFAULT_TEMPLATE$1 = `
+  <div id="{tabsContainerId}" class="{className}" data-animation="{animation}">
+    {inputsNav}
+    <div class="marked-extended-tabs-nav" role="tablist">{navList}</div>
+    <div class="marked-extended-tabs-content">{content}</div>
+    {stylesBehavior}
+  </div>
+`;
+
+/**
+ * Represents the default CSS styles applied to the custom tabbed navigation
+ * interface. These styles define the overall layout and appearance of
+ * the tabs, navigational elements, and content display areas. The styles
+ * include responsive adjustments for different screen sizes to ensure
+ * proper rendering on both desktop and mobile devices.
+ *
+ * Structure:
+ * - `.marked-extended-tabs-container`: The main container for the tab navigation system.
+ *   - `.marked-extended-tabs-input`: Hidden radio inputs used for tab state management.
+ *   - `.marked-extended-tabs-nav`: The navigation bar containing tab labels styled as buttons.
+ *     - `.marked-extended-tabs-label`: Represents an individual tab, styled for interaction.
+ *       - `.marked-extended-tabs-icon`: An optional icon inside a tab label.
+ *   - `.marked-extended-tabs-content`: Container for the tab content.
+ *     - `.marked-extended-tabs-content-pane`: Individual tab content sections, hidden by default.
+ */
+const DEFAULT_STYLES$1 = `
+/* Base tab styling */
+    .marked-extended-tabs-container {
       margin: 1rem 0;
       border: 1px solid #ddd;
       border-radius: 4px;
@@ -5230,7 +5423,7 @@ function createTabsStyles(tabsContainerId, tabsData, animation) {
   
         & img {
             max-width: 100%;
-            width: 100%;
+            width: 100% !important;
             height: auto;
             display: block;
             object-fit: cover;
@@ -5243,23 +5436,37 @@ function createTabsStyles(tabsContainerId, tabsData, animation) {
         }
       }
     }
-    
+`;
+
+/**
+ * Generates a CSS style string for tabs, defining how each tab is displayed and animated
+ * based on the provided container ID, tab data, and animation type.
+ *
+ * @param {string} tabsContainerId - The ID of the container element that wraps the tabs.
+ * @param {Array<{id: string}>} tabsData - An array of objects representing tabs,
+ *                                         each object must have a unique `id`.
+ * @param {string} animation - The type of animation to apply when switching tabs.
+ *                              Acceptable values are 'fade', 'slide', or 'none'.
+ * @return {string} A string of CSS styles defining the behavior of the tabs and their animations.
+ */
+function createTabsStyles(tabsContainerId, tabsData, animation) {
+  return `<style>    
     /* CSS-only tab selection - show selected tab */
-    ${tabsData
+    ${ tabsData
     .map((tab) => {
-      const inputId = `input-${tab.id}`;
-      const labelId = `label-${tab.id}`;
+      const inputId = `input-${ tab.id }`;
+      const labelId = `label-${ tab.id }`;
       const tabId = tab.id;
 
       return `
         /* Show tab content when corresponding input is checked */
-        #${tabsContainerId} #${inputId}:checked ~ .marked-extended-tabs-content #${tabId} {
+        #${ tabsContainerId } #${ inputId }:checked ~ .marked-extended-tabs-content #${ tabId } {
           display: block;
-          animation: ${animation === 'fade' ? 'tab-fade-in' : animation === 'slide' ? 'tab-slide-in' : 'none'} 0.3s ease-in-out;
+          animation: ${ animation === 'fade' ? 'tab-fade-in' : animation === 'slide' ? 'tab-slide-in' : 'none' } 0.3s ease-in-out;
         }
         
         /* Style for active tab */
-        #${tabsContainerId} #${inputId}:checked ~ .marked-extended-tabs-nav #${labelId} {
+        #${ tabsContainerId } #${ inputId }:checked ~ .marked-extended-tabs-nav #${ labelId } {
           // background: light-dark(#2d333b, #fff);
           background: var(--marked-extended-tabs-selected-background) !important;
           border-bottom: 2px solid var(--md-sys-color-primary) !important;
@@ -5267,7 +5474,7 @@ function createTabsStyles(tabsContainerId, tabsData, animation) {
         }
       `;
     })
-    .join('')}
+    .join('') }
     
     /* Animation keyframes */
     ${
@@ -5295,32 +5502,35 @@ function createTabsStyles(tabsContainerId, tabsData, animation) {
 }
 
 /**
- * Renders the tabs component using CSS-only approach (no JavaScript)
+ * Renders the tab component using a CSS-only approach (no JavaScript)
  *
- * @param {Object} meta - The tab metadata
- * @param {string} meta.tabsContainerId - Unique ID for the tabs container
- * @param {Array} meta.tabsData - Array of tab data objects
- * @param {string} meta.tabsData[].id - Unique ID for the tab
- * @param {string} meta.tabsData[].content - Content of the tab
- * @param {Object} meta.tabsData[].props - Properties of the tab
- * @param {boolean} meta.tabsData[].props.active - Whether the tab is active
- * @param {string} meta.tabsData[].props.icon - Icon for the tab
- * @param {string} meta.tabsData[].props.label - Label for the tab
- * @param {string} meta.tabsClass - CSS class for the tabs container
- * @param {string} meta.animation - Animation type ('fade', 'slide', or 'none')
- * @param {string} meta.class - Additional CSS class for the tabs
+ * @param {Object} options - Properties for the tabs
+ * @param {string} options.tabsContainerId - Unique ID for the tabs container
+ * @param {Array} options.tabsData - Array of tab data objects
+ * @param {string} options.tabsData[].id - Unique ID for the tab
+ * @param {string} options.tabsData[].content - Content of the tab
+ * @param {Object} options.tabsData[].props - Properties of the tab
+ * @param {boolean} options.tabsData[].props.active - Whether the tab is active
+ * @param {string} options.tabsData[].props.icon - Icon for the tab
+ * @param {string} options.tabsData[].props.label - Label for the tab
+ * @param {string} options.className - CSS class for the tabs container
+ * @param {string} options.animation - Animation type ('fade', 'slide', or 'none')
+ * @param {String} options.template - Template for rendering
  * @returns {string} The rendered HTML
  */
-function renderTabs(meta) {
-  const { tabsContainerId, tabsData, tabsClass, animation, customClass = '' } = meta;
+function renderTabs(options) {
+  const { tabsContainerId, tabsData, className, animation = '', template } = options;
+
+  // Get the tab template
+  const tabsTemplate = template || DEFAULT_TEMPLATE$1;
 
   if (!tabsData || tabsData.length === 0) {
     return '<div class="error-message">No tab content found</div>';
   }
 
-  let inputsHtml = '';
-  let navHtml = '';
-  let contentHtml = '';
+  let inputsNav = '';
+  let navList = '';
+  let markedContent = '';
 
   for (const tab of tabsData) {
     const { id, content, props } = tab;
@@ -5333,16 +5543,16 @@ function renderTabs(meta) {
     const iconHtml = icon ? `<span class="marked-extended-tabs-icon">${icon}</span>` : '';
 
     // Inputs first
-    inputsHtml += `<input type="radio" name="${tabsContainerId}-tabs" id="${inputId}" class="marked-extended-tabs-input" ${isChecked}>`;
+    inputsNav += `<input type="radio" name="${tabsContainerId}-tabs" id="${inputId}" class="marked-extended-tabs-input" ${isChecked}>`;
 
     // Navigation labels
-    navHtml += `
-      <label for="${inputId}" id="${labelId}" class="marked-extended-tabs-label${customClass}" role="tab" aria-selected="${ariaSelected}" data-tab-id="${id}">
+    navList += `
+      <label for="${inputId}" id="${labelId}" class="marked-extended-tabs-label" role="tab" aria-selected="${ariaSelected}" data-tab-id="${id}">
         ${iconHtml}<span class="tab-label">${label}</span>
       </label>`;
 
     // Tab content
-    contentHtml += `
+    markedContent += `
       <div class="marked-extended-tabs-content-pane" id="${id}" role="tabpanel" aria-labelledby="${inputId}">
         ${marked.parse(content)}
       </div>`;
@@ -5350,24 +5560,28 @@ function renderTabs(meta) {
 
   const styles = createTabsStyles(tabsContainerId, tabsData, animation);
 
-  return `
-    <div id="${tabsContainerId}" class="${tabsClass}${customClass}" data-animation="${animation}">
-      ${inputsHtml}
-      <div class="marked-extended-tabs-nav" role="tablist">${navHtml}</div>
-      <div class="marked-extended-tabs-content ${customClass}">${contentHtml}</div>
-    </div>
-    ${styles}
-  `;
+  return tabsTemplate
+    .replace(/{tabsContainerId}/g, tabsContainerId)
+    .replace(/{className}/g, className)
+    .replace(/{animation}/g, animation)
+    .replace(/{inputsNav}/g, inputsNav)
+    .replace(/{navList}/g, navList)
+    .replace(/{content}/g, markedContent)
+    .replace(/{stylesBehavior}/g, styles);
 }
 
 /**
  * Creates a tokenizer function for the tabs extension
  *
- * @param {Object} config - Configuration options
+ * @param {Object} options - Configuration options
+ * @param {boolean} [options.autoActivate=true] - Automatically activate the first tab if none is marked active
+ * @param {string} [options.className='marked-extended-tabs-container'] - CSS class for the tabs container
+ * @param {boolean} [options.persistSelection=true] - Whether to persist tab selection between page loads
+ * @param {string} [options.animation='fade'] - Animation type ('fade', 'slide', or 'none')
  * @returns {Object} The tokenizer object
  */
-function createTokenizer$1(config) {
-  const { autoActivate } = config;
+function createTokenizer$1(options) {
+  const { autoActivate } = options;
   const tabElement = 'tabBlock';
   const tabItemElement = 'tabItemBlock';
 
@@ -5379,7 +5593,7 @@ function createTokenizer$1(config) {
 
       if (!blockMatch) return undefined;
 
-      // First position is the full match, second position is the content
+      // The first position is the full match, the second position is the content
       const [raw, tabContent] = blockMatch;
 
       // Generate unique ID for this tab container
@@ -5417,11 +5631,9 @@ function createTokenizer$1(config) {
       }
 
       // If no tabs were found, return undefined
-      if (tabsData.length === 0) {
-        return undefined;
-      }
+      if (tabsData.length === 0) return undefined;
 
-      // Apply auto-activation if enabled and no tab is explicitly marked as active
+      // Apply auto-activation if enabled, and no tab is explicitly marked as active
       if (autoActivate) {
         const hasActiveTab = tabsData.some((tab) => tab.props.active === true);
         if (!hasActiveTab && tabsData.length > 0) {
@@ -5429,24 +5641,16 @@ function createTokenizer$1(config) {
         }
       }
 
-      // Parse properties from the raw string if needed (e.g. :::tabs{class="custom"})
-      // We'll implement a simple parser for this
-      const blockPropMatch = raw.match(tabContainerRegex);
-      const blockProps = blockPropMatch && blockPropMatch[1] ? constructProps(tabElement, blockPropMatch[1]) : {};
-
-      // Create token with metadata for the renderer
-      const token = {
+      // Create a token with metadata for the renderer
+      return {
         type: 'tabs',
         raw,
         meta: {
           tabsContainerId,
           tabsData,
-          ...config,
-          ...blockProps,
+          ...options,
         },
       };
-
-      return token;
     },
     renderer({ meta }) {
       return renderTabs(meta);
@@ -5456,34 +5660,38 @@ function createTokenizer$1(config) {
 
 /**
  * Adds support for extended tabs in marked.
- * This extension allows creating tabbed content within markdown:
+ * This extension allows creating tabbed content within Markdown:
  * @param {Object} options - Configuration options
- * @param {string} [options.tabsClass='marked-extended-tabs-container'] - CSS class for the tabs container
+ * @param {string} [options.className='marked-extended-tabs-container'] - CSS class for the tabs container
  * @param {boolean} [options.persistSelection=true] - Whether to persist tab selection between page loads
  * @param {string} [options.storageKey='marked-tabs-selection'] - Key to use for localStorage
  * @param {string} [options.animation='fade'] - Animation type ('fade', 'slide', or 'none')
  * @param {boolean} [options.autoActivate=true] - Automatically activate the first tab if none is marked active
- * @param {string} [options.customClass=''] - Additional CSS class for the tabs content container
- * @returns {Object} The marked extension object
+ * @param {string} [options.template] - Custom template
+ * @param {Function} [options.customizeToken] - Function to customize token
+ * @param {boolean} [options.injectStyles=true] - Whether to automatically inject CSS styles * @returns {Object} The marked extension object
  */
 function markedExtendedTabs(options = {}) {
   // Validate animation option
   if (options.animation && !['fade', 'slide', 'none'].includes(options.animation)) {
-    console.warn(`[marked-extended-tabs] Invalid animation value: ${options.animation}. Using default 'fade'.`);
+    console.warn(`[marked-extended-tabs] Invalid animation value: ${ options.animation }. Using default 'fade'.`);
     options.animation = 'fade';
   }
 
   const config = { ...DEFAULT_OPTIONS$2, ...options };
 
-  // Ensure storageKey is safe for localStorage
-  if (config.persistSelection && (!config.storageKey || typeof config.storageKey !== 'string')) {
-    config.storageKey = 'marked-tabs-selection';
-  }
+  // Inject styles if needed
+  if (config.injectStyles) ensureStyles('marked-extended-tabs-styles', DEFAULT_STYLES$1);
 
   return {
     walkTokens(token) {
       // Example: Add custom handling or logging of the tokens
       if (token.type !== 'tabs') return;
+
+      // Apply custom token modifications if configured
+      if (config.customizeToken && typeof config.customizeToken === 'function') {
+        config.customizeToken(token);
+      }
     },
     extensions: [createTokenizer$1(config)],
   };
@@ -5492,19 +5700,62 @@ function markedExtendedTabs(options = {}) {
 // Counter for generating unique IDs for timeline containers
 const timelineCounter = { value: 0 };
 
+/**
+ * Object representing the default configuration options for customizing
+ * the appearance and behavior of the extended timeline component.
+ *
+ * Properties:
+ * - `timelineClass` (string): The CSS class applied to the timeline container element.
+ * - `eventClass` (string): The CSS class applied to each timeline event.
+ * - `dateFormat` (string|null): Specifies the format for displaying dates. If null, default formatting is used.
+ * - `template` (string|null): Provides a custom template for rendering timeline events. If null, a default template is used.
+ * - `customizeToken` (function|null): A function for customizing or processing tokens before rendering. If null, no customization is applied.
+ * - `injectStyles` (boolean): Indicates whether default styles should be injected into the document. Defaults to `true`.
+ */
 const DEFAULT_OPTIONS$1 = {
   timelineClass: 'marked-extended-timeline-container',
   eventClass: 'marked-extended-timeline-event',
   dateFormat: null,
+  template: null,
   customizeToken: null,
+  injectStyles: true,
 };
 
 /**
- * Inject default CSS styles for timeline
+ * A string template used to define the default structure for rendering a timeline component.
+ *
+ * This template includes placeholders that can be dynamically replaced:
+ * - `{timelineContainerId}`: Represents the unique ID assigned to the timeline container.
+ * - `{timelineClass}`: Represents the CSS class(es) applied to the timeline container for styling.
+ * - `{content}`: Placeholder for the inner content of the timeline.
+ *
+ * The template is designed to be flexible and customizable by replacing these placeholders
+ * with specific values before use.
  */
-function createTimelineStyles(timelineId) {
-  return `<style>
-    #${timelineId} .marked-extended-timeline-container {
+const DEFAULT_TEMPLATE = `
+<div id="{timelineContainerId}" class="{timelineClass}">
+  {content}
+</div>
+`;
+
+/**
+ * Represents the default CSS styles used for the extended timeline component.
+ * The styles are written in SCSS and include the necessary rules for styling
+ * the timeline container, events, dates, and content.
+ *
+ * Structure:
+ * - `.marked-extended-timeline-container`: The main container for the timeline.
+ * - `.marked-extended-timeline-event`: Individual timeline event styles, including
+ *   active event styling and event marker configuration.
+ * - `.marked-extended-timeline-date`: Styling for the date associated with each event.
+ * - `.marked-extended-timeline-content`: Configurations for the event content,
+ *   including header styles.
+ *
+ * This variable is intended to provide a consistent visual representation of a timeline
+ * with support for customization through SCSS nesting.
+ */
+const DEFAULT_STYLES = `
+    .marked-extended-timeline-container {
       position: relative;
       margin: 2rem 0;
       padding-left: 2rem;
@@ -5554,54 +5805,61 @@ function createTimelineStyles(timelineId) {
         }
       }
     }
-  </style>`;
-}
+`;
 
 /**
  * Renders a timeline token into HTML
  *
- * @param {Object} meta - The timeline metadata
+ * @param {Object} options - Properties for the tabs
+ * @param {string} options.timelineContainerId - Unique ID for the timeline container
+ * @param {Array} options.events - Array of event data objects
+ * @param {string} options.events[].id - Unique ID for the event
+ * @param {string} options.events[].content - Content of the event
+ * @param {Object} options.events[].props - Properties of the event
+ * @param {string} options.events[].props.date - Date of the event
+ * @param {string} options.events[].props.formattedDate - Formatted date of the event
+ * @param {boolean} options.events[].props.active - Whether the event is active
+ * @param {string} options.timelineClass - CSS class for the timeline container
+ * @param {string} options.eventClass - CSS class for the timeline events
+ * @param {string} options.animation - Animation type ('fade', 'slide', or 'none')
+ * @param {String} options.template - Template for rendering
  * @returns {string} The rendered HTML
  */
-function renderTimeline(meta) {
-  const { timelineContainerId, events, timelineClass, eventClass } = meta;
+function renderTimeline(options) {
+  const { timelineContainerId, events, timelineClass, eventClass, template } = options;
+
+  // Get the tab template
+  const timelineTemplate = template || DEFAULT_TEMPLATE;
 
   if (!events || events.length === 0) {
     return '<div class="error-message">No timeline content found</div>';
   }
 
-  let eventsHtml = '';
+  let markedContent = '';
 
   // Build HTML for each timeline event
   for (const event of events) {
     const { id, props, content } = event;
-    const { date, formattedDate, active, customClass } = props;
+    const { date, formattedDate, active } = props;
 
     const isActive = active ? 'active' : '';
     const ariaSelected = active ? 'true' : 'false';
-    const customClassAttr = customClass ? ` ${customClass}` : '';
 
-    eventsHtml += `
-      <div class="${eventClass}${customClassAttr} ${isActive}" id="${id}" aria-selected="${ariaSelected}">
-        <div class="marked-extended-timeline-date">${formattedDate || date}</div>
+    markedContent += `
+      <div class="${ eventClass } ${ isActive }" id="${ id }" aria-selected="${ ariaSelected }">
+        <div class="marked-extended-timeline-date">${ formattedDate || date }</div>
         <div class="marked-extended-timeline-content">
-          ${marked.parse(content)}
+          ${ marked.parse(content) }
         </div>
       </div>`;
   }
 
-  // Get the CSS styles
-  const styles = createTimelineStyles(timelineContainerId);
-
   // Return the complete timeline HTML
-  return `
-    <div id="${timelineContainerId}" class="${timelineClass}">
-      <div class="marked-extended-timeline-container">
-        ${eventsHtml}
-      </div>
-    </div>
-    ${styles}
-  `;
+  return timelineTemplate
+    .replace(/{timelineContainerId}/g, timelineContainerId)
+    .replace(/{timelineClass}/g, timelineClass)
+    .replace(/{eventClass}/g, eventClass)
+    .replace(/{content}/g, markedContent);
 }
 
 /**
@@ -5635,10 +5893,14 @@ function formatDate(dateStr, formatter) {
 /**
  * Create a tokenizer for timeline blocks
  * @param {Object} config - Configuration options
+ * @param {string} [config.dateFormat=null] - Custom date formatter function
+ * @param {string} [config.timelineClass='marked-extended-timeline-container'] - Base class for timeline elements
+ * @param {string} [config.eventClass='marked-extended-timeline-event'] - Class for timeline events
+ * @param {string} [config.template] - Custom template
  * @returns {Object} Marked extension object
  */
 function createTokenizer(config) {
-  const { dateFormat, timelineClass, eventClass } = config;
+  const { dateFormat } = config;
   const timelineElement = 'timelineBlock';
   const timelineEventElement = 'timelineEventBlock';
 
@@ -5650,7 +5912,7 @@ function createTokenizer(config) {
 
       if (!blockMatch) return undefined;
 
-      // First position is the full match, second position is the content
+      // The first position is the full match, the second position is the content
       const [raw, timelineContent] = blockMatch;
 
       // Generate unique ID for this timeline container
@@ -5691,23 +5953,18 @@ function createTokenizer(config) {
       }
 
       // If no events were found, return undefined
-      if (events.length === 0) {
-        return undefined;
-      }
+      if (events.length === 0) return undefined;
 
-      // Create token with metadata for the renderer
-      const token = {
+      // Create a token with metadata for the renderer
+      return {
         type: 'timeline',
         raw,
         meta: {
           timelineContainerId,
           events,
-          timelineClass: timelineClass,
-          eventClass,
+          ...config,
         },
       };
-
-      return token;
     },
     renderer({ meta }) {
       return renderTimeline(meta);
@@ -5721,6 +5978,7 @@ function createTokenizer(config) {
  * @param {string} [options.timelineClass='marked-extended-timeline-container'] - Base class for timeline elements
  * @param {string} [options.eventClass='marked-extended-timeline-event'] - Class for timeline events
  * @param {string} [options.dateFormat=null] - Custom date formatter function
+ * @param {string} [options.template] - Custom template
  * @param {boolean} [options.injectStyles=true] - Whether to inject default CSS
  * @param {Function} [options.customizeToken] - Function to customize token
  * @returns {Object} Marked extension object
@@ -5728,6 +5986,9 @@ function createTokenizer(config) {
 function markedExtendedTimeline(options = {}) {
   // Set sensible defaults
   const config = { ...DEFAULT_OPTIONS$1, ...options };
+
+  // Inject styles if needed
+  if (config.injectStyles) ensureStyles('marked-extended-timeline-styles', DEFAULT_STYLES);
 
   return {
     walkTokens(token) {
@@ -5742,9 +6003,22 @@ function markedExtendedTimeline(options = {}) {
   };
 }
 
+/**
+ * Represents the default options configuration for the application logic.
+ *
+ * @typedef {Object} DEFAULT_OPTIONS
+ * @property {boolean} quotes - Determines whether quote processing is enabled.
+ * @property {boolean} dashes - Determines whether dashes processing is enabled.
+ *                              Note: There is an issue with inserting CSS variables (--variable)
+ *                              in extension logic when this option is enabled.
+ * @property {boolean} ellipses - Determines whether ellipse processing is enabled.
+ * @property {string} attribute - A configurable string property with a default value of '3'.
+ * @property {Object} customSymbols - A placeholder object for defining custom symbols configuration.
+ * @property {boolean} outputUnicode - Determines whether the output should be in Unicode format.
+ */
 const DEFAULT_OPTIONS = {
   quotes: false,
-  dashes: false, // There's an issue while inserting CSS variables (--variable) in extensions logic if enabled.
+  dashes: false, // There's an issue while inserting CSS variables (--variable) in extension logic if enabled.
   ellipses: false,
   attribute: '3',
   customSymbols: {},
@@ -6143,7 +6417,7 @@ const SmartPants = (options = {}) => {
   if (outputUnicode && attr !== '-1') {
     return EducateEntities(result, attr);
   } else if (outputUnicode && attr === '-1') {
-    return StupifyUTF8Char(result);
+    return StupefyUTF8Char(result);
   }
 
   return result;
@@ -6334,15 +6608,15 @@ const SmartEllipses = (options = {}) => {
  * @param {string} str String
  * @return {string} The string, with "educated" curly quote HTML entities.
  *
- * Example input:  "Isn't this fun?"
+ * Example input: "Isn't this fun?"
  * Example output: &#8220;Isn&#8217;t this fun?&#8221;
  */
 const EducateQuotes = (str) => {
   /**
-   * Make our own "punctuation" character class, because the POSIX-style
+   * Make our own "punctuation" character class because the POSIX style
    * [:PUNCT:] is only available in Perl 5.6 or later:
    *
-   * JavaScript don't have punctuation class neither.
+   * JavaScript doesn't have a punctuation class neither.
    */
   const punct_class = '[!"#\$\%\'()*+,-./:;<=>?\@\[\\\]\^_`{|}~]'; // eslint-disable-line no-useless-escape
   /**
@@ -6434,7 +6708,7 @@ const EducateQuotes = (str) => {
 
 /**
  * @param {string} str String
- * @return {string} The string, with ``backticks'' -style double quotes
+ * @return {string} The string, with ``backticks'' style double quotes
  *                  translated into HTML curly quote entities.
  *
  * Example input:  ``Isn't this fun?''
@@ -6444,7 +6718,7 @@ const EducateBackticks = (str) => str.replace(/``/g, '&#8220;').replace(/''/g, '
 
 /**
  * @param {string} str String
- * @return {string} The string, with `backticks' -style single quotes
+ * @return {string} The string, with `backticks' style single quotes
  *                  translated into HTML curly quote entities.
  *
  * Example input:  `Isn't this fun?'
@@ -6612,7 +6886,7 @@ const EducateEntities = (text, attr = '1') => {
  * Example input:  &#8220;Hello &#8212; world.&#8221;
  * Example output: "Hello -- world."
  */
-const StupifyUTF8Char = (str) => {
+const StupefyUTF8Char = (str) => {
   str = str.replace(/\u2013/g, '-'); // en-dash
   str = str.replace(/\u2014/g, '--'); // em-dash
   str = str.replace(/\u2018/g, '\''); // open single quote
@@ -6679,6 +6953,16 @@ const _tokenize = (str) => {
   return tokens;
 };
 
+/**
+ * Configures and returns an object for processing typographic enhancements in marked.js, such as smart quotes, dashes, and ellipses.
+ *
+ * @param {Object} [options={}] An optional configuration object to customize typographic transformations. Defaults to an empty object, merged with predefined default options.
+ * @param {boolean} [options.quotes] Enables or disables processing of smart quotes.
+ * @param {boolean} [options.dashes] Enables or disables processing of smart dashes.
+ * @param {boolean} [options.ellipses] Enables or disables processing of ellipses.
+ * @param {Object} [options.customSymbols] Allows customization of symbol replacements.
+ * @return {Object} A configuration object containing tokenizer and hooks for handling typographic enhancements during the processing of marked.js content.
+ */
 function markedExtendedTypographic(options = {}) {
   const config = { ...DEFAULT_OPTIONS, ...options };
 

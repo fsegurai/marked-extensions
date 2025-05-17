@@ -46,7 +46,7 @@ Import the desired extension from the available list and apply it to your Marked
 ### Basic Usage
 
 ```javascript
-import { marked } from "marked";
+import {marked} from "marked";
 import markedExtendedTables from "@fsegurai/marked-extended-tables";
 
 // or UMD script
@@ -66,15 +66,17 @@ marked.parse(exampleMarkdown);
 
 ### Available Extensions
 
-- [Marked Extended Accordion](https://www.npmjs.com/package/@fsegurai/marked-extended-accordion)
-- [Marked Extended Alert](https://www.npmjs.com/package/@fsegurai/marked-extended-alert)
-- [Marked Extended Footnote](https://www.npmjs.com/package/@fsegurai/marked-extended-footnote)
-- [Marked Extended Lists](https://www.npmjs.com/package/@fsegurai/marked-extended-lists)
-- [Marked Extended Spoiler](https://www.npmjs.com/package/@fsegurai/marked-extended-spoiler)
-- [Marked Extended Tables](https://www.npmjs.com/package/@fsegurai/marked-extended-tables)
-- [Marked Extended Tabs](https://www.npmjs.com/package/@fsegurai/marked-extended-tabs)
-- [Marked Extended Timeline](https://www.npmjs.com/package/@fsegurai/marked-extended-timeline)
-- [Marked Extended Typographic](https://www.npmjs.com/package/@fsegurai/marked-extended-typographic)
+| Extension                                                                                          | Version                                                                    | Description                                            |
+|----------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------|--------------------------------------------------------|
+| [Marked Extended Accordion](https://www.npmjs.com/package/@fsegurai/marked-extended-accordion)     | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-accordion)   | Add collapsible accordion sections to your markdown    |
+| [Marked Extended Alert](https://www.npmjs.com/package/@fsegurai/marked-extended-alert)             | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-alert)       | Create styled alert boxes for important information    |
+| [Marked Extended Footnote](https://www.npmjs.com/package/@fsegurai/marked-extended-footnote)       | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-footnote)    | Add footnotes with automatic numbering                 |
+| [Marked Extended Lists](https://www.npmjs.com/package/@fsegurai/marked-extended-lists)             | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-lists)       | Enhanced list formatting options                       |
+| [Marked Extended Spoiler](https://www.npmjs.com/package/@fsegurai/marked-extended-spoiler)         | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-spoiler)     | Hide content behind spoiler tags                       |
+| [Marked Extended Tables](https://www.npmjs.com/package/@fsegurai/marked-extended-tables)           | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-tables)      | Advanced table formatting with cell spanning           |
+| [Marked Extended Tabs](https://www.npmjs.com/package/@fsegurai/marked-extended-tabs)               | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-tabs)        | Create tabbed content sections                         |
+| [Marked Extended Timeline](https://www.npmjs.com/package/@fsegurai/marked-extended-timeline)       | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-timeline)    | Display content in an interactive timeline format      |
+| [Marked Extended Typographic](https://www.npmjs.com/package/@fsegurai/marked-extended-typographic) | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-typographic) | Improve typography with smart quotes, dashes, and more |
 
 ### Demo Application
 
@@ -96,7 +98,8 @@ This will serve the application locally at [http://[::1]:8000](http://[::1]:8000
 
 ### Semantic Versioning
 
-The expected commits format follows the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) specification. Example:
+The expected commits format follows the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
+specification. Example:
 
 - feat: add new user login feature
 - fix: resolve issue with user profile update

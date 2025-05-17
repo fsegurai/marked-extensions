@@ -206,7 +206,7 @@ Planning for next year's roadmap
 
 ## Text Spoiler
 
-::::spoiler{title="Hover on text" theme="info" duration="0.1s"}
+::::spoiler{title="Hover on text" theme="info"}
 This is a hidden code block that will only appear on hover. Some text later it will be all over again and again, so be sure that it will work
 ::::spoilerend
 

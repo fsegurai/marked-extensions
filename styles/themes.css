@@ -106,8 +106,10 @@ html {
 
                 /* Custom Extensions */
                 /* Marked Extended Accordion */
-                & .accordion-header {
-                    background: #2d333b;
+                & .marked-extended-accordion {
+                    & .marked-extended-accordion-header {
+                        background: #2d333b;
+                    }
                 }
 
                 /* Marked Extended Tabs */
@@ -224,8 +226,10 @@ html {
 
                 /* Custom Extensions */
                 /* Marked Extended Accordion */
-                & .accordion-header {
-                    background: #f5f5f5;
+                & .marked-extended-accordion {
+                    & .marked-extended-accordion-header {
+                        background: #f5f5f5;
+                    }
                 }
 
                 /* Marked Extended Tabs */
