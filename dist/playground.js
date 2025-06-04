@@ -1,4 +1,4 @@
-import { m as mdRender } from './markdown-CTH4qNDF.js';
+import { m as mdRender } from './markdown-C90MlHzn.js';
 
 const mdSample = `# Markdown Extended Accordion
 

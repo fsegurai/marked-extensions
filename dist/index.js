@@ -1,4 +1,4 @@
-import { m as mdRender } from './markdown-CTH4qNDF.js';
+import { m as mdRender } from './markdown-C90MlHzn.js';
 
 const mdBody = document.querySelector('.markdown-body');
 const readmeURL = 'https://raw.githubusercontent.com/fsegurai/marked-extensions/refs/heads/main/README.md';
