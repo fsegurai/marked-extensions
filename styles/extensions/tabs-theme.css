@@ -1,0 +1,274 @@
+/**
+ * Tabs Extension Theme Styles
+ * Visual and theming styles for marked-extended-tabs
+ * These styles provide the default appearance and can be customized by users
+ */
+
+/* CSS Variables for Theming */
+:root {
+    --marked-extended-tabs-border: #ddd;
+    --marked-extended-tabs-border-radius: 4px;
+    --marked-extended-tabs-background: transparent;
+    --marked-extended-tabs-selected-background: #f0f0f0;
+    --marked-extended-tabs-hover-background: #f8f8f8;
+    --marked-extended-tabs-text-color: #333;
+    --marked-extended-tabs-active-text-color: #000;
+    --marked-extended-tabs-border-bottom-active: #2d333b;
+    --marked-extended-tabs-transition: all 0.2s ease;
+}
+
+/* Base Container Styles */
+.marked-extended-tabs-container {
+    border: 1px solid var(--marked-extended-tabs-border);
+    border-radius: var(--marked-extended-tabs-border-radius);
+    background: var(--md-sys-color-surface-container, #fff);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* Navigation Tab Labels */
+.marked-extended-tabs-nav .marked-extended-tabs-label {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--marked-extended-tabs-text-color);
+    background: var(--marked-extended-tabs-background);
+    border-bottom: 2px solid transparent;
+    transition: var(--marked-extended-tabs-transition);
+}
+
+.marked-extended-tabs-nav .marked-extended-tabs-label:hover {
+    background: var(--marked-extended-tabs-hover-background);
+}
+
+/* Tab Icon Styling */
+.marked-extended-tabs-nav .marked-extended-tabs-label .marked-extended-tabs-icon {
+    font-size: 1.2rem;
+    opacity: 0.8;
+}
+
+/* Active Tab Styles (injected dynamically by createTabsStyles function) */
+/* Note: Active tab styles are generated per-instance with specific IDs */
+/* The following provides fallback/general styling */
+.marked-extended-tabs-label[aria-selected="true"] {
+    background: var(--marked-extended-tabs-selected-background);
+    border-bottom-color: var(--md-sys-color-primary, var(--marked-extended-tabs-border-bottom-active));
+    color: var(--marked-extended-tabs-active-text-color);
+    font-weight: 600;
+}
+
+/* Scrollbar Styling for Navigation (when tabs overflow) */
+.marked-extended-tabs-nav::-webkit-scrollbar {
+    height: 4px;
+}
+
+.marked-extended-tabs-nav::-webkit-scrollbar-track {
+    background: var(--scrollbar-track, #f1f1f1);
+}
+
+.marked-extended-tabs-nav::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb, #888);
+    border-radius: 2px;
+}
+
+.marked-extended-tabs-nav::-webkit-scrollbar-thumb:hover {
+    background: var(--scrollbar-thumb-hover, #555);
+}
+
+/* Content Pane Styling */
+.marked-extended-tabs-content {
+    background: var(--md-sys-color-surface, #fff);
+}
+
+/* Animation Classes (used by createTabsStyles) */
+@keyframes tab-fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes tab-slide-in {
+    from {
+        transform: translateY(10px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Light Theme Specific */
+body.light {
+    --marked-extended-tabs-border: #ddd;
+    --marked-extended-tabs-background: transparent;
+    --marked-extended-tabs-selected-background: #e8e8e8;
+    --marked-extended-tabs-hover-background: #f8f8f8;
+    --marked-extended-tabs-text-color: #333;
+    --marked-extended-tabs-active-text-color: #000;
+    --marked-extended-tabs-border-bottom-active: #2d333b;
+}
+
+body.light .marked-extended-tabs-container {
+    background: #ffffff;
+    border-color: #ddd;
+}
+
+body.light .marked-extended-tabs-nav {
+    background: #f5f5f5;
+    border-bottom: 1px solid #ddd;
+}
+
+body.light .marked-extended-tabs-label {
+    color: #333;
+}
+
+body.light .marked-extended-tabs-label:hover {
+    background: #e8e8e8;
+}
+
+body.light .marked-extended-tabs-content {
+    background: #ffffff;
+}
+
+/* Dark Theme Specific */
+body.dark {
+    --marked-extended-tabs-border: #444c56;
+    --marked-extended-tabs-background: transparent;
+    --marked-extended-tabs-selected-background: #3b4551;
+    --marked-extended-tabs-hover-background: #444c56;
+    --marked-extended-tabs-text-color: #d1d5da;
+    --marked-extended-tabs-active-text-color: #fff;
+    --marked-extended-tabs-border-bottom-active: #58a6ff;
+    --scrollbar-track: #2a2a2a;
+    --scrollbar-thumb: #555;
+    --scrollbar-thumb-hover: #777;
+}
+
+body.dark .marked-extended-tabs-container {
+    background: #22272e;
+    border-color: #444c56;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+body.dark .marked-extended-tabs-nav {
+    background: #2d333b;
+    border-bottom: 1px solid #444c56;
+}
+
+body.dark .marked-extended-tabs-label {
+    color: #d1d5da;
+}
+
+body.dark .marked-extended-tabs-label:hover {
+    background: #444c56;
+}
+
+body.dark .marked-extended-tabs-content {
+    background: #22272e;
+    color: #d1d5da;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+    .marked-extended-tabs-nav .marked-extended-tabs-label {
+        font-size: 0.9rem;
+    }
+
+    .marked-extended-tabs-nav .marked-extended-tabs-label .marked-extended-tabs-icon {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .marked-extended-tabs-nav .marked-extended-tabs-label {
+        font-size: 0.85rem;
+    }
+
+    .marked-extended-tabs-nav .marked-extended-tabs-label .marked-extended-tabs-icon {
+        font-size: 1rem;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .marked-extended-tabs-container {
+        border: 1px solid #000;
+        box-shadow: none;
+    }
+
+    .marked-extended-tabs-nav {
+        display: none;
+    }
+
+    .marked-extended-tabs-content .marked-extended-tabs-content-pane {
+        display: block !important;
+        page-break-inside: avoid;
+        border-top: 2px solid #000;
+        padding-top: 1rem;
+        margin-top: 1rem;
+    }
+
+    .marked-extended-tabs-content .marked-extended-tabs-content-pane:first-child {
+        border-top: none;
+        margin-top: 0;
+    }
+}
+
+/* Accessibility: Focus Styles */
+.marked-extended-tabs-nav .marked-extended-tabs-label:focus-visible {
+    outline: 2px solid var(--md-sys-color-primary, #4a9eff);
+    outline-offset: 2px;
+}
+
+/* Compact Tab Variant */
+.marked-extended-tabs-container.tabs-compact .marked-extended-tabs-nav .marked-extended-tabs-label {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+}
+
+.marked-extended-tabs-container.tabs-compact .marked-extended-tabs-content {
+    padding: 0.75rem;
+}
+
+/* Vertical Tabs Variant */
+.marked-extended-tabs-container.tabs-vertical {
+    display: flex;
+    flex-direction: row;
+}
+
+.marked-extended-tabs-container.tabs-vertical .marked-extended-tabs-nav {
+    flex-direction: column;
+    min-width: 200px;
+    border-right: 1px solid var(--marked-extended-tabs-border);
+}
+
+.marked-extended-tabs-container.tabs-vertical .marked-extended-tabs-nav .marked-extended-tabs-label {
+    border-bottom: none;
+    border-right: 2px solid transparent;
+    justify-content: flex-start;
+    text-align: left;
+}
+
+.marked-extended-tabs-container.tabs-vertical .marked-extended-tabs-content {
+    flex: 1;
+}
+
+/* Pills Style Variant */
+.marked-extended-tabs-container.tabs-pills .marked-extended-tabs-nav {
+    gap: 0.5rem;
+    padding: 0.5rem;
+    background: var(--md-sys-color-surface-container-low, #f8f9fa);
+}
+
+.marked-extended-tabs-container.tabs-pills .marked-extended-tabs-nav .marked-extended-tabs-label {
+    border-radius: 20px;
+    border-bottom: none;
+    padding: 0.5rem 1rem;
+}
+
+.marked-extended-tabs-container.tabs-pills .marked-extended-tabs-nav .marked-extended-tabs-label:hover {
+    background: var(--md-sys-color-surface-container-high, #e9ecef);
+}
+

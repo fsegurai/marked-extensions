@@ -3,7 +3,7 @@ const ENV_REFERENCE = {
 };
 
 const hostUrl = ENV_REFERENCE.CMT_HOST_URL_ENV;
-const lsTheme = 'marked-extension:fsegurai';
+const lsTheme = 'marked-extensions:fsegurai';
 document.addEventListener('DOMContentLoaded', () => {
     const routes = [
         {

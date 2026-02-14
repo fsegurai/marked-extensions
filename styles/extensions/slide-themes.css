@@ -1,0 +1,505 @@
+/* ============================================
+   SLIDE PRESENTATION THEMES
+   User-defined themes for marked-extended-slide
+   Visual and theming styles - structural styles are in the extension
+   ============================================ */
+
+/* ============================================
+   BASE VISUAL STYLES (Non-theme specific)
+   ============================================ */
+
+:root {
+  --control-bg: rgba(0, 0, 0, 0.6);
+  --control-hover: rgba(0, 0, 0, 0.8);
+}
+
+/* Presentation Container */
+.marked-extended-slide-presentation {
+  background: #1a1a1a;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+/* Slides */
+.marked-extended-slide-slide {
+  background: var(--slide-bg);
+  color: var(--slide-text);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--slide-border, rgba(0, 0, 0, 0.1));
+}
+
+/* Layout Styles */
+.marked-extended-slide-layout-cover h1 {
+  font-size: 3.5rem;
+  margin: 0 0 1rem 0;
+}
+
+.marked-extended-slide-layout-statement {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.marked-extended-slide-layout-quote blockquote {
+  font-size: 2rem;
+  font-style: italic;
+  border-left: 4px solid var(--slide-accent);
+  padding-left: 2rem;
+}
+
+.marked-extended-slide-layout-section {
+  background: var(--slide-accent);
+  color: white;
+}
+
+/* Controls */
+.marked-extended-slide-control {
+  background: var(--control-bg);
+  border-radius: 50%;
+  color: white;
+  transition: background 0.2s;
+}
+
+.marked-extended-slide-control:hover {
+  background: var(--control-hover);
+}
+
+.marked-extended-slide-keyboard-toggle.active {
+  background: var(--slide-accent, #0066cc);
+}
+
+.marked-extended-slide-keyboard-toggle.active:hover {
+  background: var(--slide-accent, #0066cc);
+  opacity: 0.9;
+}
+
+.marked-extended-slide-keyboard-toggle .keyboard-disabled-indicator {
+  stroke: #ff4444;
+  stroke-width: 2;
+}
+
+/* Progress Bar */
+.marked-extended-slide-progress {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.marked-extended-slide-progress-bar {
+  background: var(--slide-accent);
+  transition: width 0.3s ease;
+}
+
+/* Slide Numbers */
+.marked-extended-slide-slide-number {
+  font-size: 0.875rem;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+/* Overview Mode */
+.marked-extended-slide-presentation.overview-mode .marked-extended-slide-slide {
+  opacity: 0.8;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+.marked-extended-slide-presentation.overview-mode .marked-extended-slide-slide:hover {
+  transform: scale(0.35);
+  opacity: 1;
+}
+
+/* Transitions */
+.marked-extended-slide-slide[data-transition="fade"] {
+  transition: opacity 0.6s ease;
+}
+
+.marked-extended-slide-slide[data-transition="zoom"] {
+  transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+.marked-extended-slide-slide[data-transition="zoom"].prev,
+.marked-extended-slide-slide[data-transition="zoom"].next {
+  transform: translate(-50%, -50%) scale(0);
+}
+
+.marked-extended-slide-slide[data-transition="slide-up"].prev {
+  transform: translate(-50%, -200%);
+}
+
+.marked-extended-slide-slide[data-transition="slide-up"].next {
+  transform: translate(-50%, 100%);
+}
+
+.marked-extended-slide-slide[data-transition="slide-down"].prev {
+  transform: translate(-50%, 100%);
+}
+
+.marked-extended-slide-slide[data-transition="slide-down"].next {
+  transform: translate(-50%, -200%);
+}
+
+/* Typography & Content Styles */
+.marked-extended-slide-slide h1,
+.marked-extended-slide-slide h2,
+.marked-extended-slide-slide h3,
+.marked-extended-slide-slide h4,
+.marked-extended-slide-slide h5,
+.marked-extended-slide-slide h6 {
+  color: var(--slide-heading, var(--slide-text));
+}
+
+.marked-extended-slide-slide a {
+  color: var(--slide-link, var(--slide-accent));
+}
+
+.marked-extended-slide-slide code {
+  background: var(--slide-code-bg, rgba(0, 0, 0, 0.05));
+  color: var(--slide-code-text, var(--slide-text));
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+}
+
+.marked-extended-slide-slide pre code {
+  display: block;
+  padding: 1em;
+  overflow-x: auto;
+}
+
+.marked-extended-slide-slide blockquote {
+  border-left: 4px solid var(--slide-accent);
+  padding-left: 1em;
+  margin-left: 0;
+  color: var(--slide-text);
+  opacity: 0.9;
+}
+
+.marked-extended-slide-slide strong {
+  color: var(--slide-heading, var(--slide-text));
+}
+
+/* Print Styles */
+@media print {
+  .marked-extended-slide-presentation {
+    background: white;
+  }
+
+  .marked-extended-slide-slide {
+    box-shadow: none;
+  }
+}
+
+/* ============================================
+   THEME DEFINITIONS
+   ============================================ */
+
+/* Default Light Theme */
+.marked-extended-slide-presentation[data-theme="default"],
+.marked-extended-slide-presentation[data-theme="light"] {
+  --slide-bg: #ffffff;
+  --slide-text: #333333;
+  --slide-accent: #0066cc;
+  --slide-border: #dddddd;
+  --slide-heading: #1a1a1a;
+  --slide-link: #0066cc;
+  --slide-code-bg: #f5f5f5;
+  --slide-code-text: #c7254e;
+  background: #f0f0f0;
+}
+
+/* Dark Theme */
+.marked-extended-slide-presentation[data-theme="dark"] {
+  --slide-bg: #1e1e1e;
+  --slide-text: #e0e0e0;
+  --slide-accent: #4a9eff;
+  --slide-border: #404040;
+  --slide-heading: #ffffff;
+  --slide-link: #4a9eff;
+  --slide-code-bg: #2d2d2d;
+  --slide-code-text: #ff6b9d;
+  --control-bg: rgba(255, 255, 255, 0.15);
+  --control-hover: rgba(255, 255, 255, 0.25);
+  background: #0a0a0a;
+}
+
+/* Solarized Light Theme */
+.marked-extended-slide-presentation[data-theme="solarized-light"] {
+  --slide-bg: #fdf6e3;
+  --slide-text: #657b83;
+  --slide-accent: #268bd2;
+  --slide-border: #eee8d5;
+  --slide-heading: #073642;
+  --slide-link: #268bd2;
+  --slide-code-bg: #eee8d5;
+  --slide-code-text: #dc322f;
+  background: #eee8d5;
+}
+
+/* Solarized Dark Theme */
+.marked-extended-slide-presentation[data-theme="solarized-dark"] {
+  --slide-bg: #002b36;
+  --slide-text: #839496;
+  --slide-accent: #268bd2;
+  --slide-border: #073642;
+  --slide-heading: #fdf6e3;
+  --slide-link: #2aa198;
+  --slide-code-bg: #073642;
+  --slide-code-text: #dc322f;
+  --control-bg: rgba(147, 161, 161, 0.15);
+  --control-hover: rgba(147, 161, 161, 0.25);
+  background: #073642;
+}
+
+/* Dracula Theme */
+.marked-extended-slide-presentation[data-theme="dracula"] {
+  --slide-bg: #282a36;
+  --slide-text: #f8f8f2;
+  --slide-accent: #bd93f9;
+  --slide-border: #44475a;
+  --slide-heading: #f8f8f2;
+  --slide-link: #8be9fd;
+  --slide-code-bg: #44475a;
+  --slide-code-text: #ff79c6;
+  --control-bg: rgba(68, 71, 90, 0.8);
+  --control-hover: rgba(68, 71, 90, 0.95);
+  background: #1e1f29;
+}
+
+/* Nord Theme */
+.marked-extended-slide-presentation[data-theme="nord"] {
+  --slide-bg: #2e3440;
+  --slide-text: #d8dee9;
+  --slide-accent: #88c0d0;
+  --slide-border: #3b4252;
+  --slide-heading: #eceff4;
+  --slide-link: #88c0d0;
+  --slide-code-bg: #3b4252;
+  --slide-code-text: #bf616a;
+  --control-bg: rgba(59, 66, 82, 0.8);
+  --control-hover: rgba(59, 66, 82, 0.95);
+  background: #242933;
+}
+
+/* Monokai Theme */
+.marked-extended-slide-presentation[data-theme="monokai"] {
+  --slide-bg: #272822;
+  --slide-text: #f8f8f2;
+  --slide-accent: #66d9ef;
+  --slide-border: #3e3d32;
+  --slide-heading: #f92672;
+  --slide-link: #66d9ef;
+  --slide-code-bg: #3e3d32;
+  --slide-code-text: #a6e22e;
+  --control-bg: rgba(62, 61, 50, 0.8);
+  --control-hover: rgba(62, 61, 50, 0.95);
+  background: #1e1f1c;
+}
+
+/* GitHub Light Theme */
+.marked-extended-slide-presentation[data-theme="github-light"] {
+  --slide-bg: #ffffff;
+  --slide-text: #24292f;
+  --slide-accent: #0969da;
+  --slide-border: #d0d7de;
+  --slide-heading: #24292f;
+  --slide-link: #0969da;
+  --slide-code-bg: #f6f8fa;
+  --slide-code-text: #cf222e;
+  background: #f6f8fa;
+}
+
+/* GitHub Dark Theme */
+.marked-extended-slide-presentation[data-theme="github-dark"] {
+  --slide-bg: #0d1117;
+  --slide-text: #c9d1d9;
+  --slide-accent: #58a6ff;
+  --slide-border: #30363d;
+  --slide-heading: #f0f6fc;
+  --slide-link: #58a6ff;
+  --slide-code-bg: #161b22;
+  --slide-code-text: #ff7b72;
+  --control-bg: rgba(48, 54, 61, 0.8);
+  --control-hover: rgba(48, 54, 61, 0.95);
+  background: #010409;
+}
+
+/* One Dark Pro Theme */
+.marked-extended-slide-presentation[data-theme="one-dark"] {
+  --slide-bg: #282c34;
+  --slide-text: #abb2bf;
+  --slide-accent: #61afef;
+  --slide-border: #3e4451;
+  --slide-heading: #e5c07b;
+  --slide-link: #61afef;
+  --slide-code-bg: #3e4451;
+  --slide-code-text: #98c379;
+  --control-bg: rgba(62, 68, 81, 0.8);
+  --control-hover: rgba(62, 68, 81, 0.95);
+  background: #21252b;
+}
+
+/* Gruvbox Light Theme */
+.marked-extended-slide-presentation[data-theme="gruvbox-light"] {
+  --slide-bg: #fbf1c7;
+  --slide-text: #3c3836;
+  --slide-accent: #458588;
+  --slide-border: #ebdbb2;
+  --slide-heading: #282828;
+  --slide-link: #458588;
+  --slide-code-bg: #ebdbb2;
+  --slide-code-text: #9d0006;
+  background: #ebdbb2;
+}
+
+/* Gruvbox Dark Theme */
+.marked-extended-slide-presentation[data-theme="gruvbox-dark"] {
+  --slide-bg: #282828;
+  --slide-text: #ebdbb2;
+  --slide-accent: #83a598;
+  --slide-border: #3c3836;
+  --slide-heading: #fbf1c7;
+  --slide-link: #83a598;
+  --slide-code-bg: #3c3836;
+  --slide-code-text: #fb4934;
+  --control-bg: rgba(60, 56, 54, 0.8);
+  --control-hover: rgba(60, 56, 54, 0.95);
+  background: #1d2021;
+}
+
+/* Material Theme */
+.marked-extended-slide-presentation[data-theme="material"] {
+  --slide-bg: #263238;
+  --slide-text: #eeffff;
+  --slide-accent: #82aaff;
+  --slide-border: #37474f;
+  --slide-heading: #ffffff;
+  --slide-link: #89ddff;
+  --slide-code-bg: #37474f;
+  --slide-code-text: #c3e88d;
+  --control-bg: rgba(55, 71, 79, 0.8);
+  --control-hover: rgba(55, 71, 79, 0.95);
+  background: #1e272e;
+}
+
+/* Tokyo Night Theme */
+.marked-extended-slide-presentation[data-theme="tokyo-night"] {
+  --slide-bg: #1a1b26;
+  --slide-text: #a9b1d6;
+  --slide-accent: #7aa2f7;
+  --slide-border: #24283b;
+  --slide-heading: #c0caf5;
+  --slide-link: #7aa2f7;
+  --slide-code-bg: #24283b;
+  --slide-code-text: #9ece6a;
+  --control-bg: rgba(36, 40, 59, 0.8);
+  --control-hover: rgba(36, 40, 59, 0.95);
+  background: #16161e;
+}
+
+/* Catppuccin Latte (Light) Theme */
+.marked-extended-slide-presentation[data-theme="catppuccin-latte"] {
+  --slide-bg: #eff1f5;
+  --slide-text: #4c4f69;
+  --slide-accent: #1e66f5;
+  --slide-border: #dce0e8;
+  --slide-heading: #dc8a78;
+  --slide-link: #1e66f5;
+  --slide-code-bg: #dce0e8;
+  --slide-code-text: #d20f39;
+  background: #dce0e8;
+}
+
+/* Catppuccin Mocha (Dark) Theme */
+.marked-extended-slide-presentation[data-theme="catppuccin-mocha"] {
+  --slide-bg: #1e1e2e;
+  --slide-text: #cdd6f4;
+  --slide-accent: #89b4fa;
+  --slide-border: #313244;
+  --slide-heading: #fab387;
+  --slide-link: #89b4fa;
+  --slide-code-bg: #313244;
+  --slide-code-text: #f38ba8;
+  --control-bg: rgba(49, 50, 68, 0.8);
+  --control-hover: rgba(49, 50, 68, 0.95);
+  background: #181825;
+}
+
+/* Cyberpunk Theme (Example custom theme) */
+.marked-extended-slide-presentation[data-theme="cyberpunk"] {
+  --slide-bg: #0a0e27;
+  --slide-text: #00ff9f;
+  --slide-accent: #ff006e;
+  --slide-border: #1a1f3a;
+  --slide-heading: #00d9ff;
+  --slide-link: #ff006e;
+  --slide-code-bg: #1a1f3a;
+  --slide-code-text: #00ff9f;
+  --control-bg: rgba(255, 0, 110, 0.3);
+  --control-hover: rgba(255, 0, 110, 0.5);
+  background: #000514;
+}
+
+/* Professional Blue Theme */
+.marked-extended-slide-presentation[data-theme="professional"] {
+  --slide-bg: #ffffff;
+  --slide-text: #2c3e50;
+  --slide-accent: #3498db;
+  --slide-border: #bdc3c7;
+  --slide-heading: #2c3e50;
+  --slide-link: #3498db;
+  --slide-code-bg: #ecf0f1;
+  --slide-code-text: #e74c3c;
+  background: #ecf0f1;
+}
+
+/* High Contrast Theme (Accessibility) */
+.marked-extended-slide-presentation[data-theme="high-contrast"] {
+  --slide-bg: #000000;
+  --slide-text: #ffffff;
+  --slide-accent: #ffff00;
+  --slide-border: #ffffff;
+  --slide-heading: #ffffff;
+  --slide-link: #00ffff;
+  --slide-code-bg: #1a1a1a;
+  --slide-code-text: #ffff00;
+  --control-bg: rgba(255, 255, 255, 0.3);
+  --control-hover: rgba(255, 255, 255, 0.5);
+  background: #000000;
+}
+
+/* ============================================
+   BODY THEME SUPPORT (for embedded slides)
+   Applies when slides are in regular content
+   ============================================ */
+
+/* Light Theme - Default presentation appearance */
+body.light .marked-extended-slide-presentation:not([data-theme]) {
+  background: #f5f5f5;
+}
+
+body.light .marked-extended-slide-presentation:not([data-theme]) .marked-extended-slide-slide {
+  background: #ffffff;
+  color: #333;
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+body.light .marked-extended-slide-presentation:not([data-theme]) {
+  --slide-bg: #ffffff;
+  --slide-text: #333;
+  --slide-accent: #0066cc;
+  --slide-heading: #222;
+}
+
+/* Dark Theme - Default presentation appearance */
+body.dark .marked-extended-slide-presentation:not([data-theme]) {
+  background: #1a1a1a;
+}
+
+body.dark .marked-extended-slide-presentation:not([data-theme]) .marked-extended-slide-slide {
+  background: #2d2d2d;
+  color: #e0e0e0;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark .marked-extended-slide-presentation:not([data-theme]) {
+  --slide-bg: #2d2d2d;
+  --slide-text: #e0e0e0;
+  --slide-accent: #4a9eff;
+  --slide-heading: #f0f0f0;
+}

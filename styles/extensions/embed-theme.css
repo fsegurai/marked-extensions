@@ -1,0 +1,184 @@
+/**
+ * Embed Extension Theme Styles
+ * Visual and theming styles for marked-extended-embeds
+ * These styles provide the default appearance and can be customized by users
+ */
+
+/* Base Container Styles */
+.marked-extended-embed-container {
+    border-radius: 8px;
+    background: #f5f5f5;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Loading State Styles */
+.marked-extended-embed-loading {
+    color: #666;
+}
+
+.marked-extended-embed-spinner {
+    border: 4px solid #e0e0e0;
+    border-top-color: #2196F3;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+.marked-extended-embed-loading-text {
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+/* Caption Styles */
+.marked-extended-embed-caption {
+    font-size: 0.875rem;
+    color: #666;
+    background: #fafafa;
+    border-top: 1px solid #e0e0e0;
+}
+
+/* Provider-Specific Backgrounds */
+.marked-extended-embed-container[data-provider="youtube"] {
+    background: #000;
+}
+
+.marked-extended-embed-container[data-provider="codepen"] {
+    background: #1e1e1e;
+}
+
+.marked-extended-embed-container[data-provider="codesandbox"] {
+    background: #151515;
+}
+
+.marked-extended-embed-container[data-provider="spotify"] {
+    background: #191414;
+}
+
+.marked-extended-embed-container[data-provider="mermaid"] {
+    background: #fff;
+    padding: 1rem;
+}
+
+.marked-extended-embed-container[data-provider="pdf"] {
+    background: #525659;
+}
+
+.marked-extended-embed-container[data-provider="vimeo"] {
+    background: #000;
+}
+
+.marked-extended-embed-container[data-provider="twitter"] {
+    background: #fff;
+}
+
+.marked-extended-embed-container[data-provider="github-gist"] {
+    background: #f6f8fa;
+}
+
+.marked-extended-embed-container[data-provider="soundcloud"] {
+    background: #ff5500;
+}
+
+.marked-extended-embed-container[data-provider="figma"] {
+    background: #fff;
+}
+
+.marked-extended-embed-container[data-provider="loom"] {
+    background: #000;
+}
+
+.marked-extended-embed-container[data-provider="miro"] {
+    background: #fff;
+}
+
+.marked-extended-embed-container[data-provider="excalidraw"] {
+    background: #fff;
+}
+
+.marked-extended-embed-container[data-provider="drawio"],
+.marked-extended-embed-container[data-provider="diagrams-net"] {
+    background: #fff;
+}
+
+/* Spinner Animation */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Light Theme Specific */
+body.light .marked-extended-embed-container {
+    background: #f5f5f5;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+body.light .marked-extended-embed-caption {
+    background: #fafafa;
+    color: #666;
+    border-top-color: #e0e0e0;
+}
+
+body.light .marked-extended-embed-loading {
+    color: #666;
+}
+
+body.light .marked-extended-embed-spinner {
+    border-color: #e0e0e0;
+    border-top-color: #2196F3;
+}
+
+/* Dark Theme Specific */
+body.dark .marked-extended-embed-container {
+    background: #1e1e1e;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+body.dark .marked-extended-embed-caption {
+    background: #2a2a2a;
+    color: #e0e0e0;
+    border-top-color: #3a3a3a;
+}
+
+body.dark .marked-extended-embed-loading {
+    color: #ccc;
+}
+
+body.dark .marked-extended-embed-spinner {
+    border-color: #333;
+    border-top-color: #2196F3;
+}
+
+body.dark .marked-extended-embed-container[data-provider="mermaid"],
+body.dark .marked-extended-embed-container[data-provider="twitter"],
+body.dark .marked-extended-embed-container[data-provider="figma"],
+body.dark .marked-extended-embed-container[data-provider="miro"],
+body.dark .marked-extended-embed-container[data-provider="excalidraw"],
+body.dark .marked-extended-embed-container[data-provider="drawio"],
+body.dark .marked-extended-embed-container[data-provider="diagrams-net"] {
+    background: #1e1e1e;
+}
+
+body.dark .marked-extended-embed-container[data-provider="github-gist"] {
+    background: #0d1117;
+}
+
+/* Print Styles */
+@media print {
+    .marked-extended-embed-container {
+        break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid #ccc;
+    }
+
+    .marked-extended-embed-loading {
+        display: none;
+    }
+
+    .marked-extended-embed-spinner {
+        display: none;
+    }
+}
+

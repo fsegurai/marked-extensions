@@ -1,4 +1,36 @@
-import { m as mdRender } from './markdown-C90MlHzn.js';
+import { m as mdRender, u as updateCheckboxInMarkdown } from './markdown-BczdaqOJ.js';
+
+/******************************************************************************
+Copyright (c) Microsoft Corporation.
+
+Permission to use, copy, modify, and/or distribute this software for any
+purpose with or without fee is hereby granted.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
+AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
+OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+PERFORMANCE OF THIS SOFTWARE.
+***************************************************************************** */
+/* global Reflect, Promise, SuppressedError, Symbol, Iterator */
+
+
+function __awaiter(thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+}
+
+typeof SuppressedError === "function" ? SuppressedError : function (error, suppressed, message) {
+    var e = new Error(message);
+    return e.name = "SuppressedError", e.error = error, e.suppressed = suppressed, e;
+};
 
 const mdSample = `# Markdown Extended Accordion
 
@@ -26,6 +58,29 @@ This is the content inside the accordion.
 This is another section with a different heading level and custom class.
 ::::accordionend
 
+::::accordion{title="📦 Click to reveal nested content"}
+
+This accordion demonstrates **nested extension rendering**!
+
+> [!NOTE]
+> 📝 This is a NOTE alert **inside** an accordion!
+> 
+> You can put **any markdown** here, including:
+> - Lists with **bold** and *italic*
+> - [Links](https://example.com)
+> - Code: \`const x = 42;\`
+> - Other extensions
+
+> [!WARNING]
+> ⚠️ This is a WARNING alert, also nested!
+> \`\`\`js
+> console.log("Hi");
+> \`\`\`
+
+Regular content after alerts with **formatting**.
+
+::::accordionend
+
 ---
 
 # Markdown Extended Alert
@@ -35,6 +90,66 @@ This is another section with a different heading level and custom class.
 
 > [!WARNING]
 > This is a warning alert.
+
+---
+
+# Markdown Extended Comments
+
+## Inline Comments
+
+This text has :::comment{author="Alice" type="note"}a simple note::: embedded.
+
+Here's a question: :::comment{type="question" author="Bob"}should we use the v2 API here?:::
+
+This needs :::comment{type="issue" author="Charlie"}verification - data seems outdated::: checking.
+
+A suggestion: :::comment{type="suggestion"}consider using async/await instead:::
+
+## Block Comments
+
+::::comment{author="Dana" type="review" status="open" priority="high"}
+This paragraph needs **fact-checking**.
+
+**Action items:**
+- Verify statistics with Q4 2025 data
+- Add source citations
+- Review technical accuracy
+::::commentend
+
+::::comment{type="internal" visibility="dev-only"}
+**Developer Note:**
+
+TODO: Update this section after API v2 is released.
+
+Implementation notes:
+- Use the new \`/api/v2/data\` endpoint
+- Add error handling for rate limits
+::::commentend
+
+::::comment{author="Editor" type="suggestion"}
+Consider adding a visual diagram here to illustrate the concept.
+
+Suggested tools:
+- Mermaid.js for diagrams
+- PlantUML for architecture
+::::commentend
+
+::::comment{type="todo" author="Project Manager" tags="urgent,milestone"}
+**Sprint deliverables:**
+
+- [ ] Complete feature documentation
+- [ ] Add code examples
+- [ ] Review with team
+- [ ] Update changelog
+
+*Deadline: End of sprint*
+::::commentend
+
+::::comment{author="Frank" type="question" status="resolved"}
+~~Should we include the legacy API documentation?~~
+
+**Resolution:** No, legacy API is deprecated and will be removed in v3.0
+::::commentend
 
 ---
 
@@ -63,6 +178,92 @@ This content appears after the footnotes.
 [^source]: Smith, J. (2023). Research findings.
 [^explanation]: This refers to the process described in section 2.1.
 [^note]: Only applies under specific conditions.
+
+---
+
+# Markdown Extended Embeds
+
+## YouTube Videos
+
+::::embed{title="Sample Video" aspectRatio="16:9"}
+https://www.youtube.com/watch?v=FP808MiJUcM
+::::embedend
+
+::::embed{title="With Autoplay & Muted" autoplay="true" muted="true"}
+https://www.youtube.com/watch?v=gVI1eVoxlbM
+::::embedend
+
+## Code Embeds
+
+::::embed{title="CodePen Demo" theme="dark"}
+https://codepen.io/akm2/pen/rHIsa
+::::embedend
+
+::::embed{title="CodeSandbox Project"}
+https://codesandbox.io/s/react-new
+::::embedend
+
+## Music & Audio
+
+::::embed{title="Spotify Playlist"}
+https://open.spotify.com/playlist/20oEapsvrcByHkKm7ItgPK
+::::embedend
+
+## Design & Diagrams
+
+::::embed{title="Figma Design" aspectRatio="16:9"}
+https://www.figma.com/design/hpl7Cqz381vfKoFB71rAI8/koxopa1055-s-team-library?node-id=1-2&m=dev&t=5tAjp3TPMrekcdlD-1
+::::embedend
+
+::::embed{title="Excalidraw Sketch" aspectRatio="16:9"}
+//https://excalidraw.com/#json=AQRBYxElNFGoS1X961AEX,SYtmM2MuluQpt37iZAU6wg
+::::embedend
+
+::::embed{provider="drawio" title="System Architecture - Draw.io" aspectRatio="4:3"}
+https://viewer.diagrams.net/?highlight=0000ff&edit=_blank&title=diagram
+::::embedend
+
+---
+
+# Marked Extended Kanban
+
+:::kanban{view="board"}
+
+:::column{label="📋 To Do" color="#6c757d"}
+- Implement user authentication
+  OAuth2 integration needed
+  #backend #security
+
+- Design dashboard UI
+  Follow Material Design guidelines
+  #frontend #design
+
+- Write API documentation
+  Include code examples
+  #documentation
+:::columnend
+
+:::column{label="🔄 In Progress" color="#0dcaf0"}
+- Database migration script
+  PostgreSQL to MongoDB
+  #backend #database
+
+- User profile page
+  Add avatar upload functionality
+  #frontend
+:::columnend
+
+:::column{label="✅ Done" color="#198754"}
+- Setup CI/CD pipeline
+  GitHub Actions configured
+  #devops
+
+- Code review process
+  PR templates created
+  #process
+:::columnend
+
+:::kanbanend
 
 ---
 
@@ -236,22 +437,121 @@ He said, (--) \\"A 'simple' sentence. . .\\" (---) unknown
 
 (Omega) - (alpha) - (beta) (--) (smile) (--) (check) (---) (pi)
 
-Copyright (C^) 2025. All rights reserved.
+Copyright (C^) 2026. All rights reserved.
 
 ---
 `;
 
 const mdEditor = document.querySelector('.md-editor');
 const mdBody = document.querySelector('.md-body');
+const loadingSpinner = document.querySelector('#loadingSpinner');
+const copyMarkdownBtn = document.querySelector('#copyMarkdown');
+const clearEditorBtn = document.querySelector('#clearEditor');
+const resetExampleBtn = document.querySelector('#resetExample');
+const copyHtmlBtn = document.querySelector('#copyHtml');
 document.addEventListener('DOMContentLoaded', () => {
     if (mdEditor && mdBody) {
-        // material design 3 - textarea auto resize
         // Insert content from the example into the textarea
         mdEditor.value = mdSample;
         mdRender(mdSample, mdBody);
+        // Hide loading spinner after initial render
+        setTimeout(() => {
+            if (loadingSpinner) {
+                loadingSpinner.classList.add('hidden');
+                setTimeout(() => {
+                    loadingSpinner.style.display = 'none';
+                }, 300);
+            }
+        }, 300);
         // Watch the textarea for changes
         mdEditor.addEventListener('input', () => {
             mdRender(mdEditor.value || '', mdBody);
         });
     }
+    // Copy Markdown button
+    if (copyMarkdownBtn) {
+        copyMarkdownBtn.addEventListener('click', () => __awaiter(void 0, void 0, void 0, function* () {
+            if (mdEditor) {
+                try {
+                    yield navigator.clipboard.writeText(mdEditor.value);
+                    // Visual feedback
+                    const icon = copyMarkdownBtn.querySelector('md-icon');
+                    if (icon) {
+                        const originalText = icon.textContent;
+                        icon.textContent = 'check';
+                        setTimeout(() => {
+                            icon.textContent = originalText;
+                        }, 2000);
+                    }
+                }
+                catch (err) {
+                    console.error('Failed to copy markdown:', err);
+                }
+            }
+        }));
+    }
+    // Clear editor button
+    if (clearEditorBtn) {
+        clearEditorBtn.addEventListener('click', () => {
+            if (mdEditor) {
+                mdEditor.value = '';
+                mdRender('', mdBody);
+            }
+        });
+    }
+    // Reset to example button
+    if (resetExampleBtn) {
+        resetExampleBtn.addEventListener('click', () => {
+            if (mdEditor) {
+                mdEditor.value = mdSample;
+                mdRender(mdSample, mdBody);
+            }
+        });
+    }
+    // Copy HTML button
+    if (copyHtmlBtn) {
+        copyHtmlBtn.addEventListener('click', () => __awaiter(void 0, void 0, void 0, function* () {
+            if (mdBody) {
+                try {
+                    yield navigator.clipboard.writeText(mdBody.innerHTML);
+                    // Visual feedback
+                    const icon = copyHtmlBtn.querySelector('md-icon');
+                    if (icon) {
+                        const originalText = icon.textContent;
+                        icon.textContent = 'check';
+                        setTimeout(() => {
+                            icon.textContent = originalText;
+                        }, 2000);
+                    }
+                }
+                catch (err) {
+                    console.error('Failed to copy HTML:', err);
+                }
+            }
+        }));
+    }
 });
+// Export function to update Markdown from checkbox changes
+window.updateMarkdownFromCheckbox = (checkboxId, checked, metadata) => {
+    console.log('[Checkbox Update] Called with:', {
+        checkboxId,
+        checked,
+        hasMetadata: !!metadata,
+        rawText: metadata === null || metadata === void 0 ? void 0 : metadata.rawText,
+    });
+    if (!mdEditor || !mdBody) {
+        console.error('[Checkbox Update] Editor or body not found');
+        return;
+    }
+    const currentMarkdown = mdEditor.value;
+    const updatedMarkdown = updateCheckboxInMarkdown(currentMarkdown, metadata === null || metadata === void 0 ? void 0 : metadata.rawText, checked);
+    if (updatedMarkdown !== currentMarkdown) {
+        // Update the textarea
+        mdEditor.value = updatedMarkdown;
+        // Re-render the Markdown (this will recreate checkboxes with new IDs)
+        mdRender(updatedMarkdown, mdBody);
+    }
+    else {
+        console.warn('[Checkbox Update] No changes detected');
+    }
+};

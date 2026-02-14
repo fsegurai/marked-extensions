@@ -1,0 +1,422 @@
+/**
+ * Kanban Extension Theme Styles
+ * Visual and theming styles for marked-extended-kanban
+ * These styles provide the default appearance and can be customized by users
+ */
+
+/* Base Kanban Styles */
+.marked-extended-kanban {
+    /* Base styling handled by structural CSS */
+}
+
+/* Header & View Switcher */
+.marked-extended-kanban-view-switcher {
+    border-radius: 6px;
+    border: 1px solid var(--md-sys-color-outline-variant, #ddd);
+    background: var(--md-sys-color-surface, #fff);
+}
+
+.marked-extended-kanban-view-button {
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    font-size: 0.875rem;
+    font-weight: 500;
+    background: transparent;
+    color: var(--md-sys-color-on-surface, #212529);
+}
+
+.marked-extended-kanban-view-button:hover:not(.active) {
+    background: var(--md-sys-color-surface-container-high, rgba(0, 0, 0, 0.05));
+}
+
+.marked-extended-kanban-view-button.active {
+    background: var(--md-sys-color-primary, #007bff);
+    color: var(--md-sys-color-on-primary, #fff);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Board View - Column Styles */
+.marked-extended-kanban[data-view-mode="board"] .marked-extended-kanban-column {
+    border-radius: 8px;
+    border: 1px solid var(--md-sys-color-outline-variant, #e0e0e0);
+    background: var(--md-sys-color-surface-container-low, #fafafa);
+    box-shadow: var(--shadow-sm, 0 1px 3px rgba(0, 0, 0, 0.1));
+    transition: box-shadow 0.2s ease;
+}
+
+.marked-extended-kanban[data-view-mode="board"] .marked-extended-kanban-column:hover {
+    box-shadow: var(--shadow-md, 0 4px 6px rgba(0, 0, 0, 0.1));
+}
+
+.marked-extended-kanban-column-header {
+    border-bottom: 3px solid;
+    border-bottom-color: var(--kanban-color, var(--md-sys-color-outline-variant, #ddd));
+}
+
+.marked-extended-kanban-column-title {
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--md-sys-color-on-surface, #212529);
+}
+
+.marked-extended-kanban-column-count {
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    border: 1px solid var(--md-sys-color-outline, #ddd);
+    color: var(--md-sys-color-on-surface-variant, #666);
+}
+
+/* Board View - Task Styles */
+.marked-extended-kanban-task {
+    border-radius: 6px;
+    border: 1px solid var(--md-sys-color-outline-variant, #e0e0e0);
+    border-left: 4px solid;
+    background: var(--md-sys-color-surface, #fff);
+    box-shadow: var(--shadow-sm, 0 1px 3px rgba(0, 0, 0, 0.08));
+    transition: all 0.2s ease;
+}
+
+.marked-extended-kanban-task:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md, 0 4px 12px rgba(0, 0, 0, 0.12));
+}
+
+.marked-extended-kanban-task-title {
+    font-weight: 600;
+    font-size: 0.9375rem;
+    color: var(--md-sys-color-on-surface, #212529);
+}
+
+.marked-extended-kanban-task-description {
+    font-size: 0.8125rem;
+    opacity: 0.8;
+    color: var(--md-sys-color-on-surface-variant, #666);
+}
+
+.marked-extended-kanban-task-tag {
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: 500;
+    border: 1px solid var(--md-sys-color-outline, #ddd);
+    color: var(--md-sys-color-on-surface, #495057);
+    background: var(--md-sys-color-surface-container, #f8f9fa);
+}
+
+/* Table View */
+.marked-extended-kanban[data-view-mode="table"] .marked-extended-kanban-container {
+    border-radius: 8px;
+    border: 1px solid var(--md-sys-color-outline-variant, #e0e0e0);
+    background: var(--md-sys-color-surface, #fff);
+    box-shadow: var(--shadow-sm, 0 2px 8px rgba(0, 0, 0, 0.06));
+}
+
+.marked-extended-kanban[data-view-mode="table"] .marked-extended-kanban-table {
+    background: var(--md-sys-color-surface, #fff);
+}
+
+.marked-extended-kanban[data-view-mode="table"] .marked-extended-kanban-table th,
+.marked-extended-kanban[data-view-mode="table"] .marked-extended-kanban-table td {
+    border-bottom: 1px solid var(--md-sys-color-outline-variant, #e9ecef);
+}
+
+.marked-extended-kanban[data-view-mode="table"] .marked-extended-kanban-table th {
+    font-weight: 700;
+    font-size: 0.8125rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    background: var(--md-sys-color-surface-container-low, #f8f9fa);
+    color: var(--md-sys-color-on-surface, #495057);
+    border-bottom: 2px solid var(--md-sys-color-outline, #dee2e6);
+}
+
+.marked-extended-kanban[data-view-mode="table"] .marked-extended-kanban-table td {
+    font-size: 0.9375rem;
+    color: var(--md-sys-color-on-surface, #212529);
+}
+
+.marked-extended-kanban[data-view-mode="table"] .marked-extended-kanban-table tbody tr {
+    transition: all 0.15s ease;
+}
+
+.marked-extended-kanban[data-view-mode="table"] .marked-extended-kanban-table tbody tr:hover {
+    background-color: var(--md-sys-color-surface-container-high, #f8f9fa);
+}
+
+.marked-extended-kanban[data-view-mode="table"] .marked-extended-kanban-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.marked-extended-kanban[data-view-mode="table"] .marked-extended-kanban-column-label {
+    border-radius: 5px;
+    font-weight: 700;
+    font-size: 0.75rem;
+    color: #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+.marked-extended-kanban[data-view-mode="table"] .marked-extended-kanban-task-tag {
+    background: var(--md-sys-color-surface-container, #e9ecef);
+    color: var(--md-sys-color-on-surface, #495057);
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+/* List View */
+.marked-extended-kanban[data-view-mode="list"] .marked-extended-kanban-column {
+    box-shadow: none;
+    background: transparent;
+    border: 1px solid var(--md-sys-color-outline-variant, #e0e0e0);
+    border-radius: 8px;
+}
+
+.marked-extended-kanban[data-view-mode="list"] .marked-extended-kanban-column-header {
+    border-bottom: 2px solid;
+    border-bottom-color: var(--kanban-color, var(--md-sys-color-outline-variant, #ddd));
+    border-radius: 0;
+    background: transparent;
+    border-left: none;
+}
+
+.marked-extended-kanban[data-view-mode="list"] .marked-extended-kanban-column-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--md-sys-color-on-surface, #212529);
+}
+
+.marked-extended-kanban[data-view-mode="list"] .marked-extended-kanban-column-count {
+    background: var(--md-sys-color-surface, #fff);
+    border: 1px solid var(--md-sys-color-outline-variant, #ddd);
+    color: var(--md-sys-color-on-surface-variant, #666);
+    font-weight: 600;
+    font-size: 0.75rem;
+    border-radius: 10px;
+}
+
+.marked-extended-kanban[data-view-mode="list"] .marked-extended-kanban-task {
+    background: var(--md-sys-color-surface, #fff);
+    border: 1px solid var(--md-sys-color-outline-variant, #e0e0e0);
+    border-radius: 6px;
+    border-left: 3px solid;
+    transition: all 0.2s ease;
+    box-shadow: none;
+}
+
+.marked-extended-kanban[data-view-mode="list"] .marked-extended-kanban-task:hover {
+    transform: none;
+    box-shadow: var(--shadow-sm, 0 1px 3px rgba(0, 0, 0, 0.08));
+    background: var(--md-sys-color-surface-container-lowest, #fefefe);
+}
+
+.marked-extended-kanban[data-view-mode="list"] .marked-extended-kanban-task-title {
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--md-sys-color-on-surface, #212529);
+}
+
+.marked-extended-kanban[data-view-mode="list"] .marked-extended-kanban-task-description {
+    font-size: 0.875rem;
+    color: var(--md-sys-color-on-surface-variant, #6c757d);
+}
+
+.marked-extended-kanban[data-view-mode="list"] .marked-extended-kanban-task-tag {
+    font-size: 0.7rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .marked-extended-kanban-view-button {
+        font-size: 0.8125rem;
+    }
+}
+
+/* ========================================
+   LIGHT THEME
+   ======================================== */
+
+body.light .marked-extended-kanban-view-switcher {
+    border-color: #ddd;
+    background: #fff;
+}
+
+body.light .marked-extended-kanban-view-button {
+    color: #333;
+}
+
+body.light .marked-extended-kanban-view-button.active {
+    color: #0366d6;
+    background: #e8e8e8;
+}
+
+body.light .marked-extended-kanban-view-button:hover:not(.active) {
+    background: #f0f0f0;
+}
+
+body.light .marked-extended-kanban-column {
+    background: #fafafa;
+    border-color: #e0e0e0;
+}
+
+body.light .marked-extended-kanban-column-count {
+    background: #f0f0f0;
+    border-color: #ddd;
+    color: #333;
+}
+
+body.light .marked-extended-kanban-task {
+    background: #fff;
+    border-color: #e0e0e0;
+}
+
+body.light .marked-extended-kanban-task:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+body.light .marked-extended-kanban-task-title {
+    color: #212529;
+}
+
+body.light .marked-extended-kanban-task-description {
+    color: #666;
+}
+
+body.light .marked-extended-kanban-task-tag {
+    background: #f0f0f0;
+    border-color: #ddd;
+    color: #333;
+}
+
+/* Table View - Light */
+body.light .marked-extended-kanban[data-view-mode="table"] .marked-extended-kanban-container {
+    border-color: #ddd;
+    background: #fff;
+}
+
+body.light .marked-extended-kanban[data-view-mode="table"] .marked-extended-kanban-table {
+    background: #fff;
+}
+
+body.light .marked-extended-kanban[data-view-mode="table"] .marked-extended-kanban-table th {
+    background: #f8f9fa;
+    border-bottom-color: #ddd;
+    color: #212529;
+}
+
+body.light .marked-extended-kanban[data-view-mode="table"] .marked-extended-kanban-table th,
+body.light .marked-extended-kanban[data-view-mode="table"] .marked-extended-kanban-table td {
+    border-bottom-color: #ddd;
+}
+
+body.light .marked-extended-kanban[data-view-mode="table"] .marked-extended-kanban-table tbody tr:hover {
+    background: #f8f9fa;
+}
+
+/* List View - Light */
+body.light .marked-extended-kanban[data-view-mode="list"] .marked-extended-kanban-container {
+    background: transparent;
+}
+
+/* ========================================
+   DARK THEME
+   ======================================== */
+
+body.dark .marked-extended-kanban-view-switcher {
+    border-color: #444c56;
+    background: #1c2128;
+}
+
+body.dark .marked-extended-kanban-view-button {
+    color: #d1d5da;
+}
+
+body.dark .marked-extended-kanban-view-button.active {
+    color: #58a6ff;
+    background: #3b4551;
+}
+
+body.dark .marked-extended-kanban-view-button:hover:not(.active) {
+    background: #444c56;
+}
+
+body.dark .marked-extended-kanban-column {
+    background: #22272e;
+    border-color: #444c56;
+}
+
+body.dark .marked-extended-kanban-column-title {
+    color: #d1d5da;
+}
+
+body.dark .marked-extended-kanban-column-count {
+    background: #444c56;
+    border-color: #565c64;
+    color: #d1d5da;
+}
+
+body.dark .marked-extended-kanban-task {
+    background: #2d333b;
+    border-color: #444c56;
+}
+
+body.dark .marked-extended-kanban-task:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    background: #343b45;
+}
+
+body.dark .marked-extended-kanban-task-title {
+    color: #d1d5da;
+}
+
+body.dark .marked-extended-kanban-task-description {
+    color: #8b949e;
+}
+
+body.dark .marked-extended-kanban-task-tag {
+    background: #444c56;
+    border-color: #565c64;
+    color: #d1d5da;
+}
+
+/* Table View - Dark */
+body.dark .marked-extended-kanban[data-view-mode="table"] .marked-extended-kanban-container {
+    border-color: #444c56;
+    background: #2d333b;
+}
+
+body.dark .marked-extended-kanban[data-view-mode="table"] .marked-extended-kanban-table {
+    background: #2d333b;
+}
+
+body.dark .marked-extended-kanban[data-view-mode="table"] .marked-extended-kanban-table th {
+    background: #1c2128;
+    border-bottom-color: #444c56;
+    color: #d1d5da;
+}
+
+body.dark .marked-extended-kanban[data-view-mode="table"] .marked-extended-kanban-table th,
+body.dark .marked-extended-kanban[data-view-mode="table"] .marked-extended-kanban-table td {
+    border-bottom-color: #444c56;
+    color: #d1d5da;
+}
+
+body.dark .marked-extended-kanban[data-view-mode="table"] .marked-extended-kanban-table tbody tr:hover {
+    background: #343b45;
+}
+
+body.dark .marked-extended-kanban[data-view-mode="table"] .marked-extended-kanban-task-tag {
+    background: #444c56;
+    color: #d1d5da;
+}
+
+/* List View - Dark */
+body.dark .marked-extended-kanban[data-view-mode="list"] .marked-extended-kanban-task {
+    background: #2d333b;
+    border-color: #444c56;
+}
+
+body.dark .marked-extended-kanban[data-view-mode="list"] .marked-extended-kanban-task:hover {
+    background: #343b45;
+}

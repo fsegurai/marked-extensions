@@ -1,6 +1,7 @@
-import { m as mdRender } from './markdown-C90MlHzn.js';
+import { m as mdRender } from './markdown-BczdaqOJ.js';
 
 const mdBody = document.querySelector('.markdown-body');
+const loadingSpinner = document.querySelector('#loadingSpinner');
 const readmeURL = 'https://raw.githubusercontent.com/fsegurai/marked-extensions/refs/heads/main/README.md';
 document.addEventListener('DOMContentLoaded', () => {
     if (mdBody) {
@@ -8,13 +9,30 @@ document.addEventListener('DOMContentLoaded', () => {
             .then(response => response.text())
             .then(text => {
             mdRender(text, mdBody);
+            // Hide loading spinner after content is rendered
+            setTimeout(() => {
+                if (loadingSpinner) {
+                    loadingSpinner.classList.add('hidden');
+                    setTimeout(() => {
+                        loadingSpinner.style.display = 'none';
+                    }, 300);
+                }
+            }, 500);
         })
             .catch(error => {
             mdBody.innerHTML = `
-          <p>Failed to load README.md</p>
-          
-          <p>${error}</p>
-          `;
+          <div style="text-align: center; padding: 40px;">
+            <h2 style="color: var(--md-sys-color-error);">Failed to load README.md</h2>
+            <p style="color: var(--md-sys-color-on-surface);">${error}</p>
+          </div>
+        `;
+            // Hide loading spinner on error too
+            if (loadingSpinner) {
+                loadingSpinner.classList.add('hidden');
+                setTimeout(() => {
+                    loadingSpinner.style.display = 'none';
+                }, 300);
+            }
         });
     }
 });

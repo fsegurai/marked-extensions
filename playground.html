@@ -4,7 +4,7 @@
   <meta charset="UTF-8"/>
   <title>&#64;fsegurai/marked-extensions | Demo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <link rel="icon" type="image/x-icon" href="public/favicon.ico"/>
+  <link rel="icon" type="image/x-icon" href="./public/favicon.ico"/>
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -14,12 +14,33 @@
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
   />
 
-  <!-- Local Styles -->
+  <!-- CSS Variables (must load first) -->
+  <link rel="stylesheet" href="./styles/variables.css"/>
+
+  <!-- Base App Styles -->
   <link rel="stylesheet" href="./styles/themes.css"/>
+
+  <!-- App Component Styles -->
   <link rel="stylesheet" href="./styles/header.css"/>
   <link rel="stylesheet" href="./styles/playground.css"/>
   <link rel="stylesheet" href="./styles/markdown.css"/>
   <link rel="stylesheet" href="./styles/prism-theme.css"/>
+
+  <!-- App Theme Styles (light/dark) -->
+  <link rel="stylesheet" href="./styles/app-theme.css"/>
+
+  <!-- Extension Base Theme Styles -->
+  <link rel="stylesheet" href="./styles/extensions/accordion-theme.css"/>
+  <link rel="stylesheet" href="./styles/extensions/alert-theme.css"/>
+  <link rel="stylesheet" href="./styles/extensions/comment-theme.css"/>
+  <link rel="stylesheet" href="./styles/extensions/embed-theme.css"/>
+  <link rel="stylesheet" href="./styles/extensions/kanban-theme.css"/>
+  <link rel="stylesheet" href="./styles/extensions/slide-themes.css"/>
+  <link rel="stylesheet" href="./styles/extensions/spoiler-theme.css"/>
+  <link rel="stylesheet" href="./styles/extensions/tables-theme.css"/>
+  <link rel="stylesheet" href="./styles/extensions/tabs-theme.css"/>
+  <link rel="stylesheet" href="./styles/extensions/timeline-theme.css"/>
+
 
   <!-- Import Map for @material/web -->
   <script type="importmap">
@@ -40,6 +61,12 @@
   <script type="module" defer src="./dist/playground.js"></script>
 </head>
 <body>
+<!-- Loading Spinner -->
+<div id="loadingSpinner" class="loading-spinner">
+  <div class="spinner-circle"></div>
+  <p>Loading playground...</p>
+</div>
+
 <header class="header">
   <div class="menu-horizontal">
     <h1 class="menu-heading">@fsegurai/marked-extensions</h1>
@@ -47,16 +74,17 @@
     <span class="divider-header"></span>
 
     <ul class="menu-list">
-      <li class="menu-item menu-selected">
-        <md-icon-button id="themeToggle">
+      <li class="menu-item">
+        <md-icon-button id="themeToggle" aria-label="Toggle theme">
           <md-icon></md-icon>
         </md-icon-button>
       </li>
-      <li class="menu-item menu-selected">
+      <li class="menu-item">
         <md-icon-button
             id="github"
             href="https://github.com/fsegurai/marked-extensions"
-            target="_blank">
+            target="_blank"
+            aria-label="View on GitHub">
           <md-icon>
             <svg
                 class="custom-icon"
@@ -78,19 +106,51 @@
     <!-- Routes will be injected here -->
   </div>
 
-  <md-icon-button id="scrollUpButton" class="scroll-up-button">
+  <md-icon-button id="scrollUpButton" class="scroll-up-button" aria-label="Scroll to top">
     <md-icon>keyboard_arrow_up</md-icon>
   </md-icon-button>
 </nav>
 
 <main class="main-playground">
-  <md-filled-text-field
-      id="md-editor"
-      class="md-editor"
-      type="textarea"
-      label="Markdown Editor">
-  </md-filled-text-field>
-  <div id="md-body" class="md-body"></div>
+  <div class="editor-container">
+    <div class="editor-toolbar">
+      <span class="editor-label">
+        <md-icon>edit_note</md-icon>
+      <span>Markdown Editor</span>
+    </span>
+      <div class="toolbar-actions">
+        <md-icon-button id="copyMarkdown" aria-label="Copy markdown">
+          <md-icon>content_copy</md-icon>
+        </md-icon-button>
+        <md-icon-button id="clearEditor" aria-label="Clear editor">
+          <md-icon>delete_outline</md-icon>
+        </md-icon-button>
+        <md-icon-button id="resetExample" aria-label="Reset to example">
+          <md-icon>restore</md-icon>
+        </md-icon-button>
+      </div>
+    </div>
+    <md-filled-text-field
+        id="md-editor"
+        class="md-editor"
+        type="textarea"
+        label="Write your markdown here...">
+    </md-filled-text-field>
+  </div>
+  <div class="preview-container">
+    <div class="preview-toolbar">
+      <span class="preview-label">
+        <md-icon>visibility</md-icon>
+        <span>Preview</span>
+      </span>
+      <div class="toolbar-actions">
+        <md-icon-button id="copyHtml" aria-label="Copy HTML">
+          <md-icon>content_copy</md-icon>
+        </md-icon-button>
+      </div>
+    </div>
+    <div id="md-body" class="md-body"></div>
+  </div>
 </main>
 </body>
 </html>

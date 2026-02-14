@@ -2,7 +2,7 @@ import ENV_REFERENCE from './const/const-env-reference';
 
 const isProdEnv = ENV_REFERENCE.CMT_NODE_ENV === 'production';
 const hostUrl = ENV_REFERENCE.CMT_HOST_URL_ENV;
-const lsTheme = 'marked-extension:fsegurai';
+const lsTheme = 'marked-extensions:fsegurai';
 
 document.addEventListener('DOMContentLoaded', () => {
   interface Route {

@@ -24,6 +24,29 @@ This is the content inside the accordion.
 This is another section with a different heading level and custom class.
 ::::accordionend
 
+::::accordion{title="📦 Click to reveal nested content"}
+
+This accordion demonstrates **nested extension rendering**!
+
+> [!NOTE]
+> 📝 This is a NOTE alert **inside** an accordion!
+> 
+> You can put **any markdown** here, including:
+> - Lists with **bold** and *italic*
+> - [Links](https://example.com)
+> - Code: \`const x = 42;\`
+> - Other extensions
+
+> [!WARNING]
+> ⚠️ This is a WARNING alert, also nested!
+> \`\`\`js
+> console.log("Hi");
+> \`\`\`
+
+Regular content after alerts with **formatting**.
+
+::::accordionend
+
 ---
 
 # Markdown Extended Alert
@@ -33,6 +56,66 @@ This is another section with a different heading level and custom class.
 
 > [!WARNING]
 > This is a warning alert.
+
+---
+
+# Markdown Extended Comments
+
+## Inline Comments
+
+This text has :::comment{author="Alice" type="note"}a simple note::: embedded.
+
+Here's a question: :::comment{type="question" author="Bob"}should we use the v2 API here?:::
+
+This needs :::comment{type="issue" author="Charlie"}verification - data seems outdated::: checking.
+
+A suggestion: :::comment{type="suggestion"}consider using async/await instead:::
+
+## Block Comments
+
+::::comment{author="Dana" type="review" status="open" priority="high"}
+This paragraph needs **fact-checking**.
+
+**Action items:**
+- Verify statistics with Q4 2025 data
+- Add source citations
+- Review technical accuracy
+::::commentend
+
+::::comment{type="internal" visibility="dev-only"}
+**Developer Note:**
+
+TODO: Update this section after API v2 is released.
+
+Implementation notes:
+- Use the new \`/api/v2/data\` endpoint
+- Add error handling for rate limits
+::::commentend
+
+::::comment{author="Editor" type="suggestion"}
+Consider adding a visual diagram here to illustrate the concept.
+
+Suggested tools:
+- Mermaid.js for diagrams
+- PlantUML for architecture
+::::commentend
+
+::::comment{type="todo" author="Project Manager" tags="urgent,milestone"}
+**Sprint deliverables:**
+
+- [ ] Complete feature documentation
+- [ ] Add code examples
+- [ ] Review with team
+- [ ] Update changelog
+
+*Deadline: End of sprint*
+::::commentend
+
+::::comment{author="Frank" type="question" status="resolved"}
+~~Should we include the legacy API documentation?~~
+
+**Resolution:** No, legacy API is deprecated and will be removed in v3.0
+::::commentend
 
 ---
 
@@ -61,6 +144,92 @@ This content appears after the footnotes.
 [^source]: Smith, J. (2023). Research findings.
 [^explanation]: This refers to the process described in section 2.1.
 [^note]: Only applies under specific conditions.
+
+---
+
+# Markdown Extended Embeds
+
+## YouTube Videos
+
+::::embed{title="Sample Video" aspectRatio="16:9"}
+https://www.youtube.com/watch?v=FP808MiJUcM
+::::embedend
+
+::::embed{title="With Autoplay & Muted" autoplay="true" muted="true"}
+https://www.youtube.com/watch?v=gVI1eVoxlbM
+::::embedend
+
+## Code Embeds
+
+::::embed{title="CodePen Demo" theme="dark"}
+https://codepen.io/akm2/pen/rHIsa
+::::embedend
+
+::::embed{title="CodeSandbox Project"}
+https://codesandbox.io/s/react-new
+::::embedend
+
+## Music & Audio
+
+::::embed{title="Spotify Playlist"}
+https://open.spotify.com/playlist/20oEapsvrcByHkKm7ItgPK
+::::embedend
+
+## Design & Diagrams
+
+::::embed{title="Figma Design" aspectRatio="16:9"}
+https://www.figma.com/design/hpl7Cqz381vfKoFB71rAI8/koxopa1055-s-team-library?node-id=1-2&m=dev&t=5tAjp3TPMrekcdlD-1
+::::embedend
+
+::::embed{title="Excalidraw Sketch" aspectRatio="16:9"}
+//https://excalidraw.com/#json=AQRBYxElNFGoS1X961AEX,SYtmM2MuluQpt37iZAU6wg
+::::embedend
+
+::::embed{provider="drawio" title="System Architecture - Draw.io" aspectRatio="4:3"}
+https://viewer.diagrams.net/?highlight=0000ff&edit=_blank&title=diagram
+::::embedend
+
+---
+
+# Marked Extended Kanban
+
+:::kanban{view="board"}
+
+:::column{label="📋 To Do" color="#6c757d"}
+- Implement user authentication
+  OAuth2 integration needed
+  #backend #security
+
+- Design dashboard UI
+  Follow Material Design guidelines
+  #frontend #design
+
+- Write API documentation
+  Include code examples
+  #documentation
+:::columnend
+
+:::column{label="🔄 In Progress" color="#0dcaf0"}
+- Database migration script
+  PostgreSQL to MongoDB
+  #backend #database
+
+- User profile page
+  Add avatar upload functionality
+  #frontend
+:::columnend
+
+:::column{label="✅ Done" color="#198754"}
+- Setup CI/CD pipeline
+  GitHub Actions configured
+  #devops
+
+- Code review process
+  PR templates created
+  #process
+:::columnend
+
+:::kanbanend
 
 ---
 
@@ -234,7 +403,7 @@ He said, (--) \\"A 'simple' sentence. . .\\" (---) unknown
 
 (Omega) - (alpha) - (beta) (--) (smile) (--) (check) (---) (pi)
 
-Copyright (C^) 2025. All rights reserved.
+Copyright (C^) 2026. All rights reserved.
 
 ---
 `;

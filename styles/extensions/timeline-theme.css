@@ -1,0 +1,260 @@
+/**
+ * Timeline Extension Theme Styles
+ * Visual and theming styles for marked-extended-timeline
+ * Includes both light and dark theme support
+ */
+
+/* Base Timeline Container */
+.marked-extended-timeline-container {
+    border-left: 2px solid var(--app-border-light);
+}
+
+/* Timeline Event Markers */
+.marked-extended-timeline-event::before {
+    border-radius: 50%;
+    background: var(--md-sys-color-surface);
+    border: 2px solid var(--md-sys-color-primary);
+    box-shadow: 0 0 0 4px var(--md-sys-color-surface);
+    transition: all 0.3s ease;
+}
+
+/* Active Event Marker */
+.marked-extended-timeline-event.active::before {
+    background: var(--md-sys-color-primary);
+    border: 2px solid var(--md-sys-color-surface);
+    box-shadow: 0 0 0 4px var(--md-sys-color-surface), 0 0 0 8px rgba(52, 152, 219, 0.2);
+}
+
+/* Hover Effect on Events */
+.marked-extended-timeline-event:hover::before {
+    transform: scale(1.2);
+    box-shadow: 0 0 0 4px var(--md-sys-color-surface), 0 0 0 8px rgba(52, 152, 219, 0.15);
+}
+
+/* Timeline Date Styling */
+.marked-extended-timeline-date {
+    font-weight: var(--timeline-date-font-weight);
+    color: var(--timeline-date-color);
+    font-size: 0.9375rem;
+}
+
+/* Timeline Content Styling */
+.marked-extended-timeline-content {
+    color: var(--timeline-content-text-color);
+    line-height: 1.6;
+}
+
+.marked-extended-timeline-content p {
+    margin: 0.5rem 0;
+}
+
+.marked-extended-timeline-content p:first-child {
+    margin-top: 0;
+}
+
+.marked-extended-timeline-content p:last-child {
+    margin-bottom: 0;
+}
+
+/* Light Theme Specific */
+body.light .marked-extended-timeline-container {
+    border-left-color: #ddd;
+}
+
+body.light .marked-extended-timeline-event::before {
+    background: #fff;
+    border-color: #3498db;
+    box-shadow: 0 0 0 4px #fff;
+}
+
+body.light .marked-extended-timeline-event.active::before {
+    background: #3498db;
+    border-color: #fff;
+    box-shadow: 0 0 0 4px #fff, 0 0 0 8px rgba(52, 152, 219, 0.2);
+}
+
+body.light .marked-extended-timeline-event:hover::before {
+    box-shadow: 0 0 0 4px #fff, 0 0 0 8px rgba(52, 152, 219, 0.15);
+}
+
+body.light .marked-extended-timeline-date {
+    color: #3498db;
+}
+
+body.light .marked-extended-timeline-content {
+    color: #333;
+}
+
+/* Dark Theme Specific */
+body.dark .marked-extended-timeline-container {
+    border-left-color: #404040;
+}
+
+body.dark .marked-extended-timeline-event::before {
+    background: #1e1e1e;
+    border-color: #4a9eff;
+    box-shadow: 0 0 0 4px #1e1e1e;
+}
+
+body.dark .marked-extended-timeline-event.active::before {
+    background: #4a9eff;
+    border-color: #1e1e1e;
+    box-shadow: 0 0 0 4px #1e1e1e, 0 0 0 8px rgba(74, 158, 255, 0.2);
+}
+
+body.dark .marked-extended-timeline-event:hover::before {
+    box-shadow: 0 0 0 4px #1e1e1e, 0 0 0 8px rgba(74, 158, 255, 0.15);
+}
+
+body.dark .marked-extended-timeline-date {
+    color: #4a9eff;
+}
+
+body.dark .marked-extended-timeline-content {
+    color: #e0e0e0;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .marked-extended-timeline-container {
+        padding-left: 1.5rem;
+        margin: 1.5rem 0;
+    }
+
+    .marked-extended-timeline-event::before {
+        left: -2.35rem;
+    }
+
+    .marked-extended-timeline-date {
+        font-size: 0.875rem;
+    }
+
+    .marked-extended-timeline-content {
+        font-size: 0.9375rem;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .marked-extended-timeline-container {
+        border-left-color: #000;
+    }
+
+    .marked-extended-timeline-event::before {
+        background: #fff;
+        border-color: #000;
+        box-shadow: none;
+    }
+
+    .marked-extended-timeline-event.active::before {
+        background: #000;
+        border-color: #fff;
+        box-shadow: none;
+    }
+
+    .marked-extended-timeline-date {
+        color: #000;
+    }
+
+    .marked-extended-timeline-content {
+        color: #000;
+    }
+}
+
+/* Alternative Timeline Styles - Centered */
+.marked-extended-timeline-container.timeline-centered {
+    border-left: none;
+    padding-left: 0;
+    max-width: 800px;
+    margin: 2rem auto;
+}
+
+.marked-extended-timeline-container.timeline-centered::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: var(--timeline-line-width);
+    background: var(--timeline-line-color);
+    transform: translateX(-50%);
+}
+
+.marked-extended-timeline-container.timeline-centered .marked-extended-timeline-event {
+    width: 50%;
+    padding-left: 2rem;
+    margin-bottom: 3rem;
+}
+
+.marked-extended-timeline-container.timeline-centered .marked-extended-timeline-event:nth-child(even) {
+    margin-left: 50%;
+}
+
+.marked-extended-timeline-container.timeline-centered .marked-extended-timeline-event::before {
+    left: -2rem;
+}
+
+.marked-extended-timeline-container.timeline-centered .marked-extended-timeline-event:nth-child(even)::before {
+    left: -2rem;
+}
+
+/* Alternative Timeline Styles - Compact */
+.marked-extended-timeline-container.timeline-compact {
+    padding-left: 1.5rem;
+    margin: 1rem 0;
+}
+
+.marked-extended-timeline-container.timeline-compact .marked-extended-timeline-event {
+    margin-bottom: 1rem;
+    padding-left: 0.75rem;
+}
+
+.marked-extended-timeline-container.timeline-compact .marked-extended-timeline-event::before {
+    width: 8px;
+    height: 8px;
+    left: -2.1rem;
+}
+
+.marked-extended-timeline-container.timeline-compact .marked-extended-timeline-date {
+    font-size: 0.8125rem;
+    margin-bottom: 0.25rem;
+}
+
+.marked-extended-timeline-container.timeline-compact .marked-extended-timeline-content {
+    font-size: 0.875rem;
+    margin-left: 0.25rem;
+}
+
+/* Alternative Timeline Styles - Colorful */
+.marked-extended-timeline-container.timeline-colorful .marked-extended-timeline-event:nth-child(4n+1)::before {
+    border-color: #e74c3c;
+}
+
+.marked-extended-timeline-container.timeline-colorful .marked-extended-timeline-event:nth-child(4n+1) .marked-extended-timeline-date {
+    color: #e74c3c;
+}
+
+.marked-extended-timeline-container.timeline-colorful .marked-extended-timeline-event:nth-child(4n+2)::before {
+    border-color: #2ecc71;
+}
+
+.marked-extended-timeline-container.timeline-colorful .marked-extended-timeline-event:nth-child(4n+2) .marked-extended-timeline-date {
+    color: #2ecc71;
+}
+
+.marked-extended-timeline-container.timeline-colorful .marked-extended-timeline-event:nth-child(4n+3)::before {
+    border-color: #f39c12;
+}
+
+.marked-extended-timeline-container.timeline-colorful .marked-extended-timeline-event:nth-child(4n+3) .marked-extended-timeline-date {
+    color: #f39c12;
+}
+
+.marked-extended-timeline-container.timeline-colorful .marked-extended-timeline-event:nth-child(4n+4)::before {
+    border-color: #9b59b6;
+}
+
+.marked-extended-timeline-container.timeline-colorful .marked-extended-timeline-event:nth-child(4n+4) .marked-extended-timeline-date {
+    color: #9b59b6;
+}
+

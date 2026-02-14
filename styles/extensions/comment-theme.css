@@ -1,0 +1,301 @@
+/**
+ * Comment Extension Theme Styles
+ * Visual and theming styles for marked-extended-comments
+ * These styles provide the default appearance and can be customized by users
+ */
+
+/* Base Comment Styles */
+.marked-extended-comment {
+    transition: all 0.2s ease;
+}
+
+/* SVG Icon Styling */
+.comment-icon {
+    display: inline-block;
+    vertical-align: middle;
+    width: 16px;
+    height: 16px;
+}
+
+.marked-extended-comment-icon .comment-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.marked-extended-comment-indicator .comment-icon {
+    width: 14px;
+    height: 14px;
+}
+
+/* Inline Comments */
+.marked-extended-comment-inline {
+    background: rgba(255, 235, 59, 0.2);
+    border-bottom: 2px dashed rgba(255, 235, 59, 0.8);
+    padding: 0 4px;
+    cursor: help;
+    border-radius: 2px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.marked-extended-comment-inline:hover {
+    background: rgba(255, 235, 59, 0.3);
+    border-bottom-color: rgba(255, 235, 59, 1);
+}
+
+.marked-extended-comment-inline .marked-extended-comment-indicator {
+    opacity: 0.8;
+    display: inline-flex;
+    align-items: center;
+}
+
+/* Block Comments */
+.marked-extended-comment-block {
+    padding: 1rem;
+    border-left: 4px solid;
+    border-radius: 4px;
+    background: rgba(0, 0, 0, 0.03);
+}
+
+.marked-extended-comment-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 500;
+    font-size: 0.875rem;
+}
+
+.marked-extended-comment-icon {
+    display: inline-flex;
+    align-items: center;
+    font-size: 1.2em;
+}
+
+.marked-extended-comment-type-label {
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+}
+
+.marked-extended-comment-body {
+    line-height: 1.6;
+}
+
+.marked-extended-comment-metadata {
+    font-size: 0.75rem;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+/* Comment Types - Note */
+.marked-extended-comment-type-note {
+    border-color: #2196F3;
+}
+
+.marked-extended-comment-type-note.marked-extended-comment-inline {
+    background: rgba(33, 150, 243, 0.15);
+    border-bottom-color: rgba(33, 150, 243, 0.6);
+}
+
+.marked-extended-comment-type-note.marked-extended-comment-block {
+    background: rgba(33, 150, 243, 0.05);
+}
+
+.marked-extended-comment-type-note .comment-icon {
+    color: #2196F3;
+}
+
+/* Comment Types - Question */
+.marked-extended-comment-type-question {
+    border-color: #9C27B0;
+}
+
+.marked-extended-comment-type-question.marked-extended-comment-inline {
+    background: rgba(156, 39, 176, 0.15);
+    border-bottom-color: rgba(156, 39, 176, 0.6);
+}
+
+.marked-extended-comment-type-question.marked-extended-comment-block {
+    background: rgba(156, 39, 176, 0.05);
+}
+
+.marked-extended-comment-type-question .comment-icon {
+    color: #9C27B0;
+}
+
+/* Comment Types - Suggestion */
+.marked-extended-comment-type-suggestion {
+    border-color: #4CAF50;
+}
+
+.marked-extended-comment-type-suggestion.marked-extended-comment-inline {
+    background: rgba(76, 175, 80, 0.15);
+    border-bottom-color: rgba(76, 175, 80, 0.6);
+}
+
+.marked-extended-comment-type-suggestion.marked-extended-comment-block {
+    background: rgba(76, 175, 80, 0.05);
+}
+
+.marked-extended-comment-type-suggestion .comment-icon {
+    color: #4CAF50;
+}
+
+/* Comment Types - Issue */
+.marked-extended-comment-type-issue {
+    border-color: #F44336;
+}
+
+.marked-extended-comment-type-issue.marked-extended-comment-inline {
+    background: rgba(244, 67, 54, 0.15);
+    border-bottom-color: rgba(244, 67, 54, 0.6);
+}
+
+.marked-extended-comment-type-issue.marked-extended-comment-block {
+    background: rgba(244, 67, 54, 0.05);
+}
+
+.marked-extended-comment-type-issue .comment-icon {
+    color: #F44336;
+}
+
+/* Comment Types - Internal */
+.marked-extended-comment-type-internal {
+    border-color: #607D8B;
+}
+
+.marked-extended-comment-type-internal.marked-extended-comment-inline {
+    background: rgba(96, 125, 139, 0.15);
+    border-bottom-color: rgba(96, 125, 139, 0.6);
+}
+
+.marked-extended-comment-type-internal.marked-extended-comment-block {
+    background: rgba(96, 125, 139, 0.05);
+}
+
+.marked-extended-comment-type-internal .comment-icon {
+    color: #607D8B;
+}
+
+/* Comment Types - Review */
+.marked-extended-comment-type-review {
+    border-color: #FF9800;
+}
+
+.marked-extended-comment-type-review.marked-extended-comment-inline {
+    background: rgba(255, 152, 0, 0.15);
+    border-bottom-color: rgba(255, 152, 0, 0.6);
+}
+
+.marked-extended-comment-type-review.marked-extended-comment-block {
+    background: rgba(255, 152, 0, 0.05);
+}
+
+.marked-extended-comment-type-review .comment-icon {
+    color: #FF9800;
+}
+
+/* Comment Types - Todo */
+.marked-extended-comment-type-todo {
+    border-color: #00BCD4;
+}
+
+.marked-extended-comment-type-todo.marked-extended-comment-inline {
+    background: rgba(0, 188, 212, 0.15);
+    border-bottom-color: rgba(0, 188, 212, 0.6);
+}
+
+.marked-extended-comment-type-todo.marked-extended-comment-block {
+    background: rgba(0, 188, 212, 0.05);
+}
+
+.marked-extended-comment-type-todo .comment-icon {
+    color: #00BCD4;
+}
+
+/* Comment Status - Resolved */
+.marked-extended-comment-status-resolved {
+    opacity: 0.5;
+}
+
+.marked-extended-comment-status-resolved .marked-extended-comment-body {
+    text-decoration: line-through;
+}
+
+/* Comment Status - Archived */
+.marked-extended-comment-status-archived {
+    opacity: 0.3;
+}
+
+/* Comment Visibility Styles */
+.marked-extended-comment-visibility-private {
+    border-style: dashed;
+    opacity: 0.7;
+}
+
+.marked-extended-comment-visibility-dev-only {
+    border-style: dotted;
+}
+
+.marked-extended-comment-visibility-editors-only {
+    border-style: double;
+}
+
+/* Comment Priority Styles */
+.marked-extended-comment-priority-high .marked-extended-comment-header {
+    background: rgba(244, 67, 54, 0.1);
+    padding: 0.5rem;
+    border-radius: 4px;
+    margin: -0.5rem -0.5rem 0.5rem -0.5rem;
+}
+
+.marked-extended-comment-priority-medium .marked-extended-comment-header {
+    background: rgba(255, 152, 0, 0.1);
+    padding: 0.5rem;
+    border-radius: 4px;
+    margin: -0.5rem -0.5rem 0.5rem -0.5rem;
+}
+
+/* Light Theme Specific */
+body.light .marked-extended-comment-block {
+    background: rgba(0, 0, 0, 0.03);
+}
+
+body.light .marked-extended-comment-metadata {
+    color: rgba(0, 0, 0, 0.6);
+}
+
+body.light .marked-extended-comment-body {
+    color: #24292e;
+}
+
+/* Dark Theme Specific */
+body.dark .marked-extended-comment-block {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+body.dark .marked-extended-comment-metadata {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+body.dark .marked-extended-comment-body {
+    color: #d1d5da;
+}
+
+/* Print Styles */
+@media print {
+    .marked-extended-comment-block {
+        display: none;
+    }
+
+    .marked-extended-comment-inline {
+        background: none;
+        border: none;
+        padding: 0;
+    }
+
+    .marked-extended-comment-indicator {
+        display: none;
+    }
+}
+

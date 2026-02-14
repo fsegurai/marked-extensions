@@ -1,0 +1,95 @@
+/**
+ * Alert Extension Theme Styles
+ * Visual and theming styles for marked-extended-alert
+ * Includes both light and dark theme support
+ */
+
+/* Base Alert Styles */
+.marked-extended-alert {
+  padding: 0 1em;
+  margin-bottom: 16px;
+  color: var(--app-text-primary);
+  border-left: 0.25em solid #444c56;
+}
+
+.marked-extended-alert-title {
+  display: inline-flex;
+  align-items: center;
+  font-weight: 500;
+}
+
+.mr-2 {
+  margin-right: 0.5rem;
+}
+
+/* Alert Type Colors - Base */
+.marked-extended-alert-note {
+  border-left-color: #539bf5;
+}
+
+.marked-extended-alert-note > .marked-extended-alert-title {
+  color: #539bf5;
+}
+
+.marked-extended-alert-note > .marked-extended-alert-title svg {
+  fill: #539bf5;
+}
+
+.marked-extended-alert-tip {
+  border-left-color: #57ab5a;
+}
+
+.marked-extended-alert-tip > .marked-extended-alert-title {
+  color: #57ab5a;
+}
+
+.marked-extended-alert-tip > .marked-extended-alert-title svg {
+  fill: #57ab5a;
+}
+
+.marked-extended-alert-important {
+  border-left-color: #986ee2;
+}
+
+.marked-extended-alert-important > .marked-extended-alert-title {
+  color: #986ee2;
+}
+
+.marked-extended-alert-important > .marked-extended-alert-title svg {
+  fill: #986ee2;
+}
+
+.marked-extended-alert-warning {
+  border-left-color: #c69026;
+}
+
+.marked-extended-alert-warning > .marked-extended-alert-title {
+  color: #c69026;
+}
+
+.marked-extended-alert-warning > .marked-extended-alert-title svg {
+  fill: #c69026;
+}
+
+.marked-extended-alert-caution {
+  border-left-color: #e5534b;
+}
+
+.marked-extended-alert-caution > .marked-extended-alert-title {
+  color: #e5534b;
+}
+
+.marked-extended-alert-caution > .marked-extended-alert-title svg {
+  fill: #e5534b;
+}
+
+/* Light Theme Specific */
+body.light .marked-extended-alert {
+  color: #24292e;
+}
+
+/* Dark Theme Specific */
+body.dark .marked-extended-alert {
+  color: #d1d5da;
+}
+

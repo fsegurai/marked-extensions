@@ -26,6 +26,8 @@
 
 `@fsegurai/marked-extensions` is a collection of custom extensions for Marked.js, making it more powerful and versatile.
 
+---
+
 ### Table of contents
 
 - [Installation](#installation)
@@ -66,17 +68,21 @@ marked.parse(exampleMarkdown);
 
 ### Available Extensions
 
-| Extension   | Package                                                                                                      | Version                                                                    | Description                                            |
-|-------------|--------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------|--------------------------------------------------------|
-| Accordion   | [@fsegurai/marked-extended-accordion](https://www.npmjs.com/package/@fsegurai/marked-extended-accordion)     | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-accordion)   | Add collapsible accordion sections to your markdown    |
-| Alert       | [@fsegurai/marked-extended-alert](https://www.npmjs.com/package/@fsegurai/marked-extended-alert)             | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-alert)       | Create styled alert boxes for important information    |
-| Footnote    | [@fsegurai/marked-extended-footnote](https://www.npmjs.com/package/@fsegurai/marked-extended-footnote)       | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-footnote)    | Add footnotes with automatic numbering                 |
-| Lists       | [@fsegurai/marked-extended-lists](https://www.npmjs.com/package/@fsegurai/marked-extended-lists)             | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-lists)       | Enhanced list formatting options                       |
-| Spoiler     | [@fsegurai/marked-extended-spoiler](https://www.npmjs.com/package/@fsegurai/marked-extended-spoiler)         | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-spoiler)     | Hide content behind spoiler tags                       |
-| Tables      | [@fsegurai/marked-extended-tables](https://www.npmjs.com/package/@fsegurai/marked-extended-tables)           | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-tables)      | Advanced table formatting with cell spanning           |
-| Tabs        | [@fsegurai/marked-extended-tabs](https://www.npmjs.com/package/@fsegurai/marked-extended-tabs)               | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-tabs)        | Create tabbed content sections                         |
-| Timeline    | [@fsegurai/marked-extended-timeline](https://www.npmjs.com/package/@fsegurai/marked-extended-timeline)       | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-timeline)    | Display content in an interactive timeline format      |
-| Typographic | [@fsegurai/marked-extended-typographic](https://www.npmjs.com/package/@fsegurai/marked-extended-typographic) | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-typographic) | Improve typography with smart quotes, dashes, and more |
+| Extension   | Package                                                                                                      | Version                                                                    | Description                                                          |
+|-------------|--------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------|----------------------------------------------------------------------|
+| Accordion   | [@fsegurai/marked-extended-accordion](https://www.npmjs.com/package/@fsegurai/marked-extended-accordion)     | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-accordion)   | Add collapsible accordion sections to your markdown                  |
+| Alert       | [@fsegurai/marked-extended-alert](https://www.npmjs.com/package/@fsegurai/marked-extended-alert)             | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-alert)       | Create styled alert boxes for important information                  |
+| Comments    | [@fsegurai/marked-extended-comments](https://www.npmjs.com/package/@fsegurai/marked-extended-comments)       | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-comments)    | Add comment sections with author and timestamp metadata              |
+| Embeds      | [@fsegurai/marked-extended-embeds](https://www.npmjs.com/package/@fsegurai/marked-extended-embeds)           | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-embeds)      | Easily embed content from various platforms (YouTube, Twitter, etc.) |
+| Footnote    | [@fsegurai/marked-extended-footnote](https://www.npmjs.com/package/@fsegurai/marked-extended-footnote)       | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-footnote)    | Add footnotes with automatic numbering                               |
+| Kanban      | [@fsegurai/marked-extended-kanban](https://www.npmjs.com/package/@fsegurai/marked-extended-kanban)           | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-kanban)      | Create kanban boards with customizable columns and cards             |
+| Lists       | [@fsegurai/marked-extended-lists](https://www.npmjs.com/package/@fsegurai/marked-extended-lists)             | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-lists)       | Enhanced list formatting options                                     |
+| Slide       | [@fsegurai/marked-extended-slide](https://www.npmjs.com/package/@fsegurai/marked-extended-slide)             | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-slide)       | Create slide decks directly from markdown content                    |
+| Spoiler     | [@fsegurai/marked-extended-spoiler](https://www.npmjs.com/package/@fsegurai/marked-extended-spoiler)         | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-spoiler)     | Hide content behind spoiler tags                                     |
+| Tables      | [@fsegurai/marked-extended-tables](https://www.npmjs.com/package/@fsegurai/marked-extended-tables)           | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-tables)      | Advanced table formatting with cell spanning                         |
+| Tabs        | [@fsegurai/marked-extended-tabs](https://www.npmjs.com/package/@fsegurai/marked-extended-tabs)               | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-tabs)        | Create tabbed content sections                                       |
+| Timeline    | [@fsegurai/marked-extended-timeline](https://www.npmjs.com/package/@fsegurai/marked-extended-timeline)       | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-timeline)    | Display content in an interactive timeline format                    |
+| Typographic | [@fsegurai/marked-extended-typographic](https://www.npmjs.com/package/@fsegurai/marked-extended-typographic) | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-typographic) | Improve typography with smart quotes, dashes, and more               |
 
 ### Demo Application
 
@@ -84,11 +90,11 @@ To see all extensions in action, check out the [[DEMO]](https://fsegurai.github.
 
 ### Local Development
 
-    I highly recommend using "bun" to manage the project dependencies.
+> I highly recommend using "bun" to manage the project dependencies.
 
 To set up the demo locally, follow the next steps:
 
-```bash
+```shell
 git clone https://github.com/fsegurai/marked-extensions.git
 bun install
 bun start
@@ -101,13 +107,14 @@ This will serve the application locally at [http://[::1]:8000](http://[::1]:8000
 The expected commits format follows the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
 specification. Example:
 
-- feat: add new user login feature
+- feat: add new markdown extension for spoilers
 - fix: resolve issue with user profile update
 - docs: update API documentation
 - style: format code according to new style guide
 - refactor: simplify user authentication logic
+- test: add or fix unit tests for user registration
+- chore: update build process or dependencies
 - perf: improve database query performance
-- test: add tests for user registration
 
 ## License
 

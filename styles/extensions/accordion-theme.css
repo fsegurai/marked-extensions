@@ -1,0 +1,97 @@
+/**
+ * Accordion Extension Theme Styles
+ * Visual and theming styles for marked-extended-accordion
+ * Includes both light and dark theme support
+ */
+
+/* Base Accordion Styles */
+.marked-extended-accordion {
+  border: 1px solid var(--app-border-light);
+  border-radius: 4px;
+  margin: 1rem 0;
+  background-color: var(--md-sys-color-surface-container);
+}
+
+.marked-extended-accordion-header {
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  position: relative;
+  background-color: var(--md-sys-color-surface-container-high);
+  color: var(--app-text-primary);
+  transition: background-color 0.2s ease;
+}
+
+.marked-extended-accordion-header:hover {
+  background-color: var(--md-sys-color-surface-container-highest);
+}
+
+.marked-extended-accordion-title {
+  margin: 0;
+  display: inline;
+  font-weight: 600;
+  color: var(--app-text-primary);
+}
+
+.marked-extended-accordion-content {
+  padding: 1rem;
+  color: var(--app-text-primary);
+}
+
+.marked-extended-accordion-content img {
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  margin: 0;
+}
+
+/* Animation */
+@keyframes accordion-fade {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Light Theme Specific */
+body.light .marked-extended-accordion {
+  border-color: #ddd;
+  background-color: #ffffff;
+}
+
+body.light .marked-extended-accordion-header {
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+body.light .marked-extended-accordion-header:hover {
+  background-color: #e8e8e8;
+}
+
+body.light .marked-extended-accordion-content {
+  color: #24292e;
+}
+
+/* Dark Theme Specific */
+body.dark .marked-extended-accordion {
+  border-color: #444c56;
+  background-color: #22272e;
+}
+
+body.dark .marked-extended-accordion-header {
+  background-color: #2d333b;
+  color: #d1d5da;
+}
+
+body.dark .marked-extended-accordion-header:hover {
+  background-color: #343b45;
+}
+
+body.dark .marked-extended-accordion-content {
+  color: #d1d5da;
+}

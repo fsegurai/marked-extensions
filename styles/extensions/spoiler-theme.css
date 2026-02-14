@@ -1,0 +1,159 @@
+/**
+ * Spoiler Extension Theme Styles
+ * Visual and theming styles for marked-extended-spoiler
+ * These styles provide the default appearance and can be customized by users
+ */
+
+/* Base Spoiler Styles */
+.marked-extended-spoiler {
+    border-radius: 8px;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    background: var(--spoiler-bg, rgba(0, 0, 0, 0.02));
+}
+
+.marked-extended-spoiler:hover,
+.marked-extended-spoiler:focus {
+    transform: translateY(-1px);
+}
+
+/* Content Styles */
+.marked-extended-spoiler-content {
+    opacity: 1;
+    filter: blur(16px) grayscale(0.4);
+    transform: scale(0.99);
+    transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                filter 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.marked-extended-spoiler-content img {
+    border-radius: 4px;
+}
+
+/* Overlay Styles */
+.marked-extended-spoiler-overlay {
+    font-weight: 600;
+    transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+
+.marked-extended-spoiler:hover > .marked-extended-spoiler-overlay,
+.marked-extended-spoiler:focus > .marked-extended-spoiler-overlay,
+.marked-extended-spoiler[aria-expanded="true"] > .marked-extended-spoiler-overlay,
+.marked-extended-spoiler:hover > .marked-extended-spoiler-particles,
+.marked-extended-spoiler:focus > .marked-extended-spoiler-particles,
+.marked-extended-spoiler[aria-expanded="true"] > .marked-extended-spoiler-particles {
+    transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.marked-extended-spoiler-overlay::before {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E");
+    background-size: 100px 100px;
+    opacity: 0.5;
+    mix-blend-mode: overlay;
+}
+
+.marked-extended-spoiler-overlay-content {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.spoiler-title {
+    font-size: 1.1em;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.marked-extended-spoiler-reveal-hint {
+    font-size: 0.85em;
+    opacity: 0.9;
+    font-weight: 500;
+}
+
+.marked-extended-spoiler-reveal-hint svg {
+    opacity: 0.8;
+    animation: pulse-icon 2s ease-in-out infinite;
+}
+
+@keyframes pulse-icon {
+    0%, 100% {
+        opacity: 0.6;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+}
+
+/* Particle Styles */
+.marked-extended-spoiler-particles {
+    transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.marked-extended-spoiler-particles .particle {
+    border-radius: 50%;
+    transform: translate3d(0, 0, 0);
+    animation-iteration-count: infinite;
+    animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+    opacity: 0.6;
+}
+
+/* Light Theme Specific */
+body.light .marked-extended-spoiler {
+    background: rgba(0, 0, 0, 0.02);
+}
+
+body.light .marked-extended-spoiler-overlay {
+    background: rgba(255, 255, 255, 0.95);
+    color: #333;
+}
+
+body.light .marked-extended-spoiler-overlay::before {
+    opacity: 0.5;
+}
+
+/* Dark Theme Specific */
+body.dark .marked-extended-spoiler {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+body.dark .marked-extended-spoiler-overlay {
+    background: rgba(30, 30, 30, 0.95);
+    color: #e0e0e0;
+}
+
+body.dark .marked-extended-spoiler-overlay::before {
+    opacity: 0.3;
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+    .marked-extended-spoiler,
+    .marked-extended-spoiler-content,
+    .marked-extended-spoiler-overlay,
+    .marked-extended-spoiler-particles {
+        animation: none !important;
+        transition: opacity 0.2s ease !important;
+    }
+
+    .marked-extended-spoiler:hover,
+    .marked-extended-spoiler:focus {
+        transform: none;
+    }
+
+    .marked-extended-spoiler-particles .particle {
+        animation: none !important;
+        opacity: 0.3 !important;
+    }
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .marked-extended-spoiler-reveal-hint span {
+        font-size: 0.8em;
+    }
+}
+

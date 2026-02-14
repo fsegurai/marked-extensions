@@ -1,0 +1,307 @@
+/**
+ * Tables Extension Theme Styles
+ * Visual and theming styles for marked-extended-tables
+ * These styles provide the default appearance and can be customized by users
+ *
+ * Note: marked-extended-tables is a pure structural extension that doesn't inject CSS.
+ * This theme file provides recommended styling for enhanced table features like:
+ * - Column and row spanning
+ * - Multi-row headers
+ * - Table captions
+ * - Striped rows
+ * - Hover effects
+ * - Responsive tables
+ */
+
+/* Base Table Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.9375rem;
+    background: var(--table-bg, #fff);
+    border: 1px solid var(--table-border, #ddd);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* Caption Styles */
+table caption {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--table-caption-color, #333);
+    padding: 0.75rem 1rem;
+    text-align: left;
+    caption-side: top;
+    background: var(--table-caption-bg, #f8f9fa);
+    border-bottom: 2px solid var(--table-border, #ddd);
+}
+
+table[data-caption-bottom] caption {
+    caption-side: bottom;
+    border-top: 2px solid var(--table-border, #ddd);
+    border-bottom: none;
+}
+
+/* Header Styles */
+table thead th {
+    background: var(--table-header-bg, #f1f3f5);
+    color: var(--table-header-color, #212529);
+    font-weight: 700;
+    text-align: left;
+    padding: 0.875rem 1rem;
+    border-bottom: 2px solid var(--table-border, #dee2e6);
+    text-transform: uppercase;
+    font-size: 0.8125rem;
+    letter-spacing: 0.5px;
+}
+
+/* Multi-row headers */
+table thead tr:not(:last-child) th {
+    border-bottom: 1px solid var(--table-border-light, #e9ecef);
+}
+
+/* Body Styles */
+table tbody td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--table-border-light, #e9ecef);
+    color: var(--table-text, #495057);
+    vertical-align: top;
+}
+
+table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Footer Styles */
+table tfoot td {
+    background: var(--table-footer-bg, #f8f9fa);
+    color: var(--table-footer-color, #495057);
+    font-weight: 600;
+    padding: 0.875rem 1rem;
+    border-top: 2px solid var(--table-border, #dee2e6);
+}
+
+/* Striped Rows */
+table tbody tr:nth-child(even) {
+    background: var(--table-stripe-bg, #f8f9fa);
+}
+
+/* Hover Effect */
+table tbody tr:hover {
+    background: var(--table-hover-bg, #e9ecef);
+    transition: background 0.15s ease;
+}
+
+/* Cell Alignment */
+table th[align="center"],
+table td[align="center"] {
+    text-align: center;
+}
+
+table th[align="right"],
+table td[align="right"] {
+    text-align: right;
+}
+
+table th[align="left"],
+table td[align="left"] {
+    text-align: left;
+}
+
+/* Spanning Cells Styles */
+table th[colspan],
+table td[colspan] {
+    text-align: center;
+    font-weight: 600;
+}
+
+table th[rowspan],
+table td[rowspan] {
+    vertical-align: middle;
+    background: var(--table-span-bg, #f1f3f5);
+}
+
+/* Responsive Table Wrapper */
+.table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 1.5rem 0;
+}
+
+.table-responsive table {
+    margin: 0;
+}
+
+/* Scrollbar Styling for Responsive Tables */
+.table-responsive::-webkit-scrollbar {
+    height: 8px;
+}
+
+.table-responsive::-webkit-scrollbar-track {
+    background: var(--scrollbar-track, #f1f1f1);
+    border-radius: 4px;
+}
+
+.table-responsive::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb, #888);
+    border-radius: 4px;
+}
+
+.table-responsive::-webkit-scrollbar-thumb:hover {
+    background: var(--scrollbar-thumb-hover, #555);
+}
+
+/* Light Theme Specific */
+body.light table {
+    --table-bg: #fff;
+    --table-border: #ddd;
+    --table-border-light: #e9ecef;
+    --table-caption-bg: #f8f9fa;
+    --table-caption-color: #333;
+    --table-header-bg: #f1f3f5;
+    --table-header-color: #212529;
+    --table-text: #495057;
+    --table-footer-bg: #f8f9fa;
+    --table-footer-color: #495057;
+    --table-stripe-bg: #f8f9fa;
+    --table-hover-bg: #e9ecef;
+    --table-span-bg: #f1f3f5;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* Dark Theme Specific */
+body.dark table {
+    --table-bg: #1e1e1e;
+    --table-border: #404040;
+    --table-border-light: #2a2a2a;
+    --table-caption-bg: #2a2a2a;
+    --table-caption-color: #e0e0e0;
+    --table-header-bg: #2a2a2a;
+    --table-header-color: #e0e0e0;
+    --table-text: #c0c0c0;
+    --table-footer-bg: #2a2a2a;
+    --table-footer-color: #c0c0c0;
+    --table-stripe-bg: #252525;
+    --table-hover-bg: #2d2d2d;
+    --table-span-bg: #2a2a2a;
+    --scrollbar-track: #2a2a2a;
+    --scrollbar-thumb: #555;
+    --scrollbar-thumb-hover: #777;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* Mobile/Responsive Styles */
+@media (max-width: 768px) {
+    table {
+        font-size: 0.875rem;
+    }
+
+    table thead th,
+    table tbody td,
+    table tfoot td {
+        padding: 0.625rem 0.75rem;
+    }
+
+    table caption {
+        font-size: 0.9375rem;
+        padding: 0.625rem 0.75rem;
+    }
+
+    /* Stack table on very small screens if needed */
+    .table-stack-mobile table,
+    .table-stack-mobile thead,
+    .table-stack-mobile tbody,
+    .table-stack-mobile th,
+    .table-stack-mobile td,
+    .table-stack-mobile tr {
+        display: block;
+    }
+
+    .table-stack-mobile thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    .table-stack-mobile tbody tr {
+        border: 1px solid var(--table-border, #ddd);
+        margin-bottom: 0.625rem;
+        border-radius: 4px;
+    }
+
+    .table-stack-mobile td {
+        border: none;
+        position: relative;
+        padding-left: 50%;
+    }
+
+    .table-stack-mobile td:before {
+        content: attr(data-label);
+        position: absolute;
+        left: 0.625rem;
+        width: 45%;
+        padding-right: 0.625rem;
+        white-space: nowrap;
+        font-weight: 600;
+        color: var(--table-header-color, #212529);
+    }
+}
+
+/* Print Styles */
+@media print {
+    table {
+        border: 1px solid #000;
+        box-shadow: none;
+        page-break-inside: avoid;
+    }
+
+    table thead th {
+        background: #f0f0f0 !important;
+        border-bottom: 2px solid #000;
+    }
+
+    table tbody tr:hover {
+        background: transparent;
+    }
+
+    table tbody tr:nth-child(even) {
+        background: #f9f9f9;
+    }
+
+    .table-responsive {
+        overflow: visible;
+    }
+}
+
+/* Compact Table Variant */
+table.table-compact thead th,
+table.table-compact tbody td,
+table.table-compact tfoot td {
+    padding: 0.5rem 0.75rem;
+}
+
+/* Bordered Table Variant */
+table.table-bordered th,
+table.table-bordered td {
+    border: 1px solid var(--table-border, #ddd);
+}
+
+/* Borderless Table Variant */
+table.table-borderless {
+    border: none;
+    box-shadow: none;
+}
+
+table.table-borderless thead th,
+table.table-borderless tbody td,
+table.table-borderless tfoot td {
+    border: none;
+}
+
+/* Fixed Layout Variant (for consistent column widths) */
+table.table-fixed {
+    table-layout: fixed;
+}
+
