@@ -53,6 +53,7 @@
 /* Block Comments */
 .marked-extended-comment-block {
     padding: 1rem;
+    margin-bottom: 1rem;
     border-left: 4px solid;
     border-radius: 4px;
     background: rgba(0, 0, 0, 0.03);
