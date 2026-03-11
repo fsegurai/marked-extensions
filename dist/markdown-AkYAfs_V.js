@@ -5442,7 +5442,8 @@ function createTabsStyles(tabsContainerId, tabsData, animation) {
 /* Style for active tab */
 #${tabsContainerId} #${inputId}:checked ~ .marked-extended-tabs-nav #${labelId} {
   background: var(--marked-extended-tabs-selected-background) !important;
-  border-bottom: 2px solid var(--md-sys-color-primary) !important;
+  border-bottom-color: var(--marked-extended-tabs-selected-border-color) !important;
+  color: var(--marked-extended-tabs-selected-color) !important;
   font-weight: 600 !important;
 }
 `);
