@@ -4497,11 +4497,11 @@ const SPOILER_THEMES = {
  * Default HTML template for spoiler rendering
  */
 const DEFAULT_TEMPLATE$2 = `
-<div id="{spoilerId}" class="{className}" tabindex="0" role="button" aria-expanded="false" aria-label="Spoiler - click or hover to reveal">
+<div id="{spoilerId}" class="{className} {themeClass}" tabindex="0" role="button" aria-expanded="false" aria-label="Spoiler - click or hover to reveal">
   <div class="{className}-content">
     {content}
   </div>
-  <div class="{className}-overlay">
+  <div class="{className}-overlay" style="background: {themeBackground}; color: {themeTextColor}; box-shadow: {themeShadow};">
     <div class="{className}-overlay-content">
       {customTitle}
       <div class="{className}-reveal-hint">
@@ -4618,6 +4618,7 @@ function renderSpoiler(options, tokens, parser) {
         .replace(/{customTitle}/g, customTitle)
         .replace(/{customSubTitle}/g, customSubTitle)
         .replace(/{className}/g, className)
+        .replace(/{themeClass}/g, `spoiler-theme-${theme}`)
         .replace(/{themeBackground}/g, themeStyles.overlayBg)
         .replace(/{themeTextColor}/g, themeStyles.textColor)
         .replace(/{themeShadow}/g, themeShadow)
