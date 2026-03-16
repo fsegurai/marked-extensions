@@ -45,16 +45,6 @@
     opacity: 0.8;
 }
 
-/* Active Tab Styles (injected dynamically by createTabsStyles function) */
-/* Note: Active tab styles are generated per-instance with specific IDs */
-/* The following provides fallback/general styling */
-.marked-extended-tabs-label[aria-selected="true"] {
-    background: var(--marked-extended-tabs-selected-background);
-    border-bottom-color: var(--md-sys-color-primary, var(--marked-extended-tabs-border-bottom-active));
-    color: var(--marked-extended-tabs-active-text-color);
-    font-weight: 600;
-}
-
 /* Scrollbar Styling for Navigation (when tabs overflow) */
 .marked-extended-tabs-nav::-webkit-scrollbar {
     height: 4px;

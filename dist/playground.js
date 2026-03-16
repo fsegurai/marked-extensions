@@ -1,4 +1,4 @@
-import { m as mdRender, u as updateCheckboxInMarkdown } from './markdown-D-yScgd-.js';
+import { m as mdRender, u as updateCheckboxInMarkdown } from './markdown-DwKd-ami.js';
 
 /******************************************************************************
 Copyright (c) Microsoft Corporation.
@@ -165,13 +165,11 @@ This needs further explanation[^explanation].
 
 This has an important caveat[^note].
 
-## Custom Footnotes Section
-
 [footnotes]
 
 ## Additional Content
 
-This content appears after the footnotes.
+This content appears after the __[footnotes]__ declaration.
 
 [^1]: This is the first footnote.
 [^4]: This is the second footnote with **bold** text.
@@ -189,7 +187,7 @@ This content appears after the footnotes.
 https://www.youtube.com/watch?v=FP808MiJUcM
 ::::embedend
 
-::::embed{title="With Autoplay & Muted" autoplay="true" muted="true"}
+::::embed{title="With Autoplay & Muted" autoplay="false" muted="true"}
 https://www.youtube.com/watch?v=gVI1eVoxlbM
 ::::embedend
 

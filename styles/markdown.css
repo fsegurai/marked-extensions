@@ -100,7 +100,7 @@
     & img {
         max-width: 100%;
         height: auto;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: linear-gradient(135deg, #667eea00 0%, #764ba22b 0%);
         border-radius: var(--border-radius);
         box-shadow: var(--shadow-md);
         transition: transform 0.3s ease, box-shadow 0.3s ease;

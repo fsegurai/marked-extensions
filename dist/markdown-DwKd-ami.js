@@ -5391,6 +5391,10 @@ const DEFAULT_OPTIONS$2 = {
     autoActivate: true, // Automatically activate first tab if none marked active
     template: null,
     customizeToken: null,
+    onBeforeSwitch: null,
+    onAfterSwitch: null,
+    enableKeyboardNavigation: true,
+    enableFocusManagement: true,
 };
 /**
  * DEFAULT_TEMPLATE is a template string used to generate the HTML structure
@@ -5463,6 +5467,246 @@ function createTabsStyles(tabsContainerId, tabsData, animation) {
     }
     parts.push('</style>');
     return parts.join('\n');
+}
+/**
+ * Generates JavaScript code for enhanced tab interaction features
+ * Includes keyboard navigation, focus management, and state persistence
+ *
+ * @param {string} tabsContainerId - The ID of the tabs container
+ * @param {Array<{id: string, props: {label: string}}>} tabsData - Array of tab data
+ * @param {boolean} enableKeyboardNavigation - Enable arrow key navigation
+ * @param {boolean} enableFocusManagement - Enable focus management
+ * @param {boolean} persistSelection - Enable local storage persistence
+ * @return {string} JavaScript code as a script tag
+ */
+function createTabsScript(tabsContainerId, tabsData, enableKeyboardNavigation = true, enableFocusManagement = true, persistSelection = true) {
+    const storageKey = `marked-extended-tabs-active-${tabsContainerId}`;
+    const js = `
+/* eslint-disable no-unused-vars */
+(function() {
+  const containerId = '${tabsContainerId}';
+  const storageKey = '${storageKey}';
+  // @ts-ignore - tabIds is used in the script template
+  const tabIds = ${JSON.stringify(tabsData.map((tab) => tab.id))};
+  const enableKeyboardNav = ${enableKeyboardNavigation};
+  const enableFocusManagement = ${enableFocusManagement};
+  const persistSelection = ${persistSelection};
+
+  // Function to update aria-selected state
+  function updateAriaSelected(container, activeInputId) {
+    const labels = container.querySelectorAll('.marked-extended-tabs-label');
+    labels.forEach((label) => {
+      const forAttr = label.getAttribute('for');
+      const isActive = forAttr === activeInputId;
+      
+      // Only update if value changes to minimize DOM operations
+      if (label.getAttribute('aria-selected') !== String(isActive)) {
+        label.setAttribute('aria-selected', isActive ? 'true' : 'false');
+        if (isActive) {
+          label.classList.add('active');
+        } else {
+          label.classList.remove('active');
+        }
+      }
+      
+      if (enableFocusManagement) {
+        label.setAttribute('tabindex', isActive ? '0' : '-1');
+      }
+    });
+  }
+
+  // Helper to handle tab changes (events and persistence)
+  function handleTabChange(container, actualTabId) {
+    if (persistSelection) {
+      localStorage.setItem(storageKey, actualTabId);
+    }
+
+    container.dispatchEvent(new CustomEvent('tab-switched', {
+      detail: {
+        tabId: actualTabId,
+        timestamp: Date.now(),
+      },
+      bubbles: true,
+      cancelable: true,
+    }));
+  }
+
+  // Wait for DOM to be interactive or immediately if script is inline
+  function initializeTabs() {
+    const container = document.getElementById(containerId);
+    if (!container) {
+      console.warn('[marked-extended-tabs] Container #' + containerId + ' not found');
+      return;
+    }
+
+    const inputs = container.querySelectorAll('input[type="radio"]');
+    const labels = container.querySelectorAll('.marked-extended-tabs-label');
+
+    if (inputs.length === 0 || labels.length === 0) {
+      console.warn('[marked-extended-tabs] No tabs found in container');
+      return;
+    }
+
+    // Update aria-selected on initial load
+    const checkedInput = container.querySelector('input[type="radio"]:checked');
+    if (checkedInput) {
+      updateAriaSelected(container, checkedInput.id);
+    }
+
+    // Restore persisted selection if available
+    if (persistSelection) {
+      const savedTabId = localStorage.getItem(storageKey);
+      if (savedTabId) {
+        const savedInput = container.querySelector('#input-' + savedTabId);
+        if (savedInput) {
+          setTimeout(() => {
+            savedInput.checked = true;
+            updateAriaSelected(container, savedInput.id);
+            savedInput.dispatchEvent(new Event('change', { bubbles: true }));
+          }, 0);
+        }
+      }
+    }
+
+    // Handle tab switching via label click events (this is what fires when users click tabs)
+    labels.forEach((label) => {
+      label.addEventListener('click', (e) => {
+        const forAttr = label.getAttribute('for');
+        if (!forAttr) return;
+
+        const input = document.getElementById(forAttr);
+        if (!input) return;
+
+        // Set the radio input as checked
+        input.checked = true;
+
+        // Immediately update aria-selected
+        updateAriaSelected(container, forAttr);
+
+        const actualTabId = forAttr.replace('input-', '');
+        handleTabChange(container, actualTabId);
+      });
+    });
+
+    // Also handle change events for programmatic updates
+    inputs.forEach((input) => {
+      input.addEventListener('change', (e) => {
+        const inputId = e.target.id;
+        const actualTabId = inputId.replace('input-', '');
+
+        // Update aria-selected
+        updateAriaSelected(container, inputId);
+        handleTabChange(container, actualTabId);
+      });
+    });
+
+    // Keyboard navigation
+    if (enableKeyboardNav) {
+      labels.forEach((label, index) => {
+        label.addEventListener('keydown', (e) => {
+          let targetIndex = index;
+          
+          if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+            e.preventDefault();
+            targetIndex = (index + 1) % labels.length;
+          } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+            e.preventDefault();
+            targetIndex = (index - 1 + labels.length) % labels.length;
+          } else if (e.key === 'Home') {
+            e.preventDefault();
+            targetIndex = 0;
+          } else if (e.key === 'End') {
+            e.preventDefault();
+            targetIndex = labels.length - 1;
+          } else {
+            return;
+          }
+
+          const targetLabel = labels[targetIndex];
+          if (targetLabel) {
+            const forAttr = targetLabel.getAttribute('for');
+            if (forAttr) {
+              const input = document.getElementById(forAttr);
+              if (input) {
+                input.checked = true;
+                updateAriaSelected(container, forAttr);
+                input.dispatchEvent(new Event('change', { bubbles: true }));
+                
+                // Focus the label for better UX
+                setTimeout(() => {
+                  targetLabel.focus();
+                }, 0);
+              }
+            }
+          }
+        });
+
+        // Make labels keyboard accessible
+        if (enableFocusManagement) {
+          label.addEventListener('keypress', (e) => {
+            if (e.key === ' ' || e.key === 'Enter') {
+              e.preventDefault();
+              const forAttr = label.getAttribute('for');
+              if (forAttr) {
+                const input = document.getElementById(forAttr);
+                if (input) {
+                  input.checked = true;
+                  updateAriaSelected(container, forAttr);
+                  input.dispatchEvent(new Event('change', { bubbles: true }));
+                }
+              }
+            }
+          });
+        }
+      });
+    }
+
+    // Enhanced focus management
+    if (enableFocusManagement) {
+      // Set initial tab index for first active or first tab
+      const activeLabel = container.querySelector('.marked-extended-tabs-label[aria-selected="true"]');
+      if (activeLabel) {
+        activeLabel.setAttribute('tabindex', '0');
+      } else if (labels.length > 0) {
+        labels[0].setAttribute('tabindex', '0');
+      }
+
+      // Update tabindex when labels receive focus
+      labels.forEach((label) => {
+        label.addEventListener('focus', () => {
+          labels.forEach((l) => l.setAttribute('tabindex', '-1'));
+          label.setAttribute('tabindex', '0');
+        });
+      });
+    }
+
+    // Watch for radio input changes to update aria-selected
+    // This is crucial for CSS to work with [aria-selected="true"]
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.type === 'attributes' && mutation.attributeName === 'checked') {
+          const checkedRadio = container.querySelector('input[type="radio"]:checked');
+          if (checkedRadio) {
+            updateAriaSelected(container, checkedRadio.id);
+          }
+        }
+      });
+    });
+
+    // Observe all radio inputs for checked attribute changes
+    inputs.forEach((input) => {
+      observer.observe(input, { attributes: true, attributeFilter: ['checked'] });
+    });
+  }
+
+  // Initialize when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeTabs);
+  } else {
+    initializeTabs();
+  }
+})();`;
+    return '<script>' + js + '</script>';
 }
 
 /**
@@ -5642,13 +5886,13 @@ const constructProps$1 = (element, propString) => {
 };
 
 /**
- * Renders the tab component using a CSS-only approach (no JavaScript)
+ * Renders the tab component with enhanced interactivity
  * @param options - Rendering options
  * @param parser - Parser instance from marked.js renderer context
  * @returns HTML string for the tabs
  */
 function renderTabs(options, parser) {
-    const { tabsContainerId, tabsData, className, animation = 'fade', template } = options;
+    const { tabsContainerId, tabsData, className, animation = 'fade', template, enableKeyboardNavigation = true, enableFocusManagement = true, persistSelection, } = options;
     // Get the tab template
     const tabsTemplate = template || DEFAULT_TEMPLATE$1;
     if (!tabsData || tabsData.length === 0) {
@@ -5667,9 +5911,9 @@ function renderTabs(options, parser) {
         const iconHtml = icon ? `<span class="marked-extended-tabs-icon">${icon}</span>` : '';
         // Inputs first
         inputsNav += `<input type="radio" name="${tabsContainerId}-tabs" id="${inputId}" class="marked-extended-tabs-input" ${isChecked}>`;
-        // Navigation labels
+        // Navigation labels with data attributes for JavaScript enhancement
         navList += `
-      <label for="${inputId}" id="${labelId}" class="marked-extended-tabs-label" role="tab" aria-selected="${ariaSelected}" data-tab-id="${id}">
+      <label for="${inputId}" id="${labelId}" class="marked-extended-tabs-label" role="tab" aria-selected="${ariaSelected}" data-tab-id="${id}" tabindex="${active ? '0' : '-1'}">
         ${iconHtml}<span class="tab-label">${label}</span>
       </label>`;
         // Render the content using the parser context which has all extensions loaded
@@ -5682,6 +5926,8 @@ function renderTabs(options, parser) {
       </div>`;
     }
     const styles = createTabsStyles(tabsContainerId, tabsData, animation);
+    // Generate JavaScript for enhanced tab switching
+    const script = createTabsScript(tabsContainerId, tabsData, enableKeyboardNavigation, enableFocusManagement, persistSelection);
     return tabsTemplate
         .replace(/{tabsContainerId}/g, tabsContainerId)
         .replace(/{className}/g, className)
@@ -5689,14 +5935,14 @@ function renderTabs(options, parser) {
         .replace(/{inputsNav}/g, inputsNav)
         .replace(/{navList}/g, navList)
         .replace(/{content}/g, markedContent)
-        .replace(/{stylesBehavior}/g, styles);
+        .replace(/{stylesBehavior}/g, styles + script);
 }
 
 /**
  * Creates a tokenizer function for the tab extension
  */
 function createTokenizer$1(options) {
-    const { animation, autoActivate, className, persistSelection, template } = options;
+    const { animation, autoActivate, className, persistSelection, template, onBeforeSwitch, onAfterSwitch, enableKeyboardNavigation, enableFocusManagement } = options;
     const tabElement = 'tabBlock';
     const tabItemElement = 'tabItemBlock';
     return {
@@ -5773,6 +6019,10 @@ function createTokenizer$1(options) {
                     animation,
                     autoActivate,
                     template,
+                    onBeforeSwitch,
+                    onAfterSwitch,
+                    enableKeyboardNavigation,
+                    enableFocusManagement,
                 },
             };
         },
@@ -5802,6 +6052,15 @@ function markedExtendedTabs(options = {}) {
     if (options.animation && !['fade', 'slide', 'none'].includes(options.animation)) {
         console.warn(`[marked-extended-tabs] Invalid animation value: ${options.animation}. Using default 'fade'.`);
         options.animation = 'fade';
+    }
+    // Validate callbacks
+    if (options.onBeforeSwitch && typeof options.onBeforeSwitch !== 'function') {
+        console.warn('[marked-extended-tabs] onBeforeSwitch must be a function');
+        options.onBeforeSwitch = null;
+    }
+    if (options.onAfterSwitch && typeof options.onAfterSwitch !== 'function') {
+        console.warn('[marked-extended-tabs] onAfterSwitch must be a function');
+        options.onAfterSwitch = null;
     }
     // Set sensible defaults
     const config = { ...DEFAULT_OPTIONS$2, ...options };
