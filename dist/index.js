@@ -1,4 +1,4 @@
-import { m as mdRender } from './markdown-DwKd-ami.js';
+import { m as mdRender } from './markdown-IFuUCsux.js';
 
 const mdBody = document.querySelector('.markdown-body');
 const loadingSpinner = document.querySelector('#loadingSpinner');

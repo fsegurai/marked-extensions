@@ -9,11 +9,8 @@
     --marked-extended-tabs-border: #ddd;
     --marked-extended-tabs-border-radius: 4px;
     --marked-extended-tabs-background: transparent;
-    --marked-extended-tabs-selected-background: #f0f0f0;
     --marked-extended-tabs-hover-background: #f8f8f8;
     --marked-extended-tabs-text-color: #333;
-    --marked-extended-tabs-active-text-color: #000;
-    --marked-extended-tabs-border-bottom-active: #2d333b;
     --marked-extended-tabs-transition: all 0.2s ease;
 }
 
@@ -93,11 +90,8 @@
 body.light {
     --marked-extended-tabs-border: #ddd;
     --marked-extended-tabs-background: transparent;
-    --marked-extended-tabs-selected-background: #e8e8e8;
     --marked-extended-tabs-hover-background: #f8f8f8;
     --marked-extended-tabs-text-color: #333;
-    --marked-extended-tabs-active-text-color: #000;
-    --marked-extended-tabs-border-bottom-active: #2d333b;
 }
 
 body.light .marked-extended-tabs-container {
@@ -126,11 +120,8 @@ body.light .marked-extended-tabs-content {
 body.dark {
     --marked-extended-tabs-border: #444c56;
     --marked-extended-tabs-background: transparent;
-    --marked-extended-tabs-selected-background: #3b4551;
     --marked-extended-tabs-hover-background: #444c56;
     --marked-extended-tabs-text-color: #d1d5da;
-    --marked-extended-tabs-active-text-color: #fff;
-    --marked-extended-tabs-border-bottom-active: #58a6ff;
     --scrollbar-track: #2a2a2a;
     --scrollbar-thumb: #555;
     --scrollbar-thumb-hover: #777;

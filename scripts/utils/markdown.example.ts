@@ -169,15 +169,15 @@ https://codesandbox.io/s/react-new
 
 ## Music & Audio
 
-::::embed{title="Spotify Playlist"}
-https://open.spotify.com/playlist/20oEapsvrcByHkKm7ItgPK
-::::embedend
+// ::::embed{title="Spotify Playlist"}
+// https://open.spotify.com/playlist/20oEapsvrcByHkKm7ItgPK
+// ::::embedend
 
 ## Design & Diagrams
 
-::::embed{title="Figma Design" aspectRatio="16:9"}
-https://www.figma.com/design/hpl7Cqz381vfKoFB71rAI8/koxopa1055-s-team-library?node-id=1-2&m=dev&t=5tAjp3TPMrekcdlD-1
-::::embedend
+// ::::embed{title="Figma Design" aspectRatio="16:9"}
+// https://www.figma.com/design/hpl7Cqz381vfKoFB71rAI8/koxopa1055-s-team-library?node-id=1-2&m=dev&t=5tAjp3TPMrekcdlD-1
+// ::::embedend
 
 ::::embed{title="Excalidraw Sketch" aspectRatio="16:9"}
 //https://excalidraw.com/#json=AQRBYxElNFGoS1X961AEX,SYtmM2MuluQpt37iZAU6wg

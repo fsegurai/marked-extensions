@@ -5386,7 +5386,7 @@ const tabCounter = { value: 0 };
  */
 const DEFAULT_OPTIONS$2 = {
     className: 'marked-extended-tabs-container',
-    persistSelection: true,
+    persistSelection: false,
     animation: 'fade', // 'fade', 'slide', or 'none'
     autoActivate: true, // Automatically activate first tab if none marked active
     template: null,
@@ -5479,7 +5479,7 @@ function createTabsStyles(tabsContainerId, tabsData, animation) {
  * @param {boolean} persistSelection - Enable local storage persistence
  * @return {string} JavaScript code as a script tag
  */
-function createTabsScript(tabsContainerId, tabsData, enableKeyboardNavigation = true, enableFocusManagement = true, persistSelection = true) {
+function createTabsScript(tabsContainerId, tabsData, enableKeyboardNavigation = true, enableFocusManagement = true, persistSelection = false) {
     const storageKey = `marked-extended-tabs-active-${tabsContainerId}`;
     const js = `
 /* eslint-disable no-unused-vars */
