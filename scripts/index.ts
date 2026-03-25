@@ -3,7 +3,7 @@ import { mdRender } from './utils/markdown';
 const mdBody = document.querySelector('.markdown-body') as HTMLElement;
 const loadingSpinner = document.querySelector('#loadingSpinner') as HTMLElement;
 const readmeURL =
-  'https://raw.githubusercontent.com/fsegurai/marked-extensions/refs/heads/main/README.md';
+    'https://raw.githubusercontent.com/fsegurai/marked-extensions/refs/heads/main/README.md';
 
 document.addEventListener('DOMContentLoaded', () => {
   if (mdBody) {
