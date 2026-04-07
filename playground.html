@@ -4,7 +4,7 @@
   <meta charset="UTF-8"/>
   <title>&#64;fsegurai/marked-extensions | Demo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <link rel="icon" type="image/x-icon" href="./public/favicon.ico"/>
+  <link rel="icon" type="image/x-icon" href="./assets/favicon-C8nEap1c.ico"/>
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -15,46 +15,34 @@
   />
 
   <!-- CSS Variables (must load first) -->
-  <link rel="stylesheet" href="./styles/variables.css"/>
 
   <!-- Base App Styles -->
-  <link rel="stylesheet" href="./styles/themes.css"/>
 
   <!-- App Component Styles -->
-  <link rel="stylesheet" href="./styles/header.css"/>
-  <link rel="stylesheet" href="./styles/playground.css"/>
-  <link rel="stylesheet" href="./styles/markdown.css"/>
-  <link rel="stylesheet" href="./styles/prism-theme.css"/>
 
   <!-- App Theme Styles (light/dark) -->
-  <link rel="stylesheet" href="./styles/app-theme.css"/>
 
   <!-- Extension Base Theme Styles -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fsegurai/marked-extended-accordion@17.0.0-beta.1/dist/styles/accordion.css">
-  <link rel="stylesheet" href="./styles/extensions/accordion-theme.css"/>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fsegurai/marked-extended-alert@17.0.0-beta.1/dist/styles/alert.css">
-  <link rel="stylesheet" href="./styles/extensions/alert-theme.css"/>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fsegurai/marked-extended-comments@17.0.0-beta.2/dist/styles/comment.css">
-  <link rel="stylesheet" href="./styles/extensions/comment-theme.css"/>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fsegurai/marked-extended-embeds@17.0.0-beta.1/dist/styles/embed.css">
-  <link rel="stylesheet" href="./styles/extensions/embed-theme.css"/>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fsegurai/marked-extended-footnote@17.0.0-beta.1/dist/styles/footnote.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fsegurai/marked-extended-kanban@17.0.0-beta.1/dist/styles/kanban.css">
-  <link rel="stylesheet" href="./styles/extensions/kanban-theme.css"/>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fsegurai/marked-extended-lists@17.0.0-beta.1/dist/styles/lists.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fsegurai/marked-extended-slide@17.0.0-beta.1/dist/styles/slide.css">
-  <link rel="stylesheet" href="./styles/extensions/slide-themes.css"/>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fsegurai/marked-extended-spoiler@17.0.0-beta.2/dist/styles/spoiler.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fsegurai/marked-extended-spoiler@17.0.0-beta.2/dist/styles/spoiler-theme.css">
-  <link rel="stylesheet" href="./styles/extensions/spoiler-theme.css"/>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fsegurai/marked-extended-tables@17.0.0-beta.1/dist/styles/table.css">
-  <link rel="stylesheet" href="./styles/extensions/tables-theme.css"/>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fsegurai/marked-extended-tabs@17.0.0-beta.4/dist/styles/tabs.css">
-  <link rel="stylesheet" href="./styles/extensions/tabs-theme.css"/>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fsegurai/marked-extended-timeline@17.0.0-beta.1/dist/styles/timeline.css">
-  <link rel="stylesheet" href="./styles/extensions/timeline-theme.css"/>
 
   <!-- Import Map for @material/web -->
+
+
+  <!-- Material Web Components -->
+
+  <!-- Local Scripts -->
   <script type="importmap">
     {
       "imports": {
@@ -62,15 +50,10 @@
       }
     }
   </script>
-
-  <!-- Material Web Components -->
-  <script type="module">
-    import '@material/web/all.js'
-  </script>
-
-  <!-- Local Scripts -->
-  <script type="module" defer src="./dist/header.js"></script>
-  <script type="module" defer src="./dist/playground.js"></script>
+  <script type="module" crossorigin src="./assets/playground-kEFiKDNp.js"></script>
+  <link rel="modulepreload" crossorigin href="./assets/markdown-CFDemZyS.js">
+  <link rel="stylesheet" crossorigin href="./assets/markdown-B4sW6iOx.css">
+  <link rel="stylesheet" crossorigin href="./assets/playground-l1sMSnYQ.css">
 </head>
 <body>
 <!-- Loading Spinner -->
