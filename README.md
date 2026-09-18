@@ -4,7 +4,7 @@
 
 <p align="center" class="intro">
   <a href="https://github.com/fsegurai/marked-extensions">
-      <img src="https://img.shields.io/azure-devops/build/fsegurai/93779823-473d-4fb3-a5b1-27aaa1a88ea2/18/main?label=Build%20Status&"
+      <img src="https://img.shields.io/azure-devops/build/fsegurai/93779823-473d-4fb3-a5b1-27aaa1a88ea2/18/main?label=build"
           alt="Build Main Status">
   </a>
   <a href="https://github.com/fsegurai/marked-extensions/releases/latest">
@@ -18,7 +18,7 @@
     <img alt="GitHub License" src="https://img.shields.io/github/license/fsegurai/marked-extensions">
   </a>
   <br>
-  <img alt="Stars" src="https://img.shields.io/github/stars/fsegurai/marked-extensions?style=square&labelColor=343b41"/> 
+  <img alt="Stars" src="https://img.shields.io/github/stars/fsegurai/marked-extensions?style=square&labelColor=343b41"/>
   <img alt="Forks" src="https://img.shields.io/github/forks/fsegurai/marked-extensions?style=square&labelColor=343b41"/>
 </p>
 
@@ -68,22 +68,22 @@ marked.parse(exampleMarkdown);
 
 ### Available Extensions
 
-| Extension   | Package                                                                                                      | Version                                                                    | Description                                                          |
-|-------------|--------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------|----------------------------------------------------------------------|
-| All - Bundle       | [@fsegurai/marked-extended-bundle](https://www.npmjs.com/package/@fsegurai/marked-extended-bundle)             | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-bundle)       | Includes all extensions in a single package for easy integration                  |
-| Accordion   | [@fsegurai/marked-extended-accordion](https://www.npmjs.com/package/@fsegurai/marked-extended-accordion)     | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-accordion)   | Add collapsible accordion sections to your markdown                  |
-| Alert       | [@fsegurai/marked-extended-alert](https://www.npmjs.com/package/@fsegurai/marked-extended-alert)             | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-alert)       | Create styled alert boxes for important information                  |
-| Comments    | [@fsegurai/marked-extended-comments](https://www.npmjs.com/package/@fsegurai/marked-extended-comments)       | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-comments)    | Add comment sections with author and timestamp metadata              |
-| Embeds      | [@fsegurai/marked-extended-embeds](https://www.npmjs.com/package/@fsegurai/marked-extended-embeds)           | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-embeds)      | Easily embed content from various platforms (YouTube, Twitter, etc.) |
-| Footnote    | [@fsegurai/marked-extended-footnote](https://www.npmjs.com/package/@fsegurai/marked-extended-footnote)       | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-footnote)    | Add footnotes with automatic numbering                               |
-| Kanban      | [@fsegurai/marked-extended-kanban](https://www.npmjs.com/package/@fsegurai/marked-extended-kanban)           | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-kanban)      | Create kanban boards with customizable columns and cards             |
-| Lists       | [@fsegurai/marked-extended-lists](https://www.npmjs.com/package/@fsegurai/marked-extended-lists)             | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-lists)       | Enhanced list formatting options                                     |
-| Slide       | [@fsegurai/marked-extended-slide](https://www.npmjs.com/package/@fsegurai/marked-extended-slide)             | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-slide)       | Create slide decks directly from markdown content                    |
-| Spoiler     | [@fsegurai/marked-extended-spoiler](https://www.npmjs.com/package/@fsegurai/marked-extended-spoiler)         | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-spoiler)     | Hide content behind spoiler tags                                     |
-| Tables      | [@fsegurai/marked-extended-tables](https://www.npmjs.com/package/@fsegurai/marked-extended-tables)           | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-tables)      | Advanced table formatting with cell spanning                         |
-| Tabs        | [@fsegurai/marked-extended-tabs](https://www.npmjs.com/package/@fsegurai/marked-extended-tabs)               | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-tabs)        | Create tabbed content sections                                       |
-| Timeline    | [@fsegurai/marked-extended-timeline](https://www.npmjs.com/package/@fsegurai/marked-extended-timeline)       | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-timeline)    | Display content in an interactive timeline format                    |
-| Typographic | [@fsegurai/marked-extended-typographic](https://www.npmjs.com/package/@fsegurai/marked-extended-typographic) | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-typographic) | Improve typography with smart quotes, dashes, and more               |
+| Extension    | Package                                                                                                      | Version                                                                    | Description                                                          |
+|--------------|--------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------|----------------------------------------------------------------------|
+| All - Bundle | [@fsegurai/marked-extended-bundle](https://www.npmjs.com/package/@fsegurai/marked-extended-bundle)           | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-bundle)      | Includes all extensions in a single package for easy integration     |
+| Accordion    | [@fsegurai/marked-extended-accordion](https://www.npmjs.com/package/@fsegurai/marked-extended-accordion)     | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-accordion)   | Add collapsible accordion sections to your markdown                  |
+| Alert        | [@fsegurai/marked-extended-alert](https://www.npmjs.com/package/@fsegurai/marked-extended-alert)             | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-alert)       | Create styled alert boxes for important information                  |
+| Comments     | [@fsegurai/marked-extended-comments](https://www.npmjs.com/package/@fsegurai/marked-extended-comments)       | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-comments)    | Add comment sections with author and timestamp metadata              |
+| Embeds       | [@fsegurai/marked-extended-embeds](https://www.npmjs.com/package/@fsegurai/marked-extended-embeds)           | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-embeds)      | Easily embed content from various platforms (YouTube, Twitter, etc.) |
+| Footnote     | [@fsegurai/marked-extended-footnote](https://www.npmjs.com/package/@fsegurai/marked-extended-footnote)       | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-footnote)    | Add footnotes with automatic numbering                               |
+| Kanban       | [@fsegurai/marked-extended-kanban](https://www.npmjs.com/package/@fsegurai/marked-extended-kanban)           | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-kanban)      | Create kanban boards with customizable columns and cards             |
+| Lists        | [@fsegurai/marked-extended-lists](https://www.npmjs.com/package/@fsegurai/marked-extended-lists)             | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-lists)       | Enhanced list formatting options                                     |
+| Slide        | [@fsegurai/marked-extended-slide](https://www.npmjs.com/package/@fsegurai/marked-extended-slide)             | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-slide)       | Create slide decks directly from markdown content                    |
+| Spoiler      | [@fsegurai/marked-extended-spoiler](https://www.npmjs.com/package/@fsegurai/marked-extended-spoiler)         | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-spoiler)     | Hide content behind spoiler tags                                     |
+| Tables       | [@fsegurai/marked-extended-tables](https://www.npmjs.com/package/@fsegurai/marked-extended-tables)           | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-tables)      | Advanced table formatting with cell spanning                         |
+| Tabs         | [@fsegurai/marked-extended-tabs](https://www.npmjs.com/package/@fsegurai/marked-extended-tabs)               | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-tabs)        | Create tabbed content sections                                       |
+| Timeline     | [@fsegurai/marked-extended-timeline](https://www.npmjs.com/package/@fsegurai/marked-extended-timeline)       | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-timeline)    | Display content in an interactive timeline format                    |
+| Typographic  | [@fsegurai/marked-extended-typographic](https://www.npmjs.com/package/@fsegurai/marked-extended-typographic) | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-typographic) | Improve typography with smart quotes, dashes, and more               |
 
 ### Demo Application
 

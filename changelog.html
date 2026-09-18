@@ -36,17 +36,16 @@
           }
         }
     </script>
-  <script type="module" crossorigin src="./assets/playground-D0CjOShw.js"></script>
+  <script type="module" crossorigin src="./assets/changelog-D8pSEXAR.js"></script>
   <link rel="modulepreload" crossorigin href="./assets/markdown-BSKO4O8C.js">
   <link rel="stylesheet" crossorigin href="./assets/markdown-uFQleYDT.css">
   <link rel="stylesheet" crossorigin href="./assets/extensions-C2_WvGQ0.css">
-  <link rel="stylesheet" crossorigin href="./assets/playground-D3w1imzV.css">
 </head>
 <body>
 <!-- Loading Spinner -->
 <div id="loadingSpinner" class="loading-spinner">
     <div class="spinner-circle"></div>
-    <p>Loading playground...</p>
+    <p>Loading content...</p>
 </div>
 
 <header class="header">
@@ -66,7 +65,8 @@
                         id="github"
                         href="https://github.com/fsegurai/marked-extensions"
                         target="_blank"
-                        aria-label="View on GitHub">
+                        aria-label="View on GitHub"
+                >
                     <md-icon>
                         <svg
                                 class="custom-icon"
@@ -96,46 +96,8 @@
     </md-icon-button>
 </nav>
 
-<main class="main-playground">
-    <div class="editor-container">
-        <div class="editor-toolbar">
-      <span class="editor-label">
-        <md-icon>edit_note</md-icon>
-      <span>Markdown Editor</span>
-    </span>
-            <div class="toolbar-actions">
-                <md-icon-button id="copyMarkdown" aria-label="Copy markdown">
-                    <md-icon>content_copy</md-icon>
-                </md-icon-button>
-                <md-icon-button id="clearEditor" aria-label="Clear editor">
-                    <md-icon>delete_outline</md-icon>
-                </md-icon-button>
-                <md-icon-button id="resetExample" aria-label="Reset to example">
-                    <md-icon>restore</md-icon>
-                </md-icon-button>
-            </div>
-        </div>
-        <md-filled-text-field
-                id="md-editor"
-                class="md-editor"
-                type="textarea"
-                label="Write your markdown here...">
-        </md-filled-text-field>
-    </div>
-    <div class="preview-container">
-        <div class="preview-toolbar">
-      <span class="preview-label">
-        <md-icon>visibility</md-icon>
-        <span>Preview</span>
-      </span>
-            <div class="toolbar-actions">
-                <md-icon-button id="copyHtml" aria-label="Copy HTML">
-                    <md-icon>content_copy</md-icon>
-                </md-icon-button>
-            </div>
-        </div>
-        <div id="md-body" class="md-body"></div>
-    </div>
+<main class="main-index">
+    <div id="markdown-body" class="markdown-body"></div>
 </main>
 </body>
 </html>
