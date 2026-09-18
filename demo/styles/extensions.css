@@ -1,0 +1,58 @@
+/**
+ * Extension styles — aggregated from the LOCAL workspace packages.
+ *
+ * The demo reflects local style changes immediately (HMR in dev) and, at build,
+ * Vite emits this as ONE dedicated, predictable stylesheet (dist/assets/extensions-<hash>.css)
+ * instead of merging it into the app/markdown bundle — no CDN, no version drift.
+ *
+ * Each package contributes its structural file then its theme file. When a NEW
+ * styled extension ships, add its two @import lines here. (typographic has no styles.)
+ */
+
+/* accordion */
+@import "../../packages/accordion/styles/accordion.css";
+@import "../../packages/accordion/styles/accordion-theme.css";
+
+/* alert */
+@import "../../packages/alert/styles/alert.css";
+@import "../../packages/alert/styles/alert-theme.css";
+
+/* comments */
+@import "../../packages/comments/styles/comments.css";
+@import "../../packages/comments/styles/comments-theme.css";
+
+/* embeds */
+@import "../../packages/embeds/styles/embeds.css";
+@import "../../packages/embeds/styles/embeds-theme.css";
+
+/* footnote */
+@import "../../packages/footnote/styles/footnote.css";
+@import "../../packages/footnote/styles/footnote-theme.css";
+
+/* kanban */
+@import "../../packages/kanban/styles/kanban.css";
+@import "../../packages/kanban/styles/kanban-theme.css";
+
+/* lists */
+@import "../../packages/lists/styles/lists.css";
+@import "../../packages/lists/styles/lists-theme.css";
+
+/* slide */
+@import "../../packages/slide/styles/slide.css";
+@import "../../packages/slide/styles/slide-theme.css";
+
+/* spoiler */
+@import "../../packages/spoiler/styles/spoiler.css";
+@import "../../packages/spoiler/styles/spoiler-theme.css";
+
+/* tables */
+@import "../../packages/tables/styles/tables.css";
+@import "../../packages/tables/styles/tables-theme.css";
+
+/* tabs */
+@import "../../packages/tabs/styles/tabs.css";
+@import "../../packages/tabs/styles/tabs-theme.css";
+
+/* timeline */
+@import "../../packages/timeline/styles/timeline.css";
+@import "../../packages/timeline/styles/timeline-theme.css";
