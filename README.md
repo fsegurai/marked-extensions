@@ -33,6 +33,8 @@
 - [Installation](#installation)
 - [Usage](#usage)
     - [Basic Usage](#basic-usage)
+- [Framework Integration](#framework-integration)
+- [Compatibility](#compatibility)
 - [More Resources](#more-resources)
     - [Available Extensions](#available-extensions)
     - [Demo Application](#demo-application)
@@ -66,6 +68,56 @@ const exampleMarkdown = `
 marked.parse(exampleMarkdown);
 ```
 
+## Framework Integration
+
+Since 19.0.0-beta.0, every package follows one runtime contract, so the same output works in plain pages, React, Vue,
+Angular and server-side rendering. Upgrading from 18.x? Read [MIGRATION-19.md](./MIGRATION-19.md).
+
+- **Sanitizer-safe markup.** The default HTML survives strict sanitizers such as Angular's `SecurityContext.HTML`:
+  state lives in `class`, `aria-*`, `role`, `hidden`, `open` and `tabindex`, configuration in `mx-<pkg>-<key>-<value>`
+  class tokens, and icons are drawn with CSS. No `id`, `style`, `data-*`, inline handlers, `<script>`, `<svg>` or
+  `<iframe>` in the default output.
+- **`unsafeHtml: true`.** Each package whose markup changed keeps its 18.0 markup behind this option, for pages that
+  do not sanitize.
+- **Explicit runtimes.** Interactive behaviour comes from `attachX(root, options?)` (`attachTabs`, `attachEmbeds`,
+  `attachSlides`…), which returns a `dispose` function. Runtimes are idempotent per root, delegate their listeners to
+  `root` only and create no `window` globals. `attachX.refresh(root)`, or `{ observe: true }`, re-applies per-element
+  setup after the content is replaced.
+- **`attachAll`.** The bundle attaches every runtime at once and returns one `{ dispose(), refresh() }` handle.
+- **Events.** Runtimes dispatch bubbling `CustomEvent`s named `marked-extended:<pkg>:<event>`, for example
+  `marked-extended:tabs:switch` or the cancelable `marked-extended:lists:toggle`.
+- **SSR safety.** Importing a package or creating an extension never touches `document` or `window`; ids are
+  content hashes, so server and client renders match.
+
+```javascript
+import { Marked } from 'marked';
+import { attachAll, markedExtendedTabs, markedExtendedEmbeds } from '@fsegurai/marked-extended-bundle';
+
+const marked = new Marked().use(markedExtendedTabs(), markedExtendedEmbeds());
+container.innerHTML = marked.parse(markdown); // or your framework's sanitized [innerHTML] / v-html binding
+
+const handle = attachAll(container); // after render
+handle.refresh();                     // after replacing the content
+handle.dispose();                     // on teardown
+```
+
+React, Vue and Angular examples are in [MIGRATION-19.md](./MIGRATION-19.md#the-runtime-contract). An ngx-markdown
+adapter (`withMarkedExtended`) is planned.
+
+## Compatibility
+
+| Packages      | Marked peer       | Notes                                                                                 |
+|---------------|-------------------|---------------------------------------------------------------------------------------|
+| 19.x (stable) | marked 19         | Not released yet: the stable 19.0.0 moves the peer to marked 19 when marked 19 ships  |
+| 19.0.0-beta.x | `^18` (for now)   | Safe-by-default runtime contract (breaking, see [MIGRATION-19.md](./MIGRATION-19.md)) |
+| 18.0.x        | `^18`             |                                                                                       |
+| 17.x          | `^17`             |                                                                                       |
+
+Every package, including the new `code` and `core` packages, is released as 19.0.0-beta.0. The packages stay in beta,
+with the `marked ^18` peer, until marked 19 is released.
+
+## More Resources
+
 ### Available Extensions
 
 | Extension    | Package                                                                                                      | Version                                                                    | Description                                                          |
@@ -73,7 +125,9 @@ marked.parse(exampleMarkdown);
 | All - Bundle | [@fsegurai/marked-extended-bundle](https://www.npmjs.com/package/@fsegurai/marked-extended-bundle)           | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-bundle)      | Includes all extensions in a single package for easy integration     |
 | Accordion    | [@fsegurai/marked-extended-accordion](https://www.npmjs.com/package/@fsegurai/marked-extended-accordion)     | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-accordion)   | Add collapsible accordion sections to your markdown                  |
 | Alert        | [@fsegurai/marked-extended-alert](https://www.npmjs.com/package/@fsegurai/marked-extended-alert)             | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-alert)       | Create styled alert boxes for important information                  |
+| Code         | [@fsegurai/marked-extended-code](https://www.npmjs.com/package/@fsegurai/marked-extended-code)               | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-code)        | Code blocks with titles, line numbers, highlights, diffs and groups  |
 | Comments     | [@fsegurai/marked-extended-comments](https://www.npmjs.com/package/@fsegurai/marked-extended-comments)       | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-comments)    | Add comment sections with author and timestamp metadata              |
+| Core         | [@fsegurai/marked-extended-core](https://www.npmjs.com/package/@fsegurai/marked-extended-core)               | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-core)        | Shared runtime helpers (bundled into every package; for authors)     |
 | Embeds       | [@fsegurai/marked-extended-embeds](https://www.npmjs.com/package/@fsegurai/marked-extended-embeds)           | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-embeds)      | Easily embed content from various platforms (YouTube, Twitter, etc.) |
 | Footnote     | [@fsegurai/marked-extended-footnote](https://www.npmjs.com/package/@fsegurai/marked-extended-footnote)       | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-footnote)    | Add footnotes with automatic numbering                               |
 | Kanban       | [@fsegurai/marked-extended-kanban](https://www.npmjs.com/package/@fsegurai/marked-extended-kanban)           | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-kanban)      | Create kanban boards with customizable columns and cards             |
