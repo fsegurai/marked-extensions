@@ -1,0 +1,342 @@
+[
+  {
+    "label": "Documentation Home",
+    "description": "Documentation for @fsegurai/marked-extensions 15.0.0, the first release: one extension, tables with row and column spanning, for Marked 13 to 15.",
+    "route": "content/README",
+    "tags": ["documentation", "overview", "marked"],
+    "headings": ["Quick start", "What 15.0.0 looks like", "Sections", "Links"],
+    "excerpt": " is a monorepo of extensions for Marked.",
+    "breadcrumb": [
+      {
+        "label": "Home",
+        "route": "content/README"
+      }
+    ]
+  },
+  {
+    "label": "API Reference",
+    "description": "Exact export, declared types and module formats of @fsegurai/marked-extended-tables 15.0.0, with the gaps between its declarations and source.",
+    "route": "content/api/README",
+    "tags": ["api", "reference"],
+    "headings": ["Shared shape", "Module formats", "Next step"],
+    "excerpt": "API Reference\n\nRead from and at tag .\n\n| Page | Covers |\n|------|--------|\n| Extension Packages | The tables export, declared types and declaration...",
+    "breadcrumb": [
+      {
+        "label": "API",
+        "route": "content/api"
+      },
+      {
+        "label": "API",
+        "route": "content/api/README"
+      }
+    ]
+  },
+  {
+    "label": "Extension Packages",
+    "description": "Default export signature, declared TypeScript types and declaration gaps of the single 15.0.0 package, @fsegurai/marked-extended-tables.",
+    "route": "content/api/extension-packages",
+    "tags": ["api", "packages"],
+    "headings": ["Declaration gaps", "Next step"],
+    "excerpt": "Extension Packages\n\n| Package | Default export (declared) | Declared types |\n|---------|---------------------------|----------------|\n| tables | | ,...",
+    "breadcrumb": [
+      {
+        "label": "API",
+        "route": "content/api"
+      },
+      {
+        "label": "Extension Packages",
+        "route": "content/api/extension-packages"
+      }
+    ]
+  },
+  {
+    "label": "Examples",
+    "description": "Complete, copyable 15.0.0 setups for plain JavaScript, React, Vue and Angular, and how to run the 15.0.0 demo.",
+    "route": "content/examples/README",
+    "tags": ["examples", "recipes"],
+    "headings": ["Live demo", "Next step"],
+    "excerpt": "| Plain JavaScript | Tables registered on the default export.",
+    "breadcrumb": [
+      {
+        "label": "Examples",
+        "route": "content/examples"
+      },
+      {
+        "label": "Examples",
+        "route": "content/examples/README"
+      }
+    ]
+  },
+  {
+    "label": "Frameworks",
+    "description": "React, Vue and Angular components that render tables with the 15.0.0 extension registered once at module level.",
+    "route": "content/examples/frameworks",
+    "tags": ["examples", "frameworks"],
+    "headings": ["React", "Vue", "Angular", "Next step"],
+    "excerpt": "Register the extension once, at module level, then bind the HTML with the framework's raw-HTML binding.",
+    "breadcrumb": [
+      {
+        "label": "Examples",
+        "route": "content/examples"
+      },
+      {
+        "label": "Frameworks",
+        "route": "content/examples/frameworks"
+      }
+    ]
+  },
+  {
+    "label": "Plain JavaScript",
+    "description": "Register the 15.0.0 tables extension on the default marked export and render a spanning table into the page.",
+    "route": "content/examples/plain-javascript",
+    "tags": ["examples", "javascript"],
+    "headings": ["Next step"],
+    "excerpt": "Plain JavaScript\n\n \n\n \n\nOutput:\n\n \n\nNothing runs after rendering; the output is static HTML.\n\nNext step\n\nFrameworks",
+    "breadcrumb": [
+      {
+        "label": "Examples",
+        "route": "content/examples"
+      },
+      {
+        "label": "Plain JavaScript",
+        "route": "content/examples/plain-javascript"
+      }
+    ]
+  },
+  {
+    "label": "Extensions",
+    "description": "Catalog of the 15.0.0 release, which contains a single Marked extension, tables, with its package version, default export and syntax.",
+    "route": "content/extensions/README",
+    "tags": ["extensions", "catalog"],
+    "headings": ["Catalog", "Next step"],
+    "excerpt": "15.0.0 publishes one package, , with the peer .",
+    "breadcrumb": [
+      {
+        "label": "Extensions",
+        "route": "content/extensions"
+      },
+      {
+        "label": "Extensions",
+        "route": "content/extensions/README"
+      }
+    ]
+  },
+  {
+    "label": "Tables",
+    "description": "Pipe tables with column spanning (||), row spanning (^) and multi-row headers through a spanTable block extension that takes no options.",
+    "route": "content/extensions/tables",
+    "tags": ["extensions", "tables"],
+    "headings": [
+      "Quick path",
+      "Syntax",
+      "Options",
+      "Rendered HTML",
+      "README differences",
+      "Browser behavior",
+      "Next step"
+    ],
+    "excerpt": "Tables\n\n (15.0.0) adds a block extension that takes over pipe-table syntax and\nadds cell spanning and multi-row headers. It is render-only: it...",
+    "breadcrumb": [
+      {
+        "label": "Extensions",
+        "route": "content/extensions"
+      },
+      {
+        "label": "Tables",
+        "route": "content/extensions/tables"
+      }
+    ]
+  },
+  {
+    "label": "Getting Started",
+    "description": "Install the 15.0.0 tables extension with the marked peer and register it with marked.use.",
+    "route": "content/getting-started/README",
+    "tags": ["getting-started", "setup"],
+    "headings": ["Pages", "Before you start", "Next step"],
+    "excerpt": "Install together with (13, 14 or 15).",
+    "breadcrumb": [
+      {
+        "label": "Getting Started",
+        "route": "content/getting-started"
+      },
+      {
+        "label": "Getting Started",
+        "route": "content/getting-started/README"
+      }
+    ]
+  },
+  {
+    "label": "Installation",
+    "description": "Install @fsegurai/marked-extended-tables 15.0.0 with the marked peer, understand the declared entry points and load the UMD build from a CDN.",
+    "route": "content/getting-started/installation",
+    "tags": ["getting-started", "installation"],
+    "headings": ["Install", "Peer dependency", "Entry points", "CDN and UMD", "Next step"],
+    "excerpt": "15.0.0 publishes a single package.",
+    "breadcrumb": [
+      {
+        "label": "Getting Started",
+        "route": "content/getting-started"
+      },
+      {
+        "label": "Installation",
+        "route": "content/getting-started/installation"
+      }
+    ]
+  },
+  {
+    "label": "Quick Start",
+    "description": "Render a table with a two-row header, column spans and row spans using the 15.0.0 tables extension.",
+    "route": "content/getting-started/quick-start",
+    "tags": ["getting-started", "quick-start"],
+    "headings": ["1. Install", "2. Register and render", "Checklist", "Next step"],
+    "excerpt": "This page renders one table that uses every feature of the 15.0.0 extension.",
+    "breadcrumb": [
+      {
+        "label": "Getting Started",
+        "route": "content/getting-started"
+      },
+      {
+        "label": "Quick Start",
+        "route": "content/getting-started/quick-start"
+      }
+    ]
+  },
+  {
+    "label": "Guides",
+    "description": "Guides for the 15.0.0 tables extension, styling the emitted table markup and combining it with other Marked extensions.",
+    "route": "content/guides/README",
+    "tags": ["guides", "how-to"],
+    "headings": ["Next step"],
+    "excerpt": "| Styling | Which markup the tables extension emits and how to style it.",
+    "breadcrumb": [
+      {
+        "label": "Guides",
+        "route": "content/guides"
+      },
+      {
+        "label": "Guides",
+        "route": "content/guides/README"
+      }
+    ]
+  },
+  {
+    "label": "Combining Extensions",
+    "description": "Register the 15.0.0 tables extension next to other Marked extensions such as marked-highlight, as the project demo does.",
+    "route": "content/guides/combining-extensions",
+    "tags": ["guides", "integration"],
+    "headings": ["Quick path", "Where tables hooks into Marked", "Next step"],
+    "excerpt": "The tables extension adds one block tokenizer ( ) and one renderer.",
+    "breadcrumb": [
+      {
+        "label": "Guides",
+        "route": "content/guides"
+      },
+      {
+        "label": "Combining Extensions",
+        "route": "content/guides/combining-extensions"
+      }
+    ]
+  },
+  {
+    "label": "Styling",
+    "description": "The plain table markup that the 15.0.0 tables extension emits, its align attributes and how to style spanned cells.",
+    "route": "content/guides/styling",
+    "tags": ["guides", "styling"],
+    "headings": ["What to target", "Next step"],
+    "excerpt": "The 15.0.0 package ships no CSS and emits no classes, styles or scripts. Style the elements directly.",
+    "breadcrumb": [
+      {
+        "label": "Guides",
+        "route": "content/guides"
+      },
+      {
+        "label": "Styling",
+        "route": "content/guides/styling"
+      }
+    ]
+  },
+  {
+    "label": "Help",
+    "description": "Release notes, answers to frequent questions, fixes for common table problems, and links to the changelog and issue tracker for 15.0.0.",
+    "route": "content/help/README",
+    "tags": ["help", "support"],
+    "headings": ["Project resources", "Contributing in short"],
+    "excerpt": "| FAQ | You have a question about compatibility or the package contents.",
+    "breadcrumb": [
+      {
+        "label": "Help",
+        "route": "content/help"
+      },
+      {
+        "label": "Help",
+        "route": "content/help/README"
+      }
+    ]
+  },
+  {
+    "label": "FAQ",
+    "description": "Frequent questions about the 15.0.0 package contents, the marked peer, the default export and the extensions the changelog lists.",
+    "route": "content/help/faq",
+    "tags": ["help", "faq"],
+    "headings": [
+      "Which extensions are in 15.0.0?",
+      "Which Marked version do I need?",
+      "Named or default import?",
+      "Does the extension accept options?",
+      "Are there styles or browser scripts?",
+      "Next step"
+    ],
+    "excerpt": "Which extensions are in 15.0.0?",
+    "breadcrumb": [
+      {
+        "label": "Help",
+        "route": "content/help"
+      },
+      {
+        "label": "FAQ",
+        "route": "content/help/faq"
+      }
+    ]
+  },
+  {
+    "label": "Troubleshooting",
+    "description": "Fixes for 15.0.0 tables that do not span, row spans that do not merge, tables rendered as paragraphs and failed imports.",
+    "route": "content/help/troubleshooting",
+    "tags": ["help", "troubleshooting"],
+    "headings": ["Still stuck?"],
+    "excerpt": "Find the symptom, apply the fix.",
+    "breadcrumb": [
+      {
+        "label": "Help",
+        "route": "content/help"
+      },
+      {
+        "label": "Troubleshooting",
+        "route": "content/help/troubleshooting"
+      }
+    ]
+  },
+  {
+    "label": "What's New in 15.0.0",
+    "description": "Release notes for @fsegurai/marked-extensions 15.0.0, the first tagged release, with Marked 15 support and the tables extension, compared with what the changelog claims.",
+    "route": "content/help/whats-new",
+    "tags": ["help", "changelog", "release-notes"],
+    "headings": [
+      "Breaking changes (from the changelog)",
+      "Verified in the source",
+      "Package versions at `v15.0.0`",
+      "Checklist"
+    ],
+    "excerpt": "What's New in 15.0.0\n\nReleased 2024-11-28 according to the changelog (tag , commit , committed 2024-11-28). This is the\nfirst tagged release of the...",
+    "breadcrumb": [
+      {
+        "label": "Help",
+        "route": "content/help"
+      },
+      {
+        "label": "What's New in 15.0.0",
+        "route": "content/help/whats-new"
+      }
+    ]
+  }
+]

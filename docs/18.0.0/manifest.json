@@ -1,0 +1,727 @@
+[
+  {
+    "label": "Documentation Home",
+    "description": "Documentation for @fsegurai/marked-extensions 18.0.0, 13 Marked.js extensions with fenced block syntax, a bundle, and the marked 18 peer.",
+    "route": "content/README",
+    "tags": ["documentation", "overview", "marked"],
+    "order": 0,
+    "breadcrumbTitle": "Home",
+    "publishedAt": "2026-09-18",
+    "keywords": ["markdown", "marked.js", "extensions", "fenced blocks"],
+    "breadcrumb": [
+      {
+        "label": "Home",
+        "route": "content/README"
+      }
+    ]
+  },
+  {
+    "label": "Getting Started",
+    "route": "content/getting-started",
+    "isParent": true,
+    "breadcrumb": [
+      {
+        "label": "Getting Started",
+        "route": "content/getting-started"
+      }
+    ],
+    "order": 1,
+    "children": [
+      {
+        "label": "Getting Started",
+        "description": "Install one 18.0.0 extension or the bundle, register it with marked.use and load its stylesheet.",
+        "route": "content/getting-started/README",
+        "tags": ["getting-started", "setup"],
+        "order": 1,
+        "breadcrumbTitle": "Getting Started",
+        "keywords": ["install", "first steps", "marked.use"],
+        "breadcrumb": [
+          {
+            "label": "Getting Started",
+            "route": "content/getting-started"
+          },
+          {
+            "label": "Getting Started",
+            "route": "content/getting-started/README"
+          }
+        ]
+      },
+      {
+        "label": "Installation",
+        "description": "Install a single marked-extended 18.0.0 package or the bundle with the marked 18 peer, import the stylesheets, or load the UMD builds from a CDN.",
+        "route": "content/getting-started/installation",
+        "tags": ["getting-started", "installation"],
+        "order": 1,
+        "keywords": ["npm", "bun", "peer dependency", "cdn", "umd", "stylesheets"],
+        "breadcrumb": [
+          {
+            "label": "Getting Started",
+            "route": "content/getting-started"
+          },
+          {
+            "label": "Installation",
+            "route": "content/getting-started/installation"
+          }
+        ]
+      },
+      {
+        "label": "Quick Start",
+        "description": "Render a page with an alert and tabs in 18.0.0, load their stylesheets and understand what the tabs extension does in the browser.",
+        "route": "content/getting-started/quick-start",
+        "tags": ["getting-started", "quick-start"],
+        "order": 2,
+        "keywords": ["first page", "marked.use", "tabs", "alert"],
+        "breadcrumb": [
+          {
+            "label": "Getting Started",
+            "route": "content/getting-started"
+          },
+          {
+            "label": "Quick Start",
+            "route": "content/getting-started/quick-start"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "Extensions",
+    "route": "content/extensions",
+    "isParent": true,
+    "breadcrumb": [
+      {
+        "label": "Extensions",
+        "route": "content/extensions"
+      }
+    ],
+    "order": 2,
+    "children": [
+      {
+        "label": "Accordion",
+        "description": "Collapsible sections from fenced accordion blocks, rendered as native details elements with native exclusive groups, variants and front matter.",
+        "route": "content/extensions/accordion",
+        "tags": ["extensions", "accordion"],
+        "order": 1,
+        "keywords": ["details", "summary", "collapsible", "exclusive group", "front matter"],
+        "breadcrumb": [
+          {
+            "label": "Extensions",
+            "route": "content/extensions"
+          },
+          {
+            "label": "Accordion",
+            "route": "content/extensions/accordion"
+          }
+        ]
+      },
+      {
+        "label": "Alert",
+        "description": "GitHub-style callouts from blockquotes that start with a [!TYPE] marker, with 11 built-in types, inline titles, icon overrides and custom variants.",
+        "route": "content/extensions/alert",
+        "tags": ["extensions", "alert"],
+        "order": 2,
+        "keywords": ["callout", "admonition", "blockquote", "gfm alerts"],
+        "breadcrumb": [
+          {
+            "label": "Extensions",
+            "route": "content/extensions"
+          },
+          {
+            "label": "Alert",
+            "route": "content/extensions/alert"
+          }
+        ]
+      },
+      {
+        "label": "Extensions",
+        "description": "Catalog of the 13 Marked extensions in 18.0.0 with their package, default export, browser behavior and the Markdown syntax each one parses.",
+        "route": "content/extensions/README",
+        "tags": ["extensions", "catalog"],
+        "order": 2,
+        "breadcrumbTitle": "Extensions",
+        "keywords": ["packages", "default export", "syntax summary", "browser helpers"],
+        "breadcrumb": [
+          {
+            "label": "Extensions",
+            "route": "content/extensions"
+          },
+          {
+            "label": "Extensions",
+            "route": "content/extensions/README"
+          }
+        ]
+      },
+      {
+        "label": "Comments",
+        "description": "Inline and fenced block review comments with author, type, status, priority, reply threads and parse-time visibility filters.",
+        "route": "content/extensions/comments",
+        "tags": ["extensions", "comments"],
+        "order": 3,
+        "keywords": ["annotations", "review notes", "threads", "replyTo"],
+        "breadcrumb": [
+          {
+            "label": "Extensions",
+            "route": "content/extensions"
+          },
+          {
+            "label": "Comments",
+            "route": "content/extensions/comments"
+          }
+        ]
+      },
+      {
+        "label": "Embeds",
+        "description": "Fenced embed blocks that render sandboxed iframes for YouTube, Vimeo, CodePen, Spotify, Figma and 15 more providers, with URL scheme checks.",
+        "route": "content/extensions/embeds",
+        "tags": ["extensions", "embeds"],
+        "order": 4,
+        "keywords": ["youtube", "iframe", "sandbox", "mermaid", "media"],
+        "breadcrumb": [
+          {
+            "label": "Extensions",
+            "route": "content/extensions"
+          },
+          {
+            "label": "Embeds",
+            "route": "content/extensions/embeds"
+          }
+        ]
+      },
+      {
+        "label": "Footnote",
+        "description": "Numbered, named and inline footnotes with backlinks, CSS hover previews and an endnotes section placed automatically or with a placeholder.",
+        "route": "content/extensions/footnote",
+        "tags": ["extensions", "footnote"],
+        "order": 5,
+        "keywords": ["endnotes", "references", "backlinks", "hover preview", "smooth scroll"],
+        "breadcrumb": [
+          {
+            "label": "Extensions",
+            "route": "content/extensions"
+          },
+          {
+            "label": "Footnote",
+            "route": "content/extensions/footnote"
+          }
+        ]
+      },
+      {
+        "label": "Kanban",
+        "description": "Kanban boards from fenced kanban blocks, with board, table and list views, WIP limits, card metadata and opt-in drag and drop.",
+        "route": "content/extensions/kanban",
+        "tags": ["extensions", "kanban"],
+        "order": 6,
+        "keywords": ["board", "cards", "columns", "drag and drop", "enableKanbanDragDrop", "applyMoveToMarkdown"],
+        "breadcrumb": [
+          {
+            "label": "Extensions",
+            "route": "content/extensions"
+          },
+          {
+            "label": "Kanban",
+            "route": "content/extensions/kanban"
+          }
+        ]
+      },
+      {
+        "label": "Lists",
+        "description": "Alphabetic and Roman ordered lists, start and skipped values, accessible task checkboxes, a delegated checkbox callback and list-editing helpers.",
+        "route": "content/extensions/lists",
+        "tags": ["extensions", "lists"],
+        "order": 7,
+        "keywords": ["roman numerals", "alphabetic lists", "task list", "checkbox", "enableListsEditing"],
+        "breadcrumb": [
+          {
+            "label": "Extensions",
+            "route": "content/extensions"
+          },
+          {
+            "label": "Lists",
+            "route": "content/extensions/lists"
+          }
+        ]
+      },
+      {
+        "label": "Slide",
+        "description": "Slide decks from fenced presentation blocks, with layouts, backgrounds, transitions, themes, autoplay, speaker view and an injected navigation script.",
+        "route": "content/extensions/slide",
+        "tags": ["extensions", "slide"],
+        "order": 8,
+        "keywords": ["presentation", "slides", "deck", "speaker notes", "injectScript"],
+        "breadcrumb": [
+          {
+            "label": "Extensions",
+            "route": "content/extensions"
+          },
+          {
+            "label": "Slide",
+            "route": "content/extensions/slide"
+          }
+        ]
+      },
+      {
+        "label": "Spoiler",
+        "description": "Hidden content behind a themed overlay from fenced spoiler blocks, revealed by click or keyboard through a document-level listener.",
+        "route": "content/extensions/spoiler",
+        "tags": ["extensions", "spoiler"],
+        "order": 9,
+        "keywords": ["hidden content", "reveal", "overlay", "particles", "initSpoilers"],
+        "breadcrumb": [
+          {
+            "label": "Extensions",
+            "route": "content/extensions"
+          },
+          {
+            "label": "Spoiler",
+            "route": "content/extensions/spoiler"
+          }
+        ]
+      },
+      {
+        "label": "Tables",
+        "description": "Tables with column spanning (||), row spanning (^), multi-row headers, captions, footers and an optional responsive wrapper.",
+        "route": "content/extensions/tables",
+        "tags": ["extensions", "tables"],
+        "order": 10,
+        "keywords": ["colspan", "rowspan", "caption", "tfoot", "spanning cells"],
+        "breadcrumb": [
+          {
+            "label": "Extensions",
+            "route": "content/extensions"
+          },
+          {
+            "label": "Tables",
+            "route": "content/extensions/tables"
+          }
+        ]
+      },
+      {
+        "label": "Tabs",
+        "description": "Tabbed content from fenced tabs blocks, rendered as CSS-only radio tabs with variants, animations and an auto-attached keyboard and persistence runtime.",
+        "route": "content/extensions/tabs",
+        "tags": ["extensions", "tabs"],
+        "order": 11,
+        "keywords": ["tablist", "tabpanel", "radio inputs", "persistSelection", "tab-switched"],
+        "breadcrumb": [
+          {
+            "label": "Extensions",
+            "route": "content/extensions"
+          },
+          {
+            "label": "Tabs",
+            "route": "content/extensions/tabs"
+          }
+        ]
+      },
+      {
+        "label": "Timeline",
+        "description": "Chronological timelines from fenced timeline blocks, with date ranges, active events, groups, collapsible events, milestone and group-by-year modes.",
+        "route": "content/extensions/timeline",
+        "tags": ["extensions", "timeline"],
+        "order": 12,
+        "keywords": ["chronology", "roadmap", "events", "milestone", "initAllTimelineInteractions"],
+        "breadcrumb": [
+          {
+            "label": "Extensions",
+            "route": "content/extensions"
+          },
+          {
+            "label": "Timeline",
+            "route": "content/extensions/timeline"
+          }
+        ]
+      },
+      {
+        "label": "Typographic",
+        "description": "SmartyPants-style quotes, dashes and ellipses, fractions, and (:name:) symbol shortcodes for Greek letters, math, arrows, currency and emoji.",
+        "route": "content/extensions/typographic",
+        "tags": ["extensions", "typographic"],
+        "order": 13,
+        "keywords": ["smartypants", "smart quotes", "em dash", "symbols", "shortcodes"],
+        "breadcrumb": [
+          {
+            "label": "Extensions",
+            "route": "content/extensions"
+          },
+          {
+            "label": "Typographic",
+            "route": "content/extensions/typographic"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "Guides",
+    "route": "content/guides",
+    "isParent": true,
+    "breadcrumb": [
+      {
+        "label": "Guides",
+        "route": "content/guides"
+      }
+    ],
+    "order": 3,
+    "children": [
+      {
+        "label": "Browser Behavior",
+        "description": "Which 18.0.0 extensions run code in the browser, what they attach at import or factory time, which helpers you call, and what that means for SSR, sanitizers and frameworks.",
+        "route": "content/guides/browser-behavior",
+        "tags": ["guides", "browser"],
+        "order": 1,
+        "keywords": [
+          "initSpoilers",
+          "registerCallbacks",
+          "initAllTimelineInteractions",
+          "enableKanbanDragDrop",
+          "side effects",
+          "ssr"
+        ],
+        "breadcrumb": [
+          {
+            "label": "Guides",
+            "route": "content/guides"
+          },
+          {
+            "label": "Browser Behavior",
+            "route": "content/guides/browser-behavior"
+          }
+        ]
+      },
+      {
+        "label": "Styling and Theming",
+        "description": "Load the structural and theme stylesheets of each 18.0.0 package, override their CSS custom properties, and support dark mode.",
+        "route": "content/guides/styling",
+        "tags": ["guides", "styling"],
+        "order": 2,
+        "keywords": ["css", "scss", "custom properties", "dark mode", "theme"],
+        "breadcrumb": [
+          {
+            "label": "Guides",
+            "route": "content/guides"
+          },
+          {
+            "label": "Styling and Theming",
+            "route": "content/guides/styling"
+          }
+        ]
+      },
+      {
+        "label": "Guides",
+        "description": "Task-oriented guides for 18.0.0 browser behavior, styling, combining extensions and upgrading from 17.0.0.",
+        "route": "content/guides/README",
+        "tags": ["guides", "how-to"],
+        "order": 3,
+        "breadcrumbTitle": "Guides",
+        "keywords": ["browser helpers", "theming", "upgrade", "nesting"],
+        "breadcrumb": [
+          {
+            "label": "Guides",
+            "route": "content/guides"
+          },
+          {
+            "label": "Guides",
+            "route": "content/guides/README"
+          }
+        ]
+      },
+      {
+        "label": "Combining Extensions",
+        "description": "Register several 18.0.0 extensions on one Marked instance, nest fenced blocks, and know which extensions hook the same Marked stages or touch global state.",
+        "route": "content/guides/combining-extensions",
+        "tags": ["guides", "integration"],
+        "order": 4,
+        "keywords": ["marked.use", "nesting", "registration order", "hooks", "global marked"],
+        "breadcrumb": [
+          {
+            "label": "Guides",
+            "route": "content/guides"
+          },
+          {
+            "label": "Combining Extensions",
+            "route": "content/guides/combining-extensions"
+          }
+        ]
+      },
+      {
+        "label": "Upgrading from 17",
+        "description": "Move content and code from marked-extensions 17.0.0 to 18.0.0, the switch from colon directives to fenced blocks, the marked 18 peer and the new typographic shortcodes.",
+        "route": "content/guides/upgrading-from-17",
+        "tags": ["guides", "upgrade"],
+        "order": 5,
+        "keywords": ["17.0.0", "fenced syntax", "breaking changes", "marked 18", "directives"],
+        "breadcrumb": [
+          {
+            "label": "Guides",
+            "route": "content/guides"
+          },
+          {
+            "label": "Upgrading from 17",
+            "route": "content/guides/upgrading-from-17"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "API",
+    "route": "content/api",
+    "isParent": true,
+    "breadcrumb": [
+      {
+        "label": "API",
+        "route": "content/api"
+      }
+    ],
+    "order": 4,
+    "children": [
+      {
+        "label": "Bundle",
+        "description": "API of @fsegurai/marked-extended-bundle 18.0.0, the named re-exports of the 13 extensions with their browser helpers and types.",
+        "route": "content/api/bundle",
+        "tags": ["api", "bundle"],
+        "order": 1,
+        "keywords": ["re-exports", "named exports", "markedExtendedTabs", "umd"],
+        "breadcrumb": [
+          {
+            "label": "API",
+            "route": "content/api"
+          },
+          {
+            "label": "Bundle",
+            "route": "content/api/bundle"
+          }
+        ]
+      },
+      {
+        "label": "Extension Packages",
+        "description": "Default export, named functions and exported TypeScript types of each of the 13 extension packages in 18.0.0.",
+        "route": "content/api/extension-packages",
+        "tags": ["api", "packages"],
+        "order": 2,
+        "keywords": ["default export", "options types", "helper functions", "token types"],
+        "breadcrumb": [
+          {
+            "label": "API",
+            "route": "content/api"
+          },
+          {
+            "label": "Extension Packages",
+            "route": "content/api/extension-packages"
+          }
+        ]
+      },
+      {
+        "label": "API Reference",
+        "description": "Exact exports and signatures of the bundle and each extension package, read from the 18.0.0 sources.",
+        "route": "content/api/README",
+        "tags": ["api", "reference"],
+        "order": 4,
+        "breadcrumbTitle": "API",
+        "keywords": ["exports", "signatures", "typescript types"],
+        "breadcrumb": [
+          {
+            "label": "API",
+            "route": "content/api"
+          },
+          {
+            "label": "API",
+            "route": "content/api/README"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "Examples",
+    "route": "content/examples",
+    "isParent": true,
+    "breadcrumb": [
+      {
+        "label": "Examples",
+        "route": "content/examples"
+      }
+    ],
+    "order": 5,
+    "children": [
+      {
+        "label": "Plain JavaScript",
+        "description": "Register all 13 extensions from the 18.0.0 bundle on one Marked instance, load their CSS and start the spoiler, timeline and kanban helpers.",
+        "route": "content/examples/plain-javascript",
+        "tags": ["examples", "javascript"],
+        "order": 1,
+        "keywords": ["vanilla", "bundle", "all extensions", "initSpoilers"],
+        "breadcrumb": [
+          {
+            "label": "Examples",
+            "route": "content/examples"
+          },
+          {
+            "label": "Plain JavaScript",
+            "route": "content/examples/plain-javascript"
+          }
+        ]
+      },
+      {
+        "label": "Frameworks",
+        "description": "React, Vue and Angular components that bind 18.0.0 HTML, create the extensions once, run the spoiler and timeline helpers after render and clean up on destroy.",
+        "route": "content/examples/frameworks",
+        "tags": ["examples", "frameworks"],
+        "order": 2,
+        "keywords": ["react", "vue", "angular", "innerHTML", "v-html"],
+        "breadcrumb": [
+          {
+            "label": "Examples",
+            "route": "content/examples"
+          },
+          {
+            "label": "Frameworks",
+            "route": "content/examples/frameworks"
+          }
+        ]
+      },
+      {
+        "label": "Editable Content",
+        "description": "Write kanban drag-and-drop moves and task-list checkbox toggles back to the Markdown source with the 18.0.0 helpers.",
+        "route": "content/examples/editable-content",
+        "tags": ["examples", "editing"],
+        "order": 3,
+        "keywords": ["enableKanbanDragDrop", "applyMoveToMarkdown", "onCheckboxChange", "task lists"],
+        "breadcrumb": [
+          {
+            "label": "Examples",
+            "route": "content/examples"
+          },
+          {
+            "label": "Editable Content",
+            "route": "content/examples/editable-content"
+          }
+        ]
+      },
+      {
+        "label": "Presentation",
+        "description": "A slide deck in 18.0.0 with a theme, speaker notes, autoplay and the injected navigation script, including the CSP nonce.",
+        "route": "content/examples/presentation",
+        "tags": ["examples", "slides"],
+        "order": 4,
+        "keywords": ["presentation", "speaker notes", "autoplay", "scriptNonce", "theme"],
+        "breadcrumb": [
+          {
+            "label": "Examples",
+            "route": "content/examples"
+          },
+          {
+            "label": "Presentation",
+            "route": "content/examples/presentation"
+          }
+        ]
+      },
+      {
+        "label": "Examples",
+        "description": "Complete, copyable 18.0.0 setups for plain JavaScript, React, Vue and Angular, editable kanban boards and task lists, and slide presentations.",
+        "route": "content/examples/README",
+        "tags": ["examples", "recipes"],
+        "order": 5,
+        "breadcrumbTitle": "Examples",
+        "keywords": ["react", "vue", "angular", "kanban", "playground"],
+        "breadcrumb": [
+          {
+            "label": "Examples",
+            "route": "content/examples"
+          },
+          {
+            "label": "Examples",
+            "route": "content/examples/README"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "Help",
+    "route": "content/help",
+    "isParent": true,
+    "breadcrumb": [
+      {
+        "label": "Help",
+        "route": "content/help"
+      }
+    ],
+    "order": 6,
+    "children": [
+      {
+        "label": "FAQ",
+        "description": "Frequent questions about choosing packages, the marked 18 peer, sanitizers, server-side rendering and browser helpers in 18.0.0.",
+        "route": "content/help/faq",
+        "tags": ["help", "faq"],
+        "order": 1,
+        "keywords": ["questions", "compatibility", "marked 18", "ssr", "sanitizer"],
+        "breadcrumb": [
+          {
+            "label": "Help",
+            "route": "content/help"
+          },
+          {
+            "label": "FAQ",
+            "route": "content/help/faq"
+          }
+        ]
+      },
+      {
+        "label": "Troubleshooting",
+        "description": "Fixes for 18.0.0 content that stays as text, tabs that do not switch, spoilers that do not reveal, decks that do not navigate, typographic shortcodes and ignored embed options.",
+        "route": "content/help/troubleshooting",
+        "tags": ["help", "troubleshooting"],
+        "order": 2,
+        "keywords": ["not working", "sanitizer", "colon syntax", "debugging"],
+        "breadcrumb": [
+          {
+            "label": "Help",
+            "route": "content/help"
+          },
+          {
+            "label": "Troubleshooting",
+            "route": "content/help/troubleshooting"
+          }
+        ]
+      },
+      {
+        "label": "What's New in 18.0.0",
+        "description": "Release notes for @fsegurai/marked-extensions 18.0.0, the move to fenced code blocks, the marked 18 peer and what changes when upgrading from 17.0.0.",
+        "route": "content/help/whats-new",
+        "tags": ["help", "changelog", "release-notes"],
+        "order": 3,
+        "keywords": ["18.0.0", "breaking changes", "fenced syntax", "marked 18"],
+        "breadcrumb": [
+          {
+            "label": "Help",
+            "route": "content/help"
+          },
+          {
+            "label": "What's New in 18.0.0",
+            "route": "content/help/whats-new"
+          }
+        ]
+      },
+      {
+        "label": "Help",
+        "description": "Release notes, answers to frequent questions, fixes for common problems, and links to the changelog, contribution guide and issue tracker for 18.0.0.",
+        "route": "content/help/README",
+        "tags": ["help", "support"],
+        "order": 6,
+        "breadcrumbTitle": "Help",
+        "keywords": ["faq", "troubleshooting", "changelog", "contributing"],
+        "breadcrumb": [
+          {
+            "label": "Help",
+            "route": "content/help"
+          },
+          {
+            "label": "Help",
+            "route": "content/help/README"
+          }
+        ]
+      }
+    ]
+  }
+]

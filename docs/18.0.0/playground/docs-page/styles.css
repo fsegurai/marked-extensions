@@ -1,0 +1,78 @@
+#output {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+h1 {
+  margin-top: 0;
+  padding-bottom: 0.3em;
+  border-bottom: 1px solid var(--pg-border);
+}
+
+pre {
+  margin: 0;
+}
+
+/* alert-theme.css: neutral colors from the app theme; the type colors stay the package ones (dark set via body.dark). */
+#output {
+  --marked-extended-alert-text-color: var(--pg-text);
+  --marked-extended-alert-border-color: var(--pg-border);
+  --marked-extended-alert-quote-color: var(--pg-text-muted);
+}
+
+.marked-extended-alert {
+  margin: 1rem 0;
+}
+
+/* accordion-theme.css: surfaces and text from the app theme; the variant accents stay the package ones. */
+#output {
+  --marked-extended-accordion-border-color: var(--pg-border);
+  --marked-extended-accordion-background-color: var(--pg-bg);
+  --marked-extended-accordion-header-background-color: var(--pg-surface);
+  --marked-extended-accordion-header-hover-background-color: var(--pg-surface-alt);
+  --marked-extended-accordion-text-color: var(--pg-text);
+  --marked-extended-accordion-content-color: var(--pg-text);
+  --marked-extended-accordion-radius: var(--pg-radius);
+}
+
+.marked-extended-accordion {
+  margin: 0.75rem 0;
+}
+
+/* tabs-theme.css: every color from the app theme. */
+#output {
+  --marked-extended-tabs-border-color: var(--pg-border);
+  --marked-extended-tabs-border-radius: var(--pg-radius);
+  --marked-extended-tabs-container-bg: var(--pg-bg);
+  --marked-extended-tabs-nav-bg: var(--pg-surface);
+  --marked-extended-tabs-nav-border-color: var(--pg-border);
+  --marked-extended-tabs-label-color: var(--pg-text-muted);
+  --marked-extended-tabs-label-hover-bg: var(--pg-surface-alt);
+  --marked-extended-tabs-label-hover-color: var(--pg-text);
+  --marked-extended-tabs-selected-background: var(--pg-bg);
+  --marked-extended-tabs-selected-border-color: var(--pg-primary);
+  --marked-extended-tabs-selected-color: var(--pg-primary);
+  --marked-extended-tabs-content-background: var(--pg-bg);
+  --marked-extended-tabs-content-color: var(--pg-text);
+  --marked-extended-tabs-focus-outline: var(--pg-primary);
+  --marked-extended-tabs-scrollbar-track: var(--pg-surface);
+  --marked-extended-tabs-scrollbar-thumb: var(--pg-border);
+  --marked-extended-tabs-scrollbar-thumb-hover: var(--pg-text-muted);
+  --marked-extended-tabs-pills-nav-bg: var(--pg-surface);
+  --marked-extended-tabs-pills-hover-bg: var(--pg-surface-alt);
+}
+
+/* footnote-theme.css: links, section and tooltip from the app theme. */
+#output {
+  --marked-footnote-ref-color: var(--pg-primary);
+  --marked-footnote-ref-hover-color: var(--pg-primary);
+  --marked-footnote-ref-hover-bg: color-mix(in srgb, var(--pg-primary) 12%, transparent);
+  --marked-footnote-tooltip-bg: var(--pg-surface-alt);
+  --marked-footnote-tooltip-color: var(--pg-text);
+  --marked-footnote-section-bg: var(--pg-surface);
+  --marked-footnote-section-border-color: var(--pg-primary);
+  --marked-footnote-section-radius: var(--pg-radius);
+  --marked-footnote-marker-color: var(--pg-text-muted);
+  --marked-footnote-backref-color: var(--pg-primary);
+  --marked-footnote-backref-hover-color: var(--pg-accent);
+}

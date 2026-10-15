@@ -1,0 +1,594 @@
+[
+  {
+    "label": "Documentation Home",
+    "description": "Documentation for @fsegurai/marked-extensions 15.9.4: 9 JavaScript extensions for Marked 13 to 15 that inject their own styles.",
+    "route": "content/README",
+    "tags": ["documentation", "overview", "marked"],
+    "order": 0,
+    "breadcrumbTitle": "Home",
+    "publishedAt": "2025-05-12",
+    "keywords": ["markdown", "marked.js", "extensions", "directives", "javascript"],
+    "breadcrumb": [
+      {
+        "label": "Home",
+        "route": "content/README"
+      }
+    ]
+  },
+  {
+    "label": "Getting Started",
+    "route": "content/getting-started",
+    "isParent": true,
+    "breadcrumb": [
+      {
+        "label": "Getting Started",
+        "route": "content/getting-started"
+      }
+    ],
+    "order": 1,
+    "children": [
+      {
+        "label": "Getting Started",
+        "description": "Install a 15.9.4 extension with the marked peer, register it with marked.use and know which styles it injects.",
+        "route": "content/getting-started/README",
+        "tags": ["getting-started", "setup"],
+        "order": 1,
+        "breadcrumbTitle": "Getting Started",
+        "keywords": ["install", "first steps", "marked.use"],
+        "breadcrumb": [
+          {
+            "label": "Getting Started",
+            "route": "content/getting-started"
+          },
+          {
+            "label": "Getting Started",
+            "route": "content/getting-started/README"
+          }
+        ]
+      },
+      {
+        "label": "Installation",
+        "description": "Install a 15.9.4 marked-extended package with the marked peer, understand the declared entry points and load the UMD build from a CDN.",
+        "route": "content/getting-started/installation",
+        "tags": ["getting-started", "installation"],
+        "order": 1,
+        "keywords": ["npm", "bun", "peer dependency", "cdn", "umd"],
+        "breadcrumb": [
+          {
+            "label": "Getting Started",
+            "route": "content/getting-started"
+          },
+          {
+            "label": "Installation",
+            "route": "content/getting-started/installation"
+          }
+        ]
+      },
+      {
+        "label": "Quick Start",
+        "description": "Render a page with an alert and tabs in 15.9.4 using colon directives, and see what each extension does in the browser.",
+        "route": "content/getting-started/quick-start",
+        "tags": ["getting-started", "quick-start"],
+        "order": 2,
+        "keywords": ["first page", "marked.use", "tabs", "alert"],
+        "breadcrumb": [
+          {
+            "label": "Getting Started",
+            "route": "content/getting-started"
+          },
+          {
+            "label": "Quick Start",
+            "route": "content/getting-started/quick-start"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "Extensions",
+    "route": "content/extensions",
+    "isParent": true,
+    "breadcrumb": [
+      {
+        "label": "Extensions",
+        "route": "content/extensions"
+      }
+    ],
+    "order": 2,
+    "children": [
+      {
+        "label": "Accordion",
+        "description": "Collapsible sections from ::::accordion blocks, rendered as native details elements with a title, heading level and open state.",
+        "route": "content/extensions/accordion",
+        "tags": ["extensions", "accordion"],
+        "order": 1,
+        "keywords": ["details", "summary", "collapsible", "acc alias"],
+        "breadcrumb": [
+          {
+            "label": "Extensions",
+            "route": "content/extensions"
+          },
+          {
+            "label": "Accordion",
+            "route": "content/extensions/accordion"
+          }
+        ]
+      },
+      {
+        "label": "Alert",
+        "description": "GitHub-style alerts from > [!NOTE] blockquotes with five built-in variants, custom variants and an injected stylesheet.",
+        "route": "content/extensions/alert",
+        "tags": ["extensions", "alert"],
+        "order": 2,
+        "keywords": ["gfm alerts", "callout", "admonition", "variants"],
+        "breadcrumb": [
+          {
+            "label": "Extensions",
+            "route": "content/extensions"
+          },
+          {
+            "label": "Alert",
+            "route": "content/extensions/alert"
+          }
+        ]
+      },
+      {
+        "label": "Extensions",
+        "description": "Catalog of the 9 Marked extensions in 15.9.4 with their package version, default export, injected styles and the directive or Markdown syntax each one parses.",
+        "route": "content/extensions/README",
+        "tags": ["extensions", "catalog"],
+        "order": 2,
+        "breadcrumbTitle": "Extensions",
+        "keywords": ["packages", "default export", "syntax summary", "directives"],
+        "breadcrumb": [
+          {
+            "label": "Extensions",
+            "route": "content/extensions"
+          },
+          {
+            "label": "Extensions",
+            "route": "content/extensions/README"
+          }
+        ]
+      },
+      {
+        "label": "Footnote",
+        "description": "Numbered footnote references, definitions and an endnotes section with backlinks, custom labels and an optional placement marker.",
+        "route": "content/extensions/footnote",
+        "tags": ["extensions", "footnote"],
+        "order": 3,
+        "keywords": ["footnotes", "endnotes", "references", "labelFormat", "backlinks"],
+        "breadcrumb": [
+          {
+            "label": "Extensions",
+            "route": "content/extensions"
+          },
+          {
+            "label": "Footnote",
+            "route": "content/extensions/footnote"
+          }
+        ]
+      },
+      {
+        "label": "Lists",
+        "description": "Alphabetic and Roman ordered lists, skipped values and task checkboxes through a replacement list tokenizer and renderer.",
+        "route": "content/extensions/lists",
+        "tags": ["extensions", "lists"],
+        "order": 4,
+        "keywords": ["roman numerals", "alphabetic lists", "task list", "checkbox", "letterToInt"],
+        "breadcrumb": [
+          {
+            "label": "Extensions",
+            "route": "content/extensions"
+          },
+          {
+            "label": "Lists",
+            "route": "content/extensions/lists"
+          }
+        ]
+      },
+      {
+        "label": "Spoiler",
+        "description": "Hidden content from ::::spoiler blocks, revealed on hover or focus, with seven color themes, particle effects and configurable CSS placeholders.",
+        "route": "content/extensions/spoiler",
+        "tags": ["extensions", "spoiler"],
+        "order": 5,
+        "keywords": ["hidden content", "reveal", "themes", "particles", "cssVariables"],
+        "breadcrumb": [
+          {
+            "label": "Extensions",
+            "route": "content/extensions"
+          },
+          {
+            "label": "Spoiler",
+            "route": "content/extensions/spoiler"
+          }
+        ]
+      },
+      {
+        "label": "Tables",
+        "description": "Tables with column spanning (||), row spanning (^), multi-row headers, captions and footers.",
+        "route": "content/extensions/tables",
+        "tags": ["extensions", "tables"],
+        "order": 6,
+        "keywords": ["colspan", "rowspan", "caption", "tfoot", "spanning cells"],
+        "breadcrumb": [
+          {
+            "label": "Extensions",
+            "route": "content/extensions"
+          },
+          {
+            "label": "Tables",
+            "route": "content/extensions/tables"
+          }
+        ]
+      },
+      {
+        "label": "Tabs",
+        "description": "Tabbed content from ::::tabs blocks with :::tab items, switched with radio inputs and CSS only, with fade or slide animation.",
+        "route": "content/extensions/tabs",
+        "tags": ["extensions", "tabs"],
+        "order": 7,
+        "keywords": ["tabbed content", "radio inputs", "css-only", "tb alias", "animation"],
+        "breadcrumb": [
+          {
+            "label": "Extensions",
+            "route": "content/extensions"
+          },
+          {
+            "label": "Tabs",
+            "route": "content/extensions/tabs"
+          }
+        ]
+      },
+      {
+        "label": "Timeline",
+        "description": "Chronological timelines from ::::timeline blocks with :::event items, locale-formatted dates, active events and an injected stylesheet.",
+        "route": "content/extensions/timeline",
+        "tags": ["extensions", "timeline"],
+        "order": 8,
+        "keywords": ["events", "chronology", "dateFormat", "tl alias"],
+        "breadcrumb": [
+          {
+            "label": "Extensions",
+            "route": "content/extensions"
+          },
+          {
+            "label": "Timeline",
+            "route": "content/extensions/timeline"
+          }
+        ]
+      },
+      {
+        "label": "Typographic",
+        "description": "Symbol shortcodes such as (c^), (->) and (alpha), plus optional SmartyPants quotes, dashes and ellipses applied to the rendered HTML.",
+        "route": "content/extensions/typographic",
+        "tags": ["extensions", "typographic"],
+        "order": 9,
+        "keywords": ["smartypants", "smart quotes", "symbols", "shortcodes", "customSymbols"],
+        "breadcrumb": [
+          {
+            "label": "Extensions",
+            "route": "content/extensions"
+          },
+          {
+            "label": "Typographic",
+            "route": "content/extensions/typographic"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "Guides",
+    "route": "content/guides",
+    "isParent": true,
+    "breadcrumb": [
+      {
+        "label": "Guides",
+        "route": "content/guides"
+      }
+    ],
+    "order": 3,
+    "children": [
+      {
+        "label": "Browser Behavior",
+        "description": "Which 15.9.4 extensions inject a stylesheet, emit inline style or script elements, or touch window, and what that means for SSR, sanitizers and innerHTML.",
+        "route": "content/guides/browser-behavior",
+        "tags": ["guides", "browser"],
+        "order": 1,
+        "keywords": ["injected styles", "inline script", "window globals", "side effects", "ssr"],
+        "breadcrumb": [
+          {
+            "label": "Guides",
+            "route": "content/guides"
+          },
+          {
+            "label": "Browser Behavior",
+            "route": "content/guides/browser-behavior"
+          }
+        ]
+      },
+      {
+        "label": "Styling",
+        "description": "The stylesheets that 15.9.4 extensions inject at runtime, how to disable them with injectStyles, and which classes to target with your own CSS.",
+        "route": "content/guides/styling",
+        "tags": ["guides", "styling"],
+        "order": 2,
+        "keywords": ["css", "injectStyles", "class names", "themes", "cssVariables"],
+        "breadcrumb": [
+          {
+            "label": "Guides",
+            "route": "content/guides"
+          },
+          {
+            "label": "Styling",
+            "route": "content/guides/styling"
+          }
+        ]
+      },
+      {
+        "label": "Guides",
+        "description": "Task-oriented guides for 15.9.4 browser behavior, injected styles, combining extensions and upgrading from 15.9.3.",
+        "route": "content/guides/README",
+        "tags": ["guides", "how-to"],
+        "order": 3,
+        "breadcrumbTitle": "Guides",
+        "keywords": ["injected styles", "inline scripts", "upgrade", "directives"],
+        "breadcrumb": [
+          {
+            "label": "Guides",
+            "route": "content/guides"
+          },
+          {
+            "label": "Guides",
+            "route": "content/guides/README"
+          }
+        ]
+      },
+      {
+        "label": "Combining Extensions",
+        "description": "Register several 15.9.4 extensions on the default marked instance, nest colon directives, and know which extensions hook the same Marked stages.",
+        "route": "content/guides/combining-extensions",
+        "tags": ["guides", "integration"],
+        "order": 4,
+        "keywords": ["marked.use", "nesting", "directives", "hooks", "registration order"],
+        "breadcrumb": [
+          {
+            "label": "Guides",
+            "route": "content/guides"
+          },
+          {
+            "label": "Combining Extensions",
+            "route": "content/guides/combining-extensions"
+          }
+        ]
+      },
+      {
+        "label": "Upgrading from 15.9.3",
+        "description": "Move from the 15.9.3 packages to 15.9.4, renamed classes and options, removed customClass properties and the switch from inline styles to injected stylesheets.",
+        "route": "content/guides/upgrading-from-15.9.3",
+        "tags": ["guides", "upgrade"],
+        "order": 5,
+        "keywords": ["15.9.3", "customClass", "injectStyles", "class names", "breaking changes"],
+        "breadcrumb": [
+          {
+            "label": "Guides",
+            "route": "content/guides"
+          },
+          {
+            "label": "Upgrading from 15.9.3",
+            "route": "content/guides/upgrading-from-15.9.3"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "API",
+    "route": "content/api",
+    "isParent": true,
+    "breadcrumb": [
+      {
+        "label": "API",
+        "route": "content/api"
+      }
+    ],
+    "order": 4,
+    "children": [
+      {
+        "label": "Extension Packages",
+        "description": "Default export, named functions and declared TypeScript types of each of the 9 extension packages in 15.9.4.",
+        "route": "content/api/extension-packages",
+        "tags": ["api", "packages"],
+        "order": 1,
+        "keywords": ["default export", "options types", "token types", "letterToInt"],
+        "breadcrumb": [
+          {
+            "label": "API",
+            "route": "content/api"
+          },
+          {
+            "label": "Extension Packages",
+            "route": "content/api/extension-packages"
+          }
+        ]
+      },
+      {
+        "label": "API Reference",
+        "description": "Exact exports and signatures of each extension package, read from the 15.9.4 sources and declarations.",
+        "route": "content/api/README",
+        "tags": ["api", "reference"],
+        "order": 4,
+        "breadcrumbTitle": "API",
+        "keywords": ["exports", "signatures", "typescript declarations"],
+        "breadcrumb": [
+          {
+            "label": "API",
+            "route": "content/api"
+          },
+          {
+            "label": "API",
+            "route": "content/api/README"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "Examples",
+    "route": "content/examples",
+    "isParent": true,
+    "breadcrumb": [
+      {
+        "label": "Examples",
+        "route": "content/examples"
+      }
+    ],
+    "order": 5,
+    "children": [
+      {
+        "label": "Plain JavaScript",
+        "description": "Register all 9 extensions of 15.9.4 on the default marked export, as the project demo does.",
+        "route": "content/examples/plain-javascript",
+        "tags": ["examples", "javascript"],
+        "order": 1,
+        "keywords": ["vanilla", "all extensions", "demo setup"],
+        "breadcrumb": [
+          {
+            "label": "Examples",
+            "route": "content/examples"
+          },
+          {
+            "label": "Plain JavaScript",
+            "route": "content/examples/plain-javascript"
+          }
+        ]
+      },
+      {
+        "label": "Frameworks",
+        "description": "React, Vue and Angular components that render 15.9.4 HTML, register the extensions once on the default marked export and account for injected styles.",
+        "route": "content/examples/frameworks",
+        "tags": ["examples", "frameworks"],
+        "order": 2,
+        "keywords": ["react", "vue", "angular", "innerHTML", "v-html"],
+        "breadcrumb": [
+          {
+            "label": "Examples",
+            "route": "content/examples"
+          },
+          {
+            "label": "Frameworks",
+            "route": "content/examples/frameworks"
+          }
+        ]
+      },
+      {
+        "label": "Examples",
+        "description": "Complete, copyable 15.9.4 setups for plain JavaScript, React, Vue and Angular.",
+        "route": "content/examples/README",
+        "tags": ["examples", "recipes"],
+        "order": 5,
+        "breadcrumbTitle": "Examples",
+        "keywords": ["react", "vue", "angular", "playground", "directives"],
+        "breadcrumb": [
+          {
+            "label": "Examples",
+            "route": "content/examples"
+          },
+          {
+            "label": "Examples",
+            "route": "content/examples/README"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "Help",
+    "route": "content/help",
+    "isParent": true,
+    "breadcrumb": [
+      {
+        "label": "Help",
+        "route": "content/help"
+      }
+    ],
+    "order": 6,
+    "children": [
+      {
+        "label": "FAQ",
+        "description": "Frequent questions about the 15.9.4 version scheme, the marked peer, directive syntax, injected styles and sanitizers.",
+        "route": "content/help/faq",
+        "tags": ["help", "faq"],
+        "order": 1,
+        "keywords": ["questions", "compatibility", "marked 15", "sanitizer", "directives"],
+        "breadcrumb": [
+          {
+            "label": "Help",
+            "route": "content/help"
+          },
+          {
+            "label": "FAQ",
+            "route": "content/help/faq"
+          }
+        ]
+      },
+      {
+        "label": "Troubleshooting",
+        "description": "Fixes for 15.9.4 directives that stay as text, nested syntax that is ignored, unstyled custom classes, tabs that do not switch and inert typographic options.",
+        "route": "content/help/troubleshooting",
+        "tags": ["help", "troubleshooting"],
+        "order": 2,
+        "keywords": ["not working", "sanitizer", "directives", "aliases", "debugging"],
+        "breadcrumb": [
+          {
+            "label": "Help",
+            "route": "content/help"
+          },
+          {
+            "label": "Troubleshooting",
+            "route": "content/help/troubleshooting"
+          }
+        ]
+      },
+      {
+        "label": "What's New in 15.9.4",
+        "description": "Release notes for @fsegurai/marked-extensions 15.9.4, prefixed class names, runtime-injected stylesheets, renamed options and the source revision this snapshot uses.",
+        "route": "content/help/whats-new",
+        "tags": ["help", "changelog", "release-notes"],
+        "order": 3,
+        "keywords": ["15.9.4", "injectStyles", "class names", "git tag"],
+        "breadcrumb": [
+          {
+            "label": "Help",
+            "route": "content/help"
+          },
+          {
+            "label": "What's New in 15.9.4",
+            "route": "content/help/whats-new"
+          }
+        ]
+      },
+      {
+        "label": "Help",
+        "description": "Release notes, answers to frequent questions, fixes for common problems, and links to the changelog and issue tracker for 15.9.4.",
+        "route": "content/help/README",
+        "tags": ["help", "support"],
+        "order": 6,
+        "breadcrumbTitle": "Help",
+        "keywords": ["faq", "troubleshooting", "changelog", "issues"],
+        "breadcrumb": [
+          {
+            "label": "Help",
+            "route": "content/help"
+          },
+          {
+            "label": "Help",
+            "route": "content/help/README"
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,702 @@
+[
+  {
+    "label": "Documentation Home",
+    "description": "Documentation for @fsegurai/marked-extensions 17.0.0, 13 Marked.js extensions written in TypeScript, the first bundle release and the marked 17 peer.",
+    "route": "content/README",
+    "tags": ["documentation", "overview", "marked"],
+    "order": 0,
+    "breadcrumbTitle": "Home",
+    "publishedAt": "2026-04-18",
+    "keywords": ["markdown", "marked.js", "extensions", "typescript", "directives"],
+    "breadcrumb": [
+      {
+        "label": "Home",
+        "route": "content/README"
+      }
+    ]
+  },
+  {
+    "label": "Getting Started",
+    "route": "content/getting-started",
+    "isParent": true,
+    "breadcrumb": [
+      {
+        "label": "Getting Started",
+        "route": "content/getting-started"
+      }
+    ],
+    "order": 1,
+    "children": [
+      {
+        "label": "Getting Started",
+        "description": "Install one 17.0.0 extension or the bundle, register it with marked.use and load its stylesheet.",
+        "route": "content/getting-started/README",
+        "tags": ["getting-started", "setup"],
+        "order": 1,
+        "breadcrumbTitle": "Getting Started",
+        "keywords": ["install", "first steps", "marked.use"],
+        "breadcrumb": [
+          {
+            "label": "Getting Started",
+            "route": "content/getting-started"
+          },
+          {
+            "label": "Getting Started",
+            "route": "content/getting-started/README"
+          }
+        ]
+      },
+      {
+        "label": "Installation",
+        "description": "Install a single marked-extended 17.0.0 package or the bundle with the marked 17 peer, import the stylesheets, or load the UMD builds from a CDN.",
+        "route": "content/getting-started/installation",
+        "tags": ["getting-started", "installation"],
+        "order": 1,
+        "keywords": ["npm", "bun", "peer dependency", "cdn", "umd", "stylesheets"],
+        "breadcrumb": [
+          {
+            "label": "Getting Started",
+            "route": "content/getting-started"
+          },
+          {
+            "label": "Installation",
+            "route": "content/getting-started/installation"
+          }
+        ]
+      },
+      {
+        "label": "Quick Start",
+        "description": "Render a page with an alert and tabs in 17.0.0 using colon directives, load their stylesheets and understand what the tabs extension does in the browser.",
+        "route": "content/getting-started/quick-start",
+        "tags": ["getting-started", "quick-start"],
+        "order": 2,
+        "keywords": ["first page", "marked.use", "tabs", "alert"],
+        "breadcrumb": [
+          {
+            "label": "Getting Started",
+            "route": "content/getting-started"
+          },
+          {
+            "label": "Quick Start",
+            "route": "content/getting-started/quick-start"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "Extensions",
+    "route": "content/extensions",
+    "isParent": true,
+    "breadcrumb": [
+      {
+        "label": "Extensions",
+        "route": "content/extensions"
+      }
+    ],
+    "order": 2,
+    "children": [
+      {
+        "label": "Accordion",
+        "description": "Collapsible sections from ::::accordion blocks, rendered as native details elements with a title, heading level and open state.",
+        "route": "content/extensions/accordion",
+        "tags": ["extensions", "accordion"],
+        "order": 1,
+        "keywords": ["details", "summary", "collapsible", "acd alias"],
+        "breadcrumb": [
+          {
+            "label": "Extensions",
+            "route": "content/extensions"
+          },
+          {
+            "label": "Accordion",
+            "route": "content/extensions/accordion"
+          }
+        ]
+      },
+      {
+        "label": "Alert",
+        "description": "GitHub-style callouts from blockquotes that start with a [!TYPE] marker, with 5 built-in types and custom variants.",
+        "route": "content/extensions/alert",
+        "tags": ["extensions", "alert"],
+        "order": 2,
+        "keywords": ["callout", "admonition", "blockquote", "gfm alerts"],
+        "breadcrumb": [
+          {
+            "label": "Extensions",
+            "route": "content/extensions"
+          },
+          {
+            "label": "Alert",
+            "route": "content/extensions/alert"
+          }
+        ]
+      },
+      {
+        "label": "Extensions",
+        "description": "Catalog of the 13 Marked extensions in 17.0.0 with their package, default export, browser behavior and the directive or Markdown syntax each one parses.",
+        "route": "content/extensions/README",
+        "tags": ["extensions", "catalog"],
+        "order": 2,
+        "breadcrumbTitle": "Extensions",
+        "keywords": ["packages", "default export", "syntax summary", "directives"],
+        "breadcrumb": [
+          {
+            "label": "Extensions",
+            "route": "content/extensions"
+          },
+          {
+            "label": "Extensions",
+            "route": "content/extensions/README"
+          }
+        ]
+      },
+      {
+        "label": "Comments",
+        "description": "Inline and ::::comment block review comments with author, type, status, priority and visibility metadata.",
+        "route": "content/extensions/comments",
+        "tags": ["extensions", "comments"],
+        "order": 3,
+        "keywords": ["annotations", "review notes", "commentend"],
+        "breadcrumb": [
+          {
+            "label": "Extensions",
+            "route": "content/extensions"
+          },
+          {
+            "label": "Comments",
+            "route": "content/extensions/comments"
+          }
+        ]
+      },
+      {
+        "label": "Embeds",
+        "description": "::::embed blocks that render iframes for YouTube, Vimeo, CodePen, Spotify, Figma and 13 more providers.",
+        "route": "content/extensions/embeds",
+        "tags": ["extensions", "embeds"],
+        "order": 4,
+        "keywords": ["youtube", "iframe", "sandbox", "mermaid", "media"],
+        "breadcrumb": [
+          {
+            "label": "Extensions",
+            "route": "content/extensions"
+          },
+          {
+            "label": "Embeds",
+            "route": "content/extensions/embeds"
+          }
+        ]
+      },
+      {
+        "label": "Footnote",
+        "description": "Numbered and named footnotes with backlinks, CSS hover previews and an endnotes section placed automatically or with a placeholder.",
+        "route": "content/extensions/footnote",
+        "tags": ["extensions", "footnote"],
+        "order": 5,
+        "keywords": ["endnotes", "references", "backlinks", "hover preview", "smooth scroll"],
+        "breadcrumb": [
+          {
+            "label": "Extensions",
+            "route": "content/extensions"
+          },
+          {
+            "label": "Footnote",
+            "route": "content/extensions/footnote"
+          }
+        ]
+      },
+      {
+        "label": "Kanban",
+        "description": "Kanban boards from ::::kanban blocks with :::column children, with board, table and list views and hashtag tags.",
+        "route": "content/extensions/kanban",
+        "tags": ["extensions", "kanban"],
+        "order": 6,
+        "keywords": ["board", "cards", "columns", "view switcher", "task tags"],
+        "breadcrumb": [
+          {
+            "label": "Extensions",
+            "route": "content/extensions"
+          },
+          {
+            "label": "Kanban",
+            "route": "content/extensions/kanban"
+          }
+        ]
+      },
+      {
+        "label": "Lists",
+        "description": "Alphabetic and Roman ordered lists, start and skipped values, and accessible task checkboxes with an optional inline toggle callback.",
+        "route": "content/extensions/lists",
+        "tags": ["extensions", "lists"],
+        "order": 7,
+        "keywords": ["roman numerals", "alphabetic lists", "task list", "checkbox", "onCheckboxChange"],
+        "breadcrumb": [
+          {
+            "label": "Extensions",
+            "route": "content/extensions"
+          },
+          {
+            "label": "Lists",
+            "route": "content/extensions/lists"
+          }
+        ]
+      },
+      {
+        "label": "Slide",
+        "description": "Slide decks from ::::presentation blocks with ::::slide children, with layouts, backgrounds, transitions, themes and an injected navigation script.",
+        "route": "content/extensions/slide",
+        "tags": ["extensions", "slide"],
+        "order": 8,
+        "keywords": ["presentation", "slides", "deck", "speaker notes", "injectScript"],
+        "breadcrumb": [
+          {
+            "label": "Extensions",
+            "route": "content/extensions"
+          },
+          {
+            "label": "Slide",
+            "route": "content/extensions/slide"
+          }
+        ]
+      },
+      {
+        "label": "Spoiler",
+        "description": "Hidden content behind a themed overlay from ::::spoiler blocks, revealed on hover or focus with CSS and toggled by an inline script.",
+        "route": "content/extensions/spoiler",
+        "tags": ["extensions", "spoiler"],
+        "order": 9,
+        "keywords": ["hidden content", "reveal", "overlay", "particles", "inline script"],
+        "breadcrumb": [
+          {
+            "label": "Extensions",
+            "route": "content/extensions"
+          },
+          {
+            "label": "Spoiler",
+            "route": "content/extensions/spoiler"
+          }
+        ]
+      },
+      {
+        "label": "Tables",
+        "description": "Tables with column spanning (||), row spanning (^), multi-row headers, captions and footers.",
+        "route": "content/extensions/tables",
+        "tags": ["extensions", "tables"],
+        "order": 10,
+        "keywords": ["colspan", "rowspan", "caption", "tfoot", "spanning cells"],
+        "breadcrumb": [
+          {
+            "label": "Extensions",
+            "route": "content/extensions"
+          },
+          {
+            "label": "Tables",
+            "route": "content/extensions/tables"
+          }
+        ]
+      },
+      {
+        "label": "Tabs",
+        "description": "Tabbed content from ::::tabs / :::tab blocks, rendered as CSS-only radio tabs with animations and an auto-attached keyboard and persistence runtime.",
+        "route": "content/extensions/tabs",
+        "tags": ["extensions", "tabs"],
+        "order": 11,
+        "keywords": ["tablist", "tabpanel", "radio inputs", "persistSelection", "tab-switched"],
+        "breadcrumb": [
+          {
+            "label": "Extensions",
+            "route": "content/extensions"
+          },
+          {
+            "label": "Tabs",
+            "route": "content/extensions/tabs"
+          }
+        ]
+      },
+      {
+        "label": "Timeline",
+        "description": "Chronological timelines from ::::timeline / :::event blocks, with dated events and an active marker.",
+        "route": "content/extensions/timeline",
+        "tags": ["extensions", "timeline"],
+        "order": 12,
+        "keywords": ["chronology", "roadmap", "events", "dateFormat"],
+        "breadcrumb": [
+          {
+            "label": "Extensions",
+            "route": "content/extensions"
+          },
+          {
+            "label": "Timeline",
+            "route": "content/extensions/timeline"
+          }
+        ]
+      },
+      {
+        "label": "Typographic",
+        "description": "SmartyPants-style dashes and ellipses plus (name) symbol shortcodes for Greek letters, math, currency, legal marks and emoji.",
+        "route": "content/extensions/typographic",
+        "tags": ["extensions", "typographic"],
+        "order": 13,
+        "keywords": ["smartypants", "smart quotes", "em dash", "symbols", "shortcodes"],
+        "breadcrumb": [
+          {
+            "label": "Extensions",
+            "route": "content/extensions"
+          },
+          {
+            "label": "Typographic",
+            "route": "content/extensions/typographic"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "Guides",
+    "route": "content/guides",
+    "isParent": true,
+    "breadcrumb": [
+      {
+        "label": "Guides",
+        "route": "content/guides"
+      }
+    ],
+    "order": 3,
+    "children": [
+      {
+        "label": "Browser Behavior",
+        "description": "Which 17.0.0 extensions run code in the browser through inline scripts, inline handlers, injected scripts or document listeners, and what that means for SSR, sanitizers and innerHTML.",
+        "route": "content/guides/browser-behavior",
+        "tags": ["guides", "browser"],
+        "order": 1,
+        "keywords": ["inline script", "onclick", "injected script", "window globals", "side effects", "ssr"],
+        "breadcrumb": [
+          {
+            "label": "Guides",
+            "route": "content/guides"
+          },
+          {
+            "label": "Browser Behavior",
+            "route": "content/guides/browser-behavior"
+          }
+        ]
+      },
+      {
+        "label": "Styling and Theming",
+        "description": "Load the structural and theme stylesheets of each 17.0.0 package, override their CSS custom properties, and support dark mode.",
+        "route": "content/guides/styling",
+        "tags": ["guides", "styling"],
+        "order": 2,
+        "keywords": ["css", "scss", "custom properties", "dark mode", "theme"],
+        "breadcrumb": [
+          {
+            "label": "Guides",
+            "route": "content/guides"
+          },
+          {
+            "label": "Styling and Theming",
+            "route": "content/guides/styling"
+          }
+        ]
+      },
+      {
+        "label": "Guides",
+        "description": "Task-oriented guides for 17.0.0 browser behavior, styling, combining extensions and upgrading from 15.x.",
+        "route": "content/guides/README",
+        "tags": ["guides", "how-to"],
+        "order": 3,
+        "breadcrumbTitle": "Guides",
+        "keywords": ["inline scripts", "theming", "upgrade", "directives"],
+        "breadcrumb": [
+          {
+            "label": "Guides",
+            "route": "content/guides"
+          },
+          {
+            "label": "Guides",
+            "route": "content/guides/README"
+          }
+        ]
+      },
+      {
+        "label": "Combining Extensions",
+        "description": "Register several 17.0.0 extensions on one Marked instance, nest colon directives, and know which extensions hook the same Marked stages.",
+        "route": "content/guides/combining-extensions",
+        "tags": ["guides", "integration"],
+        "order": 4,
+        "keywords": ["marked.use", "nesting", "directives", "hooks", "registration order"],
+        "breadcrumb": [
+          {
+            "label": "Guides",
+            "route": "content/guides"
+          },
+          {
+            "label": "Combining Extensions",
+            "route": "content/guides/combining-extensions"
+          }
+        ]
+      },
+      {
+        "label": "Upgrading from 15",
+        "description": "Move content and code from marked-extensions 15.x to 17.0.0, renamed directive aliases, the marked 17 peer, explicit stylesheet imports and TypeScript builds.",
+        "route": "content/guides/upgrading-from-15",
+        "tags": ["guides", "upgrade"],
+        "order": 5,
+        "keywords": ["15.x", "aliases", "breaking changes", "marked 17", "typescript"],
+        "breadcrumb": [
+          {
+            "label": "Guides",
+            "route": "content/guides"
+          },
+          {
+            "label": "Upgrading from 15",
+            "route": "content/guides/upgrading-from-15"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "API",
+    "route": "content/api",
+    "isParent": true,
+    "breadcrumb": [
+      {
+        "label": "API",
+        "route": "content/api"
+      }
+    ],
+    "order": 4,
+    "children": [
+      {
+        "label": "Bundle",
+        "description": "API of @fsegurai/marked-extended-bundle 17.0.0, the first release of the bundle, which re-exports the 13 extension factories and their types.",
+        "route": "content/api/bundle",
+        "tags": ["api", "bundle"],
+        "order": 1,
+        "keywords": ["re-exports", "named exports", "markedExtendedTabs", "umd"],
+        "breadcrumb": [
+          {
+            "label": "API",
+            "route": "content/api"
+          },
+          {
+            "label": "Bundle",
+            "route": "content/api/bundle"
+          }
+        ]
+      },
+      {
+        "label": "Extension Packages",
+        "description": "Default export, named functions and exported TypeScript types of each of the 13 extension packages in 17.0.0.",
+        "route": "content/api/extension-packages",
+        "tags": ["api", "packages"],
+        "order": 2,
+        "keywords": ["default export", "options types", "token types", "letterToInt"],
+        "breadcrumb": [
+          {
+            "label": "API",
+            "route": "content/api"
+          },
+          {
+            "label": "Extension Packages",
+            "route": "content/api/extension-packages"
+          }
+        ]
+      },
+      {
+        "label": "API Reference",
+        "description": "Exact exports and signatures of the bundle and each extension package, read from the 17.0.0 sources.",
+        "route": "content/api/README",
+        "tags": ["api", "reference"],
+        "order": 4,
+        "breadcrumbTitle": "API",
+        "keywords": ["exports", "signatures", "typescript types"],
+        "breadcrumb": [
+          {
+            "label": "API",
+            "route": "content/api"
+          },
+          {
+            "label": "API",
+            "route": "content/api/README"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "Examples",
+    "route": "content/examples",
+    "isParent": true,
+    "breadcrumb": [
+      {
+        "label": "Examples",
+        "route": "content/examples"
+      }
+    ],
+    "order": 5,
+    "children": [
+      {
+        "label": "Plain JavaScript",
+        "description": "Register all 13 extensions from the 17.0.0 bundle on one Marked instance and load their CSS.",
+        "route": "content/examples/plain-javascript",
+        "tags": ["examples", "javascript"],
+        "order": 1,
+        "keywords": ["vanilla", "bundle", "all extensions"],
+        "breadcrumb": [
+          {
+            "label": "Examples",
+            "route": "content/examples"
+          },
+          {
+            "label": "Plain JavaScript",
+            "route": "content/examples/plain-javascript"
+          }
+        ]
+      },
+      {
+        "label": "Frameworks",
+        "description": "React, Vue and Angular components that bind 17.0.0 HTML, create the extensions once and account for inline scripts and handlers.",
+        "route": "content/examples/frameworks",
+        "tags": ["examples", "frameworks"],
+        "order": 2,
+        "keywords": ["react", "vue", "angular", "innerHTML", "v-html"],
+        "breadcrumb": [
+          {
+            "label": "Examples",
+            "route": "content/examples"
+          },
+          {
+            "label": "Frameworks",
+            "route": "content/examples/frameworks"
+          }
+        ]
+      },
+      {
+        "label": "Presentation",
+        "description": "A slide deck in 17.0.0 with colon directives, a theme, layouts and the injected navigation script.",
+        "route": "content/examples/presentation",
+        "tags": ["examples", "slides"],
+        "order": 3,
+        "keywords": ["presentation", "directives", "injectScript", "theme"],
+        "breadcrumb": [
+          {
+            "label": "Examples",
+            "route": "content/examples"
+          },
+          {
+            "label": "Presentation",
+            "route": "content/examples/presentation"
+          }
+        ]
+      },
+      {
+        "label": "Examples",
+        "description": "Complete, copyable 17.0.0 setups for plain JavaScript, React, Vue and Angular, and slide presentations.",
+        "route": "content/examples/README",
+        "tags": ["examples", "recipes"],
+        "order": 5,
+        "breadcrumbTitle": "Examples",
+        "keywords": ["react", "vue", "angular", "playground", "directives"],
+        "breadcrumb": [
+          {
+            "label": "Examples",
+            "route": "content/examples"
+          },
+          {
+            "label": "Examples",
+            "route": "content/examples/README"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "Help",
+    "route": "content/help",
+    "isParent": true,
+    "breadcrumb": [
+      {
+        "label": "Help",
+        "route": "content/help"
+      }
+    ],
+    "order": 6,
+    "children": [
+      {
+        "label": "FAQ",
+        "description": "Frequent questions about choosing packages, the marked 17 peer, directive syntax, sanitizers and browser behavior in 17.0.0.",
+        "route": "content/help/faq",
+        "tags": ["help", "faq"],
+        "order": 1,
+        "keywords": ["questions", "compatibility", "marked 17", "sanitizer", "directives"],
+        "breadcrumb": [
+          {
+            "label": "Help",
+            "route": "content/help"
+          },
+          {
+            "label": "FAQ",
+            "route": "content/help/faq"
+          }
+        ]
+      },
+      {
+        "label": "Troubleshooting",
+        "description": "Fixes for 17.0.0 directives that stay as text, tabs that do not switch, inert spoiler scripts, decks that do not navigate, embeds that do not parse and ignored options.",
+        "route": "content/help/troubleshooting",
+        "tags": ["help", "troubleshooting"],
+        "order": 2,
+        "keywords": ["not working", "sanitizer", "directives", "aliases", "debugging"],
+        "breadcrumb": [
+          {
+            "label": "Help",
+            "route": "content/help"
+          },
+          {
+            "label": "Troubleshooting",
+            "route": "content/help/troubleshooting"
+          }
+        ]
+      },
+      {
+        "label": "What's New in 17.0.0",
+        "description": "Release notes for @fsegurai/marked-extensions 17.0.0, the TypeScript rewrite, the marked 17 peer, renamed directive aliases and five new packages.",
+        "route": "content/help/whats-new",
+        "tags": ["help", "changelog", "release-notes"],
+        "order": 3,
+        "keywords": ["17.0.0", "breaking changes", "typescript migration", "aliases", "new extensions"],
+        "breadcrumb": [
+          {
+            "label": "Help",
+            "route": "content/help"
+          },
+          {
+            "label": "What's New in 17.0.0",
+            "route": "content/help/whats-new"
+          }
+        ]
+      },
+      {
+        "label": "Help",
+        "description": "Release notes, answers to frequent questions, fixes for common problems, and links to the changelog, contribution guide and issue tracker for 17.0.0.",
+        "route": "content/help/README",
+        "tags": ["help", "support"],
+        "order": 6,
+        "breadcrumbTitle": "Help",
+        "keywords": ["faq", "troubleshooting", "changelog", "contributing"],
+        "breadcrumb": [
+          {
+            "label": "Help",
+            "route": "content/help"
+          },
+          {
+            "label": "Help",
+            "route": "content/help/README"
+          }
+        ]
+      }
+    ]
+  }
+]
