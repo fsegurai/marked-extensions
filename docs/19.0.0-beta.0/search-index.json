@@ -1,0 +1,828 @@
+[
+  {
+    "label": "Documentation Home",
+    "description": "Documentation for @fsegurai/marked-extensions 19.0.0-beta.0, 14 Marked.js extensions with sanitizer-safe markup, scoped runtimes, a bundle and a core package.",
+    "route": "content/README",
+    "tags": ["documentation", "overview", "marked"],
+    "headings": ["Quick start", "What 19.0.0-beta.0 changes", "Sections", "Links"],
+    "excerpt": " , plus a bundle and a core package. This documentation covers 19.0.",
+    "breadcrumb": [
+      {
+        "label": "Home",
+        "route": "content/README"
+      }
+    ]
+  },
+  {
+    "label": "API Reference",
+    "description": "Exact exports and signatures of the bundle, the core helpers and each extension package, read from the 19.0.0-beta.0 sources.",
+    "route": "content/api/README",
+    "tags": ["api", "reference"],
+    "headings": ["Shared shapes", "Next step"],
+    "excerpt": "Signatures on these pages are taken from each package's and .",
+    "breadcrumb": [
+      {
+        "label": "API",
+        "route": "content/api"
+      },
+      {
+        "label": "API",
+        "route": "content/api/README"
+      }
+    ]
+  },
+  {
+    "label": "Bundle",
+    "description": "API of @fsegurai/marked-extended-bundle, the named re-exports of every extension and the attachAll runtime with its options, handle and error type.",
+    "route": "content/api/bundle",
+    "tags": ["api", "bundle"],
+    "headings": ["Re-exports", "attachAll", "Types", "Failure isolation", "Next step"],
+    "excerpt": " depends on all 14 extension packages and re-exports them.",
+    "breadcrumb": [
+      {
+        "label": "API",
+        "route": "content/api"
+      },
+      {
+        "label": "Bundle",
+        "route": "content/api/bundle"
+      }
+    ]
+  },
+  {
+    "label": "Core",
+    "description": "API of @fsegurai/marked-extended-core, pure helpers for class tokens, escaping, hashing and events, and browser helpers such as defineRuntime and onDelegated.",
+    "route": "content/api/core",
+    "tags": ["api", "core"],
+    "headings": [
+      "Pure helpers (server and browser)",
+      "Browser helpers (call them only in the browser)",
+      "Types",
+      "Class-token grammar",
+      "Next step"
+    ],
+    "excerpt": " has no dependencies, a single entry point, and no side effects at import.",
+    "breadcrumb": [
+      {
+        "label": "API",
+        "route": "content/api"
+      },
+      {
+        "label": "Core",
+        "route": "content/api/core"
+      }
+    ]
+  },
+  {
+    "label": "Extension Packages",
+    "description": "Default export, named functions and exported TypeScript types of each of the 14 extension packages in 19.0.0-beta.0.",
+    "route": "content/api/extension-packages",
+    "tags": ["api", "packages"],
+    "headings": ["Removed in 19", "Next step"],
+    "excerpt": "Each package's default export is its extension factory.",
+    "breadcrumb": [
+      {
+        "label": "API",
+        "route": "content/api"
+      },
+      {
+        "label": "Extension Packages",
+        "route": "content/api/extension-packages"
+      }
+    ]
+  },
+  {
+    "label": "Examples",
+    "description": "Complete, copyable setups for plain JavaScript, React, Vue, Angular, Prism highlighting, editable kanban and task lists, and slide presentations.",
+    "route": "content/examples/README",
+    "tags": ["examples", "recipes"],
+    "headings": ["Live demo", "Next step"],
+    "excerpt": "Each example is complete: install, render, attach, tear down.",
+    "breadcrumb": [
+      {
+        "label": "Examples",
+        "route": "content/examples"
+      },
+      {
+        "label": "Examples",
+        "route": "content/examples/README"
+      }
+    ]
+  },
+  {
+    "label": "Editable Content",
+    "description": "Keep the Markdown source in sync with kanban card moves through applyMoveToMarkdown and with task-list toggles through the lists toggle event.",
+    "route": "content/examples/editable-content",
+    "tags": ["examples", "editing"],
+    "headings": ["Kanban moves", "Task-list toggles", "Editing in a textarea", "Next step"],
+    "excerpt": "The runtimes never rewrite your Markdown. They dispatch events with enough detail for you to do it.",
+    "breadcrumb": [
+      {
+        "label": "Examples",
+        "route": "content/examples"
+      },
+      {
+        "label": "Editable Content",
+        "route": "content/examples/editable-content"
+      }
+    ]
+  },
+  {
+    "label": "Frameworks",
+    "description": "React, Vue and Angular components that bind the rendered HTML, attach the runtimes after render, refresh on change and dispose on destroy.",
+    "route": "content/examples/frameworks",
+    "tags": ["examples", "frameworks"],
+    "headings": ["React", "Vue", "Angular", "Single runtime", "Server-side rendering", "Next step"],
+    "excerpt": "Render Markdown to HTML with your instance.",
+    "breadcrumb": [
+      {
+        "label": "Examples",
+        "route": "content/examples"
+      },
+      {
+        "label": "Frameworks",
+        "route": "content/examples/frameworks"
+      }
+    ]
+  },
+  {
+    "label": "Plain JavaScript",
+    "description": "Register all 14 extensions from the bundle on one Marked instance, attach every runtime with attachAll, refresh after re-rendering and dispose.",
+    "route": "content/examples/plain-javascript",
+    "tags": ["examples", "javascript"],
+    "headings": ["Without a bundler", "Next step"],
+    "excerpt": "Load the UMD build of each package you use.",
+    "breadcrumb": [
+      {
+        "label": "Examples",
+        "route": "content/examples"
+      },
+      {
+        "label": "Plain JavaScript",
+        "route": "content/examples/plain-javascript"
+      }
+    ]
+  },
+  {
+    "label": "Presentation",
+    "description": "Build a themed slide deck with layouts, backgrounds, speaker notes delivered through an event, and URL hash sync.",
+    "route": "content/examples/presentation",
+    "tags": ["examples", "slides"],
+    "headings": ["Next step"],
+    "excerpt": "Presentation\n\n presentation',\n 'title: Quarterly Review',\n 'author: Jane Developer',\n '---',\n 'layout: cover',\n 'background: \"linear-gradient(to...",
+    "breadcrumb": [
+      {
+        "label": "Examples",
+        "route": "content/examples"
+      },
+      {
+        "label": "Presentation",
+        "route": "content/examples/presentation"
+      }
+    ]
+  },
+  {
+    "label": "Prism Highlighting",
+    "description": "Highlight code blocks rendered by the code extension with Prism, either in the browser through attachCode or at parse time with marked-highlight.",
+    "route": "content/examples/prism-highlighting",
+    "tags": ["examples", "code"],
+    "headings": [
+      "Option A: highlight in the browser",
+      "Option B: highlight at parse time",
+      "Markdown to try",
+      "Next step"
+    ],
+    "excerpt": "Two ways to combine with Prism.",
+    "breadcrumb": [
+      {
+        "label": "Examples",
+        "route": "content/examples"
+      },
+      {
+        "label": "Prism Highlighting",
+        "route": "content/examples/prism-highlighting"
+      }
+    ]
+  },
+  {
+    "label": "Extensions",
+    "description": "Catalog of the 14 Marked extensions with their package, default export, runtime and the Markdown syntax each one parses.",
+    "route": "content/extensions/README",
+    "tags": ["extensions", "catalog"],
+    "headings": ["Catalog", "What every page covers", "Next step"],
+    "excerpt": "Every extension is its own npm package, published as 19.0.0-beta.",
+    "breadcrumb": [
+      {
+        "label": "Extensions",
+        "route": "content/extensions"
+      },
+      {
+        "label": "Extensions",
+        "route": "content/extensions/README"
+      }
+    ]
+  },
+  {
+    "label": "Accordion",
+    "description": "Collapsible sections from fenced accordion blocks, rendered as native details elements with exclusive groups, variants and an optional runtime.",
+    "route": "content/extensions/accordion",
+    "tags": ["extensions", "accordion"],
+    "headings": ["Quick path", "Syntax", "Options", "Rendered HTML", "Runtime", "Styling", "Next step"],
+    "excerpt": " turns a fenced block into a native element.",
+    "breadcrumb": [
+      {
+        "label": "Extensions",
+        "route": "content/extensions"
+      },
+      {
+        "label": "Accordion",
+        "route": "content/extensions/accordion"
+      }
+    ]
+  },
+  {
+    "label": "Alert",
+    "description": "GitHub-style callouts from blockquotes that start with a [!TYPE] marker, with 11 built-in types, custom variants and CSS icons.",
+    "route": "content/extensions/alert",
+    "tags": ["extensions", "alert"],
+    "headings": ["Quick path", "Syntax", "Options", "Rendered HTML", "Styling", "Next step"],
+    "excerpt": " converts a blockquote that starts with into a styled alert.",
+    "breadcrumb": [
+      {
+        "label": "Extensions",
+        "route": "content/extensions"
+      },
+      {
+        "label": "Alert",
+        "route": "content/extensions/alert"
+      }
+    ]
+  },
+  {
+    "label": "Code",
+    "description": "VitePress-style fenced code blocks with titles, line numbers, line highlights, diff, focus, magic comments and code-group tabs.",
+    "route": "content/extensions/code",
+    "tags": ["extensions", "code"],
+    "headings": [
+      "Quick path",
+      "Fence meta",
+      "Magic comments",
+      "Code groups",
+      "Options",
+      "Rendered HTML",
+      "Runtime",
+      "Helpers",
+      "Integration notes",
+      "Styling",
+      "Next step"
+    ],
+    "excerpt": "Code\n\n (new in 19.0.0-beta.0) reads VitePress, Expressive Code and Docusaurus fence meta and\n magic comments. Its output is classes only ( , , , ),...",
+    "breadcrumb": [
+      {
+        "label": "Extensions",
+        "route": "content/extensions"
+      },
+      {
+        "label": "Code",
+        "route": "content/extensions/code"
+      }
+    ]
+  },
+  {
+    "label": "Comments",
+    "description": "Inline and block review comments with author, type, status, priority, threading and visibility filters.",
+    "route": "content/extensions/comments",
+    "tags": ["extensions", "comments"],
+    "headings": [
+      "Quick path",
+      "Syntax",
+      "Inline",
+      "Block",
+      "Options",
+      "Rendered HTML",
+      "Runtime",
+      "Styling",
+      "Next step"
+    ],
+    "excerpt": "metadata, threads ( ) and parse-time filters.",
+    "breadcrumb": [
+      {
+        "label": "Extensions",
+        "route": "content/extensions"
+      },
+      {
+        "label": "Comments",
+        "route": "content/extensions/comments"
+      }
+    ]
+  },
+  {
+    "label": "Embeds",
+    "description": "Click-to-load embeds for YouTube, Vimeo, CodePen, Spotify, Figma and 15 more providers, with a strict URL allowlist and sandboxed iframes.",
+    "route": "content/extensions/embeds",
+    "tags": ["extensions", "embeds"],
+    "headings": ["Quick path", "Syntax", "Options", "Rendered HTML", "Runtime", "Styling", "Next step"],
+    "excerpt": "Embeds\n\n turns a fenced block into a click-to-load placeholder plus a fallback link\nto the provider. Nothing is requested from the provider until the...",
+    "breadcrumb": [
+      {
+        "label": "Extensions",
+        "route": "content/extensions"
+      },
+      {
+        "label": "Embeds",
+        "route": "content/extensions/embeds"
+      }
+    ]
+  },
+  {
+    "label": "Footnote",
+    "description": "Numbered, named and inline footnotes with backlinks, hover previews and an endnotes section placed automatically or with a placeholder.",
+    "route": "content/extensions/footnote",
+    "tags": ["extensions", "footnote"],
+    "headings": ["Quick path", "Syntax", "Options", "Rendered HTML", "Runtime", "Styling", "Next step"],
+    "excerpt": "Footnote\n\n renders references, footnotes and definitions into\na numbered endnotes . The optional runtime adds smooth scrolling with an offset and...",
+    "breadcrumb": [
+      {
+        "label": "Extensions",
+        "route": "content/extensions"
+      },
+      {
+        "label": "Footnote",
+        "route": "content/extensions/footnote"
+      }
+    ]
+  },
+  {
+    "label": "Kanban",
+    "description": "Kanban boards from fenced kanban blocks, with board, table and list views, WIP limits, card metadata, drag and drop and keyboard moves.",
+    "route": "content/extensions/kanban",
+    "tags": ["extensions", "kanban"],
+    "headings": [
+      "Quick path",
+      "Syntax",
+      "To Do {color: #3498db}",
+      "In Progress {color: #f39c12, wip: 3}",
+      "Archive {collapsed}",
+      "Options",
+      "Rendered HTML",
+      "Runtime",
+      "Persisting moves",
+      "Other exports",
+      "Styling",
+      "Next step"
+    ],
+    "excerpt": " renders a fenced block as a board.",
+    "breadcrumb": [
+      {
+        "label": "Extensions",
+        "route": "content/extensions"
+      },
+      {
+        "label": "Kanban",
+        "route": "content/extensions/kanban"
+      }
+    ]
+  },
+  {
+    "label": "Lists",
+    "description": "Alphabetic and Roman ordered lists, start and skipped values, sanitizer-safe task checkboxes, toggle events and list-editing helpers.",
+    "route": "content/extensions/lists",
+    "tags": ["extensions", "lists"],
+    "headings": ["Quick path", "Syntax", "Options", "Rendered HTML", "Runtime", "Helpers", "Styling", "Next step"],
+    "excerpt": " replaces Marked's list tokenizer and renderer.",
+    "breadcrumb": [
+      {
+        "label": "Extensions",
+        "route": "content/extensions"
+      },
+      {
+        "label": "Lists",
+        "route": "content/extensions/lists"
+      }
+    ]
+  },
+  {
+    "label": "Slide",
+    "description": "Slide decks from fenced presentation blocks, with layouts, backgrounds, transitions, themes, overview, speaker notes and a scoped runtime.",
+    "route": "content/extensions/slide",
+    "tags": ["extensions", "slide"],
+    "headings": ["Quick path", "Syntax", "Agenda", "Options", "Rendered HTML", "Runtime", "Styling", "Next step"],
+    "excerpt": " renders a fenced block as a slide deck.",
+    "breadcrumb": [
+      {
+        "label": "Extensions",
+        "route": "content/extensions"
+      },
+      {
+        "label": "Slide",
+        "route": "content/extensions/slide"
+      }
+    ]
+  },
+  {
+    "label": "Spoiler",
+    "description": "Hidden content behind a themed overlay from fenced spoiler blocks, revealed by click or keyboard, with optional CSS particle effects.",
+    "route": "content/extensions/spoiler",
+    "tags": ["extensions", "spoiler"],
+    "headings": ["Quick path", "Syntax", "Options", "Rendered HTML", "Runtime", "Styling", "Next step"],
+    "excerpt": " hides the content of a fenced block behind an overlay.",
+    "breadcrumb": [
+      {
+        "label": "Extensions",
+        "route": "content/extensions"
+      },
+      {
+        "label": "Spoiler",
+        "route": "content/extensions/spoiler"
+      }
+    ]
+  },
+  {
+    "label": "Tables",
+    "description": "Tables with column spanning (||), row spanning (^), multi-row headers, captions, footers and a responsive wrapper.",
+    "route": "content/extensions/tables",
+    "tags": ["extensions", "tables"],
+    "headings": ["Quick path", "Syntax", "Options", "Rendered HTML", "Styling", "Next step"],
+    "excerpt": " extends GFM tables with cell spanning, captions and footers.",
+    "breadcrumb": [
+      {
+        "label": "Extensions",
+        "route": "content/extensions"
+      },
+      {
+        "label": "Tables",
+        "route": "content/extensions/tables"
+      }
+    ]
+  },
+  {
+    "label": "Tabs",
+    "description": "Tabbed content from fenced tabs blocks, rendered as a WAI-ARIA tablist with variants, animations, keyboard navigation and persisted selection.",
+    "route": "content/extensions/tabs",
+    "tags": ["extensions", "tabs"],
+    "headings": ["Quick path", "Syntax", "Options", "Rendered HTML", "Runtime", "Styling", "Next step"],
+    "excerpt": " renders a fenced block as a WAI-ARIA tablist.",
+    "breadcrumb": [
+      {
+        "label": "Extensions",
+        "route": "content/extensions"
+      },
+      {
+        "label": "Tabs",
+        "route": "content/extensions/tabs"
+      }
+    ]
+  },
+  {
+    "label": "Timeline",
+    "description": "Chronological timelines from fenced timeline blocks, with date ranges, active events, groups, collapsible events, milestone and group-by-year modes.",
+    "route": "content/extensions/timeline",
+    "tags": ["extensions", "timeline"],
+    "headings": [
+      "Quick path",
+      "Syntax",
+      "First event",
+      "Long sprint",
+      "Options",
+      "Rendered HTML",
+      "Runtime",
+      "Styling",
+      "Next step"
+    ],
+    "excerpt": " renders a fenced block as a list of dated events.",
+    "breadcrumb": [
+      {
+        "label": "Extensions",
+        "route": "content/extensions"
+      },
+      {
+        "label": "Timeline",
+        "route": "content/extensions/timeline"
+      }
+    ]
+  },
+  {
+    "label": "Typographic",
+    "description": "SmartyPants-style quotes, dashes and ellipses, fractions, and (:name:) symbol shortcodes for Greek letters, math, arrows, currency and emoji.",
+    "route": "content/extensions/typographic",
+    "tags": ["extensions", "typographic"],
+    "headings": ["Quick path", "Syntax", "Options", "Next step"],
+    "excerpt": "Typographic\n\n post-processes the rendered HTML: it educates quotes, dashes and ellipses,\noptionally converts fractions, and replaces shortcodes with...",
+    "breadcrumb": [
+      {
+        "label": "Extensions",
+        "route": "content/extensions"
+      },
+      {
+        "label": "Typographic",
+        "route": "content/extensions/typographic"
+      }
+    ]
+  },
+  {
+    "label": "Getting Started",
+    "description": "Install one extension or the bundle, register it with marked.use and attach its runtime after rendering.",
+    "route": "content/getting-started/README",
+    "tags": ["getting-started", "setup"],
+    "headings": ["Pages", "Before you start", "Next step"],
+    "excerpt": "Install one extension, several, or the bundle, together with 18.",
+    "breadcrumb": [
+      {
+        "label": "Getting Started",
+        "route": "content/getting-started"
+      },
+      {
+        "label": "Getting Started",
+        "route": "content/getting-started/README"
+      }
+    ]
+  },
+  {
+    "label": "Installation",
+    "description": "Install a single marked-extended package or the bundle with the marked 18 peer, import the stylesheets, or load the UMD builds from a CDN.",
+    "route": "content/getting-started/installation",
+    "tags": ["getting-started", "installation"],
+    "headings": [
+      "Single extension",
+      "Bundle",
+      "Which one to choose",
+      "Peer dependency",
+      "Stylesheets",
+      "CDN and UMD",
+      "Next step"
+    ],
+    "excerpt": "Install only the extensions you use, or the bundle that depends on all of them.",
+    "breadcrumb": [
+      {
+        "label": "Getting Started",
+        "route": "content/getting-started"
+      },
+      {
+        "label": "Installation",
+        "route": "content/getting-started/installation"
+      }
+    ]
+  },
+  {
+    "label": "Quick Start",
+    "description": "Render a page with tabs and alerts, attach the runtime after inserting the HTML, refresh it after re-rendering and dispose of it on teardown.",
+    "route": "content/getting-started/quick-start",
+    "tags": ["getting-started", "quick-start"],
+    "headings": [
+      "1. Install",
+      "2. Register and render",
+      "3. Attach the runtime",
+      "4. Re-render and tear down",
+      "Checklist",
+      "Next step"
+    ],
+    "excerpt": "This page renders Markdown with two extensions: Alert (no runtime) and Tabs (runtime for switching).",
+    "breadcrumb": [
+      {
+        "label": "Getting Started",
+        "route": "content/getting-started"
+      },
+      {
+        "label": "Quick Start",
+        "route": "content/getting-started/quick-start"
+      }
+    ]
+  },
+  {
+    "label": "Guides",
+    "description": "Task-oriented guides for the runtime contract, sanitizer-safe markup, styling, combining extensions, building on core and migrating from 18.x.",
+    "route": "content/guides/README",
+    "tags": ["guides", "how-to"],
+    "headings": ["Next step"],
+    "excerpt": "Each guide answers one question. Start with the runtime contract if you render into a framework component.",
+    "breadcrumb": [
+      {
+        "label": "Guides",
+        "route": "content/guides"
+      },
+      {
+        "label": "Guides",
+        "route": "content/guides/README"
+      }
+    ]
+  },
+  {
+    "label": "Building on Core",
+    "description": "Write your own scoped, disposable runtime and sanitizer-safe markup with the helpers of @fsegurai/marked-extended-core.",
+    "route": "content/guides/building-on-core",
+    "tags": ["guides", "core"],
+    "headings": [
+      "1. Render sanitizer-safe markup",
+      "2. Define the runtime",
+      "3. Use it like any package runtime",
+      "Rules to keep",
+      "Next step"
+    ],
+    "excerpt": " holds the helpers every package is built on.",
+    "breadcrumb": [
+      {
+        "label": "Guides",
+        "route": "content/guides"
+      },
+      {
+        "label": "Building on Core",
+        "route": "content/guides/building-on-core"
+      }
+    ]
+  },
+  {
+    "label": "Combining Extensions",
+    "description": "Register several extensions on one Marked instance, nest fenced blocks, order highlighters and know which extensions hook the same Marked stages.",
+    "route": "content/guides/combining-extensions",
+    "tags": ["guides", "integration"],
+    "headings": [
+      "Quick path",
+      "Nesting fenced blocks",
+      "Where each extension hooks into Marked",
+      "Syntax highlighting",
+      "Global side effects to avoid",
+      "Runtimes",
+      "Next step"
+    ],
+    "excerpt": "All 14 extensions can be registered on the same instance.",
+    "breadcrumb": [
+      {
+        "label": "Guides",
+        "route": "content/guides"
+      },
+      {
+        "label": "Combining Extensions",
+        "route": "content/guides/combining-extensions"
+      }
+    ]
+  },
+  {
+    "label": "Migrating to 19",
+    "description": "Every breaking change from 18.x to 19.0.0-beta.0, the runtime contract with React, Vue and Angular examples, and per-package migration notes.",
+    "route": "content/guides/migration-19",
+    "tags": ["guides", "migration"],
+    "headings": [
+      "Table of contents",
+      "What changed and why",
+      "The runtime contract",
+      "Plain JavaScript",
+      "React",
+      "Vue",
+      "Angular",
+      "Keeping the 18.0 markup: `unsafeHtml`",
+      "Per-package changes",
+      "Accordion",
+      "Alert",
+      "Code (new)",
+      "Comments",
+      "Embeds",
+      "Footnote",
+      "Kanban",
+      "Lists",
+      "Slide",
+      "Spoiler",
+      "Tables",
+      "Tabs",
+      "Timeline",
+      "Typographic",
+      "Bundle",
+      "Checklist"
+    ],
+    "excerpt": "Migrating from 18.x to 19.0.0-beta\n\nThis guide covers the breaking changes of 19.0.0-beta.0 (every package, including the\nnew and packages). The full...",
+    "breadcrumb": [
+      {
+        "label": "Guides",
+        "route": "content/guides"
+      },
+      {
+        "label": "Migrating to 19",
+        "route": "content/guides/migration-19"
+      }
+    ]
+  },
+  {
+    "label": "Runtime Contract",
+    "description": "How the attachX runtimes work, when to call attach, refresh and dispose, the observe option, events and SSR safety.",
+    "route": "content/guides/runtime-contract",
+    "tags": ["guides", "runtime"],
+    "headings": ["Runtimes", "Guarantees", "refresh versus observe", "Events", "All runtimes at once", "Next step"],
+    "excerpt": "Every package with interactive behavior exports one function.",
+    "breadcrumb": [
+      {
+        "label": "Guides",
+        "route": "content/guides"
+      },
+      {
+        "label": "Runtime Contract",
+        "route": "content/guides/runtime-contract"
+      }
+    ]
+  },
+  {
+    "label": "Sanitizer-Safe Markup",
+    "description": "What the default 19 markup contains, how class tokens carry configuration, and when to opt into the 18.0 markup with unsafeHtml.",
+    "route": "content/guides/sanitizer-safe-markup",
+    "tags": ["guides", "security"],
+    "headings": [
+      "What the default markup uses",
+      "Class tokens",
+      "Ids are content hashes",
+      "Opting out: `unsafeHtml`",
+      "Security notes",
+      "Next step"
+    ],
+    "excerpt": "Sanitizer-Safe Markup\n\nBy default, every package emits HTML that strict sanitizers keep unchanged, such as Angular's\n . You can bind it with or...",
+    "breadcrumb": [
+      {
+        "label": "Guides",
+        "route": "content/guides"
+      },
+      {
+        "label": "Sanitizer-Safe Markup",
+        "route": "content/guides/sanitizer-safe-markup"
+      }
+    ]
+  },
+  {
+    "label": "Styling and Theming",
+    "description": "Load the structural and theme stylesheets of each package, override their CSS custom properties, and support dark mode.",
+    "route": "content/guides/styling",
+    "tags": ["guides", "styling"],
+    "headings": ["Quick path", "Stylesheets per package", "Overriding", "Dark mode", "Styling hooks", "Next step"],
+    "excerpt": "Styling and Theming\n\nNo package injects CSS. Each one ships a structural stylesheet, which the default markup needs (CSS icons, tab\nanimations,...",
+    "breadcrumb": [
+      {
+        "label": "Guides",
+        "route": "content/guides"
+      },
+      {
+        "label": "Styling and Theming",
+        "route": "content/guides/styling"
+      }
+    ]
+  },
+  {
+    "label": "Help",
+    "description": "Answers to frequent questions, fixes for common problems, and links to the changelog, contribution guide and issue tracker.",
+    "route": "content/help/README",
+    "tags": ["help", "support"],
+    "headings": ["Project resources", "Contributing in short"],
+    "excerpt": "| FAQ | You have a question about choices, compatibility or behavior.",
+    "breadcrumb": [
+      {
+        "label": "Help",
+        "route": "content/help"
+      },
+      {
+        "label": "Help",
+        "route": "content/help/README"
+      }
+    ]
+  },
+  {
+    "label": "FAQ",
+    "description": "Frequent questions about choosing packages, the marked peer, sanitizers, server-side rendering, unsafeHtml and deprecated options.",
+    "route": "content/help/faq",
+    "tags": ["help", "faq"],
+    "headings": [
+      "Bundle or individual packages?",
+      "Which Marked version do I need?",
+      "Do I need `@fsegurai/marked-extended-core`?",
+      "Does the HTML work with Angular's sanitizer or DOMPurify?",
+      "Can I render on the server?",
+      "When should I use `unsafeHtml: true`?",
+      "Which extensions need a runtime?",
+      "My 18.x callback options stopped working",
+      "Next step"
+    ],
+    "excerpt": "FAQ\n\nBundle or individual packages?\n\nIndividual packages when you use a few extensions. The bundle when you use many and want one call.\nBoth expose...",
+    "breadcrumb": [
+      {
+        "label": "Help",
+        "route": "content/help"
+      },
+      {
+        "label": "FAQ",
+        "route": "content/help/faq"
+      }
+    ]
+  },
+  {
+    "label": "Troubleshooting",
+    "description": "Fixes for missing icons, inert tabs or embeds, stacked slides, unconverted alerts, tables syntax, typographic surprises and runtimes that stop after a re-render.",
+    "route": "content/help/troubleshooting",
+    "tags": ["help", "troubleshooting"],
+    "headings": ["Still stuck?"],
+    "excerpt": "Find the symptom, apply the fix.",
+    "breadcrumb": [
+      {
+        "label": "Help",
+        "route": "content/help"
+      },
+      {
+        "label": "Troubleshooting",
+        "route": "content/help/troubleshooting"
+      }
+    ]
+  }
+]

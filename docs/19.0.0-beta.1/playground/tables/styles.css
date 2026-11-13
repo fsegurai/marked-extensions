@@ -1,0 +1,27 @@
+#output {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+h1 {
+  margin-top: 0;
+  padding-bottom: 0.3em;
+  border-bottom: 1px solid var(--pg-border);
+}
+
+/* tables-theme.css: every color from the playground. */
+#output {
+  --mx-tables-bg: var(--pg-bg);
+  --mx-tables-text: var(--pg-text);
+  --mx-tables-border: var(--pg-border);
+  --mx-tables-border-soft: var(--pg-border);
+  --mx-tables-header-bg: var(--pg-surface);
+  --mx-tables-header-color: var(--pg-text);
+  --mx-tables-stripe-bg: var(--pg-surface-alt);
+  --mx-tables-hover-bg: color-mix(in srgb, var(--pg-primary) 8%, transparent);
+  --mx-tables-span-bg: color-mix(in srgb, var(--pg-primary) 12%, transparent);
+  --mx-tables-caption-bg: var(--pg-surface);
+  --mx-tables-caption-color: var(--pg-text-muted);
+  --mx-tables-footer-bg: var(--pg-surface);
+  --mx-tables-footer-color: var(--pg-text);
+}

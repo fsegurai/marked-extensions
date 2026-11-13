@@ -1,0 +1,45 @@
+#output {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+h1 {
+  margin-top: 0;
+  padding-bottom: 0.3em;
+  border-bottom: 1px solid var(--pg-border);
+}
+
+/* tables-theme.css: every color from the app theme. */
+#output {
+  --marked-extended-table-bg: var(--pg-bg);
+  --marked-extended-table-text: var(--pg-text);
+  --marked-extended-table-caption-bg: var(--pg-surface);
+  --marked-extended-table-caption-color: var(--pg-text-muted);
+  --marked-extended-table-header-bg: var(--pg-surface-alt);
+  --marked-extended-table-header-color: var(--pg-text);
+  --marked-extended-table-footer-bg: var(--pg-surface-alt);
+  --marked-extended-table-footer-color: var(--pg-text);
+  --marked-extended-table-border: var(--pg-border);
+  --marked-extended-table-border-soft: var(--pg-border);
+  --marked-extended-table-stripe-bg: var(--pg-surface);
+  --marked-extended-table-hover-bg: var(--pg-surface-alt);
+  --marked-extended-table-span-bg: var(--pg-surface);
+  --marked-extended-table-code-bg: var(--pg-code-bg);
+  --marked-extended-table-scrollbar-track: var(--pg-surface);
+  --marked-extended-table-scrollbar-thumb: var(--pg-border);
+  --marked-extended-table-scrollbar-thumb-hover: var(--pg-text-muted);
+}
+
+.report-table {
+  width: 100%;
+  margin: 0.5rem 0 1.5rem;
+}
+
+.report-table caption {
+  font-weight: 600;
+  text-align: left;
+}
+
+.report-table tfoot td {
+  font-weight: 600;
+}

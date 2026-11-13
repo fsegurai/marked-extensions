@@ -1,0 +1,52 @@
+#output {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+h1 {
+  margin-top: 0;
+  padding-bottom: 0.3em;
+  border-bottom: 1px solid var(--pg-border);
+}
+
+pre {
+  margin: 0;
+}
+
+/* tabs-theme.css: every color from the app theme. */
+#output {
+  --marked-extended-tabs-border-color: var(--pg-border);
+  --marked-extended-tabs-border-radius: var(--pg-radius);
+  --marked-extended-tabs-container-bg: var(--pg-bg);
+  --marked-extended-tabs-nav-bg: var(--pg-surface);
+  --marked-extended-tabs-nav-border-color: var(--pg-border);
+  --marked-extended-tabs-label-color: var(--pg-text-muted);
+  --marked-extended-tabs-label-hover-bg: var(--pg-surface-alt);
+  --marked-extended-tabs-label-hover-color: var(--pg-text);
+  --marked-extended-tabs-selected-background: var(--pg-bg);
+  --marked-extended-tabs-selected-border-color: var(--pg-primary);
+  --marked-extended-tabs-selected-color: var(--pg-primary);
+  --marked-extended-tabs-content-background: var(--pg-bg);
+  --marked-extended-tabs-content-color: var(--pg-text);
+  --marked-extended-tabs-focus-outline: var(--pg-primary);
+  --marked-extended-tabs-scrollbar-track: var(--pg-surface);
+  --marked-extended-tabs-scrollbar-thumb: var(--pg-border);
+  --marked-extended-tabs-scrollbar-thumb-hover: var(--pg-text-muted);
+  --marked-extended-tabs-pills-nav-bg: var(--pg-surface);
+  --marked-extended-tabs-pills-hover-bg: var(--pg-surface-alt);
+}
+
+/* accordion-theme.css: surfaces and text from the app theme; the variant accents stay the package ones. */
+#output {
+  --marked-extended-accordion-border-color: var(--pg-border);
+  --marked-extended-accordion-background-color: var(--pg-bg);
+  --marked-extended-accordion-header-background-color: var(--pg-surface);
+  --marked-extended-accordion-header-hover-background-color: var(--pg-surface-alt);
+  --marked-extended-accordion-text-color: var(--pg-text);
+  --marked-extended-accordion-content-color: var(--pg-text);
+  --marked-extended-accordion-radius: var(--pg-radius);
+}
+
+.marked-extended-accordion {
+  margin: 0.75rem 0;
+}

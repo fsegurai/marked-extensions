@@ -1,0 +1,39 @@
+{
+  "imports": {
+    "marked": "https://cdn.jsdelivr.net/npm/marked@18/+esm",
+    "https://cdn.jsdelivr.net/npm/marked@%5E18/+esm": "https://cdn.jsdelivr.net/npm/marked@18/+esm",
+    "https://cdn.jsdelivr.net/npm/marked@18.0.13/+esm": "https://cdn.jsdelivr.net/npm/marked@18/+esm",
+    "@fsegurai/marked-extended-accordion": "https://cdn.jsdelivr.net/npm/@fsegurai/marked-extended-accordion@{version}/+esm",
+    "@fsegurai/marked-extended-alert": "https://cdn.jsdelivr.net/npm/@fsegurai/marked-extended-alert@{version}/+esm",
+    "@fsegurai/marked-extended-footnote": "https://cdn.jsdelivr.net/npm/@fsegurai/marked-extended-footnote@{version}/+esm",
+    "@fsegurai/marked-extended-tables": "https://cdn.jsdelivr.net/npm/@fsegurai/marked-extended-tables@{version}/+esm",
+    "@fsegurai/marked-extended-tabs": "https://cdn.jsdelivr.net/npm/@fsegurai/marked-extended-tabs@{version}/+esm",
+    "@fsegurai/marked-extended-typographic": "https://cdn.jsdelivr.net/npm/@fsegurai/marked-extended-typographic@{version}/+esm"
+  },
+  "samples": [
+    {
+      "id": "alerts",
+      "label": "Alerts",
+      "description": "GitHub-style alerts with built-in types, custom titles, icon overrides and a custom variant.",
+      "files": ["input.md", "main.js", "styles.css", "index.html"]
+    },
+    {
+      "id": "tables",
+      "label": "Spanning tables",
+      "description": "Tables with column and row spans, multi-row headers, a caption and a footer row.",
+      "files": ["input.md", "main.js", "styles.css", "index.html"]
+    },
+    {
+      "id": "tabs-accordion",
+      "label": "Tabs and accordions",
+      "description": "CSS-only tabs with a switch callback, and an FAQ of accordions that keeps one item open.",
+      "files": ["input.md", "main.js", "styles.css", "index.html"]
+    },
+    {
+      "id": "docs-page",
+      "label": "Documentation page",
+      "description": "Several extensions on one page: nested accordion, tabs and alerts, footnotes and typography.",
+      "files": ["input.md", "main.js", "styles.css", "index.html"]
+    }
+  ]
+}
