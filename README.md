@@ -11,6 +11,10 @@
       <img src="https://img.shields.io/github/v/release/fsegurai/marked-extensions"
           alt="Latest Release">
   </a>
+  <a href="https://www.npmjs.com/package/@fsegurai/marked-extended-bundle">
+      <img src="https://img.shields.io/npm/dt/@fsegurai/marked-extended-bundle?label=bundle%20downloads"
+          alt="Total npm downloads of the bundle">
+  </a>
   <br>
   <img alt="GitHub contributors" src="https://img.shields.io/github/contributors/fsegurai/marked-extensions">
   <img alt="Dependency status for repo" src="https://img.shields.io/librariesio/github/fsegurai/marked-extensions">
@@ -70,8 +74,9 @@ marked.parse(exampleMarkdown);
 
 ## Framework Integration
 
-Since 19.0.0-beta.0, every package follows one runtime contract, so the same output works in plain pages, React, Vue,
-Angular and server-side rendering. Upgrading from 18.x? Read [MIGRATION-19.md](./MIGRATION-19.md).
+Since 18.1.0, every package follows one runtime contract, so the same output works in plain pages, React, Vue,
+Angular and server-side rendering. Upgrading from 18.0.x? Read [MIGRATION-18.1.md](./MIGRATION-18.1.md): 18.1.0 is a
+minor version with breaking changes.
 
 - **Sanitizer-safe markup.** The default HTML survives strict sanitizers such as Angular's `SecurityContext.HTML`:
   state lives in `class`, `aria-*`, `role`, `hidden`, `open` and `tabindex`, configuration in `mx-<pkg>-<key>-<value>`
@@ -101,43 +106,46 @@ handle.refresh();                     // after replacing the content
 handle.dispose();                     // on teardown
 ```
 
-React, Vue and Angular examples are in [MIGRATION-19.md](./MIGRATION-19.md#the-runtime-contract). An ngx-markdown
+React, Vue and Angular examples are in [MIGRATION-18.1.md](./MIGRATION-18.1.md#the-runtime-contract). An ngx-markdown
 adapter (`withMarkedExtended`) is planned.
 
 ## Compatibility
 
-| Packages      | Marked peer       | Notes                                                                                 |
-|---------------|-------------------|---------------------------------------------------------------------------------------|
-| 19.x (stable) | marked 19         | Not released yet: the stable 19.0.0 moves the peer to marked 19 when marked 19 ships  |
-| 19.0.0-beta.x | `^18` (for now)   | Safe-by-default runtime contract (breaking, see [MIGRATION-19.md](./MIGRATION-19.md)) |
-| 18.0.x        | `^18`             |                                                                                       |
-| 17.x          | `^17`             |                                                                                       |
+| Packages      | Marked peer | Notes                                                                                                   |
+|---------------|-------------|---------------------------------------------------------------------------------------------------------|
+| 18.1.x        | `^18`       | Safe-by-default runtime contract, `mx-` classes (breaking, see [MIGRATION-18.1.md](./MIGRATION-18.1.md)) |
+| 18.0.x        | `^18`       | Pin `~18.0.0` to stay on the 18.0 markup                                                                |
+| 17.x          | `^17`       |                                                                                                         |
 
-Every package, including the new `code` and `core` packages, is released as 19.0.0-beta.0. The packages stay in beta,
-with the `marked ^18` peer, until marked 19 is released.
+18.1.0 is a minor version that contains breaking changes, so a `^18` range picks it up: pin `~18.0.0` until you have
+followed [MIGRATION-18.1.md](./MIGRATION-18.1.md).
 
 ## More Resources
 
 ### Available Extensions
 
-| Extension    | Package                                                                                                      | Version                                                                    | Description                                                          |
-|--------------|--------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------|----------------------------------------------------------------------|
-| All - Bundle | [@fsegurai/marked-extended-bundle](https://www.npmjs.com/package/@fsegurai/marked-extended-bundle)           | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-bundle)      | Includes all extensions in a single package for easy integration     |
-| Accordion    | [@fsegurai/marked-extended-accordion](https://www.npmjs.com/package/@fsegurai/marked-extended-accordion)     | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-accordion)   | Add collapsible accordion sections to your markdown                  |
-| Alert        | [@fsegurai/marked-extended-alert](https://www.npmjs.com/package/@fsegurai/marked-extended-alert)             | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-alert)       | Create styled alert boxes for important information                  |
-| Code         | [@fsegurai/marked-extended-code](https://www.npmjs.com/package/@fsegurai/marked-extended-code)               | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-code)        | Code blocks with titles, line numbers, highlights, diffs and groups  |
-| Comments     | [@fsegurai/marked-extended-comments](https://www.npmjs.com/package/@fsegurai/marked-extended-comments)       | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-comments)    | Add comment sections with author and timestamp metadata              |
-| Core         | [@fsegurai/marked-extended-core](https://www.npmjs.com/package/@fsegurai/marked-extended-core)               | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-core)        | Shared runtime helpers (bundled into every package; for authors)     |
-| Embeds       | [@fsegurai/marked-extended-embeds](https://www.npmjs.com/package/@fsegurai/marked-extended-embeds)           | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-embeds)      | Easily embed content from various platforms (YouTube, Twitter, etc.) |
-| Footnote     | [@fsegurai/marked-extended-footnote](https://www.npmjs.com/package/@fsegurai/marked-extended-footnote)       | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-footnote)    | Add footnotes with automatic numbering                               |
-| Kanban       | [@fsegurai/marked-extended-kanban](https://www.npmjs.com/package/@fsegurai/marked-extended-kanban)           | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-kanban)      | Create kanban boards with customizable columns and cards             |
-| Lists        | [@fsegurai/marked-extended-lists](https://www.npmjs.com/package/@fsegurai/marked-extended-lists)             | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-lists)       | Enhanced list formatting options                                     |
-| Slide        | [@fsegurai/marked-extended-slide](https://www.npmjs.com/package/@fsegurai/marked-extended-slide)             | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-slide)       | Create slide decks directly from markdown content                    |
-| Spoiler      | [@fsegurai/marked-extended-spoiler](https://www.npmjs.com/package/@fsegurai/marked-extended-spoiler)         | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-spoiler)     | Hide content behind spoiler tags                                     |
-| Tables       | [@fsegurai/marked-extended-tables](https://www.npmjs.com/package/@fsegurai/marked-extended-tables)           | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-tables)      | Advanced table formatting with cell spanning                         |
-| Tabs         | [@fsegurai/marked-extended-tabs](https://www.npmjs.com/package/@fsegurai/marked-extended-tabs)               | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-tabs)        | Create tabbed content sections                                       |
-| Timeline     | [@fsegurai/marked-extended-timeline](https://www.npmjs.com/package/@fsegurai/marked-extended-timeline)       | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-timeline)    | Display content in an interactive timeline format                    |
-| Typographic  | [@fsegurai/marked-extended-typographic](https://www.npmjs.com/package/@fsegurai/marked-extended-typographic) | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-typographic) | Improve typography with smart quotes, dashes, and more               |
+| Extension    | Package                                                                                                      | Version                                                                    | Downloads | Description                                                          |
+|--------------|--------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------|-----------|----------------------------------------------------------------------|
+| All - Bundle | [@fsegurai/marked-extended-bundle](https://www.npmjs.com/package/@fsegurai/marked-extended-bundle)           | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-bundle)      | ![downloads](https://img.shields.io/npm/dt/@fsegurai/marked-extended-bundle) | Includes all extensions in a single package for easy integration     |
+| Accordion    | [@fsegurai/marked-extended-accordion](https://www.npmjs.com/package/@fsegurai/marked-extended-accordion)     | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-accordion)   | ![downloads](https://img.shields.io/npm/dt/@fsegurai/marked-extended-accordion) | Add collapsible accordion sections to your markdown                  |
+| Alert        | [@fsegurai/marked-extended-alert](https://www.npmjs.com/package/@fsegurai/marked-extended-alert)             | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-alert)       | ![downloads](https://img.shields.io/npm/dt/@fsegurai/marked-extended-alert) | Create styled alert boxes for important information                  |
+| Code         | [@fsegurai/marked-extended-code](https://www.npmjs.com/package/@fsegurai/marked-extended-code)               | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-code)        | ![downloads](https://img.shields.io/npm/dt/@fsegurai/marked-extended-code) | Code blocks with titles, line numbers, highlights, diffs and groups  |
+| Comments     | [@fsegurai/marked-extended-comments](https://www.npmjs.com/package/@fsegurai/marked-extended-comments)       | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-comments)    | ![downloads](https://img.shields.io/npm/dt/@fsegurai/marked-extended-comments) | Add comment sections with author and timestamp metadata              |
+| Core         | [@fsegurai/marked-extended-core](https://www.npmjs.com/package/@fsegurai/marked-extended-core)               | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-core)        | ![downloads](https://img.shields.io/npm/dt/@fsegurai/marked-extended-core) | Shared runtime helpers (bundled into every package; for authors)     |
+| Embeds       | [@fsegurai/marked-extended-embeds](https://www.npmjs.com/package/@fsegurai/marked-extended-embeds)           | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-embeds)      | ![downloads](https://img.shields.io/npm/dt/@fsegurai/marked-extended-embeds) | Easily embed content from various platforms (YouTube, Twitter, etc.) |
+| Footnote     | [@fsegurai/marked-extended-footnote](https://www.npmjs.com/package/@fsegurai/marked-extended-footnote)       | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-footnote)    | ![downloads](https://img.shields.io/npm/dt/@fsegurai/marked-extended-footnote) | Add footnotes with automatic numbering                               |
+| Inline       | [@fsegurai/marked-extended-inline](https://www.npmjs.com/package/@fsegurai/marked-extended-inline)           | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-inline)      | ![downloads](https://img.shields.io/npm/dt/@fsegurai/marked-extended-inline) | Inline marks: ==highlight==, optional ++insert++, ^superscript^ and ~subscript~ |
+| Kanban       | [@fsegurai/marked-extended-kanban](https://www.npmjs.com/package/@fsegurai/marked-extended-kanban)           | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-kanban)      | ![downloads](https://img.shields.io/npm/dt/@fsegurai/marked-extended-kanban) | Create kanban boards with customizable columns and cards             |
+| Lists        | [@fsegurai/marked-extended-lists](https://www.npmjs.com/package/@fsegurai/marked-extended-lists)             | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-lists)       | ![downloads](https://img.shields.io/npm/dt/@fsegurai/marked-extended-lists) | Enhanced list formatting options                                     |
+| Slide        | [@fsegurai/marked-extended-slide](https://www.npmjs.com/package/@fsegurai/marked-extended-slide)             | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-slide)       | ![downloads](https://img.shields.io/npm/dt/@fsegurai/marked-extended-slide) | Create slide decks directly from markdown content                    |
+| Source Map   | [@fsegurai/marked-extended-source-map](https://www.npmjs.com/package/@fsegurai/marked-extended-source-map)   | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-source-map)  | ![downloads](https://img.shields.io/npm/dt/@fsegurai/marked-extended-source-map) | Source line numbers and safe heading ids for editor-preview scroll sync |
+| Spoiler      | [@fsegurai/marked-extended-spoiler](https://www.npmjs.com/package/@fsegurai/marked-extended-spoiler)         | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-spoiler)     | ![downloads](https://img.shields.io/npm/dt/@fsegurai/marked-extended-spoiler) | Hide content behind spoiler tags                                     |
+| Tables       | [@fsegurai/marked-extended-tables](https://www.npmjs.com/package/@fsegurai/marked-extended-tables)           | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-tables)      | ![downloads](https://img.shields.io/npm/dt/@fsegurai/marked-extended-tables) | Advanced table formatting with cell spanning                         |
+| Tabs         | [@fsegurai/marked-extended-tabs](https://www.npmjs.com/package/@fsegurai/marked-extended-tabs)               | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-tabs)        | ![downloads](https://img.shields.io/npm/dt/@fsegurai/marked-extended-tabs) | Create tabbed content sections                                       |
+| Timeline     | [@fsegurai/marked-extended-timeline](https://www.npmjs.com/package/@fsegurai/marked-extended-timeline)       | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-timeline)    | ![downloads](https://img.shields.io/npm/dt/@fsegurai/marked-extended-timeline) | Display content in an interactive timeline format                    |
+| TOC          | [@fsegurai/marked-extended-toc](https://www.npmjs.com/package/@fsegurai/marked-extended-toc)                 | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-toc)         | ![downloads](https://img.shields.io/npm/dt/@fsegurai/marked-extended-toc) | Generate a table of contents with [toc] or [toc:N]                   |
+| Typographic  | [@fsegurai/marked-extended-typographic](https://www.npmjs.com/package/@fsegurai/marked-extended-typographic) | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-typographic) | ![downloads](https://img.shields.io/npm/dt/@fsegurai/marked-extended-typographic) | Improve typography with smart quotes, dashes, and more               |
+| Wikilinks    | [@fsegurai/marked-extended-wikilinks](https://www.npmjs.com/package/@fsegurai/marked-extended-wikilinks)     | ![npm](https://img.shields.io/npm/v/@fsegurai/marked-extended-wikilinks)   | ![downloads](https://img.shields.io/npm/dt/@fsegurai/marked-extended-wikilinks) | Wiki-style [[target#heading\|alias]] links resolved by your callback |
 
 ### Demo Application
 
