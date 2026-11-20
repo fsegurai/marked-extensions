@@ -1,0 +1,99 @@
+{
+  "imports": {
+    "marked": "https://cdn.jsdelivr.net/npm/marked@18.2.1/lib/marked.esm.js",
+    "@fsegurai/marked-extended-accordion": "https://cdn.jsdelivr.net/npm/@fsegurai/marked-extended-accordion@18.1.0/dist/index.esm.js",
+    "@fsegurai/marked-extended-alert": "https://cdn.jsdelivr.net/npm/@fsegurai/marked-extended-alert@18.1.0/dist/index.esm.js",
+    "@fsegurai/marked-extended-bundle": "https://cdn.jsdelivr.net/npm/@fsegurai/marked-extended-bundle@18.1.0/dist/index.esm.js",
+    "@fsegurai/marked-extended-code": "https://cdn.jsdelivr.net/npm/@fsegurai/marked-extended-code@18.1.0/dist/index.esm.js",
+    "@fsegurai/marked-extended-comments": "https://cdn.jsdelivr.net/npm/@fsegurai/marked-extended-comments@18.1.0/dist/index.esm.js",
+    "@fsegurai/marked-extended-core": "https://cdn.jsdelivr.net/npm/@fsegurai/marked-extended-core@18.1.0/dist/index.esm.js",
+    "@fsegurai/marked-extended-embeds": "https://cdn.jsdelivr.net/npm/@fsegurai/marked-extended-embeds@18.1.0/dist/index.esm.js",
+    "@fsegurai/marked-extended-footnote": "https://cdn.jsdelivr.net/npm/@fsegurai/marked-extended-footnote@18.1.0/dist/index.esm.js",
+    "@fsegurai/marked-extended-inline": "https://cdn.jsdelivr.net/npm/@fsegurai/marked-extended-inline@18.1.0/dist/index.esm.js",
+    "@fsegurai/marked-extended-kanban": "https://cdn.jsdelivr.net/npm/@fsegurai/marked-extended-kanban@18.1.0/dist/index.esm.js",
+    "@fsegurai/marked-extended-lists": "https://cdn.jsdelivr.net/npm/@fsegurai/marked-extended-lists@18.1.0/dist/index.esm.js",
+    "@fsegurai/marked-extended-slide": "https://cdn.jsdelivr.net/npm/@fsegurai/marked-extended-slide@18.1.0/dist/index.esm.js",
+    "@fsegurai/marked-extended-source-map": "https://cdn.jsdelivr.net/npm/@fsegurai/marked-extended-source-map@18.1.0/dist/index.esm.js",
+    "@fsegurai/marked-extended-spoiler": "https://cdn.jsdelivr.net/npm/@fsegurai/marked-extended-spoiler@18.1.0/dist/index.esm.js",
+    "@fsegurai/marked-extended-tables": "https://cdn.jsdelivr.net/npm/@fsegurai/marked-extended-tables@18.1.0/dist/index.esm.js",
+    "@fsegurai/marked-extended-tabs": "https://cdn.jsdelivr.net/npm/@fsegurai/marked-extended-tabs@18.1.0/dist/index.esm.js",
+    "@fsegurai/marked-extended-timeline": "https://cdn.jsdelivr.net/npm/@fsegurai/marked-extended-timeline@18.1.0/dist/index.esm.js",
+    "@fsegurai/marked-extended-toc": "https://cdn.jsdelivr.net/npm/@fsegurai/marked-extended-toc@18.1.0/dist/index.esm.js",
+    "@fsegurai/marked-extended-typographic": "https://cdn.jsdelivr.net/npm/@fsegurai/marked-extended-typographic@18.1.0/dist/index.esm.js",
+    "@fsegurai/marked-extended-wikilinks": "https://cdn.jsdelivr.net/npm/@fsegurai/marked-extended-wikilinks@18.1.0/dist/index.esm.js"
+  },
+  "samples": [
+    {
+      "id": "alerts",
+      "label": "Alerts",
+      "description": "GitHub-style alerts: built-in variants, custom titles, a custom variant and alerts inside other blocks.",
+      "files": ["input.md", "main.js", "styles.css", "index.html"]
+    },
+    {
+      "id": "footnotes",
+      "label": "Footnotes",
+      "description": "Numbered, named and inline footnotes with hover previews; attachFootnotes scrolls and highlights the target.",
+      "files": ["input.md", "main.js", "styles.css", "index.html"]
+    },
+    {
+      "id": "code",
+      "label": "Code blocks",
+      "description": "Titles, line numbers, highlighted, inserted and deleted lines, and code groups; attachCode wraps lines and switches groups.",
+      "files": ["input.md", "main.js", "styles.css", "index.html"]
+    },
+    {
+      "id": "spoiler",
+      "label": "Spoilers",
+      "description": "Click or press Enter to reveal; front-matter data-* values come back only for the names in allowedDataAttributes.",
+      "files": ["input.md", "main.js", "styles.css", "index.html"]
+    },
+    {
+      "id": "tables",
+      "label": "Spanning tables",
+      "description": "Column spans with ||, row spans with ^^, a caption, multi-row headers and a footer row.",
+      "files": ["input.md", "main.js", "styles.css", "index.html"]
+    },
+    {
+      "id": "lists",
+      "label": "Task lists",
+      "description": "interactiveCheckboxes: 'attached' boxes stay read-only until attachLists runs; lineOffset maps each toggle to its line in the file, which the sample rewrites.",
+      "files": ["input.md", "main.js", "styles.css", "index.html"]
+    },
+    {
+      "id": "tabs-timeline",
+      "label": "Tabs and timeline",
+      "description": "Keyboard-accessible tabs (attachTabs) and a dated timeline whose events keep their calendar date in every time zone.",
+      "files": ["input.md", "main.js", "styles.css", "index.html"]
+    },
+    {
+      "id": "typographic",
+      "label": "Typography",
+      "description": "Smart quotes, dashes, ellipses and fractions, with classes skipped and typographicTransform for HTML you already have; quotes and backticks are separate groups.",
+      "files": ["input.md", "main.js", "styles.css", "index.html"]
+    },
+    {
+      "id": "notes",
+      "label": "Linked notes",
+      "description": "A note page: [toc], ==highlights==, [[wiki links]] with a resolve callback, and attachSourceMap stamping data-line and heading ids.",
+      "files": ["input.md", "main.js", "styles.css", "index.html"]
+    },
+    {
+      "id": "labels",
+      "label": "Labels and i18n",
+      "description": "Every user-visible string comes from a labels option: alert titles, footnote heading, spoiler hint, timeline and TOC text in Spanish.",
+      "files": ["input.md", "main.js", "styles.css", "index.html"]
+    },
+    {
+      "id": "sanitizer",
+      "label": "Sanitized output",
+      "description": "Renders through an Angular-like allow-list sanitizer first, then attaches the runtimes: the default markup keeps working.",
+      "files": ["input.md", "main.js", "styles.css", "index.html"]
+    },
+    {
+      "id": "theme-tokens",
+      "label": "Theme tokens",
+      "description": "Seven extensions restyled at once by the --mx-* base tokens on :root: presets, color pickers and the CSS they set.",
+      "files": ["input.md", "main.js", "styles.css", "index.html"]
+    }
+  ]
+}

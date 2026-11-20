@@ -1,0 +1,17 @@
+#output {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+h1 {
+  margin-top: 0;
+  padding-bottom: 0.3em;
+  border-bottom: 1px solid var(--pg-border);
+}
+
+/* spoiler-theme.css: surface and focus ring from the playground. */
+#output {
+  --mx-spoiler-surface-bg: var(--pg-surface);
+  --mx-spoiler-focus-color: var(--pg-primary);
+  --mx-spoiler-border-radius: var(--pg-radius);
+}

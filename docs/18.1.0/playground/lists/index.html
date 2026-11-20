@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fsegurai/marked-extended-lists@18.1.0/dist/styles/lists.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fsegurai/marked-extended-lists@18.1.0/dist/styles/lists-theme.css" />
+  </head>
+  <body>
+    <div class="layout">
+      <main id="output"></main>
+      <aside class="panel">
+        <div class="toolbar">
+          <button type="button" id="attach" aria-pressed="false">Enable toggling</button>
+          <span id="state" role="status">Read-only: attachLists is not attached</span>
+        </div>
+        <p class="caption">input.md, rewritten from each toggle's <code>line</code></p>
+        <pre id="source"></pre>
+      </aside>
+    </div>
+  </body>
+</html>

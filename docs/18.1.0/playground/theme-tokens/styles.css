@@ -1,0 +1,87 @@
+.layout {
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  gap: 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+@media (max-width: 760px) {
+  .layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+h1 {
+  margin-top: 0;
+  padding-bottom: 0.3em;
+  border-bottom: 1px solid var(--pg-border);
+}
+
+/* The controls use the playground colors only, so they stay readable whatever the tokens are. */
+.tokens {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  align-self: start;
+  padding: 1rem;
+  border: 1px solid var(--pg-border);
+  border-radius: var(--pg-radius);
+  background: var(--pg-surface);
+  color: var(--pg-text);
+}
+
+.tokens h2 {
+  margin: 0 0 0.25rem;
+  font-size: 1rem;
+}
+
+.tokens label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.tokens input[type="color"] {
+  width: 2rem;
+  height: 1.5rem;
+  padding: 0;
+  border: 1px solid var(--pg-border);
+  background: none;
+}
+
+.tokens input[type="range"] {
+  width: 6rem;
+}
+
+.presets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.presets button {
+  padding: 0.3em 0.7em;
+  border: 1px solid var(--pg-primary);
+  border-radius: var(--pg-radius);
+  background: var(--pg-bg);
+  color: var(--pg-primary);
+  font: inherit;
+  font-size: 0.8125rem;
+  cursor: pointer;
+}
+
+#css {
+  margin: 0.5rem 0 0;
+  padding: 0.5rem;
+  overflow-x: auto;
+  border: 1px solid var(--pg-border);
+  border-radius: var(--pg-radius);
+  background: var(--pg-bg);
+  color: var(--pg-text-muted);
+  font-size: 0.75rem;
+}
+
+/* No --mx-<pkg>-* property is set here: a component property would win over the base tokens this sample shows. */

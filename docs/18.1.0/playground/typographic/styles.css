@@ -1,0 +1,38 @@
+#output {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+h1 {
+  margin-top: 0;
+  padding-bottom: 0.3em;
+  border-bottom: 1px solid var(--pg-border);
+}
+
+#groups {
+  max-width: 760px;
+  margin: 2rem auto 0;
+}
+
+#groups h2 {
+  font-size: 1.1rem;
+}
+
+#groups p {
+  color: var(--pg-text-muted);
+}
+
+#groups table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#groups :is(th, td) {
+  padding: 0.4em 0.75em;
+  border: 1px solid var(--pg-border);
+  text-align: left;
+}
+
+#groups th {
+  background: var(--pg-surface);
+}

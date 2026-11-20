@@ -1,0 +1,25 @@
+#output {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+h1 {
+  margin-top: 0;
+  padding-bottom: 0.3em;
+  border-bottom: 1px solid var(--pg-border);
+}
+
+/* footnote-theme.css: links, section and tooltip from the playground. */
+#output {
+  --mx-footnote-ref-color: var(--pg-primary);
+  --mx-footnote-ref-hover-color: var(--pg-primary);
+  --mx-footnote-ref-hover-bg: color-mix(in srgb, var(--pg-primary) 12%, transparent);
+  --mx-footnote-tooltip-bg: var(--pg-surface-alt);
+  --mx-footnote-tooltip-color: var(--pg-text);
+  --mx-footnote-section-bg: var(--pg-surface);
+  --mx-footnote-section-border-color: var(--pg-primary);
+  --mx-footnote-section-radius: var(--pg-radius);
+  --mx-footnote-marker-color: var(--pg-text-muted);
+  --mx-footnote-backref-color: var(--pg-primary);
+  --mx-footnote-backref-hover-color: var(--pg-accent);
+}

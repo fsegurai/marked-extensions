@@ -1,0 +1,478 @@
+[
+  {
+    "label": "Documentation Home",
+    "description": "Documentation for @fsegurai/marked-extensions 15.1.3: 6 JavaScript extensions for Marked 13 to 15, including the fenced code preview and spoiler blocks of the 15.1 line.",
+    "route": "content/README",
+    "tags": ["documentation", "overview", "marked"],
+    "headings": ["Quick start", "What 15.1.3 looks like", "Sections", "Links"],
+    "excerpt": " . This documentation covers the 15.1.",
+    "breadcrumb": [
+      {
+        "label": "Home",
+        "route": "content/README"
+      }
+    ]
+  },
+  {
+    "label": "API Reference",
+    "description": "Exact exports and signatures of each extension package, read from the 15.1.3 sources and declarations.",
+    "route": "content/api/README",
+    "tags": ["api", "reference"],
+    "headings": ["Shared shape", "Module formats", "Next step"],
+    "excerpt": "API Reference\n\nSignatures on these pages are taken from each package's and hand-written at tag\n . Where the two disagree, the extension pages follow...",
+    "breadcrumb": [
+      {
+        "label": "API",
+        "route": "content/api"
+      },
+      {
+        "label": "API",
+        "route": "content/api/README"
+      }
+    ]
+  },
+  {
+    "label": "Extension Packages",
+    "description": "Default export signature, runtime named exports and declared TypeScript types of each of the 6 extension packages in 15.1.3, with the gaps between declarations and source.",
+    "route": "content/api/extension-packages",
+    "tags": ["api", "packages"],
+    "headings": ["Declaration gaps", "Next step"],
+    "excerpt": "Each package's default export is its extension factory, and it is the only runtime export in 15.1.3.",
+    "breadcrumb": [
+      {
+        "label": "API",
+        "route": "content/api"
+      },
+      {
+        "label": "Extension Packages",
+        "route": "content/api/extension-packages"
+      }
+    ]
+  },
+  {
+    "label": "Examples",
+    "description": "Complete, copyable 15.1.3 setups for plain JavaScript, React, Vue and Angular.",
+    "route": "content/examples/README",
+    "tags": ["examples", "recipes"],
+    "headings": ["Live demo", "Next step"],
+    "excerpt": "Each example is complete: install, register, render.",
+    "breadcrumb": [
+      {
+        "label": "Examples",
+        "route": "content/examples"
+      },
+      {
+        "label": "Examples",
+        "route": "content/examples/README"
+      }
+    ]
+  },
+  {
+    "label": "Frameworks",
+    "description": "React, Vue and Angular components that render 15.1.3 HTML, register the extensions once and account for the spoiler's post-render timer.",
+    "route": "content/examples/frameworks",
+    "tags": ["examples", "frameworks"],
+    "headings": ["React", "Vue", "Angular", "Limits", "Next step"],
+    "excerpt": "Register the extensions once, at module level, and pass to code preview and spoiler.",
+    "breadcrumb": [
+      {
+        "label": "Examples",
+        "route": "content/examples"
+      },
+      {
+        "label": "Frameworks",
+        "route": "content/examples/frameworks"
+      }
+    ]
+  },
+  {
+    "label": "Plain JavaScript",
+    "description": "Register all 6 extensions of 15.1.3 on the default marked export, as the project demo does, and render into the page.",
+    "route": "content/examples/plain-javascript",
+    "tags": ["examples", "javascript"],
+    "headings": ["What runs after rendering", "Next step"],
+    "excerpt": "This mirrors the demo setup ( ), which also registers with Prism.",
+    "breadcrumb": [
+      {
+        "label": "Examples",
+        "route": "content/examples"
+      },
+      {
+        "label": "Plain JavaScript",
+        "route": "content/examples/plain-javascript"
+      }
+    ]
+  },
+  {
+    "label": "Extensions",
+    "description": "Catalog of the 6 Marked extensions in 15.1.3 with their package version, default export, browser behavior and the Markdown syntax each one parses.",
+    "route": "content/extensions/README",
+    "tags": ["extensions", "catalog"],
+    "headings": ["Catalog", "The `markedInstance` argument", "What every page covers", "Next step"],
+    "excerpt": " . Each package's default export is the extension factory.",
+    "breadcrumb": [
+      {
+        "label": "Extensions",
+        "route": "content/extensions"
+      },
+      {
+        "label": "Extensions",
+        "route": "content/extensions/README"
+      }
+    ]
+  },
+  {
+    "label": "Code Preview",
+    "description": "Collapsible details panels from ```preview fenced blocks with a title, a subtitle and Markdown content, plus a custom template and token hook.",
+    "route": "content/extensions/code-preview",
+    "tags": ["extensions", "code-preview"],
+    "headings": ["Quick path", "Syntax", "Options", "Rendered HTML", "Browser behavior", "Next step"],
+    "excerpt": "Code Preview\n\n (15.1.0) turns a preview bash\nnpm install @fsegurai/marked-extended-code-preview marked@^15\n js\nimport { marked } from...",
+    "breadcrumb": [
+      {
+        "label": "Extensions",
+        "route": "content/extensions"
+      },
+      {
+        "label": "Code Preview",
+        "route": "content/extensions/code-preview"
+      }
+    ]
+  },
+  {
+    "label": "Footnote",
+    "description": "Numbered footnote references and definitions with an endnotes section and backlinks, configured with prefixId, description and refMarkers.",
+    "route": "content/extensions/footnote",
+    "tags": ["extensions", "footnote"],
+    "headings": ["Quick path", "Syntax", "Options", "Rendered HTML", "Browser behavior", "Next step"],
+    "excerpt": "Footnote\n\n (15.1.0) numbers references, collects definitions and appends\na footnotes section to the end of the document. It injects no styles and...",
+    "breadcrumb": [
+      {
+        "label": "Extensions",
+        "route": "content/extensions"
+      },
+      {
+        "label": "Footnote",
+        "route": "content/extensions/footnote"
+      }
+    ]
+  },
+  {
+    "label": "Lists",
+    "description": "Alphabetic and Roman ordered lists, skipped values and task checkboxes through a replacement list tokenizer and renderer.",
+    "route": "content/extensions/lists",
+    "tags": ["extensions", "lists"],
+    "headings": ["Quick path", "Syntax", "Options", "Rendered HTML", "Exports", "Browser behavior", "Next step"],
+    "excerpt": " (15.1.0) replaces Marked's tokenizer and the / renderers.",
+    "breadcrumb": [
+      {
+        "label": "Extensions",
+        "route": "content/extensions"
+      },
+      {
+        "label": "Lists",
+        "route": "content/extensions/lists"
+      }
+    ]
+  },
+  {
+    "label": "Spoiler",
+    "description": "Hidden content from ```spoiler fenced blocks, revealed on hover, with particles and a style element that the factory adds to the page in the browser.",
+    "route": "content/extensions/spoiler",
+    "tags": ["extensions", "spoiler"],
+    "headings": ["Quick path", "Syntax", "Options", "Rendered HTML", "Browser behavior", "Next step"],
+    "excerpt": " (15.0.0) hides Markdown behind an overlay.",
+    "breadcrumb": [
+      {
+        "label": "Extensions",
+        "route": "content/extensions"
+      },
+      {
+        "label": "Spoiler",
+        "route": "content/extensions/spoiler"
+      }
+    ]
+  },
+  {
+    "label": "Tables",
+    "description": "Pipe tables with column spanning (||), row spanning (^) and multi-row headers through a spanTable block extension that takes no options.",
+    "route": "content/extensions/tables",
+    "tags": ["extensions", "tables"],
+    "headings": ["Quick path", "Syntax", "Options", "Rendered HTML", "Browser behavior", "Next step"],
+    "excerpt": "Tables\n\n (15.1.0) adds a block extension that takes over pipe-table syntax and\nadds cell spanning and multi-row headers. It is render-only: it...",
+    "breadcrumb": [
+      {
+        "label": "Extensions",
+        "route": "content/extensions"
+      },
+      {
+        "label": "Tables",
+        "route": "content/extensions/tables"
+      }
+    ]
+  },
+  {
+    "label": "Typographic",
+    "description": "Symbol shortcodes such as (c^), (==) and (alpha), plus SmartyPants dashes and ellipses applied to the rendered HTML, configured with a single attr argument.",
+    "route": "content/extensions/typographic",
+    "tags": ["extensions", "typographic"],
+    "headings": [
+      "Quick path",
+      "Options",
+      "Shortcodes",
+      "Known limits with Marked 15",
+      "Exports",
+      "Browser behavior",
+      "Next step"
+    ],
+    "excerpt": "Typographic\n\n (15.1.0) runs a SmartyPants port and a table of symbol shortcodes over the\nfinal HTML in a hook. Text inside , , , and is...",
+    "breadcrumb": [
+      {
+        "label": "Extensions",
+        "route": "content/extensions"
+      },
+      {
+        "label": "Typographic",
+        "route": "content/extensions/typographic"
+      }
+    ]
+  },
+  {
+    "label": "Getting Started",
+    "description": "Install a 15.1.3 extension with the marked peer, register it with marked.use and know which extensions need the marked function as a second argument.",
+    "route": "content/getting-started/README",
+    "tags": ["getting-started", "setup"],
+    "headings": ["Pages", "Before you start", "Next step"],
+    "excerpt": "Install one or more extensions together with (13, 14 or 15).",
+    "breadcrumb": [
+      {
+        "label": "Getting Started",
+        "route": "content/getting-started"
+      },
+      {
+        "label": "Getting Started",
+        "route": "content/getting-started/README"
+      }
+    ]
+  },
+  {
+    "label": "Installation",
+    "description": "Install a 15.1.3 marked-extended package with the marked peer, understand the declared entry points and load the UMD build from a CDN.",
+    "route": "content/getting-started/installation",
+    "tags": ["getting-started", "installation"],
+    "headings": [
+      "Install",
+      "Package versions in the 15.1.3 monorepo",
+      "Peer dependency",
+      "Entry points",
+      "Styles",
+      "CDN and UMD",
+      "Next step"
+    ],
+    "excerpt": "Install only the extensions you use, next to . There is no bundle package in 15.1.3.",
+    "breadcrumb": [
+      {
+        "label": "Getting Started",
+        "route": "content/getting-started"
+      },
+      {
+        "label": "Installation",
+        "route": "content/getting-started/installation"
+      }
+    ]
+  },
+  {
+    "label": "Quick Start",
+    "description": "Render a page with tables and a fenced spoiler in 15.1.3, pass marked to the spoiler factory and see what the spoiler does in the browser.",
+    "route": "content/getting-started/quick-start",
+    "tags": ["getting-started", "quick-start"],
+    "headings": ["1. Install", "2. Register and render", "3. What happens in the browser", "Checklist", "Next step"],
+    "excerpt": "This page renders Markdown with two extensions: Tables (static HTML) and Spoiler (hover reveal added in the browser).",
+    "breadcrumb": [
+      {
+        "label": "Getting Started",
+        "route": "content/getting-started"
+      },
+      {
+        "label": "Quick Start",
+        "route": "content/getting-started/quick-start"
+      }
+    ]
+  },
+  {
+    "label": "Guides",
+    "description": "Task-oriented guides for 15.1.3 browser behavior, styling the unstyled markup, combining extensions and upgrading from 15.0.",
+    "route": "content/guides/README",
+    "tags": ["guides", "how-to"],
+    "headings": ["Next step"],
+    "excerpt": "Each guide answers one question. Start with Browser Behavior if you render spoilers.",
+    "breadcrumb": [
+      {
+        "label": "Guides",
+        "route": "content/guides"
+      },
+      {
+        "label": "Guides",
+        "route": "content/guides/README"
+      }
+    ]
+  },
+  {
+    "label": "Browser Behavior",
+    "description": "Which 15.1.3 extension creates DOM elements and styles after rendering, when that code throws, and what it means for SSR, frameworks and sanitizers.",
+    "route": "content/guides/browser-behavior",
+    "tags": ["guides", "browser"],
+    "headings": ["Quick path", "Per extension", "Known limits", "Next step"],
+    "excerpt": "Five of the six extensions only produce HTML.",
+    "breadcrumb": [
+      {
+        "label": "Guides",
+        "route": "content/guides"
+      },
+      {
+        "label": "Browser Behavior",
+        "route": "content/guides/browser-behavior"
+      }
+    ]
+  },
+  {
+    "label": "Combining Extensions",
+    "description": "Register all six 15.1.3 extensions together, pass marked to code preview and spoiler, and know which extensions hook the same Marked stages.",
+    "route": "content/guides/combining-extensions",
+    "tags": ["guides", "integration"],
+    "headings": ["Quick path", "Nested content", "Where each extension hooks into Marked", "Next step"],
+    "excerpt": "All 6 extensions can be registered together.",
+    "breadcrumb": [
+      {
+        "label": "Guides",
+        "route": "content/guides"
+      },
+      {
+        "label": "Combining Extensions",
+        "route": "content/guides/combining-extensions"
+      }
+    ]
+  },
+  {
+    "label": "Styling",
+    "description": "The spoiler's injected styles, the classes emitted by the other 15.1.3 extensions, and what you must style yourself.",
+    "route": "content/guides/styling",
+    "tags": ["guides", "styling"],
+    "headings": ["Where the CSS comes from", "Customizing", "Next step"],
+    "excerpt": "15.1.3 packages ship no CSS files. Only the spoiler adds styles, from JavaScript in the browser.",
+    "breadcrumb": [
+      {
+        "label": "Guides",
+        "route": "content/guides"
+      },
+      {
+        "label": "Styling",
+        "route": "content/guides/styling"
+      }
+    ]
+  },
+  {
+    "label": "Upgrading from 15.0",
+    "description": "Move from the 15.0.0 release, which shipped only the tables package, to 15.1.3 and its five additional extension packages.",
+    "route": "content/guides/upgrading-from-15.0",
+    "tags": ["guides", "upgrade"],
+    "headings": ["Quick path", "Package changes", "Repository changes", "Next step"],
+    "excerpt": "Upgrading from 15.0\n\nThe 15.0.0 tag contains a single package, 15.0.0. 15.1.3 keeps it compatible and\nadds five packages. There is nothing to...",
+    "breadcrumb": [
+      {
+        "label": "Guides",
+        "route": "content/guides"
+      },
+      {
+        "label": "Upgrading from 15.0",
+        "route": "content/guides/upgrading-from-15.0"
+      }
+    ]
+  },
+  {
+    "label": "Help",
+    "description": "Release notes, answers to frequent questions, fixes for common problems, and links to the changelog and issue tracker for 15.1.3.",
+    "route": "content/help/README",
+    "tags": ["help", "support"],
+    "headings": ["Project resources", "Contributing in short"],
+    "excerpt": "| FAQ | You have a question about compatibility, syntax or behavior.",
+    "breadcrumb": [
+      {
+        "label": "Help",
+        "route": "content/help"
+      },
+      {
+        "label": "Help",
+        "route": "content/help/README"
+      }
+    ]
+  },
+  {
+    "label": "FAQ",
+    "description": "Frequent questions about the 15.1.3 version scheme, the marked peer, the markedInstance argument, fenced syntax and styles.",
+    "route": "content/help/faq",
+    "tags": ["help", "faq"],
+    "headings": [
+      "Why do the packages have other version numbers than 15.1.3?",
+      "Which Marked version do I need?",
+      "Why is the content of my spoiler or code preview not rendered?",
+      "Are there colon directives such as `::::spoiler`?",
+      "Is there a bundle?",
+      "Where are the CSS files?",
+      "Does the HTML survive a sanitizer?",
+      "Next step"
+    ],
+    "excerpt": "Why do the packages have other version numbers than 15.1.3?",
+    "breadcrumb": [
+      {
+        "label": "Help",
+        "route": "content/help"
+      },
+      {
+        "label": "FAQ",
+        "route": "content/help/faq"
+      }
+    ]
+  },
+  {
+    "label": "Troubleshooting",
+    "description": "Fixes for 15.1.3 spoiler and code preview content shown as raw text, spoiler errors and invisible content, ignored options and inert typographic quotes.",
+    "route": "content/help/troubleshooting",
+    "tags": ["help", "troubleshooting"],
+    "headings": ["Still stuck?"],
+    "excerpt": "Find the symptom, apply the fix.",
+    "breadcrumb": [
+      {
+        "label": "Help",
+        "route": "content/help"
+      },
+      {
+        "label": "Troubleshooting",
+        "route": "content/help/troubleshooting"
+      }
+    ]
+  },
+  {
+    "label": "What's New in 15.1.3",
+    "description": "Release notes for @fsegurai/marked-extensions 15.1.3, a tooling release with a Browserslist file, a dev server host setting and development dependency updates.",
+    "route": "content/help/whats-new",
+    "tags": ["help", "changelog", "release-notes"],
+    "headings": [
+      "Changes (from the changelog)",
+      "Verified in the source",
+      "Package versions at `v15.1.3`",
+      "Upgrade checklist"
+    ],
+    "excerpt": "What's New in 15.1.3\n\nReleased 2025-03-03 according to the changelog (tag , commit , committed 2025-03-02). No package\nchanged: every extension keeps...",
+    "breadcrumb": [
+      {
+        "label": "Help",
+        "route": "content/help"
+      },
+      {
+        "label": "What's New in 15.1.3",
+        "route": "content/help/whats-new"
+      }
+    ]
+  }
+]

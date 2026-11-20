@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fsegurai/marked-extended-alert@18.1.0/dist/styles/alert.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fsegurai/marked-extended-alert@18.1.0/dist/styles/alert-theme.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fsegurai/marked-extended-footnote@18.1.0/dist/styles/footnote.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fsegurai/marked-extended-footnote@18.1.0/dist/styles/footnote-theme.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fsegurai/marked-extended-lists@18.1.0/dist/styles/lists.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fsegurai/marked-extended-lists@18.1.0/dist/styles/lists-theme.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fsegurai/marked-extended-spoiler@18.1.0/dist/styles/spoiler.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fsegurai/marked-extended-spoiler@18.1.0/dist/styles/spoiler-theme.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fsegurai/marked-extended-tables@18.1.0/dist/styles/tables.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fsegurai/marked-extended-tables@18.1.0/dist/styles/tables-theme.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fsegurai/marked-extended-tabs@18.1.0/dist/styles/tabs.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fsegurai/marked-extended-tabs@18.1.0/dist/styles/tabs-theme.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fsegurai/marked-extended-timeline@18.1.0/dist/styles/timeline.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fsegurai/marked-extended-timeline@18.1.0/dist/styles/timeline-theme.css" />
+  </head>
+  <body>
+    <div class="layout">
+      <form id="tokens" class="tokens" aria-labelledby="tokens-title">
+        <h2 id="tokens-title">Base tokens on <code>:root</code></h2>
+        <div class="presets">
+          <button type="button" data-preset="defaults">Package defaults</button>
+          <button type="button" data-preset="playground">Playground</button>
+          <button type="button" data-preset="forest">Forest</button>
+        </div>
+        <label><input type="color" name="--mx-text" /> <code>--mx-text</code></label>
+        <label><input type="color" name="--mx-text-muted" /> <code>--mx-text-muted</code></label>
+        <label><input type="color" name="--mx-surface" /> <code>--mx-surface</code></label>
+        <label><input type="color" name="--mx-surface-muted" /> <code>--mx-surface-muted</code></label>
+        <label><input type="color" name="--mx-border" /> <code>--mx-border</code></label>
+        <label><input type="color" name="--mx-accent" /> <code>--mx-accent</code></label>
+        <label><input type="color" name="--mx-success" /> <code>--mx-success</code></label>
+        <label><input type="color" name="--mx-warning" /> <code>--mx-warning</code></label>
+        <label><input type="color" name="--mx-danger" /> <code>--mx-danger</code></label>
+        <label><input type="range" name="--mx-radius" min="0" max="16" value="6" /> <code>--mx-radius</code></label>
+        <pre id="css" aria-live="polite"></pre>
+      </form>
+      <main id="output"></main>
+    </div>
+  </body>
+</html>

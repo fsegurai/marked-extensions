@@ -1,0 +1,31 @@
+#output {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+h1 {
+  margin-top: 0;
+  padding-bottom: 0.3em;
+  border-bottom: 1px solid var(--pg-border);
+}
+
+/* code.css: title bar, tabs and line states from the playground. */
+#output {
+  --mx-code-border: var(--pg-border);
+  --mx-code-radius: var(--pg-radius);
+  --mx-code-title-background: var(--pg-surface);
+  --mx-code-title-color: var(--pg-text-muted);
+  --mx-code-tabs-background: var(--pg-surface);
+  --mx-code-tab-color: var(--pg-text-muted);
+  --mx-code-tab-active-color: var(--pg-primary);
+  --mx-code-tab-active-border: var(--pg-primary);
+  --mx-code-line-number-color: var(--pg-text-muted);
+  --mx-code-line-highlight: color-mix(in srgb, var(--pg-primary) 14%, transparent);
+}
+
+pre {
+  margin: 0;
+  padding: 0.75rem 0;
+  overflow-x: auto;
+  background: var(--pg-surface-alt);
+}

@@ -1,0 +1,32 @@
+#output {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+h1 {
+  margin-top: 0;
+  padding-bottom: 0.3em;
+  border-bottom: 1px solid var(--pg-border);
+}
+
+/* inline.css: the ==mark== highlight from the playground accent. */
+#output {
+  --mx-inline-mark-background: color-mix(in srgb, var(--pg-accent) 30%, transparent);
+  --mx-inline-mark-color: var(--pg-text);
+  --mx-inline-ins-color: var(--pg-primary);
+}
+
+/* toc.css: box and links from the playground. */
+#output {
+  --mx-toc-background: var(--pg-surface);
+  --mx-toc-border: 1px solid var(--pg-border);
+  --mx-toc-radius: var(--pg-radius);
+  --mx-toc-link-color: var(--pg-text);
+  --mx-toc-link-hover-color: var(--pg-primary);
+}
+
+/* wikilinks.css: resolved links in the primary color, unresolved ones muted. */
+#output {
+  --mx-wikilinks-color: var(--pg-primary);
+  --mx-wikilinks-unresolved-color: var(--pg-text-muted);
+}

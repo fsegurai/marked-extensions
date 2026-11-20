@@ -1,0 +1,640 @@
+[
+  {
+    "label": "Documentation Home",
+    "description": "Documentation for @fsegurai/marked-extensions 17.0.0, 13 Marked.js extensions written in TypeScript, the first bundle release and the marked 17 peer.",
+    "route": "content/README",
+    "tags": ["documentation", "overview", "marked"],
+    "headings": ["Quick start", "What 17.0.0 changes", "Sections", "Links"],
+    "excerpt": " , plus a bundle. This documentation covers 17.0.0, released 2026-04-18.",
+    "breadcrumb": [
+      {
+        "label": "Home",
+        "route": "content/README"
+      }
+    ]
+  },
+  {
+    "label": "API Reference",
+    "description": "Exact exports and signatures of the bundle and each extension package, read from the 17.0.0 sources.",
+    "route": "content/api/README",
+    "tags": ["api", "reference"],
+    "headings": ["Shared shape", "Module formats", "Next step"],
+    "excerpt": "Signatures on these pages are taken from each package's and at the 17.0.0 release.",
+    "breadcrumb": [
+      {
+        "label": "API",
+        "route": "content/api"
+      },
+      {
+        "label": "API",
+        "route": "content/api/README"
+      }
+    ]
+  },
+  {
+    "label": "Bundle",
+    "description": "API of @fsegurai/marked-extended-bundle 17.0.0, the first release of the bundle, which re-exports the 13 extension factories and their types.",
+    "route": "content/api/bundle",
+    "tags": ["api", "bundle"],
+    "headings": ["Re-exports", "Styles", "UMD", "Next step"],
+    "excerpt": "Bundle\n\n is new in 17.0.0. It depends on all 13 extension packages and re-exports their\nfactories. It has no default export and adds no code of its...",
+    "breadcrumb": [
+      {
+        "label": "API",
+        "route": "content/api"
+      },
+      {
+        "label": "Bundle",
+        "route": "content/api/bundle"
+      }
+    ]
+  },
+  {
+    "label": "Extension Packages",
+    "description": "Default export, named functions and exported TypeScript types of each of the 13 extension packages in 17.0.0.",
+    "route": "content/api/extension-packages",
+    "tags": ["api", "packages"],
+    "headings": ["Added in 18.0.0", "Next step"],
+    "excerpt": "Each package's default export is its extension factory.",
+    "breadcrumb": [
+      {
+        "label": "API",
+        "route": "content/api"
+      },
+      {
+        "label": "Extension Packages",
+        "route": "content/api/extension-packages"
+      }
+    ]
+  },
+  {
+    "label": "Examples",
+    "description": "Complete, copyable 17.0.0 setups for plain JavaScript, React, Vue and Angular, and slide presentations.",
+    "route": "content/examples/README",
+    "tags": ["examples", "recipes"],
+    "headings": ["Live demo", "Next step"],
+    "excerpt": "Each example is complete: install, register, render.",
+    "breadcrumb": [
+      {
+        "label": "Examples",
+        "route": "content/examples"
+      },
+      {
+        "label": "Examples",
+        "route": "content/examples/README"
+      }
+    ]
+  },
+  {
+    "label": "Frameworks",
+    "description": "React, Vue and Angular components that bind 17.0.0 HTML, create the extensions once and account for inline scripts and handlers.",
+    "route": "content/examples/frameworks",
+    "tags": ["examples", "frameworks"],
+    "headings": ["React", "Vue", "Angular", "Limits", "Next step"],
+    "excerpt": "Frameworks\n\n17.0.0 has no helpers to call after rendering, so a component only renders and binds the HTML:\n\nCreate the instance once, at module level...",
+    "breadcrumb": [
+      {
+        "label": "Examples",
+        "route": "content/examples"
+      },
+      {
+        "label": "Frameworks",
+        "route": "content/examples/frameworks"
+      }
+    ]
+  },
+  {
+    "label": "Plain JavaScript",
+    "description": "Register all 13 extensions from the 17.0.0 bundle on one Marked instance and load their CSS.",
+    "route": "content/examples/plain-javascript",
+    "tags": ["examples", "javascript"],
+    "headings": ["What runs without a call", "Without a bundler", "Next step"],
+    "excerpt": "There is nothing to call after rendering: 17.0.0 exports no browser helpers.",
+    "breadcrumb": [
+      {
+        "label": "Examples",
+        "route": "content/examples"
+      },
+      {
+        "label": "Plain JavaScript",
+        "route": "content/examples/plain-javascript"
+      }
+    ]
+  },
+  {
+    "label": "Presentation",
+    "description": "A slide deck in 17.0.0 with colon directives, a theme, layouts and the injected navigation script.",
+    "route": "content/examples/presentation",
+    "tags": ["examples", "slides"],
+    "headings": ["Highlights", "How it runs", "Next step"],
+    "excerpt": "| in the browser | Appends to once ( ); later calls re-run .",
+    "breadcrumb": [
+      {
+        "label": "Examples",
+        "route": "content/examples"
+      },
+      {
+        "label": "Presentation",
+        "route": "content/examples/presentation"
+      }
+    ]
+  },
+  {
+    "label": "Extensions",
+    "description": "Catalog of the 13 Marked extensions in 17.0.0 with their package, default export, browser behavior and the directive or Markdown syntax each one parses.",
+    "route": "content/extensions/README",
+    "tags": ["extensions", "catalog"],
+    "headings": ["Catalog", "What every page covers", "Next step"],
+    "excerpt": "Every extension is its own npm package, published as 17.0.",
+    "breadcrumb": [
+      {
+        "label": "Extensions",
+        "route": "content/extensions"
+      },
+      {
+        "label": "Extensions",
+        "route": "content/extensions/README"
+      }
+    ]
+  },
+  {
+    "label": "Accordion",
+    "description": "Collapsible sections from ::::accordion blocks, rendered as native details elements with a title, heading level and open state.",
+    "route": "content/extensions/accordion",
+    "tags": ["extensions", "accordion"],
+    "headings": ["Quick path", "Syntax", "Options", "Rendered HTML", "Browser behavior", "Styling", "Next step"],
+    "excerpt": "element. It needs no browser JavaScript: the browser handles expanding and collapsing.",
+    "breadcrumb": [
+      {
+        "label": "Extensions",
+        "route": "content/extensions"
+      },
+      {
+        "label": "Accordion",
+        "route": "content/extensions/accordion"
+      }
+    ]
+  },
+  {
+    "label": "Alert",
+    "description": "GitHub-style callouts from blockquotes that start with a [!TYPE] marker, with 5 built-in types and custom variants.",
+    "route": "content/extensions/alert",
+    "tags": ["extensions", "alert"],
+    "headings": ["Quick path", "Syntax", "Options", "Rendered HTML", "Browser behavior", "Styling", "Next step"],
+    "excerpt": " converts a blockquote that starts with into a styled alert.",
+    "breadcrumb": [
+      {
+        "label": "Extensions",
+        "route": "content/extensions"
+      },
+      {
+        "label": "Alert",
+        "route": "content/extensions/alert"
+      }
+    ]
+  },
+  {
+    "label": "Comments",
+    "description": "Inline and ::::comment block review comments with author, type, status, priority and visibility metadata.",
+    "route": "content/extensions/comments",
+    "tags": ["extensions", "comments"],
+    "headings": ["Quick path", "Syntax", "Options", "Rendered HTML", "Browser behavior", "Styling", "Next step"],
+    "excerpt": "( … ) with metadata. It needs no browser JavaScript.",
+    "breadcrumb": [
+      {
+        "label": "Extensions",
+        "route": "content/extensions"
+      },
+      {
+        "label": "Comments",
+        "route": "content/extensions/comments"
+      }
+    ]
+  },
+  {
+    "label": "Embeds",
+    "description": "::::embed blocks that render iframes for YouTube, Vimeo, CodePen, Spotify, Figma and 13 more providers.",
+    "route": "content/extensions/embeds",
+    "tags": ["extensions", "embeds"],
+    "headings": ["Quick path", "Syntax", "Options", "Rendered HTML", "Browser behavior", "Styling", "Next step"],
+    "excerpt": "Embeds\n\n turns an … block into a responsive (or a\nMermaid ). It needs no browser runtime from this package: the iframe is in the HTML and loads as...",
+    "breadcrumb": [
+      {
+        "label": "Extensions",
+        "route": "content/extensions"
+      },
+      {
+        "label": "Embeds",
+        "route": "content/extensions/embeds"
+      }
+    ]
+  },
+  {
+    "label": "Footnote",
+    "description": "Numbered and named footnotes with backlinks, CSS hover previews and an endnotes section placed automatically or with a placeholder.",
+    "route": "content/extensions/footnote",
+    "tags": ["extensions", "footnote"],
+    "headings": ["Quick path", "Syntax", "Options", "Rendered HTML", "Browser behavior", "Styling", "Next step"],
+    "excerpt": "Footnote\n\n renders references and definitions into a numbered endnotes\n . No setup call is needed in the browser, but with (the default) creating the...",
+    "breadcrumb": [
+      {
+        "label": "Extensions",
+        "route": "content/extensions"
+      },
+      {
+        "label": "Footnote",
+        "route": "content/extensions/footnote"
+      }
+    ]
+  },
+  {
+    "label": "Kanban",
+    "description": "Kanban boards from ::::kanban blocks with :::column children, with board, table and list views and hashtag tags.",
+    "route": "content/extensions/kanban",
+    "tags": ["extensions", "kanban"],
+    "headings": ["Quick path", "Syntax", "Options", "Rendered HTML", "Browser behavior", "Styling", "Next step"],
+    "excerpt": " renders a block with children as a board.",
+    "breadcrumb": [
+      {
+        "label": "Extensions",
+        "route": "content/extensions"
+      },
+      {
+        "label": "Kanban",
+        "route": "content/extensions/kanban"
+      }
+    ]
+  },
+  {
+    "label": "Lists",
+    "description": "Alphabetic and Roman ordered lists, start and skipped values, and accessible task checkboxes with an optional inline toggle callback.",
+    "route": "content/extensions/lists",
+    "tags": ["extensions", "lists"],
+    "headings": ["Quick path", "Syntax", "Options", "Rendered HTML", "Browser behavior", "Styling", "Next step"],
+    "excerpt": " replaces Marked's list tokenizer and renderer.",
+    "breadcrumb": [
+      {
+        "label": "Extensions",
+        "route": "content/extensions"
+      },
+      {
+        "label": "Lists",
+        "route": "content/extensions/lists"
+      }
+    ]
+  },
+  {
+    "label": "Slide",
+    "description": "Slide decks from ::::presentation blocks with ::::slide children, with layouts, backgrounds, transitions, themes and an injected navigation script.",
+    "route": "content/extensions/slide",
+    "tags": ["extensions", "slide"],
+    "headings": [
+      "Quick path",
+      "Syntax",
+      "Agenda",
+      "Options",
+      "Rendered HTML",
+      "Browser behavior",
+      "Styling",
+      "Next step"
+    ],
+    "excerpt": " renders a block with children as a slide deck.",
+    "breadcrumb": [
+      {
+        "label": "Extensions",
+        "route": "content/extensions"
+      },
+      {
+        "label": "Slide",
+        "route": "content/extensions/slide"
+      }
+    ]
+  },
+  {
+    "label": "Spoiler",
+    "description": "Hidden content behind a themed overlay from ::::spoiler blocks, revealed on hover or focus with CSS and toggled by an inline script.",
+    "route": "content/extensions/spoiler",
+    "tags": ["extensions", "spoiler"],
+    "headings": ["Quick path", "Syntax", "Options", "Rendered HTML", "Browser behavior", "Styling", "Next step"],
+    "excerpt": " hides the content of a block behind an overlay.",
+    "breadcrumb": [
+      {
+        "label": "Extensions",
+        "route": "content/extensions"
+      },
+      {
+        "label": "Spoiler",
+        "route": "content/extensions/spoiler"
+      }
+    ]
+  },
+  {
+    "label": "Tables",
+    "description": "Tables with column spanning (||), row spanning (^), multi-row headers, captions and footers.",
+    "route": "content/extensions/tables",
+    "tags": ["extensions", "tables"],
+    "headings": ["Quick path", "Syntax", "Options", "Rendered HTML", "Runtime", "Styling", "Next step"],
+    "excerpt": " extends GFM tables with cell spanning, captions and footers.",
+    "breadcrumb": [
+      {
+        "label": "Extensions",
+        "route": "content/extensions"
+      },
+      {
+        "label": "Tables",
+        "route": "content/extensions/tables"
+      }
+    ]
+  },
+  {
+    "label": "Tabs",
+    "description": "Tabbed content from ::::tabs / :::tab blocks, rendered as CSS-only radio tabs with animations and an auto-attached keyboard and persistence runtime.",
+    "route": "content/extensions/tabs",
+    "tags": ["extensions", "tabs"],
+    "headings": ["Quick path", "Syntax", "Options", "Rendered HTML", "Browser behavior", "Styling", "Next step"],
+    "excerpt": "panels, plus an inline block that shows the checked panel.",
+    "breadcrumb": [
+      {
+        "label": "Extensions",
+        "route": "content/extensions"
+      },
+      {
+        "label": "Tabs",
+        "route": "content/extensions/tabs"
+      }
+    ]
+  },
+  {
+    "label": "Timeline",
+    "description": "Chronological timelines from ::::timeline / :::event blocks, with dated events and an active marker.",
+    "route": "content/extensions/timeline",
+    "tags": ["extensions", "timeline"],
+    "headings": ["Quick path", "Syntax", "Options", "Rendered HTML", "Runtime", "Styling", "Next step"],
+    "excerpt": " renders a block of items as a list of dated events.",
+    "breadcrumb": [
+      {
+        "label": "Extensions",
+        "route": "content/extensions"
+      },
+      {
+        "label": "Timeline",
+        "route": "content/extensions/timeline"
+      }
+    ]
+  },
+  {
+    "label": "Typographic",
+    "description": "SmartyPants-style dashes and ellipses plus (name) symbol shortcodes for Greek letters, math, currency, legal marks and emoji.",
+    "route": "content/extensions/typographic",
+    "tags": ["extensions", "typographic"],
+    "headings": ["Quick path", "Syntax", "Options", "Rendered HTML", "Runtime", "Styling", "Next step"],
+    "excerpt": "Typographic\n\n post-processes the rendered HTML: it educates dashes and ellipses and replaces\n shortcodes with symbols. Content inside , , , and is...",
+    "breadcrumb": [
+      {
+        "label": "Extensions",
+        "route": "content/extensions"
+      },
+      {
+        "label": "Typographic",
+        "route": "content/extensions/typographic"
+      }
+    ]
+  },
+  {
+    "label": "Getting Started",
+    "description": "Install one 17.0.0 extension or the bundle, register it with marked.use and load its stylesheet.",
+    "route": "content/getting-started/README",
+    "tags": ["getting-started", "setup"],
+    "headings": ["Pages", "Before you start", "Next step"],
+    "excerpt": "Install one extension, several, or the bundle, together with 17.",
+    "breadcrumb": [
+      {
+        "label": "Getting Started",
+        "route": "content/getting-started"
+      },
+      {
+        "label": "Getting Started",
+        "route": "content/getting-started/README"
+      }
+    ]
+  },
+  {
+    "label": "Installation",
+    "description": "Install a single marked-extended 17.0.0 package or the bundle with the marked 17 peer, import the stylesheets, or load the UMD builds from a CDN.",
+    "route": "content/getting-started/installation",
+    "tags": ["getting-started", "installation"],
+    "headings": [
+      "Single extension",
+      "Bundle",
+      "Which one to choose",
+      "Peer dependency",
+      "Stylesheets",
+      "CDN and UMD",
+      "Next step"
+    ],
+    "excerpt": "Install only the extensions you use, or the bundle that depends on all of them.",
+    "breadcrumb": [
+      {
+        "label": "Getting Started",
+        "route": "content/getting-started"
+      },
+      {
+        "label": "Installation",
+        "route": "content/getting-started/installation"
+      }
+    ]
+  },
+  {
+    "label": "Quick Start",
+    "description": "Render a page with an alert and tabs in 17.0.0 using colon directives, load their stylesheets and understand what the tabs extension does in the browser.",
+    "route": "content/getting-started/quick-start",
+    "tags": ["getting-started", "quick-start"],
+    "headings": ["1. Install", "2. Register and render", "3. What happens in the browser", "Checklist", "Next step"],
+    "excerpt": "This page renders Markdown with two extensions: Alert (static HTML) and Tabs (CSS-only switching).",
+    "breadcrumb": [
+      {
+        "label": "Getting Started",
+        "route": "content/getting-started"
+      },
+      {
+        "label": "Quick Start",
+        "route": "content/getting-started/quick-start"
+      }
+    ]
+  },
+  {
+    "label": "Guides",
+    "description": "Task-oriented guides for 17.0.0 browser behavior, styling, combining extensions and upgrading from 15.x.",
+    "route": "content/guides/README",
+    "tags": ["guides", "how-to"],
+    "headings": ["Next step"],
+    "excerpt": "Each guide answers one question. Start with Browser Behavior if you render into a framework component.",
+    "breadcrumb": [
+      {
+        "label": "Guides",
+        "route": "content/guides"
+      },
+      {
+        "label": "Guides",
+        "route": "content/guides/README"
+      }
+    ]
+  },
+  {
+    "label": "Browser Behavior",
+    "description": "Which 17.0.0 extensions run code in the browser through inline scripts, inline handlers, injected scripts or document listeners, and what that means for SSR, sanitizers and innerHTML.",
+    "route": "content/guides/browser-behavior",
+    "tags": ["guides", "browser"],
+    "headings": ["Quick path", "Per extension", "Known limits", "Server-side rendering", "Next step"],
+    "excerpt": "17.0.0 exports no runtime helpers.",
+    "breadcrumb": [
+      {
+        "label": "Guides",
+        "route": "content/guides"
+      },
+      {
+        "label": "Browser Behavior",
+        "route": "content/guides/browser-behavior"
+      }
+    ]
+  },
+  {
+    "label": "Combining Extensions",
+    "description": "Register several 17.0.0 extensions on one Marked instance, nest colon directives, and know which extensions hook the same Marked stages.",
+    "route": "content/guides/combining-extensions",
+    "tags": ["guides", "integration"],
+    "headings": [
+      "Quick path",
+      "Nesting directives",
+      "Where each extension hooks into Marked",
+      "Global side effects to avoid",
+      "Next step"
+    ],
+    "excerpt": "All 13 extensions can be registered on the same instance.",
+    "breadcrumb": [
+      {
+        "label": "Guides",
+        "route": "content/guides"
+      },
+      {
+        "label": "Combining Extensions",
+        "route": "content/guides/combining-extensions"
+      }
+    ]
+  },
+  {
+    "label": "Styling and Theming",
+    "description": "Load the structural and theme stylesheets of each 17.0.0 package, override their CSS custom properties, and support dark mode.",
+    "route": "content/guides/styling",
+    "tags": ["guides", "styling"],
+    "headings": ["Quick path", "Stylesheets per package", "Overriding", "Dark mode", "Styling hooks", "Next step"],
+    "excerpt": "Importing a package never adds CSS to the page: load the stylesheets yourself.",
+    "breadcrumb": [
+      {
+        "label": "Guides",
+        "route": "content/guides"
+      },
+      {
+        "label": "Styling and Theming",
+        "route": "content/guides/styling"
+      }
+    ]
+  },
+  {
+    "label": "Upgrading from 15",
+    "description": "Move content and code from marked-extensions 15.x to 17.0.0, renamed directive aliases, the marked 17 peer, explicit stylesheet imports and TypeScript builds.",
+    "route": "content/guides/upgrading-from-15",
+    "tags": ["guides", "upgrade"],
+    "headings": ["Quick path", "Renamed aliases", "Code changes", "Checklist", "Next step"],
+    "excerpt": "Upgrading from 15\n\nUpgrade every package to 17.0.0 together with , replace the short directive aliases that were renamed, and\nimport the stylesheets...",
+    "breadcrumb": [
+      {
+        "label": "Guides",
+        "route": "content/guides"
+      },
+      {
+        "label": "Upgrading from 15",
+        "route": "content/guides/upgrading-from-15"
+      }
+    ]
+  },
+  {
+    "label": "Help",
+    "description": "Release notes, answers to frequent questions, fixes for common problems, and links to the changelog, contribution guide and issue tracker for 17.0.0.",
+    "route": "content/help/README",
+    "tags": ["help", "support"],
+    "headings": ["Project resources", "Contributing in short"],
+    "excerpt": "| FAQ | You have a question about choices, compatibility or behavior.",
+    "breadcrumb": [
+      {
+        "label": "Help",
+        "route": "content/help"
+      },
+      {
+        "label": "Help",
+        "route": "content/help/README"
+      }
+    ]
+  },
+  {
+    "label": "FAQ",
+    "description": "Frequent questions about choosing packages, the marked 17 peer, directive syntax, sanitizers and browser behavior in 17.0.0.",
+    "route": "content/help/faq",
+    "tags": ["help", "faq"],
+    "headings": [
+      "Bundle or individual packages?",
+      "Which Marked version do I need?",
+      "Why `::::name` and not fenced code blocks?",
+      "Does the HTML survive a sanitizer?",
+      "Which extensions run code in the browser?",
+      "Next step"
+    ],
+    "excerpt": "FAQ\n\nBundle or individual packages?\n\nIndividual packages when you use a few extensions. The bundle (new in 17.0.0) when you use many and want one...",
+    "breadcrumb": [
+      {
+        "label": "Help",
+        "route": "content/help"
+      },
+      {
+        "label": "FAQ",
+        "route": "content/help/faq"
+      }
+    ]
+  },
+  {
+    "label": "Troubleshooting",
+    "description": "Fixes for 17.0.0 directives that stay as text, tabs that do not switch, inert spoiler scripts, decks that do not navigate, embeds that do not parse and ignored options.",
+    "route": "content/help/troubleshooting",
+    "tags": ["help", "troubleshooting"],
+    "headings": ["Still stuck?"],
+    "excerpt": "Find the symptom, apply the fix.",
+    "breadcrumb": [
+      {
+        "label": "Help",
+        "route": "content/help"
+      },
+      {
+        "label": "Troubleshooting",
+        "route": "content/help/troubleshooting"
+      }
+    ]
+  },
+  {
+    "label": "What's New in 17.0.0",
+    "description": "Release notes for @fsegurai/marked-extensions 17.0.0, the TypeScript rewrite, the marked 17 peer, renamed directive aliases and five new packages.",
+    "route": "content/help/whats-new",
+    "tags": ["help", "changelog", "release-notes"],
+    "headings": ["Breaking changes", "New packages", "Other changes", "Upgrade checklist", "Tooling (contributors)"],
+    "excerpt": "What's New in 17.0.0\n\nReleased 2026-04-18. Every package was rewritten in TypeScript, targets 17, and ships ESM, CommonJS, UMD and\ntype declarations....",
+    "breadcrumb": [
+      {
+        "label": "Help",
+        "route": "content/help"
+      },
+      {
+        "label": "What's New in 17.0.0",
+        "route": "content/help/whats-new"
+      }
+    ]
+  }
+]
